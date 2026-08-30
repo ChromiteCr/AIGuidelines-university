@@ -1,28 +1,36 @@
 # U.S. University AI Guidelines — Thirty-School Source Set
 
-![version](https://img.shields.io/badge/version-A2b-blue)
+![version](https://img.shields.io/badge/version-A2c-blue)
+![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
+![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
+![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
 ![code](https://img.shields.io/badge/code-MIT-green)
 ![data](https://img.shields.io/badge/data-CC%20BY%204.0-green)
 
-<!-- GitHub 动态徽章（last-commit / commit-activity / stars）暂缺：本目录尚未初始化为
-     git 仓库，也没有 remote，OWNER/REPO 无从取得，写死会渲染不出来。执行
-     git init 并推到 GitHub 后补上这三枚。 -->
+**图谱在线版 → <https://chromitecr.github.io/AIGuidelines-university/>**
 
-> ### ⚠️ 这不是任何大学的官方出版物
+> ### 内容取自官方原文；这是一份会定期更新的快照
 >
-> 本仓库记录的是 **2026 年 8 月 21–29 日的快照**，不代表任何一所大学的现行政策，
-> 也不构成对其政策的准确陈述。政策会变。任何正式用途请回到各校官网核实当前版本，
-> 并自行存档所依据的版本。
+> `univ/` 中的每一段文字都**逐字摘自各校官方发布的网页**，不是转述、不是二手材料。每份文件
+> 记录其官方 URL、发布单位与访问日期；图谱里每一格证据都能回溯到原文的那一句，并经机器
+> 精确比对核验。
 >
-> 本项目与文中提及的任何大学均无隶属、赞助或背书关系；校名仅用于指称其自身公开
-> 发布的政策文本。`univ/` 目录中的文字版权归各该大学所有，**不适用**本仓库的 MIT
-> 许可 —— 详见 [NOTICE](NOTICE)。
+> 需要留意的只有**时效**：本次采集完成于 **2026 年 8 月 21–29 日**。此后各校若修订政策，本
+> 仓库不会自动跟进。本项目会定期复核更新——**发现某条已经过期或与官网有出入，欢迎提
+> Pull Request**，附上官方链接与访问日期即可（见 [CONTRIBUTING.md](CONTRIBUTING.md)）。
+> 正式采用前仍请回官网核实当前版本并自行存档。
 >
-> **Not an official publication of any university.** This is an August 2026
-> snapshot, not a statement of current policy. Not affiliated with, sponsored by,
-> or endorsed by any institution named here. Text in `univ/` remains the copyright
-> of the respective universities and is **not** covered by this repository's MIT
-> license — see [NOTICE](NOTICE).
+> 版权与关系：`univ/` 中的文字版权归各该大学所有，**不适用**本仓库的 MIT 许可（见
+> [NOTICE](NOTICE)）。本仓库由个人整理编排，非各校发布，与其无隶属、赞助或背书关系；
+> 校名仅用于指称其自身公开发布的政策文本。
+>
+> **Official source text, kept as a periodically refreshed snapshot.** Every passage in `univ/`
+> is quoted verbatim from an institution's own published page, with its source URL, issuing unit,
+> and access date recorded. What it is not is live: this collection was made 21–29 August 2026 and
+> does not track later revisions. Corrections are welcome — open a Pull Request with the official
+> link and access date. Copyright in the quoted text remains with the respective universities and is
+> **not** covered by this repository's MIT license. Independently compiled; not affiliated with,
+> sponsored by, or endorsed by any institution named here.
 
 Accessed: 2026-08-29
 
@@ -115,7 +123,7 @@ This is a curated set of institutions consistently treated as highly ranked U.S.
 ## Policy Atlas — 政策图谱
 
 A dynamic comparison of all thirty policies across 12 comparable provisions
-(360 cells). Open `atlas/index.html` in a browser.
+(360 cells). 在线版：<https://chromitecr.github.io/AIGuidelines-university/>；本地打开 `docs/index.html` 即可，无需服务器。
 
 **每所学校独立抽取，互不串源。** 30 份文件由 30 个互相隔离的 agent 分别读取，每个只被允许
 读它自己那一份，并被禁止调用任何关于该校的既有知识；随后 30 个对抗性审计 agent 重读同一份
@@ -128,7 +136,7 @@ A dynamic comparison of all thirty policies across 12 comparable provisions
 univ/*.md
    └─ 隔离抽取 + 对抗审计（工作流）
         └─ tools/build_data.py   校验引文 / 归一取值 / 计算分布  →  data/policies.json
-             └─ tools/build_atlas.py   注入数据到模板            →  atlas/index.html
+             └─ tools/build_atlas.py   注入数据到模板            →  docs/index.html
 ```
 
 图谱不硬编码任何一条规则，全部读 `data/policies.json`；条款口径统一定义在
@@ -176,10 +184,29 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 `data/policies.json` 的 `evidence` / `quote` / `takeaways` 字段内嵌上述引文（每条
 至多约 320 字符），其版权状态不因被收入数据集而改变。
 
+## 站点发布 / GitHub Pages
+
+图谱是一个零依赖的静态单文件，不需要构建流水线或服务器。
+
+- **发布源**：`main` 分支的 `/docs` 目录（GitHub Pages 原生支持的三个位置之一）
+- **产物**：`docs/index.html`，由 `tools/build_atlas.py` 生成；`docs/.nojekyll` 让 Pages 跳过 Jekyll
+- **地址**：<https://chromitecr.github.io/AIGuidelines-university/>
+
+`docs/index.html` 是**生成物，不要手改**。改动流程：编辑 `atlas/atlas.template.html`
+或源数据 → 重跑构建 → 提交 `docs/index.html` → 推送，Pages 自动重新部署（约一分钟）。
+
+```bash
+python3 tools/build_data.py <raw-extraction.json>
+python3 tools/build_atlas.py
+git add -A && git commit -m "rebuild atlas" && git push
+```
+
 ## 版本记录
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A2c | 2026-08-30 | 上线 GitHub Pages：构建产物改输出到 `docs/`，加 `.nojekyll`；补齐四枚固定徽章与在线地址 | feat |
+| A2b1 | 2026-08-30 | 重写免责措辞：改为「内容取自官方原文、这是定期更新的快照」，并把 PR 邀请落成 CONTRIBUTING.md（更正流程、逐字要求、提交前校验） | docs |
 | A2b | 2026-08-30 | 发布合规基础设施：三层许可拆分（代码 MIT／数据集 CC BY 4.0／引文归各校）、NOTICE、univ/COPYRIGHT.md、首页非官方声明、.gitignore；源文件扫描范围收窄到编号文件 | feat |
 | A2a1 | 2026-08-30 | 修复排序列表头半透明导致滚动内容透出重叠的问题：粘性表头的高亮改为叠加在不透明底色之上 | fix |
 | A2 | 2026-08-30 | 政策图谱：12 项条款 × 30 校对照矩阵、逐格原文证据与机器核验、共识/分歧/沉默三条读数、数据与展示分离的构建管线 | milestone |

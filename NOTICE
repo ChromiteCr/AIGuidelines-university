@@ -15,7 +15,7 @@ citing, or reusing anything here.
 
     tools/*.py
     atlas/atlas.template.html
-    atlas/index.html   （模板部分；见第 2 节关于其中内嵌的数据）
+    docs/index.html    （模板部分；见第 2 节关于其中内嵌的数据）
 
 由本项目作者撰写，按 LICENSE 文件的 MIT 许可发布。可自由使用、修改、再分发。
 
@@ -66,7 +66,7 @@ governed by section 3 below — inclusion here does not change that status.
   - 来源：全部为各校公开发布的官方网页；每份文件均记录其官方 URL、发布单位
     与访问日期。
   - 范围：摘录相关政策段落，去除导航与站点框架，保留原始措辞。
-  - 时点：2026 年 8 月 21 日至 29 日的快照。
+  - 时点：2026 年 8 月 21 日至 29 日的快照；见第 5 节关于更新与更正。
 
 本项目与上述任何一所大学均无隶属、赞助或背书关系。校名仅用于指称其自身的政策
 文本。
@@ -90,7 +90,7 @@ an issue and the material will be trimmed or reduced to a link.
 4. 字体 / Fonts
 -----------------------------------------------------------------------------
 
-atlas/index.html 通过 Google Fonts 引用 Spectral、IBM Plex Sans、IBM Plex Mono
+docs/index.html 通过 Google Fonts 引用 Spectral、IBM Plex Sans、IBM Plex Mono
 与 Noto Sans SC。字体文件不随本仓库分发，均以 SIL Open Font License 1.1 授权。
 
 Fonts are loaded from Google Fonts, not bundled here; all are under the SIL
@@ -98,14 +98,25 @@ Open Font License 1.1.
 
 
 -----------------------------------------------------------------------------
-5. 免责 / Disclaimer
+5. 时效与更正 / Currency and corrections
 -----------------------------------------------------------------------------
 
-本仓库不是任何大学的官方出版物，其中的内容不构成对各校现行政策的准确陈述。
-政策会变；本项目记录的是 2026 年 8 月的快照。任何正式用途请回到各校官网核实
-当前版本，并自行存档所依据的版本。
+本仓库收录的是各校官方发布的政策原文，但它是一份**快照**，不是实时镜像。采集完成
+于 2026 年 8 月 21 日至 29 日；此后各校若修订政策，本仓库不会自动跟进。
 
-Not an official publication of any university, and not a statement of any
-institution's current policy. Policies change; this is an August 2026 snapshot.
-For any formal use, verify against the official page and archive the version
-you rely on.
+本项目会定期复核并更新。若你发现某条已经过期、与官网有出入，或某校发布了新的政策
+页面，欢迎提 Pull Request——附上官方链接与访问日期即可，流程见 CONTRIBUTING.md。
+
+正式采用前，请回到各校官网核实当前版本，并自行存档所依据的那一版。
+
+本仓库由个人整理编排，非各校发布；引文的准确性可逐字核验，但对政策的解读、分类与
+强度分级是本项目的判断，不代表任何一所大学的立场。
+
+This repository reproduces institutions' own published policy text, but it is a
+snapshot rather than a live mirror: collected 21–29 August 2026, and it does not
+track later revisions. It is refreshed periodically, and corrections are welcome
+— open a Pull Request with the official link and access date (see
+CONTRIBUTING.md). For any formal use, verify against the official page and
+archive the version you rely on. Independently compiled; the quotations are
+verifiable verbatim, but the classification and strength ranking placed on them
+are this project's judgment, not any institution's position.

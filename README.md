@@ -1,6 +1,6 @@
 # U.S. University AI Guidelines — Thirty-School Source Set
 
-![version](https://img.shields.io/badge/version-A2c-blue)
+![version](https://img.shields.io/badge/version-A2c1-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
@@ -195,6 +195,11 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 `docs/index.html` 是**生成物，不要手改**。改动流程：编辑 `atlas/atlas.template.html`
 或源数据 → 重跑构建 → 提交 `docs/index.html` → 推送，Pages 自动重新部署（约一分钟）。
 
+若启用了自定义域名，GitHub 会在 `docs/` 下提交一个 `CNAME` 文件（内容为该域名）。
+**不要删除它**——Pages 靠它判断服务哪个域名，删了会退回 `*.github.io` 地址。
+`build_atlas.py` 只写 `index.html` 与 `.nojekyll`，不会触碰 `CNAME`，重跑构建是安全的；
+但如果整个删掉 `docs/` 重建，记得把它加回来。
+
 ```bash
 python3 tools/build_data.py <raw-extraction.json>
 python3 tools/build_atlas.py
@@ -205,6 +210,7 @@ git add -A && git commit -m "rebuild atlas" && git push
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A2c1 | 2026-08-30 | 补充自定义域名说明：`docs/CNAME` 由 Pages 管理、不可删除，构建脚本不会覆盖它 | docs |
 | A2c | 2026-08-30 | 上线 GitHub Pages：构建产物改输出到 `docs/`，加 `.nojekyll`；补齐四枚固定徽章与在线地址 | feat |
 | A2b1 | 2026-08-30 | 重写免责措辞：改为「内容取自官方原文、这是定期更新的快照」，并把 PR 邀请落成 CONTRIBUTING.md（更正流程、逐字要求、提交前校验） | docs |
 | A2b | 2026-08-30 | 发布合规基础设施：三层许可拆分（代码 MIT／数据集 CC BY 4.0／引文归各校）、NOTICE、univ/COPYRIGHT.md、首页非官方声明、.gitignore；源文件扫描范围收窄到编号文件 | feat |

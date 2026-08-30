@@ -1,0 +1,1094 @@
+<title>三十校 AI 政策图谱</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:wght@600;700&display=swap">
+
+<style>
+/* ============================================================================
+   TOKENS
+   Light palette lives on bare :root. Dark redefines tokens only, twice:
+   once for prefers-color-scheme (guarded so an explicit light choice wins),
+   once for the explicit dark stamp.
+   ========================================================================= */
+:root{
+  --paper:#E7E9EF;
+  --surface:#FBFBFD;
+  --surface-2:#F1F3F7;
+  --surface-3:#E9ECF2;
+  --ink:#131A2B;
+  --ink-2:#48536A;
+  --ink-3:#7E889F;
+  --rule:#D2D6E0;
+  --rule-soft:#E2E5EC;
+  --seal:#8A2B34;
+  --seal-ink:#8A2B34;
+  --seal-wash:rgba(138,43,52,.09);
+
+  /* matrix ramp: more ink = more explicit / more binding */
+  --f3:#1B2440;  --f3-on:#EDEFF6;
+  --f2:#68738D;  --f2-on:#FBFCFE;
+  --f1:#C2C8D6;  --f1-on:#2B3348;
+  --f0-on:#9BA4B8;
+  --hatch:#C8CDD9;
+
+  --focus:#3C5BD6;
+  --shadow:0 1px 2px rgba(19,26,43,.05), 0 8px 28px -12px rgba(19,26,43,.22);
+  --shadow-lg:0 2px 6px rgba(19,26,43,.07), 0 24px 60px -20px rgba(19,26,43,.32);
+
+  --display:"Spectral","Noto Sans SC",Georgia,"Songti SC",serif;
+  --sans:"IBM Plex Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --bandh:24px;   /* group-band row height; the column-head row sticks below it */
+  --pad:clamp(16px,4vw,40px);
+  --maxw:1440px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B0F17;
+    --surface:#141926;
+    --surface-2:#1A2030;
+    --surface-3:#212839;
+    --ink:#E3E8F2;
+    --ink-2:#A5AFC5;
+    --ink-3:#6F7A93;
+    --rule:#28303F;
+    --rule-soft:#1F2634;
+    --seal:#DD8890;
+    --seal-ink:#E8A0A7;
+    --seal-wash:rgba(221,136,144,.13);
+
+    --f3:#CBD4E9;  --f3-on:#111726;
+    --f2:#6D7994;  --f2-on:#F4F6FB;
+    --f1:#333C51;  --f1-on:#C2CADB;
+    --f0-on:#5D6780;
+    --hatch:#38425A;
+
+    --focus:#7D95F0;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.6);
+    --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 24px 60px -20px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B0F17;
+  --surface:#141926;
+  --surface-2:#1A2030;
+  --surface-3:#212839;
+  --ink:#E3E8F2;
+  --ink-2:#A5AFC5;
+  --ink-3:#6F7A93;
+  --rule:#28303F;
+  --rule-soft:#1F2634;
+  --seal:#DD8890;
+  --seal-ink:#E8A0A7;
+  --seal-wash:rgba(221,136,144,.13);
+
+  --f3:#CBD4E9;  --f3-on:#111726;
+  --f2:#6D7994;  --f2-on:#F4F6FB;
+  --f1:#333C51;  --f1-on:#C2CADB;
+  --f0-on:#5D6780;
+  --hatch:#38425A;
+
+  --focus:#7D95F0;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px -12px rgba(0,0,0,.6);
+  --shadow-lg:0 2px 6px rgba(0,0,0,.5), 0 24px 60px -20px rgba(0,0,0,.8);
+}
+
+/* ============================================================================
+   BASE
+   ========================================================================= */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:var(--seal-ink);text-underline-offset:2px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:2px}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+.eyebrow{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ============================================================================
+   MASTHEAD
+   ========================================================================= */
+.masthead{
+  border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%);
+}
+.masthead .wrap{padding-top:clamp(28px,6vw,56px);padding-bottom:clamp(22px,4vw,36px)}
+.mast-top{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px}
+.mast-top .eyebrow{flex:1 1 auto}
+h1{
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(31px,5.2vw,54px);line-height:1.08;letter-spacing:-.015em;
+  margin:0 0 14px;text-wrap:balance;
+}
+h1 .thin{color:var(--ink-3);font-weight:600}
+.lede{
+  margin:0;max-width:62ch;font-size:clamp(15px,1.5vw,17px);
+  color:var(--ink-2);line-height:1.62;
+}
+.lede strong{color:var(--ink);font-weight:600}
+
+.stats{
+  display:grid;gap:1px;margin-top:clamp(24px,4vw,34px);
+  grid-template-columns:repeat(auto-fit,minmax(148px,1fr));
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+}
+.stat{background:var(--surface);padding:13px 15px 14px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--mono);font-weight:500;font-size:25px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat span{font-size:11.5px;color:var(--ink-3);line-height:1.35}
+.stat.accent b{color:var(--seal-ink)}
+
+/* ============================================================================
+   SECTIONS
+   ========================================================================= */
+section{padding-top:clamp(40px,6vw,68px)}
+.sec-head{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap;margin-bottom:6px}
+.sec-head h2{
+  font-family:var(--display);font-weight:600;font-size:clamp(21px,2.6vw,28px);
+  margin:0;letter-spacing:-.01em;
+}
+.sec-head .rule{flex:1 1 60px;height:1px;background:var(--rule);margin-bottom:9px;min-width:24px}
+.sec-head .en{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.sec-sub{margin:0 0 22px;color:var(--ink-2);max-width:66ch;font-size:14.5px}
+
+/* ============================================================================
+   READOUT — three derived conclusions
+   ========================================================================= */
+.readout{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);
+  border-radius:3px;overflow:hidden;grid-template-columns:repeat(3,minmax(0,1fr))}
+.rd{background:var(--surface);padding:16px 17px 18px;display:flex;flex-direction:column;gap:11px}
+.rd-head{display:flex;flex-direction:column;gap:4px}
+.rd-title{font-family:var(--display);font-size:16.5px;font-weight:600;display:flex;gap:8px;align-items:baseline}
+.rd-title s{text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3)}
+.rd-say{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+.rd-list{display:flex;flex-direction:column;gap:1px;background:var(--rule-soft);
+  border:1px solid var(--rule-soft);border-radius:2px;overflow:hidden}
+.rd-item{background:var(--surface-2);padding:8px 10px;display:flex;gap:10px;align-items:baseline;
+  text-align:left;width:100%;transition:background .13s}
+.rd-item:hover{background:var(--surface-3)}
+.rd-item b{font-weight:500;font-size:13.5px;flex:none}
+.rd-item i{font-style:normal;font-size:11px;color:var(--ink-3);flex:1;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rd-item u{text-decoration:none;font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;
+  color:var(--ink);flex:none}
+.rd[data-tone="hot"] .rd-item u{color:var(--seal-ink)}
+
+/* ============================================================================
+   DIMENSION CARDS — consensus & divergence
+   ========================================================================= */
+/* Column counts are chosen to divide the card count exactly, so no row ever
+   ends with empty tracks showing the grid's own background through. */
+.dimgrid{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+  grid-template-columns:repeat(4,minmax(0,1fr))}
+.dimcard{
+  background:var(--surface);padding:15px 16px 17px;text-align:left;width:100%;
+  display:flex;flex-direction:column;gap:9px;transition:background .14s;
+  border-left:2px solid transparent;
+}
+.dimcard:hover{background:var(--surface-2)}
+.dimcard[aria-pressed="true"]{background:var(--surface-2);border-left-color:var(--seal)}
+.dc-top{display:flex;gap:10px;align-items:baseline}
+.dc-name{font-family:var(--display);font-weight:600;font-size:16.5px;letter-spacing:-.005em}
+.dc-group{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+.dc-q{font-size:12.5px;color:var(--ink-2);line-height:1.45;min-height:2.9em}
+.dc-bar{display:flex;height:22px;border-radius:2px;overflow:hidden;background:var(--surface-3)}
+.dc-seg{
+  position:relative;min-width:3px;transition:filter .14s;
+  display:grid;place-items:center;overflow:hidden;
+  font-family:var(--mono);font-size:9.5px;font-variant-numeric:tabular-nums;line-height:1;
+  box-shadow:inset 1px 0 0 var(--surface);
+}
+.dc-seg:first-child{box-shadow:none}
+.dc-seg[data-rank="3"]{color:var(--f3-on)}
+.dc-seg[data-rank="2"]{color:var(--f2-on)}
+.dc-seg[data-rank="1"]{color:var(--f1-on)}
+.dc-seg[data-rank="0"]{color:var(--f0-on)}
+.dc-seg[data-rank="3"]{background:var(--f3)}
+.dc-seg[data-rank="2"]{background:var(--f2)}
+.dc-seg[data-rank="1"]{background:var(--f1)}
+.dc-seg[data-rank="0"]{background:
+  repeating-linear-gradient(-45deg,transparent 0 3px,var(--hatch) 3px 4.5px)}
+.dc-foot{display:flex;gap:14px;font-size:11.5px;color:var(--ink-3);align-items:baseline;flex-wrap:wrap}
+.dc-foot b{font-family:var(--mono);font-weight:500;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.dc-foot .hot{color:var(--seal-ink)}
+
+/* ============================================================================
+   CONTROLS
+   ========================================================================= */
+.controls{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  margin-bottom:14px;padding:11px 13px;
+  background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+}
+.ctl-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{
+  padding:4px 10px;border-radius:2px;font-size:12.5px;
+  border:1px solid var(--rule);background:var(--surface-2);color:var(--ink-2);
+  transition:all .13s;white-space:nowrap;
+}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.chip .n{font-family:var(--mono);font-size:11px;opacity:.65;margin-left:4px}
+.search{
+  flex:1 1 190px;min-width:150px;padding:5px 10px;font-size:13px;font-family:var(--sans);
+  background:var(--surface-2);border:1px solid var(--rule);border-radius:2px;color:var(--ink);
+}
+.search::placeholder{color:var(--ink-3)}
+.sep{width:1px;align-self:stretch;background:var(--rule)}
+
+/* ============================================================================
+   MATRIX
+   ========================================================================= */
+.matrix-wrap{
+  overflow:auto;max-height:min(78vh,860px);
+  border:1px solid var(--rule);border-radius:3px;background:var(--surface);
+  overscroll-behavior:contain;
+}
+table.matrix{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%}
+table.matrix th,table.matrix td{padding:0;margin:0}
+
+.matrix thead th{position:sticky;background:var(--surface-2);z-index:3}
+.matrix tr.band th{top:0;height:var(--bandh)}
+.matrix tr.heads th{top:var(--bandh)}
+.matrix th.corner,.matrix th.band-corner{left:0;z-index:5}
+.matrix tbody th.rowhead{position:sticky;left:0;z-index:2;background:var(--surface)}
+.matrix tr:hover th.rowhead{background:var(--surface-2)}
+
+.band-cell{
+  font-family:var(--mono);font-size:9.5px;line-height:1.1;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);text-align:left;padding:5px 8px 4px;
+  border-bottom:1px solid var(--rule-soft);border-left:1px solid var(--rule);
+  white-space:nowrap;
+}
+.matrix th.band-corner{width:172px;min-width:172px}
+.band-cell:first-child{border-left:none}
+.band-cell i{font-style:normal;color:var(--ink-2);font-weight:500;letter-spacing:.05em}
+
+.colhead{
+  width:96px;min-width:96px;max-width:96px;
+  vertical-align:bottom;text-align:left;
+  padding:8px 8px 9px !important;
+  border-bottom:1px solid var(--rule);border-left:1px solid var(--rule-soft);
+  font-weight:500;cursor:pointer;transition:background .13s;
+}
+.colhead:hover{background:var(--surface-3)}
+.colhead .ch-zh{display:block;font-size:12.5px;line-height:1.3;color:var(--ink)}
+.colhead .ch-en{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.04em;
+  color:var(--ink-3);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.colhead .ch-sort{font-family:var(--mono);font-size:10px;color:var(--seal-ink);opacity:0}
+/* A sticky header must stay fully opaque: --seal-wash is translucent, so
+   setting it as the background alone lets the cells scrolling underneath show
+   through the header. Composite the wash as an image OVER an opaque base. */
+.colhead[data-sorted="1"]{
+  background:linear-gradient(var(--seal-wash),var(--seal-wash)) var(--surface-2);
+}
+.colhead[data-sorted="1"]:hover{
+  background:linear-gradient(var(--seal-wash),var(--seal-wash)) var(--surface-3);
+}
+.colhead[data-sorted="1"] .ch-sort{opacity:1}
+
+.matrix th.corner{
+  width:172px;min-width:172px;text-align:left;vertical-align:bottom;
+  padding:8px 10px 9px;border-bottom:1px solid var(--rule);
+}
+.corner .eyebrow{font-size:9.5px}
+
+.rowhead{
+  width:172px;min-width:172px;text-align:left;font-weight:400;
+  padding:0 10px !important;border-bottom:1px solid var(--rule-soft);
+  border-right:1px solid var(--rule);
+}
+.rh-in{display:flex;align-items:center;gap:8px;height:34px;cursor:pointer;width:100%;text-align:left}
+.rh-n{font-family:var(--mono);font-size:10px;color:var(--ink-3);width:17px;flex:none;font-variant-numeric:tabular-nums}
+.rh-name{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.rh-in:hover .rh-name{color:var(--seal-ink)}
+.rh-scope{width:5px;height:5px;border-radius:50%;flex:none;background:var(--ink-3)}
+.rh-scope[data-s="university_wide"]{background:var(--f3)}
+.rh-scope[data-s="mixed"]{background:var(--f2)}
+.rh-scope[data-s="unit_or_school"]{background:var(--f1);box-shadow:inset 0 0 0 1px var(--ink-3)}
+.rh-scope[data-s="instructor_facing"]{background:transparent;box-shadow:inset 0 0 0 1px var(--ink-3)}
+
+td.cell{border-bottom:1px solid var(--rule-soft);border-left:1px solid var(--rule-soft)}
+.cell-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:96px;height:34px;padding:0 5px;
+  font-size:11px;line-height:1.15;text-align:center;
+  transition:box-shadow .12s,filter .12s;position:relative;
+}
+.cell-btn[data-rank="3"]{background:var(--f3);color:var(--f3-on);font-weight:500}
+.cell-btn[data-rank="2"]{background:var(--f2);color:var(--f2-on)}
+.cell-btn[data-rank="1"]{background:var(--f1);color:var(--f1-on)}
+.cell-btn[data-rank="0"]{
+  background:repeating-linear-gradient(-45deg,transparent 0 4px,var(--hatch) 4px 5px);
+  color:var(--f0-on);font-size:10px;
+}
+.cell-btn:hover{box-shadow:inset 0 0 0 2px var(--seal);z-index:1;filter:saturate(1.1)}
+.cell-btn[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--seal);z-index:1}
+.cell-btn .warn{position:absolute;top:2px;right:3px;font-size:8px;color:var(--seal)}
+
+tr.dim-row{opacity:.24;transition:opacity .16s}
+.col-dim{opacity:.3}
+tr.hidden{display:none}
+
+/* ============================================================================
+   LEGEND
+   ========================================================================= */
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;font-size:11.5px;color:var(--ink-3)}
+.lg-group{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.lg-item{display:flex;gap:5px;align-items:center}
+.lg-sw{width:22px;height:11px;border-radius:1px;border:1px solid var(--rule)}
+.lg-sw[data-rank="3"]{background:var(--f3)}
+.lg-sw[data-rank="2"]{background:var(--f2)}
+.lg-sw[data-rank="1"]{background:var(--f1)}
+.lg-sw[data-rank="0"]{background:repeating-linear-gradient(-45deg,transparent 0 3px,var(--hatch) 3px 4px)}
+.lg-dot{width:6px;height:6px;border-radius:50%}
+
+/* ============================================================================
+   DRAWER
+   ========================================================================= */
+.scrim{
+  position:fixed;inset:0;background:rgba(11,15,23,.34);backdrop-filter:blur(2px);
+  opacity:0;pointer-events:none;transition:opacity .2s;z-index:40;
+}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);
+  background:var(--surface);border-left:1px solid var(--rule);
+  box-shadow:var(--shadow-lg);z-index:50;
+  transform:translateX(101%);transition:transform .24s cubic-bezier(.32,.72,0,1);
+  display:flex;flex-direction:column;
+}
+.drawer.open{transform:none}
+.dr-head{
+  padding:16px 18px 13px;border-bottom:1px solid var(--rule);
+  display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);
+}
+.dr-head-txt{flex:1;min-width:0}
+.dr-close{
+  width:26px;height:26px;flex:none;border:1px solid var(--rule);border-radius:2px;
+  display:grid;place-items:center;font-size:15px;color:var(--ink-3);line-height:1;
+}
+.dr-close:hover{color:var(--ink);border-color:var(--ink-3)}
+.dr-body{padding:18px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:20px}
+.dr-school{font-family:var(--display);font-size:19px;font-weight:600;line-height:1.2;margin:2px 0 0}
+.dr-dim{font-size:12.5px;color:var(--ink-2);margin:5px 0 0}
+
+.blk{display:flex;flex-direction:column;gap:7px}
+.blk-label{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+.verdict{
+  display:inline-flex;align-items:baseline;gap:9px;padding:9px 12px;border-radius:2px;
+  background:var(--surface-2);border:1px solid var(--rule);border-left:3px solid var(--f2);
+}
+.verdict[data-rank="3"]{border-left-color:var(--f3)}
+.verdict[data-rank="1"]{border-left-color:var(--f1)}
+.verdict[data-rank="0"]{border-left-color:var(--hatch)}
+.verdict b{font-family:var(--display);font-size:17px;font-weight:600}
+.verdict span{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+
+blockquote.ev{
+  margin:0;padding:13px 15px;background:var(--surface-2);
+  border:1px solid var(--rule);border-radius:2px;
+  font-family:var(--display);font-size:14.5px;line-height:1.6;color:var(--ink);
+}
+blockquote.ev::before{content:"“";color:var(--ink-3);margin-right:1px}
+blockquote.ev::after{content:"”";color:var(--ink-3);margin-left:1px}
+.ev-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:11px;color:var(--ink-3)}
+.badge{
+  font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:2px;
+  border:1px solid var(--rule);background:var(--surface-2);color:var(--ink-2);white-space:nowrap;
+}
+.badge.ok{border-color:var(--f2);color:var(--ink)}
+.badge.warn{border-color:var(--seal);color:var(--seal-ink);background:var(--seal-wash)}
+.note{font-size:13px;color:var(--ink-2);line-height:1.55;margin:0}
+.src{display:flex;flex-direction:column;gap:4px;font-size:12px;padding:9px 11px;background:var(--surface-2);border:1px solid var(--rule);border-radius:2px}
+.src b{font-weight:500;font-size:12.5px}
+.src a{font-family:var(--mono);font-size:10.5px;word-break:break-all;line-height:1.4}
+.taglist{display:flex;gap:5px;flex-wrap:wrap}
+.tag{font-size:11.5px;padding:3px 8px;border-radius:2px;background:var(--surface-2);border:1px solid var(--rule);color:var(--ink-2)}
+ol.tiers{margin:0;padding-left:19px;font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:5px}
+ol.tiers li::marker{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+ul.bullets{margin:0;padding-left:17px;font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:6px;line-height:1.5}
+.minigrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+.mini{background:var(--surface-2);padding:7px 9px;display:flex;flex-direction:column;gap:1px}
+.mini em{font-style:normal;font-size:10px;color:var(--ink-3);font-family:var(--mono)}
+.mini b{font-size:12.5px;font-weight:500}
+.mini[data-rank="0"] b{color:var(--ink-3);font-weight:400}
+
+/* ============================================================================
+   METHOD
+   ========================================================================= */
+.method{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+  grid-template-columns:repeat(3,minmax(0,1fr))}
+.mcard.wide{grid-column:1 / -1}
+.mcard{background:var(--surface);padding:16px 17px 18px;display:flex;flex-direction:column;gap:7px}
+.mcard h3{font-family:var(--display);font-size:15.5px;font-weight:600;margin:0}
+.mcard p{margin:0;font-size:13px;color:var(--ink-2);line-height:1.55}
+.mcard .eyebrow{font-size:9.5px}
+.pipeline{
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;font-family:var(--mono);
+  font-size:11px;color:var(--ink-2);margin-top:2px;
+}
+.pipeline i{font-style:normal;padding:3px 8px;background:var(--surface-2);border:1px solid var(--rule);border-radius:2px}
+.pipeline u{text-decoration:none;color:var(--ink-3)}
+
+footer{
+  margin-top:clamp(40px,6vw,64px);padding:22px 0 42px;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--ink-3);display:flex;gap:12px;flex-direction:column;align-items:flex-start;
+}
+footer .num{color:var(--ink-2)}
+.disclaim{margin:0;max-width:74ch;line-height:1.55}
+.disclaim b{color:var(--ink-2);font-weight:600}
+.disclaim.en{font-size:11px;opacity:.8}
+
+/* ============================================================================
+   RESPONSIVE / MOTION
+   ========================================================================= */
+@media (max-width:1180px){
+  .dimgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .dimgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .readout,.method{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:720px){
+  .drawer{width:100vw;top:auto;height:86vh;border-left:none;border-top:1px solid var(--rule);
+    border-radius:6px 6px 0 0;transform:translateY(101%)}
+  .drawer.open{transform:none}
+  .matrix-wrap{max-height:70vh}
+  .dc-q{min-height:0}
+  .dimgrid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+.fade-in{animation:fade .5s cubic-bezier(.2,.6,.2,1) both}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+</style>
+
+<main>
+  <header class="masthead">
+    <div class="wrap">
+      <div class="mast-top">
+        <span class="eyebrow">Comparative source atlas · 官方文本对照 · 采集于 <span id="accessed"></span></span>
+        <span class="eyebrow" id="mast-count"></span>
+      </div>
+      <h1>三十校 AI 政策图谱<span class="thin"> ／ 他们到底怎么规定的</span></h1>
+      <p class="lede">
+        美国三十所顶尖大学的官方 AI 使用规则，拆成 <strong>12 项可比条款</strong>逐格对照。
+        每一格都能点开，看到<strong>该校原文里的那一句话</strong>——不是我的转述。
+        空白的斜纹格代表这所学校的这份来源<strong>只字未提</strong>；那些洞，和写满字的地方一样重要。
+      </p>
+      <div class="stats" id="stats"></div>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <section id="sec-read">
+      <div class="sec-head">
+        <h2>三条读数</h2>
+        <span class="en">What the data says</span>
+        <span class="rule"></span>
+      </div>
+      <p class="sec-sub">
+        以下三组全部由矩阵实时算出，不是我写的结论。点任一条跳到矩阵并按该条排序。
+      </p>
+      <div class="readout" id="readout"></div>
+    </section>
+
+    <section id="sec-dims">
+      <div class="sec-head">
+        <h2>共识与分歧</h2>
+        <span class="en">Consensus &amp; divergence</span>
+        <span class="rule"></span>
+      </div>
+      <p class="sec-sub">
+        每条按 30 校的表态分布排开。条带越集中，说明这条越接近共识，可以直接写进校规范；
+        越分散，说明连大学之间都还在吵，你的规范就得自己做判断并说明理由。
+        右端的斜纹段是沉默——点任一条可在下方矩阵中按该条排序。
+      </p>
+      <div class="dimgrid" id="dimgrid"></div>
+    </section>
+
+    <section id="sec-matrix">
+      <div class="sec-head">
+        <h2>对照矩阵</h2>
+        <span class="en">The concordance</span>
+        <span class="rule"></span>
+      </div>
+      <p class="sec-sub">
+        点任意一格看原文证据与来源链接；点列头按该条严格度排序；点校名看该校完整档案。
+      </p>
+
+      <div class="controls">
+        <span class="ctl-label">来源层级</span>
+        <div class="chips" id="scope-chips"></div>
+        <span class="sep"></span>
+        <span class="ctl-label">排序</span>
+        <div class="chips" id="sort-chips"></div>
+        <span class="sep"></span>
+        <input class="search" id="search" type="search" placeholder="搜索学校…" aria-label="搜索学校">
+        <button class="chip" id="reset">重置</button>
+      </div>
+
+      <div class="matrix-wrap">
+        <table class="matrix" id="matrix"></table>
+      </div>
+
+      <div class="legend">
+        <div class="lg-group">
+          <span class="ctl-label">规定强度</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="3"></span>最强/最明确</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="2"></span>实质性</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="1"></span>软性/弱</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="0"></span>该来源未提及</span>
+        </div>
+        <div class="lg-group">
+          <span class="ctl-label">来源层级</span>
+          <span class="lg-item"><span class="lg-dot rh-scope" data-s="university_wide" style="background:var(--f3)"></span>校级</span>
+          <span class="lg-item"><span class="lg-dot rh-scope" data-s="mixed" style="background:var(--f2)"></span>混合</span>
+          <span class="lg-item"><span class="lg-dot rh-scope" data-s="unit_or_school"></span>院系级</span>
+          <span class="lg-item"><span class="lg-dot rh-scope" data-s="instructor_facing"></span>面向教师</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-method">
+      <div class="sec-head">
+        <h2>方法与边界</h2>
+        <span class="en">How this was built</span>
+        <span class="rule"></span>
+      </div>
+      <p class="sec-sub">
+        这份图谱的可信度全部押在一件事上：每一格都能追回它自己那份文件里的那一句话。所以方法必须摊开。
+      </p>
+      <div class="method" id="method"></div>
+    </section>
+
+    <footer>
+      <p class="disclaim">
+        <b>本页不是任何大学的官方出版物。</b>所引文字版权归各该大学所有，为学术研究与评述目的引用；
+        本项目与文中任何一所大学均无隶属、赞助或背书关系，校名仅用于指称其自身公开发布的政策文本。
+        所记录的是 <span class="num" id="accessed2"></span> 的快照，不代表各校现行政策——政策会变，
+        正式采用前请回官网核实当前版本。
+      </p>
+      <p class="disclaim en">
+        Not an official publication of any university. Quoted text remains the copyright of the
+        respective institutions and is reproduced for academic research and commentary. Not affiliated
+        with, sponsored by, or endorsed by any institution named here. A snapshot, not current policy.
+      </p>
+      <span>数据层 <span class="num">data/policies.json</span>，由 <span class="num">univ/*.md</span> 生成；改数据即改图谱。</span>
+    </footer>
+  </div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="false" aria-labelledby="dr-title" aria-hidden="true">
+  <div class="dr-head">
+    <div class="dr-head-txt">
+      <span class="eyebrow" id="dr-kicker"></span>
+      <h3 class="dr-school" id="dr-title"></h3>
+      <p class="dr-dim" id="dr-sub"></p>
+    </div>
+    <button class="dr-close" id="dr-close" aria-label="关闭">✕</button>
+  </div>
+  <div class="dr-body" id="dr-body"></div>
+</aside>
+
+<script>
+const DATA = /*__DATA__*/null;
+
+/* ---------- helpers ---------- */
+const $ = (s, r) => (r || document).querySelector(s);
+const el = (tag, cls, txt) => { const n = document.createElement(tag); if (cls) n.className = cls; if (txt != null) n.textContent = txt; return n; };
+const dimByKey = Object.fromEntries(DATA.dimensions.map(d => [d.key, d]));
+const groupByKey = Object.fromEntries(DATA.groups.map(g => [g.key, g]));
+const schoolById = Object.fromEntries(DATA.schools.map(s => [s.id, s]));
+
+const MATCH_LABEL = {
+  verbatim:      ["逐字命中原文", "ok"],
+  whitespace:    ["逐字命中（空白归一）", "ok"],
+  punctuation:   ["命中（标点归一）", "ok"],
+  loose:         ["宽松命中", "warn"],
+  not_found:     ["未能在原文中找到", "warn"],
+  wrong_school:  ["该引文属于其他学校的文件", "warn"],
+  takeaways_only:["引自整理者的改编建议，非校方原文", "warn"],
+  missing:       ["缺少引文", "warn"],
+};
+
+/* ---------- masthead ---------- */
+const M = DATA.meta;
+$("#accessed").textContent = M.accessed;
+$("#accessed2").textContent = M.accessed;
+$("#mast-count").textContent = `${M.schools} 校 × ${M.dimensions} 条 = ${M.cells} 格`;
+
+const statDefs = [
+  [M.schools, "所大学，每所独立抽取", 0],
+  [M.dimensions, "项可比条款", 0],
+  [M.filled, `格查有明文（占 ${Math.round(M.filled / M.cells * 100)}%）`, 0],
+  [M.silent, `格该来源沉默（占 ${Math.round(M.silent / M.cells * 100)}%）`, 1],
+  [`${M.evidence_matched}/${M.filled}`, "条引文经机器比对命中其所属原文", 0],
+  [M.problems.length, "项数据问题（全部公开在下方）", M.problems.length ? 1 : 0],
+];
+const statsEl = $("#stats");
+statDefs.forEach(([n, label, accent]) => {
+  const s = el("div", "stat" + (accent ? " accent" : ""));
+  s.append(el("b", null, String(n)), el("span", null, label));
+  statsEl.append(s);
+});
+
+/* ---------- readout: three conclusions derived from the matrix ---------- */
+// Two exclusions from the agreement rankings. A dimension with only one
+// possible non-silent value cannot disagree with itself. And a high agreement
+// score computed over a handful of schools is not consensus, it is a small
+// sample — so a majority of the 30 must actually have spoken.
+const QUORUM = Math.ceil(DATA.schools.length / 2);
+const gradable = DATA.dimensions.filter(d => !d.binary && d.covered >= QUORUM);
+
+const READOUTS = [
+  {
+    tone: "cool", kicker: "Copy these", title: "可以照抄的",
+    say: `过半学校（≥${QUORUM}）都有规定、且口径最一致的条款。共识既在，直接写进校规范，争议成本最低。`,
+    items: gradable.slice().sort((a, b) => b.agreement - a.agreement || b.covered - a.covered).slice(0, 3),
+    stat: d => `${Math.round(d.agreement * 100)}%`,
+    sub: d => `${d.top_n}/${d.covered} 校口径为「${d.dist.find(x => x.value === d.top_value).zh}」`,
+  },
+  {
+    tone: "hot", kicker: "Decide yourself", title: "你得自己判断的",
+    say: "同样过半学校有规定，但连大学之间都没谈拢。这里没有可抄的答案，你的规范必须选一个立场并说明理由。",
+    items: gradable.slice().sort((a, b) => a.agreement - b.agreement || b.covered - a.covered).slice(0, 3),
+    stat: d => `${Math.round(d.agreement * 100)}%`,
+    sub: d => `${d.covered} 校有规定，分成 ${d.dist.filter(x => x.n > 0 && x.value !== "not_addressed").length} 种口径`,
+  },
+  {
+    tone: "hot", kicker: "Nobody says", title: "大学集体没说的",
+    say: "沉默率最高的条款。空白不等于不重要——恰恰是高中场景里最需要你补上的部分。",
+    items: DATA.dimensions.slice().sort((a, b) => b.silent - a.silent || a.covered - b.covered).slice(0, 3),
+    stat: d => `${d.silent}/${DATA.schools.length}`,
+    sub: d => `仅 ${d.covered} 校在这份来源中提到`,
+  },
+];
+
+const readout = $("#readout");
+READOUTS.forEach(r => {
+  const box = el("div", "rd");
+  box.dataset.tone = r.tone;
+  const head = el("div", "rd-head");
+  const t = el("div", "rd-title");
+  t.append(el("span", null, r.title), el("s", null, r.kicker));
+  head.append(t, el("div", "rd-say", r.say));
+  const list = el("div", "rd-list");
+  r.items.forEach(d => {
+    const it = el("button", "rd-item");
+    it.type = "button";
+    it.append(el("b", null, d.zh), el("i", null, r.sub(d)), el("u", null, r.stat(d)));
+    it.addEventListener("click", () => sortByDim(d.key, true));
+    list.append(it);
+  });
+  box.append(head, list);
+  readout.append(box);
+});
+
+/* ---------- dimension cards ---------- */
+const dimgrid = $("#dimgrid");
+DATA.dimensions.forEach(d => {
+  const card = el("button", "dimcard");
+  card.type = "button";
+  card.setAttribute("aria-pressed", "false");
+  card.dataset.key = d.key;
+
+  const top = el("div", "dc-top");
+  top.append(el("span", "dc-name", d.zh), el("span", "dc-group", groupByKey[d.group].zh));
+  const q = el("div", "dc-q", d.question);
+
+  const bar = el("div", "dc-bar");
+  const ordered = d.dist.filter(x => x.n > 0).sort((a, b) => b.rank - a.rank || b.n - a.n);
+  ordered.forEach(seg => {
+    const s = el("div", "dc-seg");
+    s.dataset.rank = seg.rank;
+    s.style.flex = seg.n;
+    s.title = `${seg.zh} — ${seg.n} 校`;
+    if (seg.n >= 3) s.textContent = seg.n;
+    bar.append(s);
+  });
+
+  const foot = el("div", "dc-foot");
+  const agree = Math.round(d.agreement * 100);
+  const main = d.dist.find(x => x.value === d.top_value);
+  foot.innerHTML =
+    `<span>主流口径 <b>${main ? main.zh : "—"}</b> ${d.top_n}/${d.covered}</span>` +
+    (d.binary
+      ? `<span>覆盖 <b>${Math.round(d.covered / DATA.schools.length * 100)}%</b></span>`
+      : `<span>一致度 <b>${agree}%</b></span>`) +
+    `<span class="${d.silent >= DATA.schools.length / 2 ? "hot" : ""}">沉默 <b>${d.silent}</b> 校</span>`;
+
+  card.append(top, q, bar, foot);
+  card.addEventListener("click", () => sortByDim(d.key, true));
+  dimgrid.append(card);
+});
+
+/* ---------- matrix ---------- */
+const state = { sort: "num", sortDim: null, scope: null, query: "", sel: null };
+
+function buildMatrix() {
+  const t = $("#matrix");
+  t.innerHTML = "";
+
+  const thead = el("thead");
+
+  // group band — spans the columns each group owns
+  const band = el("tr", "band");
+  const corner0 = el("th", "band-cell band-corner");
+  corner0.innerHTML = `<span class="eyebrow">条款分组</span>`;
+  band.append(corner0);
+  let i = 0;
+  while (i < DATA.dimensions.length) {
+    const g = DATA.dimensions[i].group;
+    let span = 0;
+    while (i + span < DATA.dimensions.length && DATA.dimensions[i + span].group === g) span++;
+    const th = el("th", "band-cell");
+    th.colSpan = span;
+    th.innerHTML = `<i>${groupByKey[g].zh}</i> ${groupByKey[g].hint}`;
+    band.append(th);
+    i += span;
+  }
+  thead.append(band);
+
+  const heads = el("tr", "heads");
+  const corner = el("th", "corner");
+  corner.innerHTML = `<span class="eyebrow">学校 / ${DATA.schools.length}</span>`;
+  heads.append(corner);
+  DATA.dimensions.forEach(d => {
+    const th = el("th", "colhead");
+    th.dataset.key = d.key;
+    th.title = d.question;
+    if (state.sortDim === d.key) th.dataset.sorted = "1";
+    th.innerHTML = `<span class="ch-zh">${d.zh}</span><span class="ch-en">${d.en} <span class="ch-sort">▼</span></span>`;
+    th.addEventListener("click", () => sortByDim(d.key, false));
+    heads.append(th);
+  });
+  thead.append(heads);
+  t.append(thead);
+
+  const tbody = el("tbody");
+  visibleSchools().forEach(s => {
+    const tr = el("tr");
+    tr.dataset.id = s.id;
+
+    const rh = el("th", "rowhead");
+    const btn = el("button", "rh-in");
+    btn.type = "button";
+    const dot = el("span", "rh-scope");
+    dot.dataset.s = s.scope;
+    dot.title = `${s.scope_zh} — ${DATA.scopes[s.scope].hint}`;
+    btn.append(el("span", "rh-n", String(s.num).padStart(2, "0")), el("span", "rh-name", s.short), dot);
+    btn.addEventListener("click", () => openSchool(s.id));
+    rh.append(btn);
+    tr.append(rh);
+
+    s.cells.forEach(c => {
+      const td = el("td", "cell");
+      const b = el("button", "cell-btn");
+      b.type = "button";
+      b.dataset.rank = c.rank;
+      b.dataset.dim = c.dim;
+      b.textContent = c.short;
+      const bad = c.match && MATCH_LABEL[c.match] && MATCH_LABEL[c.match][1] === "warn";
+      if (bad) b.append(el("span", "warn", "!"));
+      b.title = `${s.short} · ${dimByKey[c.dim].zh}：${c.zh}`;
+      b.addEventListener("click", () => openCell(s.id, c.dim, b));
+      td.append(b);
+      tr.append(td);
+    });
+    tbody.append(tr);
+  });
+  t.append(tbody);
+  applyDimHighlight();
+}
+
+function visibleSchools() {
+  let list = DATA.schools.slice();
+  if (state.scope) list = list.filter(s => s.scope === state.scope);
+  if (state.query) {
+    const q = state.query.toLowerCase();
+    list = list.filter(s => (s.short + " " + s.name + " " + s.id).toLowerCase().includes(q));
+  }
+  if (state.sort === "num") list.sort((a, b) => a.num - b.num);
+  else if (state.sort === "strict") list.sort((a, b) => b.strictness - a.strictness || a.num - b.num);
+  else if (state.sort === "covered") list.sort((a, b) => b.covered - a.covered || a.num - b.num);
+  else if (state.sort === "dim" && state.sortDim) {
+    const i = DATA.dimensions.findIndex(d => d.key === state.sortDim);
+    list.sort((a, b) => b.cells[i].rank - a.cells[i].rank || a.num - b.num);
+  }
+  return list;
+}
+
+function applyDimHighlight() {
+  document.querySelectorAll(".dimcard").forEach(c =>
+    c.setAttribute("aria-pressed", String(c.dataset.key === state.sortDim)));
+}
+
+function sortByDim(key, scroll) {
+  if (state.sortDim === key && state.sort === "dim") { state.sortDim = null; state.sort = "num"; }
+  else { state.sortDim = key; state.sort = "dim"; }
+  syncSortChips();
+  buildMatrix();
+  if (scroll) $("#sec-matrix").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion:reduce)").matches ? "auto" : "smooth", block: "start" });
+}
+
+/* ---------- controls ---------- */
+const scopeChips = $("#scope-chips");
+const scopeCounts = {};
+DATA.schools.forEach(s => scopeCounts[s.scope] = (scopeCounts[s.scope] || 0) + 1);
+[["", "全部"]].concat(Object.keys(DATA.scopes).filter(k => scopeCounts[k]).map(k => [k, DATA.scopes[k].zh]))
+  .forEach(([k, label]) => {
+    const c = el("button", "chip");
+    c.type = "button";
+    c.dataset.scope = k;
+    c.innerHTML = `${label}<span class="n">${k ? scopeCounts[k] : DATA.schools.length}</span>`;
+    if (k) c.title = DATA.scopes[k].hint;
+    c.setAttribute("aria-pressed", String((state.scope || "") === k));
+    c.addEventListener("click", () => {
+      state.scope = k || null;
+      scopeChips.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.scope === k)));
+      buildMatrix();
+    });
+    scopeChips.append(c);
+  });
+
+const SORTS = [["num", "排名序"], ["strict", "规定最密"], ["covered", "覆盖条款最多"]];
+const sortChips = $("#sort-chips");
+SORTS.forEach(([k, label]) => {
+  const c = el("button", "chip");
+  c.type = "button";
+  c.dataset.sort = k;
+  c.textContent = label;
+  c.setAttribute("aria-pressed", String(state.sort === k));
+  c.addEventListener("click", () => { state.sort = k; state.sortDim = null; syncSortChips(); buildMatrix(); });
+  sortChips.append(c);
+});
+function syncSortChips() {
+  sortChips.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.sort === state.sort)));
+}
+
+let tid;
+$("#search").addEventListener("input", e => {
+  clearTimeout(tid);
+  tid = setTimeout(() => { state.query = e.target.value.trim(); buildMatrix(); }, 120);
+});
+$("#reset").addEventListener("click", () => {
+  state.scope = null; state.query = ""; state.sort = "num"; state.sortDim = null;
+  $("#search").value = "";
+  scopeChips.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.scope === "")));
+  syncSortChips(); buildMatrix();
+});
+
+/* ---------- drawer ---------- */
+const drawer = $("#drawer"), scrim = $("#scrim");
+function openDrawer() {
+  drawer.classList.add("open"); scrim.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+}
+function closeDrawer() {
+  drawer.classList.remove("open"); scrim.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+  document.querySelectorAll('.cell-btn[aria-pressed="true"]').forEach(b => b.removeAttribute("aria-pressed"));
+}
+$("#dr-close").addEventListener("click", closeDrawer);
+scrim.addEventListener("click", closeDrawer);
+addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
+
+function blk(label, node) {
+  const b = el("div", "blk");
+  b.append(el("span", "blk-label", label));
+  if (Array.isArray(node)) node.forEach(n => b.append(n)); else b.append(node);
+  return b;
+}
+function sourceBlock(school) {
+  const wrap = el("div", "blk");
+  wrap.append(el("span", "blk-label", "官方来源 / Official source"));
+  school.sources.forEach(s => {
+    const d = el("div", "src");
+    if (s.unit) d.append(el("b", null, s.unit));
+    const a = el("a", null, s.url);
+    a.href = s.url; a.target = "_blank"; a.rel = "noopener noreferrer";
+    d.append(a);
+    wrap.append(d);
+  });
+  const sc = el("p", "note");
+  sc.innerHTML = `<span class="badge">${school.scope_zh}</span> ${school.scope_note || DATA.scopes[school.scope].hint}`;
+  wrap.append(sc);
+  return wrap;
+}
+
+function openCell(schoolId, dimKey, btn) {
+  const s = schoolById[schoolId];
+  const d = dimByKey[dimKey];
+  const c = s.cells.find(x => x.dim === dimKey);
+
+  document.querySelectorAll('.cell-btn[aria-pressed="true"]').forEach(b => b.removeAttribute("aria-pressed"));
+  if (btn) btn.setAttribute("aria-pressed", "true");
+
+  $("#dr-kicker").textContent = `${groupByKey[d.group].zh} · ${d.en}`;
+  $("#dr-title").textContent = s.name;
+  $("#dr-sub").textContent = d.question;
+
+  const body = $("#dr-body");
+  body.innerHTML = "";
+
+  const v = el("div", "verdict");
+  v.dataset.rank = c.rank;
+  v.append(el("b", null, c.zh), el("span", null, c.en));
+  body.append(blk(d.zh + " / " + d.en, v));
+
+  if (c.note) body.append(blk("这条到底说了什么", el("p", "note", c.note)));
+
+  if (c.evidence) {
+    const q = el("blockquote", "ev", c.evidence);
+    const meta = el("div", "ev-meta");
+    const [label, kind] = MATCH_LABEL[c.match] || ["未核验", "warn"];
+    const b1 = el("span", "badge " + kind, label);
+    const b2 = el("span", "badge", s.file);
+    meta.append(b1, b2);
+    if (c.found_in) meta.append(el("span", "badge warn", "疑似串源：" + c.found_in.join(", ")));
+    body.append(blk("原文证据 / Verbatim evidence", [q, meta]));
+  } else {
+    const p = el("p", "note",
+      "这份来源在这一条上没有任何表述。这不代表该校没有相关规定——只代表本项目采集的这份官方文件对此沉默。规范起草时，沉默处需要你自己做判断并说明依据。");
+    body.append(blk("原文证据 / Verbatim evidence", p));
+  }
+
+  if (dimKey === "tiered_scale" && s.tiers.length) {
+    const ol = el("ol", "tiers");
+    s.tiers.forEach(t => ol.append(el("li", null, t)));
+    body.append(blk("该校的分级 / Its levels", ol));
+  }
+  if (dimKey === "disclosure" && s.disclose.length) {
+    const tl = el("div", "taglist");
+    s.disclose.forEach(k => tl.append(el("span", "tag", DATA.disclose_items[k].zh)));
+    body.append(blk("要求披露的内容 / What to disclose", tl));
+  }
+
+  body.append(sourceBlock(s));
+
+  const more = el("button", "chip", "查看 " + s.short + " 的完整档案 →");
+  more.type = "button";
+  more.style.alignSelf = "flex-start";
+  more.addEventListener("click", () => openSchool(schoolId));
+  body.append(more);
+
+  openDrawer();
+}
+
+function openSchool(schoolId) {
+  const s = schoolById[schoolId];
+  document.querySelectorAll('.cell-btn[aria-pressed="true"]').forEach(b => b.removeAttribute("aria-pressed"));
+
+  $("#dr-kicker").textContent = `档案 · School profile · No.${String(s.num).padStart(2, "0")}`;
+  $("#dr-title").textContent = s.name;
+  $("#dr-sub").textContent = `${s.covered}/${DATA.dimensions.length} 条有明文规定 · ${DATA.dimensions.length - s.covered} 条沉默`;
+
+  const body = $("#dr-body");
+  body.innerHTML = "";
+
+  if (s.quote.text) {
+    const q = el("blockquote", "ev", s.quote.text);
+    const m = el("div", "ev-meta");
+    m.append(el("span", "badge ok", "逐字核验通过"), el("span", "badge", s.file));
+    if (s.quote.why) m.append(el("span", null, s.quote.why));
+    body.append(blk("最值得引用的一句 / Most quotable line", [q, m]));
+  }
+
+  const grid = el("div", "minigrid");
+  s.cells.forEach(c => {
+    const m = el("div", "mini");
+    m.dataset.rank = c.rank;
+    m.append(el("em", null, dimByKey[c.dim].zh), el("b", null, c.zh));
+    m.style.cursor = "pointer";
+    m.addEventListener("click", () => openCell(s.id, c.dim, null));
+    grid.append(m);
+  });
+  body.append(blk("十二条速览 / All twelve at a glance", grid));
+
+  if (s.tiers.length) {
+    const ol = el("ol", "tiers");
+    s.tiers.forEach(t => ol.append(el("li", null, t)));
+    body.append(blk("分级许可框架 / Permission levels", ol));
+  }
+  if (s.disclose.length) {
+    const tl = el("div", "taglist");
+    s.disclose.forEach(k => tl.append(el("span", "tag", DATA.disclose_items[k].zh)));
+    body.append(blk("要求披露的内容 / What to disclose", tl));
+  }
+  if (s.takeaways.length) {
+    const ul = el("ul", "bullets");
+    s.takeaways.forEach(t => ul.append(el("li", null, t)));
+    const note = el("p", "note", "以上为源文件中整理者写下的高中改编建议，非校方原文，不作为任何条款的证据。");
+    note.style.color = "var(--ink-3)";
+    note.style.fontSize = "11.5px";
+    body.append(blk("可供高中改编的要点 / Adaptation notes", [ul, note]));
+  }
+
+  body.append(sourceBlock(s));
+
+  const audit = el("p", "note");
+  const vd = DATA.verdicts[s.audit.verdict] || { zh: s.audit.verdict };
+  audit.innerHTML = `<span class="badge">对抗审计：${vd.zh}</span> ` +
+    (s.audit.changes.length ? `审计员修正了 ${s.audit.changes.length} 处。` : "审计员未发现需要修正之处。");
+  body.append(blk("抽取质量 / Extraction audit", audit));
+
+  openDrawer();
+}
+
+/* ---------- method ---------- */
+const methodCards = [
+  ["01", "一个 agent 只读一个文件",
+   `30 份文件由 30 个互相隔离的 agent 分别抽取，每个只被允许读它自己那一份，并被明确禁止调用任何关于该校的既有知识。这是防止“串校”的第一道保险：结构上不可能串。`],
+  ["02", "每一格都必须带原文",
+   `任何非“未提及”的格子都必须附上该文件里的一句逐字原文。随后一个对抗性审计 agent 重读同一份文件，专门找编造的引文、把“建议”写成“强制”的抬级、以及本该沉默却被填上的格子。`],
+  ["03", "引文交给机器精确匹配",
+   `所有引文与其所属文件做精确字符串比对。对不上就把该格降为“未提及”并公开记录；若某条引文出现在别校文件里，会被直接点名为串源。当前 ${M.evidence_matched}/${M.filled} 条通过。`],
+  ["04", "沉默被当成数据，而不是空白",
+   `“未提及”只表示本项目采集的这份官方来源对此沉默，不代表该校没有规定。但沉默率本身是有意义的发现：大学之间集体不说的事，正是你的校规范必须自己想清楚的地方。`],
+  ["05", "来源层级不隐藏",
+   `有些学校能找到的只是院系级或面向教师的材料，约束力不同于校级政策。每所学校的层级都标在校名旁，可单独筛选，不与校级政策混为一谈。`],
+  ["06", "数据与展示分离",
+   `图谱不硬编码任何一条规则，全部读 data/policies.json。改源文件、重跑构建，图谱自动更新；条款口径统一在 tools/codebook.py 一处定义。`],
+];
+const method = $("#method");
+methodCards.forEach(([n, h, p]) => {
+  const c = el("div", "mcard");
+  c.append(el("span", "eyebrow", "Method " + n), el("h3", null, h), el("p", null, p));
+  method.append(c);
+});
+if (M.problems.length) {
+  const c = el("div", "mcard wide");
+  c.append(el("span", "eyebrow", "Known issues"), el("h3", null, `构建时记录的 ${M.problems.length} 项数据问题`));
+  const ul = el("ul", "bullets");
+  M.problems.slice(0, 14).forEach(p => ul.append(el("li", null, p)));
+  if (M.problems.length > 14) ul.append(el("li", null, `…以及另外 ${M.problems.length - 14} 项，完整列表见 data/policies.json`));
+  c.append(ul);
+  method.append(c);
+}
+
+/* ---------- go ---------- */
+buildMatrix();
+syncSortChips();
+</script>

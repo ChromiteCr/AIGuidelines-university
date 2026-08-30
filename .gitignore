@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Scratch / intermediate extraction output.
+# The reproducible chain is univ/*.md -> data/policies.json -> atlas/index.html;
+# raw workflow dumps are large, machine-specific, and not needed to rebuild.
+scratchpad/
+*.raw.json
+rebuilt.json

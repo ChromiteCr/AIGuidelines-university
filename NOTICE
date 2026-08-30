@@ -1,0 +1,111 @@
+NOTICE — 权属与许可说明 / Rights and Licensing
+==============================================
+
+这个仓库里有三种性质不同的东西，不能用同一个许可覆盖。LICENSE 文件只管第一
+种。发布、引用或再利用之前请先读完这一页。
+
+This repository contains three kinds of material with different rights status.
+The LICENSE file covers only the first. Read this page before redistributing,
+citing, or reusing anything here.
+
+
+-----------------------------------------------------------------------------
+1. 代码 / Code  —  MIT License
+-----------------------------------------------------------------------------
+
+    tools/*.py
+    atlas/atlas.template.html
+    atlas/index.html   （模板部分；见第 2 节关于其中内嵌的数据）
+
+由本项目作者撰写，按 LICENSE 文件的 MIT 许可发布。可自由使用、修改、再分发。
+
+Written by this project's author and released under the MIT License in the
+LICENSE file. Free to use, modify, and redistribute.
+
+
+-----------------------------------------------------------------------------
+2. 数据集与编码体系 / Dataset and coding scheme  —  CC BY 4.0
+-----------------------------------------------------------------------------
+
+    data/policies.json
+    tools/codebook.py   （作为编码体系而非代码时）
+
+以下内容是本项目的原创学术贡献，按 Creative Commons Attribution 4.0
+International (CC BY 4.0) 发布 —— https://creativecommons.org/licenses/by/4.0/
+
+  - 12 项可比条款的划分与定义
+  - 每项条款下的取值集合与强度分级（rank 0–3）
+  - 每所学校在每项条款上的取值判定
+  - 来源层级（校级／院系级／面向教师／混合）的标注
+  - 由此计算的分布、一致度与沉默率
+
+使用时请注明出处。
+
+CAVEAT: data/policies.json 的 `evidence`、`quote` 与 `takeaways` 字段包含
+第 3 节所述的原文引文（每条至多约 320 字符）。这些字符串的版权状态见第 3 节，
+不因被收入本数据集而改变。
+
+The classification itself is this project's original scholarly contribution and
+is released under CC BY 4.0; please attribute. Note that the `evidence`,
+`quote`, and `takeaways` fields embed short verbatim quotations whose status is
+governed by section 3 below — inclusion here does not change that status.
+
+
+-----------------------------------------------------------------------------
+3. 大学官方文本引文 / Quoted university source text  —  各校保留版权
+-----------------------------------------------------------------------------
+
+    univ/*.md
+
+这些文件包含美国三十所大学官方网页的**逐字引文与摘录**。版权归各该大学所有，
+本项目不拥有、也无权向任何人授予对这些文字的权利。
+
+收录方式与目的：
+
+  - 目的：学术研究、比较分析与评述，非商业用途。
+  - 来源：全部为各校公开发布的官方网页；每份文件均记录其官方 URL、发布单位
+    与访问日期。
+  - 范围：摘录相关政策段落，去除导航与站点框架，保留原始措辞。
+  - 时点：2026 年 8 月 21 日至 29 日的快照。
+
+本项目与上述任何一所大学均无隶属、赞助或背书关系。校名仅用于指称其自身的政策
+文本。
+
+若某校认为本项目对其材料的使用超出合理范围，请通过仓库 issue 联系，本项目将
+删减或改为仅保留链接。
+
+These files contain verbatim excerpts from the official web pages of thirty
+U.S. universities. Copyright remains with the respective universities. This
+project neither owns these texts nor can grant anyone any rights in them.
+
+They are reproduced for non-commercial academic research, comparison, and
+commentary. Each file records its official source URL, issuing unit, and access
+date. This project is not affiliated with, sponsored by, or endorsed by any of
+these institutions; their names are used only to refer to their own published
+policies. If an institution considers this use to exceed fair use, please open
+an issue and the material will be trimmed or reduced to a link.
+
+
+-----------------------------------------------------------------------------
+4. 字体 / Fonts
+-----------------------------------------------------------------------------
+
+atlas/index.html 通过 Google Fonts 引用 Spectral、IBM Plex Sans、IBM Plex Mono
+与 Noto Sans SC。字体文件不随本仓库分发，均以 SIL Open Font License 1.1 授权。
+
+Fonts are loaded from Google Fonts, not bundled here; all are under the SIL
+Open Font License 1.1.
+
+
+-----------------------------------------------------------------------------
+5. 免责 / Disclaimer
+-----------------------------------------------------------------------------
+
+本仓库不是任何大学的官方出版物，其中的内容不构成对各校现行政策的准确陈述。
+政策会变；本项目记录的是 2026 年 8 月的快照。任何正式用途请回到各校官网核实
+当前版本，并自行存档所依据的版本。
+
+Not an official publication of any university, and not a statement of any
+institution's current policy. Policies change; this is an August 2026 snapshot.
+For any formal use, verify against the official page and archive the version
+you rely on.

@@ -131,6 +131,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;pad
 .masthead .wrap{padding-top:clamp(28px,6vw,56px);padding-bottom:clamp(22px,4vw,36px)}
 .mast-top{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px}
 .mast-top .eyebrow{flex:1 1 auto}
+.mast-top .xlink{flex:none;color:var(--seal-ink);text-decoration:none;
+  border-bottom:1px solid var(--seal);padding-bottom:2px}
+.mast-top .xlink:hover{color:var(--ink);border-color:var(--ink)}
 h1{
   font-family:var(--display);font-weight:700;
   font-size:clamp(31px,5.2vw,54px);line-height:1.08;letter-spacing:-.015em;
@@ -487,6 +490,8 @@ footer .num{color:var(--ink-2)}
     <div class="wrap">
       <div class="mast-top">
         <span class="eyebrow">Comparative source atlas · 官方文本对照 · 采集于 <span id="accessed"></span></span>
+        <a class="eyebrow xlink" href="index.html">← 项目主页</a>
+        <a class="eyebrow xlink" href="guidelines.html">→ 本校《学生 AI 使用规范》</a>
         <span class="eyebrow" id="mast-count"></span>
       </div>
       <h1>三十校 AI 政策图谱<span class="thin"> ／ 他们到底怎么规定的</span></h1>

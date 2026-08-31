@@ -1,0 +1,1351 @@
+<title>学生 AI 使用规范</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+/* ============================================================================
+   TOKENS — same family as the policy atlas so the two pages read as one
+   project, but tuned for reading rather than scanning.
+   ========================================================================= */
+:root{
+  --paper:#E7E9EF;
+  --surface:#FBFBFD;
+  --surface-2:#F1F3F7;
+  --surface-3:#E7EAF1;
+  --ink:#131A2B;
+  --ink-2:#414B61;
+  --ink-3:#79839A;
+  --rule:#D2D6E0;
+  --rule-soft:#E3E6ED;
+  --seal:#8A2B34;
+  --seal-ink:#8A2B34;
+  --seal-wash:rgba(138,43,52,.08);
+
+  /* permission ramp: density = restriction. AI-0 closed, AI-3 open. */
+  --l0:#1B2440;  --l0-on:#EDEFF6;
+  --l1:#5D6980;  --l1-on:#FBFCFE;
+  --l2:#B9C0D0;  --l2-on:#222A3D;
+  --l3:transparent; --l3-on:#3D4760; --l3-edge:#9AA3B8;
+
+  --focus:#3C5BD6;
+
+  --display:"Spectral","Noto Serif SC",Georgia,serif;
+  --serif:"Spectral","Noto Serif SC",Georgia,serif;
+  --sans:"IBM Plex Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --pad:clamp(18px,5vw,44px);
+  --measure:33rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+    --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+    --rule:#28303F; --rule-soft:#1E2532;
+    --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+    --l0:#CBD4E9; --l0-on:#111726;
+    --l1:#77839D; --l1-on:#F5F7FB;
+    --l2:#39425A; --l2-on:#C7CEDE;
+    --l3:transparent; --l3-on:#98A2BA; --l3-edge:#3E4863;
+    --focus:#7D95F0;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+  --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+  --rule:#28303F; --rule-soft:#1E2532;
+  --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+  --l0:#CBD4E9; --l0-on:#111726;
+  --l1:#77839D; --l1-on:#F5F7FB;
+  --l2:#39425A; --l2-on:#C7CEDE;
+  --l3:transparent; --l3-on:#98A2BA; --l3-edge:#3E4863;
+  --focus:#7D95F0;
+}
+
+/* ============================================================================
+   BASE
+   ========================================================================= */
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-size:16.5px;line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0}
+a{color:var(--seal-ink);text-underline-offset:2px}
+
+/* Language switch: everything is authored twice and one set is hidden.
+   This has to beat every component rule that sets its own display (.lv-body b
+   is display:block, and at specificity 0-1-1 it would otherwise win over a
+   bare [lang] selector), so the hide is !important and the shown element is
+   simply left alone rather than forced back to a display value it may not have. */
+:root:not([data-lang="en"]) [lang="en"],
+:root[data-lang="en"] [lang="zh"]{display:none !important}
+
+.wrap{max-width:calc(var(--measure) + 9rem);margin:0 auto;padding:0 var(--pad)}
+.col{max-width:var(--measure)}
+
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ============================================================================
+   TOP BAR
+   ========================================================================= */
+.bar{
+  position:sticky;top:0;z-index:20;background:var(--surface);
+  border-bottom:1px solid var(--rule);
+}
+.bar .wrap{display:flex;align-items:center;gap:14px;height:46px}
+.bar .doc{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-2);
+  white-space:nowrap;flex:none}
+.bar .sp{flex:1}
+.bar .home{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-decoration:none;
+  padding:2px 8px;border:1px solid var(--rule);border-radius:2px;flex:none;line-height:1.4}
+.bar .home:hover{color:var(--ink);border-color:var(--ink-3)}
+.jump{display:flex;gap:1px;overflow-x:auto;min-width:0;scrollbar-width:none;
+  -ms-overflow-style:none;margin-left:6px}
+.jump::-webkit-scrollbar{display:none}
+.jump a{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-decoration:none;
+  padding:3px 7px;border-radius:2px;white-space:nowrap;transition:color .12s,background .12s}
+.jump a:hover{color:var(--ink);background:var(--surface-2)}
+.jump .gap{width:7px;flex:none}
+@media (max-width:660px){.bar .doc{display:none}}
+.lang{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;flex:none}
+.lang button{font-family:var(--mono);font-size:11px;padding:3px 10px;color:var(--ink-3);
+  background:var(--surface-2);letter-spacing:.05em}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+
+/* ============================================================================
+   MASTHEAD
+   ========================================================================= */
+.mast{border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
+.mast .wrap{padding-top:clamp(34px,7vw,64px);padding-bottom:clamp(26px,4vw,40px)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,5.4vw,52px);
+  line-height:1.1;letter-spacing:-.015em;margin:12px 0 10px;text-wrap:balance}
+.sub{font-family:var(--sans);font-size:clamp(14px,1.6vw,16.5px);color:var(--ink-2);
+  margin:0;max-width:44ch;line-height:1.55}
+.facts{display:flex;gap:0;flex-wrap:wrap;margin-top:clamp(22px,4vw,32px);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--rule)}
+.fact{flex:1 1 130px;background:var(--surface);padding:11px 14px 13px}
+.fact b{display:block;font-family:var(--mono);font-size:21px;font-weight:500;
+  line-height:1.2;font-variant-numeric:tabular-nums}
+.fact span{font-family:var(--sans);font-size:11px;color:var(--ink-3);line-height:1.35}
+
+/* ============================================================================
+   SECTIONS
+   ========================================================================= */
+section{padding-top:clamp(38px,5.5vw,60px);scroll-margin-top:56px}
+.sec-head{display:flex;gap:14px;align-items:baseline;margin-bottom:16px;
+  padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.sec-n{font-family:var(--mono);font-size:12px;color:var(--seal-ink);font-weight:500;flex:none;
+  letter-spacing:.04em}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.4vw,26px);
+  margin:0;letter-spacing:-.01em;line-height:1.25}
+h3{font-family:var(--display);font-weight:600;font-size:18px;margin:26px 0 8px;line-height:1.35}
+p{margin:0 0 16px;max-width:var(--measure)}
+p.lead{font-size:18px;color:var(--ink-2)}
+strong{font-weight:600}
+:root[data-lang="en"] body{font-size:16px}
+
+/* data callout — the numbers do the arguing */
+.data{
+  margin:20px 0;padding:14px 16px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--seal);border-radius:2px;
+  font-family:var(--sans);font-size:14px;line-height:1.6;max-width:var(--measure);
+}
+.data b{font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+.data .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:5px}
+
+/* verbatim source quotation */
+blockquote{
+  margin:20px 0;padding:0 0 0 18px;border-left:2px solid var(--rule);
+  max-width:var(--measure);font-style:italic;color:var(--ink-2);
+}
+blockquote p{margin:0 0 7px}
+blockquote cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;
+  color:var(--ink-3);letter-spacing:.02em}
+
+/* the rule itself — what the school actually decides */
+.rule-box{
+  margin:22px 0;padding:15px 17px;background:var(--surface);border:1px solid var(--ink-3);
+  border-radius:2px;max-width:var(--measure);
+}
+.rule-box .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--seal-ink);display:block;margin-bottom:6px}
+.rule-box p{margin:0 0 8px;font-family:var(--sans);font-size:14.5px;line-height:1.6}
+.rule-box p:last-child{margin:0}
+
+/* ============================================================================
+   FOUR LEVELS
+   ========================================================================= */
+.levels{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:22px 0}
+.lv{background:var(--surface);display:grid;grid-template-columns:88px 1fr;gap:16px;
+  padding:14px 16px;align-items:start}
+.lv-tag{
+  font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:.02em;
+  padding:5px 0;text-align:center;border-radius:2px;
+}
+.lv-tag[data-l="0"]{background:var(--l0);color:var(--l0-on)}
+.lv-tag[data-l="1"]{background:var(--l1);color:var(--l1-on)}
+.lv-tag[data-l="2"]{background:var(--l2);color:var(--l2-on)}
+.lv-tag[data-l="3"]{background:var(--l3);color:var(--l3-on);box-shadow:inset 0 0 0 1px var(--l3-edge)}
+.lv-body b{display:block;font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:3px}
+.lv-body p{margin:0 0 5px;font-family:var(--sans);font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+.lv-body em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+
+/* ============================================================================
+   TABLES
+   ========================================================================= */
+.tw{overflow-x:auto;margin:20px 0;max-width:100%}
+table{border-collapse:collapse;font-family:var(--sans);font-size:13.5px;
+  width:100%;min-width:420px;background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{font-weight:600;font-size:11.5px;letter-spacing:.03em;color:var(--ink-3);
+  background:var(--surface-2);border-bottom:1px solid var(--rule)}
+tr:last-child td{border-bottom:none}
+td code{font-family:var(--mono);font-size:12px;color:var(--ink)}
+
+/* ============================================================================
+   DISCLOSURE TEMPLATE
+   ========================================================================= */
+pre.tpl{
+  margin:18px 0;padding:14px 16px;background:var(--surface-3);border:1px solid var(--rule);
+  border-radius:2px;font-family:var(--mono);font-size:12.5px;line-height:1.75;
+  overflow-x:auto;max-width:var(--measure);color:var(--ink);
+}
+
+/* ============================================================================
+   QUICK CARD
+   ========================================================================= */
+.card{
+  margin:22px 0;border:1.5px solid var(--ink);border-radius:4px;overflow:hidden;
+  background:var(--surface);max-width:var(--measure);
+}
+.card-h{padding:11px 16px;background:var(--ink);color:var(--surface);
+  font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em;
+  display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card-h span{font-family:var(--mono);font-size:10.5px;opacity:.7;font-weight:400}
+.card-b{padding:14px 16px;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.steps{counter-reset:s;margin:0;padding:0;list-style:none;display:flex;
+  flex-direction:column;gap:9px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:20px 1fr;gap:9px;align-items:baseline}
+.steps li::before{content:counter(s);font-family:var(--mono);font-size:11px;color:var(--seal-ink);
+  border:1px solid var(--rule);border-radius:2px;text-align:center;line-height:18px}
+.steps b{font-weight:600}
+.steps i{font-style:normal;color:var(--ink-2);display:block;font-size:12.5px}
+
+/* ============================================================================
+   CASE FILE
+   ========================================================================= */
+.cases{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:20px 0}
+.case{background:var(--surface);padding:13px 16px;display:flex;flex-direction:column;gap:6px}
+.case-top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.case-n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);flex:none}
+.case-q{font-family:var(--sans);font-size:14px;font-weight:600;flex:1;min-width:190px;line-height:1.45}
+.verdict{font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:2px;
+  white-space:nowrap;flex:none;letter-spacing:.03em}
+.verdict[data-v="ok"]{background:var(--l2);color:var(--l2-on)}
+.verdict[data-v="disclose"]{background:var(--l1);color:var(--l1-on)}
+.verdict[data-v="no"]{background:var(--l0);color:var(--l0-on)}
+.verdict[data-v="check"]{box-shadow:inset 0 0 0 1px var(--l3-edge);color:var(--l3-on)}
+.case p{margin:0;font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2);max-width:none}
+.case p b{color:var(--ink);font-weight:600}
+
+.note{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6;
+  max-width:var(--measure);margin:14px 0 0}
+.todo{
+  margin:18px 0;padding:11px 14px;border:1px dashed var(--ink-3);border-radius:2px;
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6;max-width:var(--measure);
+}
+
+footer{margin-top:clamp(44px,6vw,72px);padding:24px 0 56px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:12px;color:var(--ink-3);line-height:1.65}
+footer p{max-width:var(--measure);margin:0 0 9px}
+footer a{color:var(--seal-ink)}
+
+@media (max-width:640px){
+  .lv{grid-template-columns:1fr;gap:8px}
+  .lv-tag{width:78px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.001ms !important;animation-duration:.001ms !important}
+}
+@media print{
+  .bar{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+}
+</style>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="home" href="index.html" title="项目主页 / Project home">←</a>
+    <span class="doc" lang="zh">学生 AI 使用规范 · 国际部</span>
+    <span class="doc" lang="en">Student AI Use Guidelines · International Division</span>
+    <nav class="jump" aria-label="跳转到章节 / Jump to section">
+      <a href="#s0" title="为什么会有这份规范 / Why this exists">§0</a>
+      <a href="#s1" title="四档许可框架 / Four permission levels">§1</a>
+      <a href="#s2" title="默认规则与标级 / The default">§2</a>
+      <a href="#s3" title="披露怎么做 / How to disclose">§3</a>
+      <a href="#s4" title="你要负的责任 / What you're responsible for">§4</a>
+      <a href="#s5" title="被质疑的时候 / If you're questioned">§5</a>
+      <a href="#s6" title="国际部专章 / International division">§6</a>
+      <span class="gap"></span>
+      <a href="#a" title="一页速查 / One-page check">A</a>
+      <a href="#b" title="灰区判例 / Grey-zone cases">B</a>
+      <a href="#c" title="依据与方法 / Sources and method">C</a>
+    </nav>
+    <span class="sp"></span>
+    <div class="lang" role="group" aria-label="语言 / Language">
+      <button id="b-zh" aria-pressed="true">中文</button>
+      <button id="b-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="eyebrow" lang="zh">草案 · 依据三十所美国大学官方政策改编</span>
+    <span class="eyebrow" lang="en">Draft · Adapted from thirty U.S. university policies</span>
+    <h1 lang="zh">学生 AI 使用规范</h1>
+    <h1 lang="en">Student AI Use Guidelines</h1>
+    <p class="sub" lang="zh">
+      每一条规则均标注其依据来源，可逐条核查，包括核查本规范判断有误之处。
+    </p>
+    <p class="sub" lang="en">
+      Every rule states the source it rests on and can be checked line by line, including
+      where this document's judgment turns out to be wrong.
+    </p>
+    <div class="facts">
+      <div class="fact"><b>30</b><span lang="zh">所美国大学的官方政策</span><span lang="en">U.S. university policies read</span></div>
+      <div class="fact"><b>12</b><span lang="zh">项逐条对照的条款</span><span lang="en">provisions compared</span></div>
+      <div class="fact"><b>234</b><span lang="zh">条经逐字核验的原文依据</span><span lang="en">quotations verified verbatim</span></div>
+      <div class="fact"><b>45%</b><span lang="zh">它们在最基础问题上的一致度</span><span lang="en">agreement on the most basic question</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ===================================================================== -->
+<section id="s0">
+  <div class="sec-head">
+    <span class="sec-n">§0</span>
+    <h2 lang="zh">为什么会有这份规范</h2>
+    <h2 lang="en">Why this document exists</h2>
+  </div>
+
+  <div lang="zh">
+    <p class="lead">你申请的那些大学，已经各自写下了规则。</p>
+    <p>
+      本规范的依据是一项文本比较研究：采集三十所美国大学公开发布的 AI 使用政策，拆解为
+      12 项可比条款，逐项编码后对照。在「作业未说明可否使用 AI 时适用何种规则」这一最基础的
+      问题上，二十九所在其官方来源中作出明确表述的学校分为四种口径。
+    </p>
+    <div class="data">
+      <span class="k">默认规则 · 一致度 45%</span>
+      <b>13</b> 所默认禁止未经许可的使用 · <b>5</b> 所将其等同于他人代为完成 ·
+      <b>3</b> 所有条件允许 · <b>8</b> 所交由任课教师逐门确定 · <b>1</b> 所未作表述
+    </div>
+    <p>
+      该分布表明，各校在此问题上尚未形成统一口径。因此本规范并非对某一权威做法的照搬，而是在
+      上述分歧中作出的<strong>选择</strong>。每项选择的依据、以及未被采纳的其他口径，均在正文
+      中标明，以便核查。
+    </p>
+    <p>
+      §6.2 涉及大学申请文书。该节所述后果与其余各节不在同一量级：课程层面的认定影响一门课程的
+      成绩与校内纪律记录，申请层面的认定可能影响录取资格。
+    </p>
+  </div>
+
+  <div lang="en">
+    <p class="lead">The universities you are applying to have each written their own rules.</p>
+    <p>
+      This document rests on a comparative reading of published policy text: the AI use policies of
+      thirty U.S. universities, broken into twelve comparable provisions and coded provision by
+      provision. On the most basic question — what applies when an assignment says nothing about AI
+      — the twenty-nine that state a position in their official sources divide four ways.
+    </p>
+    <div class="data">
+      <span class="k">Default rule · 45% agreement</span>
+      <b>13</b> prohibit unapproved use by default · <b>5</b> treat it as work done by another
+      person · <b>3</b> allow it conditionally · <b>8</b> leave it to the instructor ·
+      <b>1</b> states no position
+    </div>
+    <p>
+      That distribution shows no settled position across the thirty. This document is therefore not a
+      copy of any single authority, but a set of <strong>choices</strong> made among those
+      differences. The reasoning for each, and the alternatives not adopted, are stated in the text
+      so that both can be checked.
+    </p>
+    <p>
+      §6.2 concerns college application essays. Its consequences are not of the same order as the
+      rest: a finding on coursework affects a course grade and an internal disciplinary record; a
+      finding on an application can affect an offer of admission.
+    </p>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<section id="s1">
+  <div class="sec-head">
+    <span class="sec-n">§1</span>
+    <h2 lang="zh">四档许可框架</h2>
+    <h2 lang="en">Four permission levels</h2>
+  </div>
+
+  <p lang="zh">
+    三十所学校里，只有三所给出了明确的分级框架——Johns Hopkins 三档、UNC 四档、Brown 五档。
+    另有十所用非正式的分类，十七所完全没提。本校采用四档，命名为 <code class="num">AI-0</code>
+    到 <code class="num">AI-3</code>，短到可以印在作业单的角落。
+  </p>
+  <p lang="en">
+    Only three of the thirty publish an explicit graduated framework — Johns Hopkins with three
+    levels, UNC with four, Brown with five. Ten more use informal categories; seventeen say nothing.
+    We use four, labelled <code class="num">AI-0</code> through <code class="num">AI-3</code>, short
+    enough to print in the corner of an assignment sheet.
+  </p>
+
+  <div class="levels">
+    <div class="lv">
+      <span class="lv-tag" data-l="0">AI-0</span>
+      <div class="lv-body">
+        <b lang="zh">不可使用</b><b lang="en">No AI</b>
+        <p lang="zh">全程不得使用，包括查词与语法检查。</p>
+        <p lang="en">No use at any stage, including dictionaries and grammar checkers.</p>
+        <em lang="zh">限时写作 · 语言能力测评 · 考试</em>
+        <em lang="en">Timed writing · language assessments · exams</em>
+      </div>
+    </div>
+    <div class="lv">
+      <span class="lv-tag" data-l="1">AI-1</span>
+      <div class="lv-body">
+        <b lang="zh">仅限辅助</b><b lang="en">Assistive only</b>
+        <p lang="zh">可以使用，但<strong>不得产生新内容</strong>：查词、拼写与语法纠错、格式排版、
+          作为检索的起点、请它解释你看不懂的概念。</p>
+        <p lang="en">Permitted, but it may <strong>not produce new content</strong>: dictionaries,
+          spelling and grammar correction, formatting, a starting point for searching, explaining a
+          concept you don't understand.</p>
+        <em lang="zh">多数常规作业的默认可选档</em>
+        <em lang="en">The usual level for routine work</em>
+      </div>
+    </div>
+    <div class="lv">
+      <span class="lv-tag" data-l="2">AI-2</span>
+      <div class="lv-body">
+        <b lang="zh">可生成，须改造并披露</b><b lang="en">Generative, with rework and disclosure</b>
+        <p lang="zh">AI 可以产出内容，但你必须实质改造它、核实它，按 §3 披露，
+          并附上未经 AI 修改的原稿。</p>
+        <p lang="en">AI may produce content, but you must substantially rework it, verify it,
+          disclose under §3, and attach your un-assisted draft.</p>
+        <em lang="zh">研究性作业 · 编程 · 数据分析</em>
+        <em lang="en">Research tasks · programming · data analysis</em>
+      </div>
+    </div>
+    <div class="lv">
+      <span class="lv-tag" data-l="3">AI-3</span>
+      <div class="lv-body">
+        <b lang="zh">以 AI 为对象</b><b lang="en">AI as the subject</b>
+        <p lang="zh">作业本身要求你使用、比较或评价 AI 的输出。仍须披露与核实。</p>
+        <p lang="en">The assignment itself asks you to use, compare, or critique AI output.
+          Disclosure and verification still apply.</p>
+        <em lang="zh">专门设计的探究任务</em>
+        <em lang="en">Purpose-built inquiry tasks</em>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">判准</span><span class="k" lang="en">The test</span>
+    <p lang="zh"><strong>这件事产生新内容吗？</strong>产生 → 至少 AI-2。不产生 → AI-1 够了。</p>
+    <p lang="en"><strong>Does this produce new content?</strong> If yes → AI-2 at minimum.
+      If no → AI-1 covers it.</p>
+    <p lang="zh">本规范<strong>不为各档位提供穷举清单</strong>。工具与用法持续变化，清单无法保持
+      完备，而不完备的清单容易被解释为「未列出即允许」。判断依据为上述单一判准，具体情形见
+      附录 B。</p>
+    <p lang="en">This document publishes <strong>no exhaustive list</strong> per level. Tools and
+      uses keep changing, so no list stays complete, and an incomplete list tends to be read as
+      permission for whatever it omits. The single test above governs; concrete situations are in
+      Appendix B.</p>
+  </div>
+
+  <p lang="zh">AI-1 之所以成立，芝加哥大学说得最清楚：</p>
+  <p lang="en">The University of Chicago states the reasoning behind AI-1 most clearly:</p>
+  <blockquote>
+    <p>The principle here is that if generative AI is performing a task that other technologies
+      (or people) currently perform, and such uses are not a violation of academic integrity, then
+      those uses of generative AI do not violate the default policy.</p>
+    <cite>University of Chicago Law School · univ/10-UChicago.md</cite>
+  </blockquote>
+</section>
+
+<!-- ===================================================================== -->
+<section id="s2">
+  <div class="sec-head">
+    <span class="sec-n">§2</span>
+    <h2 lang="zh">默认规则与标级</h2>
+    <h2 lang="en">The default, and how levels get assigned</h2>
+  </div>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">本校规定</span><span class="k" lang="en">This school's rule</span>
+    <p lang="zh"><strong>默认 AI-0。</strong>任课教师可以为具体作业放宽到任一更高档位。</p>
+    <p lang="en"><strong>AI-0 by default.</strong> Teachers may raise the level for any specific
+      assignment.</p>
+    <p lang="zh"><strong>未标注档位的作业，按 AI-0 处理。</strong>如果你不确定某份作业属于哪一档，
+      你有权在动手之前直接问，而不是事后被追究。</p>
+    <p lang="en"><strong>An assignment with no level marked is AI-0.</strong> If you are unsure which
+      level applies, you are entitled to ask before you start rather than be judged after you finish.</p>
+  </div>
+
+  <p lang="zh">
+    采用该默认值的理由是<strong>可预测性</strong>，而非严格程度。将默认规则交由任课教师逐门
+    确定，在大学环境中可行——三十所中有八所学校就是这么规定的——其前提是教师普遍会在课程说明中
+    写明 AI 条款。该前提在高中并不稳定成立。当默认规则为「由教师确定」而教师未作说明时，规则
+    处于空缺状态：使用可能构成违规，不使用则可能在同等要求下处于不利位置。以 AI-0 为默认值
+    可消除该空缺——未获明确许可即不得使用，需要使用则事先询问。
+  </p>
+  <p lang="en">
+    The reason for this default is <strong>predictability</strong>, not severity. Leaving the
+    default to each instructor is workable at university — eight of the thirty rely on exactly that
+    — because instructors there generally publish an AI clause in the course policy. That condition
+    does not hold reliably in high school. Where the default is "the instructor decides" and no
+    instructor has decided, the rule is simply absent: using AI may be a violation, and not using it
+    may leave you at a disadvantage under the same requirements. An AI-0 default removes that gap —
+    without explicit permission you may not use it, and if you need to, you ask first.
+  </p>
+
+  <p lang="zh">
+    当你拿不准某个用法算不算过线时，斯坦福给了一把最好用的尺子：
+  </p>
+  <p lang="en">
+    When you cannot tell whether a particular use crosses the line, Stanford offers the most useful
+    yardstick:
+  </p>
+  <blockquote>
+    <p>Absent a clear statement from a course instructor, use of or consultation with generative AI
+      shall be treated analogously to assistance from another person.</p>
+    <cite>Stanford Board on Conduct Affairs · univ/01-Stanford.md</cite>
+  </blockquote>
+  <p lang="zh">
+    该类比的作用，是把一个缺乏经验的判断转换成一个已有判断标准的问题。多数人难以判断
+    「AI 参与到何种程度构成违规」，但对<strong>「由他人代写这一段是否可接受」</strong>
+    有稳定的判断。斯坦福的表述要求沿用后一判断。
+  </p>
+  <p lang="en">
+    The purpose of the analogy is to convert an unfamiliar judgment into a familiar one. Few people
+    can say how much AI involvement crosses the line, but almost everyone has a settled view on
+    <strong>whether it would be acceptable for a classmate to write that paragraph</strong>.
+    Stanford's formulation asks you to apply the second judgment to the first question.
+  </p>
+</section>
+
+<!-- ===================================================================== -->
+<section id="s3">
+  <div class="sec-head">
+    <span class="sec-n">§3</span>
+    <h2 lang="zh">披露怎么做</h2>
+    <h2 lang="en">How to disclose</h2>
+  </div>
+
+  <div class="data">
+    <span class="k" lang="zh">披露要求 · 一致度 43%</span>
+    <span class="k" lang="en">Disclosure · 43% agreement</span>
+    <span lang="zh"><b>12</b> 所强制 · <b>1</b> 所存疑即披露 · <b>6</b> 所建议 ·
+      <b>9</b> 所依课程而定 · <b>2</b> 所未提及</span>
+    <span lang="en"><b>12</b> require it · <b>1</b> says disclose when in doubt · <b>6</b> recommend
+      it · <b>9</b> leave it to the course · <b>2</b> are silent</span>
+  </div>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">本校规定</span><span class="k" lang="en">This school's rule</span>
+    <p lang="zh"><strong>AI-1 及以上，一律须披露。</strong>三行，附在作业末尾。</p>
+    <p lang="en"><strong>Disclosure is required at AI-1 and above.</strong> Three lines at the end of
+      your work.</p>
+  </div>
+
+  <p lang="zh">
+    采用强制而非建议，理由是执行成本：大学单门课程规模常达数百人，高中班级约三十人，逐份查阅
+    披露声明在后者可行。可执行性是规则能否实际生效的前提。
+  </p>
+  <p lang="en">
+    Required rather than recommended, on grounds of enforcement cost: a university lecture may hold
+    several hundred students, a class here about thirty, and reading thirty statements is feasible.
+    Enforceability is a precondition for a rule taking effect at all.
+  </p>
+
+  <pre class="tpl" lang="zh">AI 使用声明
+工具：ChatGPT (GPT-5)
+环节：初稿构思；语法检查
+程度：AI-1 —— 仅用于语法纠错，未生成任何段落</pre>
+  <pre class="tpl" lang="en">AI Use Statement
+Tool:    ChatGPT (GPT-5)
+Where:   brainstorming the outline; grammar check
+Extent:  AI-1 — grammar correction only; no text generated</pre>
+
+  <p lang="zh">
+    三件套：<strong>什么工具、用在哪一步、用到什么程度</strong>。这三项分别有 9 所、14 所、
+    14 所学校要求，是跨校统计出的最小集合。采用固定格式而非自由撰写，是为降低填写成本：结构化
+    表单只需补全字段，开放式说明则要求使用者自行决定披露到何种程度。
+  </p>
+  <p lang="en">
+    Three things: <strong>which tool, at which step, to what extent</strong>. Nine, fourteen, and
+    fourteen of the thirty require these respectively — this is the minimum set the data supports.
+    The format is fixed to lower the cost of complying: a structured form only asks you to fill in
+    fields, whereas an open-ended statement requires you to decide for yourself how much to say.
+  </p>
+
+  <p lang="zh">
+    <strong>提示词日志只在 AI-2 及以上要求。</strong>八所学校要求记录 prompt。但若全班每份作业
+    均附提示词记录，实际上无法逐份查阅；长期不被查阅的要求会失去约束力，并连带削弱本规范其余
+    条款的可信度。
+  </p>
+  <p lang="en">
+    <strong>Prompt logs are required only at AI-2 and above.</strong> Eight of the thirty ask for
+    prompts. But if every student attaches one to every assignment, none of them can actually be
+    read; a requirement that is never checked loses force, and weakens the credibility of the rest
+    of this document with it.
+  </p>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">最重要的一条</span><span class="k" lang="en">The one that matters most</span>
+    <p lang="zh"><strong>披露不等于获得许可。</strong>一份标为 AI-0 的作业，你如实声明用了 AI，
+      仍然是违规。声明治不好一个本就被禁止的用法。</p>
+    <p lang="en"><strong>Disclosing is not the same as being allowed.</strong> On an AI-0 assignment,
+      an honest statement that you used AI is still a violation. Disclosure does not cure a use that
+      was prohibited to begin with.</p>
+  </div>
+
+  <blockquote>
+    <p>A student cannot avoid limits on the use of generative AI that would otherwise apply by
+      attributing their work to generative AI. Under the default policy, using generative AI to
+      compose all or part of a paper, even if the use of generative AI is fully documented in
+      properly placed footnotes, is a violation.</p>
+    <cite>University of Chicago · univ/10-UChicago.md</cite>
+  </blockquote>
+  <p class="note" lang="zh">
+    华盛顿大学圣路易斯与南加州大学各有一句同义的规定。这一点上没有分歧。
+  </p>
+  <p class="note" lang="en">
+    WashU and USC each state the same rule in their own words. There is no disagreement on this point.
+  </p>
+</section>
+
+<!-- ===================================================================== -->
+<section id="s4">
+  <div class="sec-head">
+    <span class="sec-n">§4</span>
+    <h2 lang="zh">你要负的责任</h2>
+    <h2 lang="en">What you are responsible for</h2>
+  </div>
+
+  <h3 lang="zh">一 · 核实</h3>
+  <h3 lang="en">1 · Verification</h3>
+  <div class="rule-box">
+    <span class="k" lang="zh">本校规定</span><span class="k" lang="en">This school's rule</span>
+    <p lang="zh"><strong>你对交上来的成品负 100% 的责任。</strong>编造的引注、错误的史实、
+      幻觉出来的数据、抄错的公式——全部算在你头上。</p>
+    <p lang="en"><strong>You are 100% responsible for what you submit.</strong> Invented citations,
+      wrong facts, hallucinated data, a mis-copied formula — all of it lands on you.</p>
+  </div>
+  <p lang="zh">
+    这是三十校中分歧最大的一条（一致度 39%），但在高中场景下取向较为明确。该条款的作用是排除
+    一类免责主张，即以「内容由 AI 生成」为由推卸对错误的责任。若不作明确规定，本规范其余条款
+    均可被「不知其为误」的说法规避。
+    用的是北卡罗来纳大学的口径——该校要求学生对最终成品负
+    <span class="num">"ultimately 100% responsible"</span> 的责任，并把它和另一句话放在一起：
+  </p>
+  <p lang="en">
+    This is the most contested provision in the set (39% agreement), though in a high-school setting
+    the direction is fairly clear. Its function is to rule out one class of defence: disclaiming
+    responsibility for an error on the ground that AI produced it. Without it, every other rule here
+    can be evaded with "I did not know it was wrong." The wording follows UNC's, which holds
+    students
+    <span class="num">"ultimately 100% responsible"</span> for the final product and pairs that with
+    a second line:
+  </p>
+  <blockquote>
+    <p>AI should help you think, not think for you.</p>
+    <cite>University of North Carolina at Chapel Hill · univ/25-UNC-Chapel-Hill.md</cite>
+  </blockquote>
+
+  <h3 lang="zh">二 · 隐私与数据</h3>
+  <h3 lang="en">2 · Privacy and data</h3>
+  <div class="data">
+    <span class="k" lang="zh">数据与隐私 · 一致度 72%（可评级条款中最高）</span>
+    <span class="k" lang="en">Data &amp; privacy · 72% agreement, the highest of any gradable provision</span>
+    <span lang="zh"><b>13</b> 所禁止上传受限数据 · <b>2</b> 所视上传为公开 ·
+      <b>3</b> 所一般提醒 · <b>12</b> 所未提及</span>
+    <span lang="en"><b>13</b> prohibit uploading restricted data · <b>2</b> treat upload as public
+      disclosure · <b>3</b> give general caution · <b>12</b> are silent</span>
+  </div>
+  <div class="rule-box">
+    <span class="k" lang="zh">本校不指定 AI 工具</span>
+    <span class="k" lang="en">This school designates no AI tool</span>
+    <p lang="zh">本校不提供机构版工具，也不发布批准工具清单。这是一个明确的选择，
+      它的代价必须说清楚：<strong>这一节的责任完整地落在你身上，没有任何豁免口。</strong></p>
+    <p lang="en">We provide no institutional tier and publish no approved-tool list. That is a
+      deliberate choice, and its cost has to be stated plainly:
+      <strong>everything in this section rests on you, with no exemption.</strong></p>
+    <p lang="zh">具体意味着三件事。<strong>其一</strong>，下面那份禁止清单没有例外情形——
+      别的学校可以说「用批准的工具就可以」，本校说不了这句话。
+      <strong>其二</strong>，你不能依赖任何工具的隐私承诺：本校没有审查过任何一家的条款，
+      也无法为其背书。<strong>其三</strong>，关掉「用于训练」的开关不等于内容没有被存储、
+      被缓存、或被人工审阅。</p>
+    <p lang="en">Three consequences. <strong>First</strong>, the prohibition list below has no
+      carve-out — other schools can say "it's fine on an approved tool"; we cannot.
+      <strong>Second</strong>, you cannot rely on any vendor's privacy promise, because nobody here
+      has reviewed one and this school vouches for none of them. <strong>Third</strong>, switching
+      off "use my data for training" does not mean the content was not stored, cached, or read by a
+      person.</p>
+  </div>
+
+  <p lang="zh">
+    这个选择本身并不异常——三十所学校里有十九所同样没有指定任何工具。但值得注意的是，
+    在表态的十一所里，七所提供机构版工具、四所发布批准清单，理由都是数据保护。
+    我们不做这件事，所以那份保护得由你自己提供。
+  </p>
+  <p lang="en">
+    The choice is not unusual — nineteen of the thirty likewise designate nothing. What is worth
+    noticing is that among the eleven that do address it, seven provide an institutional tier and
+    four publish an approved list, and in every case the reason is data protection. We are not
+    doing that, so the protection has to come from you.
+  </p>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">不得输入 AI 工具的内容</span>
+    <span class="k" lang="en">Never put these into an AI tool</span>
+    <p lang="zh">他人的个人信息与身份识别信息（姓名、学号、联系方式）· 同学的作业或作品 ·
+      未公开的试题与答案 · 身份证件、成绩单、账号密码 · 教师未公开的材料 ·
+      任何你无权对外公开的东西</p>
+    <p lang="en">Other people's personal and identifying information (names, student numbers,
+      contact details) · a classmate's work · unreleased exam papers or answers · ID documents,
+      transcripts, credentials · unpublished teacher materials · anything you are not free to
+      publish yourself</p>
+  </div>
+
+  <p lang="zh">伯克利把这条边界写得最简洁：</p>
+  <p lang="en">Berkeley draws the boundary most concisely:</p>
+  <blockquote>
+    <p>no personal, confidential, proprietary, or otherwise sensitive information may be entered
+      into or generated as output.</p>
+    <cite>University of California, Berkeley · univ/16-UC-Berkeley.md</cite>
+  </blockquote>
+
+  <p lang="zh">而在没有任何工具经过审查的前提下，加州理工那把尺子就不是补充建议，
+    而是本节的操作规则：</p>
+  <p lang="en">And with no tool here vetted by anyone, Caltech's yardstick is not supplementary
+    advice — it is the working rule of this section:</p>
+  <blockquote>
+    <p>Unless you are using a GenAI application that explicitly guarantees data separation and
+      confidentiality, uploading information into GenAI tools should be considered a public
+      disclosure.</p>
+    <cite>California Institute of Technology · univ/12-Caltech.md</cite>
+  </blockquote>
+  <p lang="zh">
+    <strong>应将任何上传视同公开发布。</strong>提交前的判断标准是：该内容若出现在公开网页上
+    是否可接受。不可接受，则不应输入。
+  </p>
+  <p lang="en">
+    <strong>Treat any upload as publication.</strong> The test before submitting is whether the
+    content would be acceptable on a public web page. If it would not, it should not be entered.
+  </p>
+
+  <h3 lang="zh">三 · 版权</h3>
+  <h3 lang="en">3 · Copyright</h3>
+  <p lang="zh">
+    不得上传或转发受版权保护的材料、教师自制课件、购买的教辅、未获授权的电子书。
+    在三十所学校里，提到这一条的十七所<strong>全部</strong>有明确规定，没有一所例外——
+    这是整批数据里唯一零分歧的条款。
+  </p>
+  <p lang="en">
+    Do not upload or redistribute copyrighted material, a teacher's own slides, purchased workbooks,
+    or unlicensed e-books. Of the thirty, seventeen address this and <strong>all seventeen</strong>
+    have an explicit rule — the only provision in the entire dataset with zero disagreement.
+  </p>
+</section>
+
+<!-- ===================================================================== -->
+<section id="s5">
+  <div class="sec-head">
+    <span class="sec-n">§5</span>
+    <h2 lang="zh">被质疑的时候</h2>
+    <h2 lang="en">If your work is questioned</h2>
+  </div>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">违规如何处理</span><span class="k" lang="en">What a violation means</span>
+    <p lang="zh"><strong>按现有的学术诚信制度处理，本规范不另设一套惩戒办法。</strong>
+      违规使用 AI 与抄袭、代做走同一条通道，适用同样的程序与后果。</p>
+    <p lang="en"><strong>Through the existing academic-integrity process. This document creates no
+      separate penalty system.</strong> A violation here travels the same route as plagiarism or
+      submitting someone else's work, with the same procedure and the same consequences.</p>
+  </div>
+
+  <p lang="zh">
+    这一点上三十所学校几乎没有分歧：二十七所把违规使用定性为学术诚信问题，其中十六所归入学术
+    不端、九所明确等同抄袭。没有一所为 AI 另建一套制度。
+  </p>
+  <p lang="en">
+    The thirty barely disagree here: twenty-seven classify unauthorized use as an academic-integrity
+    matter — sixteen as misconduct, nine as plagiarism outright. Not one builds a separate regime
+    for AI.
+  </p>
+  <blockquote>
+    <p>Plagiarism includes, but is not limited to, the unauthorized use of generative artificial
+      intelligence to create content that is submitted as one's own.</p>
+    <cite>Northwestern University · univ/09-Northwestern.md</cite>
+  </blockquote>
+
+  <p lang="zh">
+    本节其余部分规定认定程序中的证据标准。仅规定学生义务而不规定认定方式的文件，其约束是单向的；
+    载明举证要求之后，双方才受同一套规则约束。
+  </p>
+  <p lang="en">
+    The rest of this section sets the evidentiary standard for a finding. A document that states only
+    student obligations binds one side; once it also states what must be shown, both sides are held
+    to the same rules.
+  </p>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">本校规定</span><span class="k" lang="en">This school's rule</span>
+    <p lang="zh"><strong>AI 检测器的结果不得作为认定的唯一或主要依据。</strong>
+      它可以触发一次对话，不能单独定性。</p>
+    <p lang="en"><strong>An AI-detector score may not be the sole or primary basis for a finding.</strong>
+      It can start a conversation; it cannot end one.</p>
+  </div>
+
+  <div class="data">
+    <span class="k" lang="zh">检测器证据 · 三十校中仅 11 所有表态</span>
+    <span class="k" lang="en">Detector evidence · only 11 of 30 take a position</span>
+    <span lang="zh"><b>7</b> 所明确「不得作为唯一或主要证据」（哥伦比亚、杜克、范德堡、伯克利、
+      莱斯、弗吉尼亚、南加州）· <b>3</b> 所质疑其可靠性 · <b>1</b> 所要求提前告知 ·
+      <b>19</b> 所完全沉默</span>
+    <span lang="en"><b>7</b> state it may not be sole or primary evidence (Columbia, Duke,
+      Vanderbilt, Berkeley, Rice, UVA, USC) · <b>3</b> question its reliability · <b>1</b> requires
+      advance notice · <b>19</b> say nothing at all</span>
+  </div>
+
+  <blockquote>
+    <p>Current guidelines indicate that a report to the Undergraduate Honor Council cannot be based
+      solely on an artificial intelligence detector score.</p>
+    <cite>Vanderbilt University · univ/15-Vanderbilt.md</cite>
+  </blockquote>
+
+  <p lang="zh">
+    <strong>该条款对本校学生具有特殊意义。</strong>范德堡在同一份文件中指出，检测工具对
+    <strong>非母语英语写作者</strong>存在系统性偏差。二语学习者的书面表达通常具有若干共同特征：
+    词汇选择趋于保守、句式结构较为规整、较多使用课堂习得的固定搭配。这些特征与检测工具用以
+    判定「疑似机器生成」的指标高度重合，但其反映的是语言学习的阶段性状态，而非文本的实际来源。
+  </p>
+  <p lang="en">
+    <strong>This provision carries particular weight for students here.</strong> Vanderbilt's own
+    guidance records that detection tools are systematically biased against
+    <strong>non-native English writers</strong>. Second-language writing tends to share certain
+    features: conservative word choice, regular sentence structure, frequent use of phrasing learned
+    in class. Those features overlap closely with what detection tools read as machine-generated —
+    but what they actually indicate is a stage of language learning, not the origin of the text.
+  </p>
+
+  <h3 lang="zh">你可以拿什么自证</h3>
+  <h3 lang="en">What you can show</h3>
+  <p lang="zh">
+    <strong>写作过程本身构成证据，且无需额外操作即可留存。</strong>Google 文档与 Word 均自动
+    保存版本历史。版本历史、草稿、笔记，以及能够口头复述自身思路，这几项合并使用，其证明力
+    高于任何检测器分数。
+  </p>
+  <p lang="en">
+    <strong>The writing process is itself evidence, and it is retained without any extra step.</strong>
+    Google Docs and Word both keep version history automatically. Version history, drafts, notes, and
+    being able to talk through your own reasoning carry more probative weight together than any
+    detector score.
+  </p>
+  <blockquote>
+    <p>The Council suggests using document editing history to help establish student-produced work
+      and designing prompts that require engagement with course material and critical thinking.</p>
+    <cite>Rice University Honor Council · univ/18-Rice.md</cite>
+  </blockquote>
+  <p lang="zh">
+    三十所学校里有二十所对「过程留证」未作表述，是沉默率最高的条款之一。本规范纳入该条款，
+    因为它是其中少数<strong>能够为守规者提供保护</strong>、而不只用于认定违规的规则。
+  </p>
+  <p lang="en">
+    Twenty of the thirty say nothing about keeping process evidence — one of the most silent
+    provisions in the set. It is included here because it is one of the few rules that can
+    <strong>work in a compliant student's favour</strong> rather than only serve to establish a
+    violation.
+  </p>
+
+  <div class="todo" lang="zh">
+    <strong>申诉路径待补：</strong>由谁受理、多长时间内提出、需要提交什么材料、结果如何告知。
+    需校方确认后填入。
+  </div>
+  <div class="todo" lang="en">
+    <strong>To be completed:</strong> who hears an appeal, the time limit for raising one, what must
+    be submitted, and how the outcome is communicated. Pending confirmation by the school.
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<section id="s6">
+  <div class="sec-head">
+    <span class="sec-n">§6</span>
+    <h2 lang="zh">国际部专章</h2>
+    <h2 lang="en">For the international division</h2>
+  </div>
+
+  <p lang="zh">
+    这一节是三十所大学都没有写、只能由我们自己写的部分。我们对全部三十份原文做了关键词扫描：
+  </p>
+  <p lang="en">
+    This is the part none of the thirty universities wrote, and only we can. We ran a keyword scan
+    across all thirty source documents:
+  </p>
+
+  <div class="data">
+    <span class="k" lang="zh">三十校语料 · 关键词命中</span>
+    <span class="k" lang="en">Keyword scan · thirty source files</span>
+    <span lang="zh">
+      <b>0</b> 校提到 admission · <b>0</b> 校提到 personal statement ·
+      <b>0</b> 校提到 college essay · <b>1</b> 校提到 non-native（仅范德堡）
+    </span>
+    <span lang="en">
+      <b>0</b> mention admission · <b>0</b> mention personal statement ·
+      <b>0</b> mention college essay · <b>1</b> mentions non-native (Vanderbilt only)
+    </span>
+  </div>
+
+  <p lang="zh">
+    原因是这些政策的适用对象不同：<strong>大学政策的默认读者为已被录取的成年学生，且其英语水平
+    已通过入学要求的检验。</strong>这三项前提对国际部高中生均不成立。
+  </p>
+  <p lang="en">
+    The reason lies in who those policies address. <strong>A university policy assumes a reader who
+    is an adult, already admitted, and whose English has already satisfied an entrance
+    requirement.</strong> None of the three holds for students here.
+  </p>
+
+  <h3 lang="zh">6.1 当英语本身就是被考的能力</h3>
+  <h3 lang="en">6.1 When English is the skill being assessed</h3>
+
+  <p lang="zh">
+    在大学，AI 润色属于边缘问题：教师假定学生英语已达要求，所评估的是论证本身。国际部的情形
+    不同——相当一部分写作作业所评估的<strong>正是英语产出能力</strong>。因此同一操作在两种场景
+    下的性质并不相同。
+  </p>
+  <p lang="en">
+    At university, AI polishing is a marginal question: the instructor assumes English is already
+    adequate and is assessing the argument. Here the situation differs — a substantial share of
+    written work is assessed on <strong>the ability to produce English</strong>. The same operation
+    therefore does not have the same character in the two settings.
+  </p>
+
+  <p lang="zh">
+    因此本规范不以所用工具划分界限，而以<strong>所修改的对象</strong>划分。工具持续更替，
+    该判准不随之改变。
+  </p>
+  <p lang="en">
+    The line is therefore drawn not at which tool was used but at <strong>what was
+    changed</strong>. Tools are replaced continually; this test is not affected by that.
+  </p>
+
+  <div class="tw">
+    <table>
+      <thead>
+        <tr>
+          <th lang="zh">你改的是</th><th lang="zh">举例</th><th lang="zh">档位</th>
+          <th lang="en">What you changed</th><th lang="en">Example</th><th lang="en">Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td lang="zh"><strong>错误</strong></td>
+          <td lang="zh">拼写、语法、时态、标点</td>
+          <td lang="zh"><code>AI-1</code> 允许</td>
+          <td lang="en"><strong>Errors</strong></td>
+          <td lang="en">Spelling, grammar, tense, punctuation</td>
+          <td lang="en"><code>AI-1</code> permitted</td>
+        </tr>
+        <tr>
+          <td lang="zh"><strong>表达</strong></td>
+          <td lang="zh">换词、改句式、让它「更地道」</td>
+          <td lang="zh"><code>AI-2</code> 且须披露；<strong>若作业评的就是语言能力，禁止</strong></td>
+          <td lang="en"><strong>Expression</strong></td>
+          <td lang="en">Different words, restructured sentences, making it "sound native"</td>
+          <td lang="en"><code>AI-2</code> with disclosure; <strong>prohibited where language itself is
+            being assessed</strong></td>
+        </tr>
+        <tr>
+          <td lang="zh"><strong>内容</strong></td>
+          <td lang="zh">补论点、调结构、扩写、翻译整段</td>
+          <td lang="zh"><code>AI-2</code> 起，须披露并附原稿</td>
+          <td lang="en"><strong>Content</strong></td>
+          <td lang="en">Added arguments, reordered structure, expansion, translating a whole passage</td>
+          <td lang="en"><code>AI-2</code> or above, with disclosure and your original draft</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p lang="zh">
+    <strong>翻译需单独说明。</strong>先以中文完成、再由 AI 译为英文提交，所提交的文本未经过任何
+    一次英语层面的组织。本规范将其归入「改内容」：其性质不是润色，而是由他人完成表达，区别仅在
+    于所依据的原稿出自本人。
+  </p>
+  <p lang="en">
+    <strong>Translation needs a note of its own.</strong> Composing in Chinese and having AI render
+    the result in English produces text that was never organised in English at any point. These
+    guidelines classify that as changing content: in character it is not editing but expression
+    carried out by another party, differing only in that the underlying draft is your own.
+  </p>
+
+  <p lang="zh">
+    此处需要说明的是后果，而非评价。以 AI 修改后的文本呈现自身英语水平，在单次评分上可能获益；
+    但大学阶段的写作要求与此相同或更高，且课堂讨论、限时写作等场景不提供使用外部工具的条件，
+    也不接受事后声明。两者之间的差距会在那时显现。
+  </p>
+  <p lang="en">
+    What needs stating here is the consequence, not a judgment. Presenting AI-corrected text as your
+    own level of English may raise a single grade. University writing demands are the same or
+    higher, and settings such as seminar discussion and timed writing allow no external tool and
+    accept no statement after the fact. The gap becomes visible at that point.
+  </p>
+
+  <h3 lang="zh">6.2 大学申请文书</h3>
+  <h3 lang="en">6.2 College application essays</h3>
+
+  <p lang="zh">
+    <strong>这一节的写法和全文不同。</strong>本校无权规定申请文书的 AI 规则——那些规则由申请平台
+    和每一所目标大学各自制定，而且每年在变。所以这里只做三件事：告诉你规则在哪、
+    本校的底线是什么、以及风险在哪里不对称。
+  </p>
+  <p lang="en">
+    <strong>This section works differently.</strong> This school does not get to set the AI rules for
+    your applications — the platforms and each individual university set their own, and they change
+    from year to year. So this section does only three things: tell you where the rules live, state
+    this school's floor, and explain where the risk is asymmetric.
+  </p>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">规则在哪里查</span><span class="k" lang="en">Where the rules live</span>
+    <p lang="zh">申请平台的条款与诚信声明 · 每一所目标大学的申请说明页。
+      <strong>必须当年现查。</strong>不要依赖学长学姐的经验，也不要依赖本规范的转述——
+      本规范不对任何一所大学的当年规则作出保证。</p>
+    <p lang="en">The application platform's terms and integrity statement, and each target
+      university's own admissions page. <strong>Check them in the year you apply.</strong> Do not
+      rely on what an older student told you, and do not rely on this document — it makes no
+      guarantee about any institution's current rules.</p>
+  </div>
+
+  <div class="rule-box">
+    <span class="k" lang="zh">本校的底线</span><span class="k" lang="en">This school's floor</span>
+    <p lang="zh">一 · 不得提交非本人撰写的文书。</p>
+    <p lang="zh">二 · 升学指导教师不为使用 AI 代写的文书背书，也不会在推荐信中为其作证。</p>
+    <p lang="en">1 · Do not submit an essay you did not write.</p>
+    <p lang="en">2 · Counselors will not endorse an AI-ghostwritten essay, and will not vouch for one
+      in a recommendation.</p>
+  </div>
+
+  <p lang="zh">
+    <strong>两类认定的后果并不对称。</strong>课程作业被认定违规，影响范围为该门课程的成绩与
+    校内纪律记录；申请材料被认定违规，可能导致录取资格被撤销，入学后被发现亦可能导致学位被撤销。
+    此外，<strong>申请材料的审查不包含本规范 §5 所规定的对话与申诉环节</strong>——该程序由招生方
+    单方进行，申请人通常不会获得陈述机会。
+  </p>
+  <p lang="en">
+    <strong>The consequences of the two are not symmetrical.</strong> A finding on coursework
+    affects that course's grade and an internal disciplinary record. A finding on an application can
+    result in an offer being withdrawn, and if discovered after enrolment, in a degree being
+    revoked. Further, <strong>an admissions review includes none of the conversation or appeal
+    provided for in §5</strong>: the process is conducted by the admissions side alone, and the
+    applicant is generally given no opportunity to respond.
+  </p>
+</section>
+
+<!-- ===================================================================== -->
+<section id="a">
+  <div class="sec-head">
+    <span class="sec-n">附录 A</span>
+    <h2 lang="zh">一页速查</h2>
+    <h2 lang="en">One-page check</h2>
+  </div>
+  <p lang="zh">
+    规则未被遵守，原因通常不是不知晓，而是<strong>知晓与实际使用发生在不同时点</strong>。
+    本卡片供后一时点使用。
+  </p>
+  <p lang="en">
+    Rules are usually broken not because they are unknown but because
+    <strong>the point of knowing and the point of use are different moments</strong>.
+    This card is for the second of them.
+  </p>
+
+  <div class="card">
+    <div class="card-h">
+      <span lang="zh">交作业之前，三个问题</span><span lang="en">Three questions before you submit</span>
+      <span class="num">AI-0 / 1 / 2 / 3</span>
+    </div>
+    <div class="card-b">
+      <ol class="steps">
+        <li lang="zh"><b>这份作业标了几档？</b><i>没标 → 按 AI-0，即不可使用。不确定就问，动手之前问。</i></li>
+        <li lang="zh"><b>我要做的事产生新内容吗？</b><i>产生 → 至少 AI-2，须披露并附原稿。只是改错误 → AI-1。</i></li>
+        <li lang="zh"><b>我能对里面每一个事实负责吗？</b><i>不能 → 先核实。交上去之后它就是你的话。</i></li>
+        <li lang="en"><b>What level is this assignment?</b><i>Unmarked → AI-0, no use. Unsure → ask before you start.</i></li>
+        <li lang="en"><b>Does what I'm about to do produce new content?</b><i>Yes → AI-2 at least: disclose and attach your draft. Only fixing errors → AI-1.</i></li>
+        <li lang="en"><b>Can I stand behind every fact in it?</b><i>No → verify first. Once submitted, it is your claim.</i></li>
+      </ol>
+      <pre class="tpl" style="margin:14px 0 0" lang="zh">AI 使用声明
+工具：_______   环节：_______
+程度：AI-__ —— _______</pre>
+      <pre class="tpl" style="margin:14px 0 0" lang="en">AI Use Statement
+Tool: _______   Where: _______
+Extent: AI-__ — _______</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<section id="b">
+  <div class="sec-head">
+    <span class="sec-n">附录 B</span>
+    <h2 lang="zh">灰区判例</h2>
+    <h2 lang="en">Grey-zone cases</h2>
+  </div>
+  <p lang="zh">
+    规则处理不了的，判例可以。每条按「情境 → 判定 → 为什么」写。
+  </p>
+  <p lang="en">
+    What rules can't settle, cases can. Each one gives the situation, the ruling, and the reason.
+  </p>
+
+  <div class="cases">
+    <div class="case">
+      <div class="case-top"><span class="case-n">01</span>
+        <span class="case-q" lang="zh">用 Grammarly 检查语法和拼写</span>
+        <span class="case-q" lang="en">Running Grammarly over your draft for grammar and spelling</span>
+        <span class="verdict" data-v="ok" lang="zh">AI-1 允许</span>
+        <span class="verdict" data-v="ok" lang="en">AI-1 · allowed</span></div>
+      <p lang="zh">改的是错误，不产生新内容。仍须在声明里写明工具。</p>
+      <p lang="en">It fixes errors and produces no new content. Still name the tool in your statement.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">02</span>
+        <span class="case-q" lang="zh">先用中文写好，再让 AI 译成英文交上去</span>
+        <span class="case-q" lang="en">Writing it in Chinese, then having AI translate it into English</span>
+        <span class="verdict" data-v="no" lang="zh">语言类作业违规</span>
+        <span class="verdict" data-v="no" lang="en">Violation in language work</span></div>
+      <p lang="zh"><b>属于「改内容」。</b>交上去的是一篇你没有用英语想过一次的作文。
+        非语言类作业按 AI-2 处理，须披露并附中文原稿；语言能力测评中禁止。</p>
+      <p lang="en"><b>This changes content.</b> What you submit is an essay you never thought through
+        in English. In non-language subjects treat it as AI-2 with disclosure and your Chinese
+        original; in language assessments it is prohibited.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">03</span>
+        <span class="case-q" lang="zh">让 AI 列提纲，自己写全文</span>
+        <span class="case-q" lang="en">Having AI produce an outline, then writing the essay yourself</span>
+        <span class="verdict" data-v="disclose" lang="zh">AI-2 须披露</span>
+        <span class="verdict" data-v="disclose" lang="en">AI-2 · disclose</span></div>
+      <p lang="zh">提纲是新内容，而且结构往往是作业要考的能力之一。写清楚提纲来自 AI、正文是你写的。</p>
+      <p lang="en">An outline is new content, and structure is often part of what the assignment
+        assesses. State that the outline came from AI and the prose is yours.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">04</span>
+        <span class="case-q" lang="zh">让 AI 讲解一道看不懂的题，然后自己重做一遍</span>
+        <span class="case-q" lang="en">Asking AI to explain a problem you don't understand, then redoing it yourself</span>
+        <span class="verdict" data-v="ok" lang="zh">AI-1 允许</span>
+        <span class="verdict" data-v="ok" lang="en">AI-1 · allowed</span></div>
+      <p lang="zh">这是把它当老师用，不是当枪手用。芝加哥大学的判准正好适用：AI 在做其他技术或人
+        本来就在做的事。前提是你真的重做了。</p>
+      <p lang="en">You are using it as a teacher, not a substitute. Chicago's test applies directly:
+        it is doing what other technologies or people already do. The condition is that you actually
+        redo it.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">05</span>
+        <span class="case-q" lang="zh">把同学的作业发给 AI，让它「参考着改我的」</span>
+        <span class="case-q" lang="en">Uploading a classmate's work so AI can "improve mine based on it"</span>
+        <span class="verdict" data-v="no" lang="zh">违规</span>
+        <span class="verdict" data-v="no" lang="en">Violation</span></div>
+      <p lang="zh">两重问题：这是 §4 的隐私违规（上传他人作品），而且和 AI 无关——
+        换成你自己抄也一样违规。</p>
+      <p lang="en">Two problems at once: it breaches §4 by uploading someone else's work, and the AI
+        is beside the point — copying it yourself would be equally a violation.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">06</span>
+        <span class="case-q" lang="zh">让 AI 找参考文献，直接引用没去核</span>
+        <span class="case-q" lang="en">Citing references AI supplied, without opening them</span>
+        <span class="verdict" data-v="no" lang="zh">违规</span>
+        <span class="verdict" data-v="no" lang="en">Violation</span></div>
+      <p lang="zh">§4 的核实责任。AI 编造看起来完全正常的文献是已知的高频故障，
+        而按本规范你对成品负 100% 的责任。<b>合规做法：</b>每条都打开原文看过再引。</p>
+      <p lang="en">This is the §4 verification duty. Fabricated but plausible-looking sources are a
+        well-known failure mode, and you are 100% responsible for what you submit.
+        <b>Do this instead:</b> open every source before you cite it.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">07</span>
+        <span class="case-q" lang="zh">让 AI 修改大学申请文书的语法</span>
+        <span class="case-q" lang="en">Having AI fix the grammar in a college application essay</span>
+        <span class="verdict" data-v="check" lang="zh">本规范不作判定</span>
+        <span class="verdict" data-v="check" lang="en">Not ours to rule on</span></div>
+      <p lang="zh">见 §6.2。这里的规则由申请平台和目标大学定，必须当年现查。
+        本校的底线只有一条：文书须由你本人撰写。</p>
+      <p lang="en">See §6.2. The rule belongs to the platform and the university, and must be checked
+        in the year you apply. This school's floor is only that you wrote it.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">08</span>
+        <span class="case-q" lang="zh">编程作业里，用 AI 补全一段自己看得懂的代码</span>
+        <span class="case-q" lang="en">Letting AI complete a block of code you fully understand</span>
+        <span class="verdict" data-v="disclose" lang="zh">AI-2 须披露</span>
+        <span class="verdict" data-v="disclose" lang="en">AI-2 · disclose</span></div>
+      <p lang="zh">产生了新内容，所以至少 AI-2，无论你看不看得懂。判断标准从来不是「我能不能理解」，
+        而是「这段是不是我写的」。<b>另外：</b>作业若考的就是写出这段代码的能力，教师可标为 AI-0。</p>
+      <p lang="en">It produces new content, so AI-2 at minimum, regardless of whether you understand
+        it. The test is never "could I follow it" but "did I write it." <b>Also:</b> where the
+        assignment assesses your ability to write that code, the teacher may mark it AI-0.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">09</span>
+        <span class="case-q" lang="zh">小组作业里，某个组员用了 AI 但没告诉其他人</span>
+        <span class="case-q" lang="en">A group member used AI and didn't tell the others</span>
+        <span class="verdict" data-v="disclose" lang="zh">全组须在声明中写明</span>
+        <span class="verdict" data-v="disclose" lang="en">The group must disclose</span></div>
+      <p lang="zh">小组提交的是一份作业，声明也只有一份。<b>合规做法：</b>动手之前先约定档位和分工，
+        提交时由全组共同确认声明内容。谁用的谁写清楚。</p>
+      <p lang="en">A group submits one piece of work and therefore one statement.
+        <b>Do this instead:</b> agree the level and the split before you start, and confirm the
+        statement together at submission. Whoever used it, names it.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">10</span>
+        <span class="case-q" lang="zh">用 AI 生成口语作业的讲稿，自己背下来讲</span>
+        <span class="case-q" lang="en">Generating a script for an oral assignment and memorising it</span>
+        <span class="verdict" data-v="no" lang="zh">通常违规</span>
+        <span class="verdict" data-v="no" lang="en">Usually a violation</span></div>
+      <p lang="zh">口语作业考的是你组织语言的能力，讲稿就是那个能力的产物。这类作业默认属于
+        「语言能力测评」，按 §6.1 归入 AI-0。</p>
+      <p lang="en">An oral task assesses your ability to organise language, and the script is exactly
+        that output. These default to language assessment and fall under AI-0 per §6.1.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">11</span>
+        <span class="case-q" lang="zh">数学题自己算出答案，让 AI 补写解题步骤</span>
+        <span class="case-q" lang="en">Solving a maths problem yourself, then having AI write up the steps</span>
+        <span class="verdict" data-v="no" lang="zh">通常违规</span>
+        <span class="verdict" data-v="no" lang="en">Usually a violation</span></div>
+      <p lang="zh">数学作业要你写步骤，考的往往正是步骤本身——推理过程才是答案。
+        这属于「改内容」，且通常是被评估的那部分能力。</p>
+      <p lang="en">When a maths assignment asks for working, the working usually is the thing being
+        assessed — the reasoning is the answer. This changes content, and typically the very content
+        being graded.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-top"><span class="case-n">12</span>
+        <span class="case-q" lang="zh">实验报告里，让 AI 根据你的数据写讨论部分</span>
+        <span class="case-q" lang="en">Having AI write the discussion section from your own lab data</span>
+        <span class="verdict" data-v="disclose" lang="zh">AI-2，且须核实</span>
+        <span class="verdict" data-v="disclose" lang="en">AI-2 · verify carefully</span></div>
+      <p lang="zh">数据是你的，解释不是。这里有个额外风险：AI 会写出<b>看起来合理但你的数据并不支持</b>
+        的结论，而按 §4 你对它负全责。<b>合规做法：</b>逐句对回你的原始数据。</p>
+      <p lang="en">The data is yours; the interpretation is not. There is an extra trap here: AI will
+        write conclusions that <b>read plausibly but your data does not support</b>, and under §4
+        they are yours to answer for. <b>Do this instead:</b> check each claim back against your raw
+        numbers.</p>
+    </div>
+  </div>
+
+  <div class="todo" lang="zh">
+    <strong>这一节会继续长。</strong>最有价值的判例来自本校学生真实提出的问题，而不是我们坐在
+    办公室里能想出来的。遇到本节没覆盖的情况，把它提出来——它会变成第 13 条。
+  </div>
+  <div class="todo" lang="en">
+    <strong>This section will keep growing.</strong> The most useful cases come from questions
+    students actually ask, not from what we can invent at a desk. If you hit a situation this
+    section doesn't cover, raise it — it becomes case 13.
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<section id="c">
+  <div class="sec-head">
+    <span class="sec-n">附录 C</span>
+    <h2 lang="zh">依据与方法</h2>
+    <h2 lang="en">Sources and method</h2>
+  </div>
+  <p lang="zh">
+    本规范的每一条依据来自三十所美国大学公开发布的官方 AI 政策，拆成 12 项条款、360 格逐格对照。
+    其中 234 格查有明文，126 格该来源沉默；全部 234 条引文经机器精确比对，逐字命中其所属原文。
+    你可以在政策图谱里点开任何一格，看到原文与官方链接。
+  </p>
+  <p lang="en">
+    Every rule here rests on the published AI policies of thirty U.S. universities, broken into
+    twelve provisions across 360 cells. 234 cells have an explicit rule; in 126 the source is silent.
+    All 234 quotations were machine-checked verbatim against the file they came from. Open any cell
+    in the policy atlas to see the original wording and its official link.
+  </p>
+  <p lang="zh">
+    <strong>两点必须说清楚。</strong>其一，三十校政策是 2026 年 8 月的快照，会变；本规范随之更新。
+    其二，对政策的分类与强度分级是本项目的判断，<strong>不代表任何一所大学的立场</strong>——
+    引文是它们的，结论是我们的。
+  </p>
+  <p lang="en">
+    <strong>Two things must be said plainly.</strong> First, the thirty policies are an August 2026
+    snapshot and will change; this document tracks them. Second, the classification and ranking
+    placed on them are this project's judgment and
+    <strong>represent no institution's position</strong> — the quotations are theirs, the conclusions
+    are ours.
+  </p>
+  <p>
+    <a href="atlas.html" lang="zh">→ 打开政策图谱，核验每一格</a>
+    <a href="atlas.html" lang="en">→ Open the policy atlas and check any cell</a>
+  </p>
+</section>
+
+<footer>
+  <p lang="zh"><strong>草案。</strong>本文尚未经校方审定，§5 的申诉路径待补。
+    发现引用有误、判例判错、或本规范与你实际遇到的情况对不上，请提出——这份文件的可信度
+    依赖于被人挑错。</p>
+  <p lang="en"><strong>Draft.</strong> Not yet adopted; the appeals path in §5 is unfinished. If a
+    citation is wrong, a case is decided wrongly, or this document doesn't match what you actually
+    ran into, say so. Its credibility depends on being checked.</p>
+</footer>
+</main>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const zh = document.getElementById("b-zh"), en = document.getElementById("b-en");
+  function set(lang, store) {
+    root.setAttribute("data-lang", lang);
+    zh.setAttribute("aria-pressed", String(lang === "zh"));
+    en.setAttribute("aria-pressed", String(lang === "en"));
+    if (store) { try { localStorage.setItem("guidelines-lang", lang); } catch (e) {} }
+  }
+  let saved = null;
+  try { saved = localStorage.getItem("guidelines-lang"); } catch (e) {}
+  set(saved === "en" ? "en" : "zh", false);
+  zh.addEventListener("click", () => set("zh", true));
+  en.addEventListener("click", () => set("en", true));
+})();
+</script>

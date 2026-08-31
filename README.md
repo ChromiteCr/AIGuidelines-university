@@ -1,13 +1,13 @@
 # U.S. University AI Guidelines — Thirty-School Source Set
 
-![version](https://img.shields.io/badge/version-A2c1-blue)
+![version](https://img.shields.io/badge/version-A3b-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
 ![code](https://img.shields.io/badge/code-MIT-green)
 ![data](https://img.shields.io/badge/data-CC%20BY%204.0-green)
 
-**图谱在线版 → <https://chromitecr.github.io/AIGuidelines-university/>**
+**站点 → <https://ai.policy.nestudy.cn/>** ｜ 主页 · [政策图谱](https://ai.policy.nestudy.cn/atlas.html) · [学生 AI 使用规范](https://ai.policy.nestudy.cn/guidelines.html)
 
 > ### 内容取自官方原文；这是一份会定期更新的快照
 >
@@ -123,7 +123,7 @@ This is a curated set of institutions consistently treated as highly ranked U.S.
 ## Policy Atlas — 政策图谱
 
 A dynamic comparison of all thirty policies across 12 comparable provisions
-(360 cells). 在线版：<https://chromitecr.github.io/AIGuidelines-university/>；本地打开 `docs/index.html` 即可，无需服务器。
+(360 cells). 在线版：<https://ai.policy.nestudy.cn/atlas.html>；本地打开 `docs/atlas.html` 即可，无需服务器。
 
 **每所学校独立抽取，互不串源。** 30 份文件由 30 个互相隔离的 agent 分别读取，每个只被允许
 读它自己那一份，并被禁止调用任何关于该校的既有知识；随后 30 个对抗性审计 agent 重读同一份
@@ -184,13 +184,58 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 `data/policies.json` 的 `evidence` / `quote` / `takeaways` 字段内嵌上述引文（每条
 至多约 320 字符），其版权状态不因被收入数据集而改变。
 
+## 学生 AI 使用规范 / The guidelines
+
+面向国际部高中生的 AI 使用规范，中英双语，由图谱的数据推导而来。
+在线版：<https://ai.policy.nestudy.cn/guidelines.html>
+
+- **四档许可框架** `AI-0`–`AI-3`，改编自 UNC 的四级结构（三十校中仅 3 所有明确分级）
+- **默认 AI-0**，未标级即视为 AI-0
+- **强制披露**，三行固定模板；提示词日志只在 AI-2 以上要求
+- **检测器不得作为唯一或主要证据**——7/11 所有表态的学校如此规定，对非母语写作者尤其重要
+- **不指定 AI 工具**（30 校中 19 所同样不指定），因此隐私条款没有「批准工具」豁免口
+- **违规按现有学术诚信制度处理**，不另设惩戒办法——27/30 所学校同样如此
+- **国际部专章**：英语本身作为被评估能力、大学申请文书。三十校语料中
+  `admission` / `personal statement` / `college essay` 命中数均为 0，`non-native` 仅 1 校
+
+写作规划见 [guidelines/PLAN.md](guidelines/PLAN.md)。
+
+### 文中的数字不会和数据脱节
+
+规范是手写的散文，不是生成物，所以数字可能悄悄写错。`tools/build_guidelines.py` 把文中
+**每一处数字断言**登记为它必须在 HTML 中出现的字面短语，数值从 `data/policies.json` 取，
+然后在正文里查这个短语——校验的是文档本身，不是脚本里的常量。同时校验每条
+`<blockquote>` 是否仍逐字存在于 `<cite>` 指名的 `univ/` 文件中。对不上就中止构建。
+
+```
+数字核对   74/74 处断言与 data/policies.json 一致
+引文核对   7/7 条逐字命中其来源文件
+```
+
+构建时还会去掉中文段落里的断行空格（源文件按可读宽度换行，但 CJK 之间的换行会渲染成
+可见空格）。
+
+```bash
+python3 tools/build_guidelines.py
+```
+
 ## 站点发布 / GitHub Pages
 
 图谱是一个零依赖的静态单文件，不需要构建流水线或服务器。
 
 - **发布源**：`main` 分支的 `/docs` 目录（GitHub Pages 原生支持的三个位置之一）
-- **产物**：`docs/index.html`，由 `tools/build_atlas.py` 生成；`docs/.nojekyll` 让 Pages 跳过 Jekyll
-- **地址**：<https://chromitecr.github.io/AIGuidelines-university/>
+- **产物**：三个页面，全部是生成物，不要手改
+
+  | 页面 | 源文件 | 构建 |
+  |------|--------|------|
+  | `docs/index.html` 主页 | `home/home.html` | `tools/build_home.py` |
+  | `docs/atlas.html` 政策图谱 | `atlas/atlas.template.html` + `data/policies.json` | `tools/build_atlas.py` |
+  | `docs/guidelines.html` 学生规范 | `guidelines/guidelines.html` | `tools/build_guidelines.py` |
+
+  `docs/.nojekyll` 让 Pages 跳过 Jekyll。三个构建脚本共用 `tools/sitelib.py`
+  （文本比对、中文断行处理、断言登记、引文校验）
+- **地址**：<https://ai.policy.nestudy.cn/>（自定义域名，`docs/CNAME` 由 Pages 管理）
+  ｜ 备用 <https://chromitecr.github.io/AIGuidelines-university/>
 
 `docs/index.html` 是**生成物，不要手改**。改动流程：编辑 `atlas/atlas.template.html`
 或源数据 → 重跑构建 → 提交 `docs/index.html` → 推送，Pages 自动重新部署（约一分钟）。
@@ -201,15 +246,19 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 但如果整个删掉 `docs/` 重建，记得把它加回来。
 
 ```bash
-python3 tools/build_data.py <raw-extraction.json>
+python3 tools/build_data.py <raw-extraction.json>   # 仅在重跑抽取后需要
 python3 tools/build_atlas.py
-git add -A && git commit -m "rebuild atlas" && git push
+python3 tools/build_guidelines.py
+python3 tools/build_home.py
 ```
 
 ## 版本记录
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A3b | 2026-08-31 | 站点改为三页结构：新增独立主页（`docs/index.html`），图谱移至 `docs/atlas.html`，三页互链；规范正文整体改写为更严谨的表述，去除口语化与修辞性说法；三个构建脚本共用 `tools/sitelib.py`，中文断行处理扩展到图谱 | feat |
+| A3a | 2026-08-31 | 定为不指定 AI 工具，相应强化 §4 隐私（无豁免口、不得依赖厂商隐私承诺）；补 §5 违规处理条款（走现有学术诚信通道）；顶栏加分节跳转；断言校验扩至 88 处、引文 9 条，并禁止会退化成部分匹配的弱断言 | feat |
+| A3 | 2026-08-31 | 《学生 AI 使用规范》初稿：四档许可框架、默认规则与标级、披露三件套、责任三条、认定与申诉、国际部专章（英语能力／申请文书）、一页速查与 12 条灰区判例；中英双语可切换；构建时对 74 处数字断言与 7 条引文做机器校验 | milestone |
 | A2c1 | 2026-08-30 | 补充自定义域名说明：`docs/CNAME` 由 Pages 管理、不可删除，构建脚本不会覆盖它 | docs |
 | A2c | 2026-08-30 | 上线 GitHub Pages：构建产物改输出到 `docs/`，加 `.nojekyll`；补齐四枚固定徽章与在线地址 | feat |
 | A2b1 | 2026-08-30 | 重写免责措辞：改为「内容取自官方原文、这是定期更新的快照」，并把 PR 邀请落成 CONTRIBUTING.md（更正流程、逐字要求、提交前校验） | docs |

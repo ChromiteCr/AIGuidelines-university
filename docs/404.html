@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>找不到这个页面</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:wght@600;700&display=swap">
+<style>
+:root{--paper:#E7E9EF;--surface:#FBFBFD;--ink:#131A2B;--ink-2:#414B61;--ink-3:#79839A;--rule:#D2D6E0;--seal-ink:#8A2B34}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#0B0F17;--surface:#141926;--ink:#E5E9F2;--ink-2:#AEB7CA;--ink-3:#727C95;--rule:#28303F;--seal-ink:#E9A3AA}}
+:root[data-theme="dark"]{--paper:#0B0F17;--surface:#141926;--ink:#E5E9F2;--ink-2:#AEB7CA;--ink-3:#727C95;--rule:#28303F;--seal-ink:#E9A3AA}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans","Noto Sans SC",sans-serif;line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:clamp(40px,8vw,90px) clamp(16px,5vw,44px) 60px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;color:var(--ink-3)}
+h1{font-family:"Spectral","Noto Sans SC",serif;font-size:clamp(28px,5vw,44px);margin:8px 0 10px;line-height:1.15}
+p{margin:0 0 16px;color:var(--ink-2);max-width:60ch}
+.grid{display:grid;gap:1px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));background:var(--rule);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:22px 0}
+.grid a{background:var(--surface);padding:10px 12px;text-decoration:none;color:var(--ink);display:flex;gap:8px;align-items:baseline}
+.grid a:hover{color:var(--seal-ink)}
+.grid i{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3)}
+.grid span{font-size:12px;color:var(--ink-3)}
+a{color:var(--seal-ink)}
+</style>
+<main class="wrap">
+  <p class="eyebrow">404</p>
+  <h1 id="h">正在查找…</h1>
+  <p id="msg"></p>
+  <div class="grid" id="list"></div>
+  <p id="links"></p>
+</main>
+<noscript><p style="padding:0 20px">找不到这个页面。Page not found.</p></noscript>
+<script>
+var ALIASES = {"01": "Stanford", "01stanford": "Stanford", "02": "MIT", "02mit": "MIT", "03": "Harvard", "03harvard": "Harvard", "04": "Yale", "04yale": "Yale", "05": "Cornell", "05cornell": "Cornell", "06": "Penn", "06penn": "Penn", "07": "Columbia", "07columbia": "Columbia", "08": "Duke", "08duke": "Duke", "09": "Northwestern", "09northwestern": "Northwestern", "1": "Stanford", "10": "UChicago", "10uchicago": "UChicago", "11": "Princeton", "11princeton": "Princeton", "12": "Caltech", "12caltech": "Caltech", "13": "JHU", "13johnshopkins": "JHU", "14": "Brown", "14brown": "Brown", "15": "Vanderbilt", "15vanderbilt": "Vanderbilt", "16": "Berkeley", "16ucberkeley": "Berkeley", "17": "UCLA", "17ucla": "UCLA", "18": "Rice", "18rice": "Rice", "19": "Dartmouth", "19dartmouth": "Dartmouth", "2": "MIT", "20": "NotreDame", "20notredame": "NotreDame", "21": "CMU", "21carnegiemellon": "CMU", "22": "UMich", "22michigan": "UMich", "23": "Georgetown", "23georgetown": "Georgetown", "24": "Emory", "24emory": "Emory", "25": "UNC", "25uncchapelhill": "UNC", "26": "WashU", "26washu": "WashU", "27": "UVA", "27uva": "UVA", "28": "USC", "28usc": "USC", "29": "UCSD", "29ucsandiego": "UCSD", "3": "Harvard", "30": "NYU", "30nyu": "NYU", "4": "Yale", "5": "Cornell", "6": "Penn", "7": "Columbia", "8": "Duke", "9": "Northwestern", "berkeley": "Berkeley", "brown": "Brown", "brownuniversity": "Brown", "californiaberkeley": "Berkeley", "californiainstituteoftechnology": "Caltech", "californialosangeles": "UCLA", "californiasandiego": "UCSD", "caltech": "Caltech", "carnegiemellon": "CMU", "carnegiemellonuniversity": "CMU", "chicago": "UChicago", "cmu": "CMU", "columbia": "Columbia", "columbiauniversity": "Columbia", "cornell": "Cornell", "cornelluniversity": "Cornell", "dartmouth": "Dartmouth", "dartmouthcollege": "Dartmouth", "duke": "Duke", "dukeuniversity": "Duke", "emory": "Emory", "emoryuniversity": "Emory", "georgetown": "Georgetown", "georgetownuniversity": "Georgetown", "harvard": "Harvard", "harvarduniversity": "Harvard", "hopkins": "JHU", "jhu": "JHU", "johnshopkins": "JHU", "johnshopkinsuniversity": "JHU", "massachusettsinstituteoftechnology": "MIT", "michigan": "UMich", "michiganannarbor": "UMich", "mit": "MIT", "nd": "NotreDame", "newyork": "NYU", "newyorkuniversity": "NYU", "northcarolinaatchapelhill": "UNC", "northwestern": "Northwestern", "northwesternuniversity": "Northwestern", "notredame": "NotreDame", "nu": "Northwestern", "nyu": "NYU", "penn": "Penn", "pennsylvania": "Penn", "princeton": "Princeton", "princetonuniversity": "Princeton", "rice": "Rice", "riceuniversity": "Rice", "southerncalifornia": "USC", "stanford": "Stanford", "stanforduniversity": "Stanford", "ucb": "Berkeley", "ucberkeley": "Berkeley", "uchicago": "UChicago", "ucla": "UCLA", "ucsandiego": "UCSD", "ucsd": "UCSD", "umich": "UMich", "unc": "UNC", "uncchapelhill": "UNC", "universityofcaliforniaberkeley": "Berkeley", "universityofcalifornialosangeles": "UCLA", "universityofcaliforniasandiego": "UCSD", "universityofchicago": "UChicago", "universityofmichiganannarbor": "UMich", "universityofnorthcarolinaatchapelhill": "UNC", "universityofnotredame": "NotreDame", "universityofpennsylvania": "Penn", "universityofsoutherncalifornia": "USC", "universityofvirginia": "UVA", "upenn": "Penn", "usc": "USC", "uva": "UVA", "vanderbilt": "Vanderbilt", "vanderbiltuniversity": "Vanderbilt", "virginia": "UVA", "washingtonuniversityinstlouis": "WashU", "washu": "WashU", "wustl": "WashU", "yale": "Yale", "yaleuniversity": "Yale", "乔治城": "Georgetown", "乔治城大学": "Georgetown", "伯克利": "Berkeley", "加州大学伯克利分校": "Berkeley", "加州大学圣地亚哥分校": "UCSD", "加州大学洛杉矶": "UCLA", "加州大学洛杉矶分校": "UCLA", "加州理工": "Caltech", "加州理工学院": "Caltech", "北卡": "UNC", "北卡教堂山": "UNC", "北卡罗来纳大学教堂山分校": "UNC", "南加大": "USC", "南加州": "USC", "南加州大学": "USC", "卡内基梅隆": "CMU", "卡内基梅隆大学": "CMU", "卡耐基梅隆": "CMU", "哈佛": "Harvard", "哈佛大学": "Harvard", "哥伦比亚": "Columbia", "哥伦比亚大学": "Columbia", "哥大": "Columbia", "圣地亚哥": "UCSD", "圣母": "NotreDame", "圣母大学": "NotreDame", "圣路易斯华盛顿": "WashU", "圣路易斯华盛顿大学": "WashU", "埃默瑞": "Emory", "埃默里": "Emory", "埃默里大学": "Emory", "宾夕法尼亚": "Penn", "宾夕法尼亚大学": "Penn", "宾大": "Penn", "密歇根": "UMich", "密歇根大学": "UMich", "密西根": "UMich", "布朗": "Brown", "布朗大学": "Brown", "康乃尔": "Cornell", "康奈尔": "Cornell", "康奈尔大学": "Cornell", "弗吉尼亚": "UVA", "弗吉尼亚大学": "UVA", "斯坦福": "Stanford", "斯坦福大学": "Stanford", "普林斯顿": "Princeton", "普林斯顿大学": "Princeton", "杜克": "Duke", "杜克大学": "Duke", "约翰斯霍普金斯": "JHU", "约翰斯霍普金斯大学": "JHU", "约翰霍普金斯": "JHU", "纽大": "NYU", "纽约": "NYU", "纽约大学": "NYU", "耶鲁": "Yale", "耶鲁大学": "Yale", "芝加哥": "UChicago", "芝加哥大学": "UChicago", "芝大": "UChicago", "范德堡": "Vanderbilt", "范德堡大学": "Vanderbilt", "范德比尔特": "Vanderbilt", "莱斯": "Rice", "莱斯大学": "Rice", "西北": "Northwestern", "西北大学": "Northwestern", "达特茅斯": "Dartmouth", "达特茅斯学院": "Dartmouth", "霍普金斯": "JHU", "麻省理工": "MIT", "麻省理工学院": "MIT"};
+var SCHOOLS = [["Stanford", "01", "Stanford", "斯坦福大学"], ["MIT", "02", "MIT", "麻省理工学院"], ["Harvard", "03", "Harvard", "哈佛大学"], ["Yale", "04", "Yale", "耶鲁大学"], ["Cornell", "05", "Cornell", "康奈尔大学"], ["Penn", "06", "Penn", "宾夕法尼亚大学"], ["Columbia", "07", "Columbia", "哥伦比亚大学"], ["Duke", "08", "Duke", "杜克大学"], ["Northwestern", "09", "Northwestern", "西北大学"], ["UChicago", "10", "UChicago", "芝加哥大学"], ["Princeton", "11", "Princeton", "普林斯顿大学"], ["Caltech", "12", "Caltech", "加州理工学院"], ["JHU", "13", "Johns Hopkins", "约翰斯·霍普金斯大学"], ["Brown", "14", "Brown", "布朗大学"], ["Vanderbilt", "15", "Vanderbilt", "范德堡大学"], ["Berkeley", "16", "UC Berkeley", "加州大学伯克利分校"], ["UCLA", "17", "UCLA", "加州大学洛杉矶分校"], ["Rice", "18", "Rice", "莱斯大学"], ["Dartmouth", "19", "Dartmouth", "达特茅斯学院"], ["NotreDame", "20", "Notre Dame", "圣母大学"], ["CMU", "21", "Carnegie Mellon", "卡内基梅隆大学"], ["UMich", "22", "Michigan", "密歇根大学"], ["Georgetown", "23", "Georgetown", "乔治城大学"], ["Emory", "24", "Emory", "埃默里大学"], ["UNC", "25", "UNC Chapel Hill", "北卡罗来纳大学教堂山分校"], ["WashU", "26", "WashU", "圣路易斯华盛顿大学"], ["UVA", "27", "UVA", "弗吉尼亚大学"], ["USC", "28", "USC", "南加州大学"], ["UCSD", "29", "UC San Diego", "加州大学圣地亚哥分校"], ["NYU", "30", "NYU", "纽约大学"]];
+(function () {
+  var parts = location.pathname.split("/").filter(Boolean);
+  var gh = /\.github\.io$/.test(location.hostname);
+  var root = gh && parts.length ? "/" + parts[0] + "/" : "/";
+  var segs = gh ? parts.slice(1) : parts;
+  var last = segs.length ? segs[segs.length - 1] : "";
+  try { last = decodeURIComponent(last); } catch (e) {}
+  var key = last.trim().toLowerCase().replace(/\.html$/, "").replace(/[\s\-_.,'’()·–—\/]/g, "");
+  var hit = ALIASES[key];
+  if (hit && location.pathname !== root + hit + "/") {
+    location.replace(root + hit + "/" + location.hash);
+    return;
+  }
+  document.getElementById("h").textContent = "找不到这个页面 · Page not found";
+  document.getElementById("msg").textContent =
+    "“" + last + "” 不是本站的页面。三十所大学各有一个独立页面，例如 /MIT、/Stanford、/JHU；" +
+    "大小写和常见写法会自动跳转。";
+  var list = document.getElementById("list");
+  SCHOOLS.forEach(function (s) {
+    var a = document.createElement("a");
+    a.href = root + s[0] + "/";
+    a.innerHTML = "<i>" + s[1] + "</i><b></b><span></span>";
+    a.querySelector("b").textContent = s[2];
+    a.querySelector("span").textContent = s[3];
+    list.appendChild(a);
+  });
+  document.getElementById("links").innerHTML =
+    '<a href="' + root + '">主页 Home</a> · <a href="' + root + 'atlas.html">政策图谱 Atlas</a> · ' +
+    '<a href="' + root + 'guidelines.html">学生规范 Guidelines</a>';
+})();
+</script>

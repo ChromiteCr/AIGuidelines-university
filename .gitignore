@@ -14,3 +14,6 @@ venv/
 scratchpad/
 *.raw.json
 rebuilt.json
+
+# local preview config for the Claude app
+.claude/launch.json

@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>三十校 AI 政策研究</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,6 +140,26 @@ section{padding-top:clamp(40px,6vw,64px)}
 .mini-grid i[data-r="1"]{background:var(--l2)}
 .mini-grid i[data-r="0"]{background:repeating-linear-gradient(-45deg,transparent 0 3px,var(--rule) 3px 4px)}
 
+/* ---- school index ---- */
+/* 5 / 3 / 2 columns all divide 30 evenly, so the last row is never ragged */
+.schools{display:grid;gap:1px;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:18px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.sch{background:var(--surface);padding:11px 13px 12px;text-decoration:none;color:var(--ink);
+  display:grid;grid-template-columns:22px minmax(0,1fr);gap:1px 8px;align-items:baseline;transition:background .14s}
+.sch:hover{background:var(--surface-2)}
+.sch:hover b{color:var(--seal-ink)}
+.sch .n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.sch b{font-family:var(--display);font-size:16px;font-weight:600;line-height:1.25}
+.sch .zh{grid-column:2;font-family:var(--sans);font-size:11.5px;color:var(--ink-3);line-height:1.45}
+.fp{grid-column:2;display:flex;gap:2px;margin-top:6px}
+.fp i{width:8px;height:8px;border-radius:1px;display:block}
+.fp i[data-r="3"]{background:var(--l0)}
+.fp i[data-r="2"]{background:var(--l1)}
+.fp i[data-r="1"]{background:var(--l2)}
+.fp i[data-r="0"]{box-shadow:inset 0 0 0 1px var(--rule)}
+@media (max-width:860px){ .schools{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:520px){ .schools{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
 /* ---- evidence chain ---- */
 .chain{display:flex;flex-direction:column;gap:1px;background:var(--rule);
   border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:6px}
@@ -264,6 +289,52 @@ footer p{max-width:var(--measure);margin:0 0 9px}
       <span class="go" lang="en">Open the guidelines →</span>
     </a>
   </div>
+</section>
+
+<section id="schools">
+  <div class="sec-head">
+    <h2 lang="zh">按学校查看</h2><h2 lang="en">By university</h2>
+    <span class="en2">30 pages</span>
+  </div>
+  <p class="note" lang="zh">
+    每所学校都有自己的地址，例如 <b class="num">ai.policy.nestudy.cn/MIT</b>。页面上是该校的十二项条款，以及它的官方原文——图谱引用过的句子会在原文中逐句标出。网址不区分大小写，常见写法（/mit、/johns-hopkins、/麻省理工）都会自动跳转。每行的小色带就是该校在图谱中的那一行：颜色越深规定越明确，空白处为该来源未作表述。
+  </p>
+  <p class="note" lang="en">
+    Every university has its own address — for example <b class="num">ai.policy.nestudy.cn/MIT</b>. Each page gives
+    its twelve provisions and its official text, with every sentence the atlas cites highlighted in place.
+    Addresses ignore case, and common spellings (/mit, /johns-hopkins, /麻省理工) redirect automatically.
+    The small strip on each entry is that university's row of the atlas: darker is more explicit, blank is silent.
+  </p>
+  <div class="schools"><a class="sch" href="Stanford/" title="Stanford University"><span class="n">01</span><b>Stanford</b><span class="zh">斯坦福大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="MIT/" title="Massachusetts Institute of Technology"><span class="n">02</span><b>MIT</b><span class="zh">麻省理工学院</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Harvard/" title="Harvard University"><span class="n">03</span><b>Harvard</b><span class="zh">哈佛大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="3"></i><i data-r="3"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Yale/" title="Yale University"><span class="n">04</span><b>Yale</b><span class="zh">耶鲁大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Cornell/" title="Cornell University"><span class="n">05</span><b>Cornell</b><span class="zh">康奈尔大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Penn/" title="University of Pennsylvania"><span class="n">06</span><b>Penn</b><span class="zh">宾夕法尼亚大学</span><span class="fp"><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Columbia/" title="Columbia University"><span class="n">07</span><b>Columbia</b><span class="zh">哥伦比亚大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Duke/" title="Duke University"><span class="n">08</span><b>Duke</b><span class="zh">杜克大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Northwestern/" title="Northwestern University"><span class="n">09</span><b>Northwestern</b><span class="zh">西北大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="UChicago/" title="University of Chicago"><span class="n">10</span><b>UChicago</b><span class="zh">芝加哥大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Princeton/" title="Princeton University"><span class="n">11</span><b>Princeton</b><span class="zh">普林斯顿大学</span><span class="fp"><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Caltech/" title="California Institute of Technology"><span class="n">12</span><b>Caltech</b><span class="zh">加州理工学院</span><span class="fp"><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="JHU/" title="Johns Hopkins University"><span class="n">13</span><b>Johns Hopkins</b><span class="zh">约翰斯·霍普金斯大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="1"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Brown/" title="Brown University"><span class="n">14</span><b>Brown</b><span class="zh">布朗大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="3"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Vanderbilt/" title="Vanderbilt University"><span class="n">15</span><b>Vanderbilt</b><span class="zh">范德堡大学</span><span class="fp"><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Berkeley/" title="University of California, Berkeley"><span class="n">16</span><b>UC Berkeley</b><span class="zh">加州大学伯克利分校</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="0"></i><i data-r="3"></i><i data-r="3"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="UCLA/" title="University of California, Los Angeles"><span class="n">17</span><b>UCLA</b><span class="zh">加州大学洛杉矶分校</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Rice/" title="Rice University"><span class="n">18</span><b>Rice</b><span class="zh">莱斯大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="3"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Dartmouth/" title="Dartmouth College"><span class="n">19</span><b>Dartmouth</b><span class="zh">达特茅斯学院</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="NotreDame/" title="University of Notre Dame"><span class="n">20</span><b>Notre Dame</b><span class="zh">圣母大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="CMU/" title="Carnegie Mellon University"><span class="n">21</span><b>Carnegie Mellon</b><span class="zh">卡内基梅隆大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="UMich/" title="University of Michigan–Ann Arbor"><span class="n">22</span><b>Michigan</b><span class="zh">密歇根大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Georgetown/" title="Georgetown University"><span class="n">23</span><b>Georgetown</b><span class="zh">乔治城大学</span><span class="fp"><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Emory/" title="Emory University"><span class="n">24</span><b>Emory</b><span class="zh">埃默里大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="UNC/" title="University of North Carolina at Chapel Hill"><span class="n">25</span><b>UNC Chapel Hill</b><span class="zh">北卡罗来纳大学教堂山分校</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="WashU/" title="Washington University in St. Louis"><span class="n">26</span><b>WashU</b><span class="zh">圣路易斯华盛顿大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i></span></a>
+<a class="sch" href="UVA/" title="University of Virginia"><span class="n">27</span><b>UVA</b><span class="zh">弗吉尼亚大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="USC/" title="University of Southern California"><span class="n">28</span><b>USC</b><span class="zh">南加州大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="3"></i><i data-r="3"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="UCSD/" title="University of California San Diego"><span class="n">29</span><b>UC San Diego</b><span class="zh">加州大学圣地亚哥分校</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="NYU/" title="New York University"><span class="n">30</span><b>NYU</b><span class="zh">纽约大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i></span></a></div>
 </section>
 
 <section>

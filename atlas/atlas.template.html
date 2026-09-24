@@ -420,6 +420,10 @@ blockquote.ev::after{content:"”";color:var(--ink-3);margin-left:1px}
 .badge.ok{border-color:var(--f2);color:var(--ink)}
 .badge.warn{border-color:var(--seal);color:var(--seal-ink);background:var(--seal-wash)}
 .note{font-size:13px;color:var(--ink-2);line-height:1.55;margin:0}
+.acts{display:flex;gap:8px;flex-wrap:wrap;align-self:flex-start}
+a.pagelink{text-decoration:none;display:inline-block;align-self:flex-start;
+  border-color:var(--seal);color:var(--seal-ink);background:var(--seal-wash)}
+a.pagelink:hover{background:var(--seal);color:var(--surface)}
 .src{display:flex;flex-direction:column;gap:4px;font-size:12px;padding:9px 11px;background:var(--surface-2);border:1px solid var(--rule);border-radius:2px}
 .src b{font-weight:500;font-size:12.5px}
 .src a{font-family:var(--mono);font-size:10.5px;word-break:break-all;line-height:1.4}
@@ -623,6 +627,8 @@ footer .num{color:var(--ink-2)}
 
 <script>
 const DATA = /*__DATA__*/null;
+// school id -> page address, from tools/schools.py (e.g. "02-MIT" -> "MIT" → ai.policy.nestudy.cn/MIT)
+const SLUGS = /*__SLUGS__*/null;
 
 /* ---------- helpers ---------- */
 const $ = (s, r) => (r || document).querySelector(s);
@@ -997,11 +1003,18 @@ function openCell(schoolId, dimKey, btn) {
 
   body.append(sourceBlock(s));
 
+  const acts = el("div", "acts");
   const more = el("button", "chip", "查看 " + s.short + " 的完整档案 →");
   more.type = "button";
-  more.style.alignSelf = "flex-start";
   more.addEventListener("click", () => openSchool(schoolId));
-  body.append(more);
+  acts.append(more);
+  if (SLUGS && SLUGS[schoolId]) {
+    const pg = el("a", "chip pagelink",
+      c.evidence ? "在 /" + SLUGS[schoolId] + " 原文中看这一句 ↗" : "打开 /" + SLUGS[schoolId] + " 独立页面 ↗");
+    pg.href = SLUGS[schoolId] + "/" + (c.evidence ? "#ev-" + dimKey : "#p-" + dimKey);
+    acts.append(pg);
+  }
+  body.append(acts);
 
   openDrawer();
 }
@@ -1063,6 +1076,12 @@ function openSchool(schoolId) {
     (s.audit.changes.length ? `审计员修正了 ${s.audit.changes.length} 处。` : "审计员未发现需要修正之处。");
   body.append(blk("抽取质量 / Extraction audit", audit));
 
+  if (SLUGS && SLUGS[schoolId]) {
+    const pg = el("a", "chip pagelink", "打开独立页面 /" + SLUGS[schoolId] + " ↗");
+    pg.href = SLUGS[schoolId] + "/";
+    body.append(pg);
+  }
+
   openDrawer();
 }
 
@@ -1100,4 +1119,23 @@ if (M.problems.length) {
 /* ---------- go ---------- */
 buildMatrix();
 syncSortChips();
+
+/* ---------- deep links from the school pages ---------- */
+function openFromHash() {
+  let h = location.hash.slice(1);
+  try { h = decodeURIComponent(h); } catch (e) {}
+  if (!h || !SLUGS) return;
+  const [slug, dim] = h.split("/");
+  const id = Object.keys(SLUGS).find(k => SLUGS[k].toLowerCase() === slug.toLowerCase());
+  if (!id) return;
+  if (dim && dimByKey[dim]) {
+    const btn = document.querySelector(`tr[data-id="${id}"] .cell-btn[data-dim="${dim}"]`);
+    if (btn) btn.scrollIntoView({ block: "center", inline: "center" });
+    openCell(id, dim, btn);
+  } else {
+    openSchool(id);
+  }
+}
+openFromHash();
+addEventListener("hashchange", openFromHash);
 </script>

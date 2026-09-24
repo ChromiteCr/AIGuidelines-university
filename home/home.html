@@ -135,6 +135,26 @@ section{padding-top:clamp(40px,6vw,64px)}
 .mini-grid i[data-r="1"]{background:var(--l2)}
 .mini-grid i[data-r="0"]{background:repeating-linear-gradient(-45deg,transparent 0 3px,var(--rule) 3px 4px)}
 
+/* ---- school index ---- */
+/* 5 / 3 / 2 columns all divide 30 evenly, so the last row is never ragged */
+.schools{display:grid;gap:1px;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:18px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.sch{background:var(--surface);padding:11px 13px 12px;text-decoration:none;color:var(--ink);
+  display:grid;grid-template-columns:22px minmax(0,1fr);gap:1px 8px;align-items:baseline;transition:background .14s}
+.sch:hover{background:var(--surface-2)}
+.sch:hover b{color:var(--seal-ink)}
+.sch .n{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.sch b{font-family:var(--display);font-size:16px;font-weight:600;line-height:1.25}
+.sch .zh{grid-column:2;font-family:var(--sans);font-size:11.5px;color:var(--ink-3);line-height:1.45}
+.fp{grid-column:2;display:flex;gap:2px;margin-top:6px}
+.fp i{width:8px;height:8px;border-radius:1px;display:block}
+.fp i[data-r="3"]{background:var(--l0)}
+.fp i[data-r="2"]{background:var(--l1)}
+.fp i[data-r="1"]{background:var(--l2)}
+.fp i[data-r="0"]{box-shadow:inset 0 0 0 1px var(--rule)}
+@media (max-width:860px){ .schools{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:520px){ .schools{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
 /* ---- evidence chain ---- */
 .chain{display:flex;flex-direction:column;gap:1px;background:var(--rule);
   border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:6px}
@@ -268,6 +288,25 @@ footer p{max-width:var(--measure);margin:0 0 9px}
       <span class="go" lang="en">Open the guidelines →</span>
     </a>
   </div>
+</section>
+
+<section id="schools">
+  <div class="sec-head">
+    <h2 lang="zh">按学校查看</h2><h2 lang="en">By university</h2>
+    <span class="en2">30 pages</span>
+  </div>
+  <p class="note" lang="zh">
+    每所学校都有自己的地址，例如 <b class="num">ai.policy.nestudy.cn/MIT</b>。页面上是该校的十二项条款，以及
+    它的官方原文——图谱引用过的句子会在原文中逐句标出。网址不区分大小写，常见写法（/mit、/johns-hopkins、/麻省理工）
+    都会自动跳转。每行的小色带就是该校在图谱中的那一行：颜色越深规定越明确，空白处为该来源未作表述。
+  </p>
+  <p class="note" lang="en">
+    Every university has its own address — for example <b class="num">ai.policy.nestudy.cn/MIT</b>. Each page gives
+    its twelve provisions and its official text, with every sentence the atlas cites highlighted in place.
+    Addresses ignore case, and common spellings (/mit, /johns-hopkins, /麻省理工) redirect automatically.
+    The small strip on each entry is that university's row of the atlas: darker is more explicit, blank is silent.
+  </p>
+  <div class="schools"><!--__SCHOOLS__--></div>
 </section>
 
 <section>

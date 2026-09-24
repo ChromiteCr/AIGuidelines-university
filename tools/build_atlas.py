@@ -18,7 +18,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from sitelib import join_cjk  # noqa: E402
+import schools  # noqa: E402
+from sitelib import join_cjk, wrap_document  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data" / "policies.json"
@@ -26,6 +27,7 @@ TPL = ROOT / "atlas" / "atlas.template.html"
 OUT = ROOT / "docs" / "atlas.html"
 
 MARKER = "/*__DATA__*/null"
+SLUG_MARKER = "/*__SLUGS__*/null"
 
 
 def main():
@@ -47,13 +49,19 @@ def main():
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     html = tpl.replace(MARKER, payload)
 
+    # School page addresses, from the one registry that owns them.
+    slugs = {sid: schools.slug(sid) for sid in schools.SCHOOLS}
+    if SLUG_MARKER not in html:
+        sys.exit(f"marker {SLUG_MARKER!r} not found in {TPL}")
+    html = html.replace(SLUG_MARKER, json.dumps(slugs, ensure_ascii=False, separators=(",", ":")))
+
     # Read the payload back out and confirm it still parses to the same object.
     check = re.search(r"const DATA = (\{.*?\});\n", html, re.S)
     if not check or json.loads(check.group(1).replace("<\\/", "</")) != data:
         sys.exit("构建中止：页面内嵌的数据与 data/policies.json 不一致")
 
     OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(html, encoding="utf-8")
+    OUT.write_text(wrap_document(html), encoding="utf-8")
     # Tell Pages not to run the content through Jekyll.
     (OUT.parent / ".nojekyll").write_text("", encoding="utf-8")
 

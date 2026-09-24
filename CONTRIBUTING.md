@@ -26,13 +26,17 @@ useful contribution you can make.
 2. **只摘录，不转载全文。** 摘录与本项目 12 项条款相关的段落即可。参见
    `tools/propose_trim.py`，它的规则是只删不改，并在略去处标注确切词数。
 3. **附出处。** 官方 URL + 访问日期。没有这两样的 PR 无法核验，不会合并。
-4. **不要手改 `data/policies.json` 或 `docs/index.html`。** 两者都是生成物。
+4. **不要手改 `data/policies.json` 或 `docs/` 下的任何文件。** 它们都是生成物。
 
 ## 提交前跑一遍 / Before you open the PR
 
 ```bash
 python3 tools/build_data.py <raw-extraction.json>   # 校验引文、重算分布
 python3 tools/build_atlas.py                        # 重新生成图谱
+python3 tools/build_guidelines.py                   # 学生规范（数字断言校验）
+python3 tools/build_home.py                         # 主页
+python3 tools/build_schools.py                      # 30 个单校页面 + 网址路由
+python3 tools/check_site.py                         # 全站链接与结构检查
 ```
 
 `build_data.py` 会报告：

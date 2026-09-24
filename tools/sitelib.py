@@ -1,10 +1,10 @@
-"""Shared helpers for the three page builders.
+"""Shared helpers for the page builders.
 
-build_atlas.py, build_guidelines.py and build_home.py all publish Chinese prose
-into docs/, and all three need the same two things: a way to compare text
-without tripping over line wrapping, and the CJK line-break fix. Keeping them
-here means a correction lands in one place instead of drifting between three
-copies.
+build_atlas.py, build_guidelines.py, build_home.py and build_schools.py all
+publish into docs/, and they share the same needs: comparing text without
+tripping over line wrapping, the CJK line-break fix, and a real document shell
+around pages authored as body content. Keeping them here means a correction
+lands in one place instead of drifting between copies.
 """
 
 import json
@@ -61,6 +61,30 @@ def join_cjk(html):
     for block in keep:
         html = html.replace("\x00PRE\x00", block, 1)
     return html
+
+
+DOC_HEAD = (
+    '<!doctype html>\n'
+    '<html lang="zh-CN">\n'
+    '<head>\n'
+    '<meta charset="utf-8">\n'
+    '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+)
+
+
+def wrap_document(page):
+    """Give a page authored as body content a real document shell.
+
+    The sources are written the way an Artifact expects — <title>, <link>,
+    <style>, then markup — and the Artifact host supplies the doctype and head.
+    GitHub Pages serves the file as-is, so without this every page would load
+    in quirks mode and, lacking a viewport tag, render on phones as a shrunken
+    980px desktop layout with none of its mobile breakpoints applied. The HTML
+    parser closes <head> and opens <body> on the first body element by itself.
+    """
+    if page.lstrip()[:15].lower().startswith("<!doctype"):
+        return page
+    return DOC_HEAD + page
 
 
 def load_data():
@@ -140,8 +164,9 @@ def publish(src_html, dst, checks, label=""):
     if bad or qbad:
         sys.exit("\n构建中止：文中的断言与数据对不上。改文字，或重跑 build_data.py。")
 
-    out = join_cjk(src_html)
+    joined = join_cjk(src_html)
+    out = wrap_document(joined)
     dst.parent.mkdir(exist_ok=True)
     dst.write_text(out, encoding="utf-8")
     print(f"{tag}wrote {dst.relative_to(ROOT)}  ({len(out.encode('utf-8')) / 1024:.0f} KB, "
-          f"去掉 {len(src_html) - len(out)} 处中文断行空格)")
+          f"去掉 {len(src_html) - len(joined)} 处中文断行空格)")

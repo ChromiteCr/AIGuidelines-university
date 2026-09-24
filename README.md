@@ -1,13 +1,13 @@
 # U.S. University AI Guidelines — Thirty-School Source Set
 
-![version](https://img.shields.io/badge/version-A3b-blue)
+![version](https://img.shields.io/badge/version-A3c-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
 ![code](https://img.shields.io/badge/code-MIT-green)
 ![data](https://img.shields.io/badge/data-CC%20BY%204.0-green)
 
-**站点 → <https://ai.policy.nestudy.cn/>** ｜ 主页 · [政策图谱](https://ai.policy.nestudy.cn/atlas.html) · [学生 AI 使用规范](https://ai.policy.nestudy.cn/guidelines.html)
+**站点 → <https://ai.policy.nestudy.cn/>** ｜ 主页 · [政策图谱](https://ai.policy.nestudy.cn/atlas.html) · [学生 AI 使用规范](https://ai.policy.nestudy.cn/guidelines.html) · 单校页面如 [/MIT](https://ai.policy.nestudy.cn/MIT)
 
 > ### 内容取自官方原文；这是一份会定期更新的快照
 >
@@ -219,43 +219,95 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 python3 tools/build_guidelines.py
 ```
 
+## 单校页面 / One page per university
+
+每所大学都有自己的地址：`ai.policy.nestudy.cn/<slug>`，例如
+[/MIT](https://ai.policy.nestudy.cn/MIT)、[/Stanford](https://ai.policy.nestudy.cn/Stanford)、
+[/JHU](https://ai.policy.nestudy.cn/JHU)。页面内容：
+
+- **十二项条款**：每项的取值、支撑它的原文那一句、编码说明，以及这一立场在 30 校中的位置
+  （「30 校中 13 所与此相同 · 主流口径……」），并可一键跳到图谱里对照同一格
+- **官方原文全文**：图谱引用过的每一句都在原文中**逐句标出**，句末标签对应条款，点击可跳回；
+  跨段落、带粗体、互相重叠的引文都能正确标注（264 条引文全部定位）
+- 中英双语切换、深浅色、手机适配；打印时自动收成一份单校简报（隐藏原文，页脚印出网址）
+
+**网址不区分大小写，常见写法自动跳转。** GitHub Pages 的路径区分大小写，所以站点带一个
+`docs/404.html` 路由：`/mit`、`/Mit`、`/MIT.html`、`/johns-hopkins`、`/Johns Hopkins`、
+`/麻省理工`、`/哈佛大学`、`/02`、`/upenn`、`/wustl` 都会跳到规范地址，`#锚点` 一并保留；
+真正不存在的地址会列出全部 30 所。共 224 种写法，构建时检查无冲突、不与现有页面重名。
+
+每校的网址名、英文全名、中文名和别名集中在 [tools/schools.py](tools/schools.py) 一处，
+改名只需改那里再重建。
+
+| # | 学校 | 地址 | # | 学校 | 地址 | # | 学校 | 地址 |
+|---|---|---|---|---|---|---|---|---|
+| 01 | Stanford | [`/Stanford`](https://ai.policy.nestudy.cn/Stanford) | 11 | Princeton | [`/Princeton`](https://ai.policy.nestudy.cn/Princeton) | 21 | Carnegie Mellon | [`/CMU`](https://ai.policy.nestudy.cn/CMU) |
+| 02 | MIT | [`/MIT`](https://ai.policy.nestudy.cn/MIT) | 12 | Caltech | [`/Caltech`](https://ai.policy.nestudy.cn/Caltech) | 22 | Michigan | [`/UMich`](https://ai.policy.nestudy.cn/UMich) |
+| 03 | Harvard | [`/Harvard`](https://ai.policy.nestudy.cn/Harvard) | 13 | Johns Hopkins | [`/JHU`](https://ai.policy.nestudy.cn/JHU) | 23 | Georgetown | [`/Georgetown`](https://ai.policy.nestudy.cn/Georgetown) |
+| 04 | Yale | [`/Yale`](https://ai.policy.nestudy.cn/Yale) | 14 | Brown | [`/Brown`](https://ai.policy.nestudy.cn/Brown) | 24 | Emory | [`/Emory`](https://ai.policy.nestudy.cn/Emory) |
+| 05 | Cornell | [`/Cornell`](https://ai.policy.nestudy.cn/Cornell) | 15 | Vanderbilt | [`/Vanderbilt`](https://ai.policy.nestudy.cn/Vanderbilt) | 25 | UNC Chapel Hill | [`/UNC`](https://ai.policy.nestudy.cn/UNC) |
+| 06 | Penn | [`/Penn`](https://ai.policy.nestudy.cn/Penn) | 16 | UC Berkeley | [`/Berkeley`](https://ai.policy.nestudy.cn/Berkeley) | 26 | WashU | [`/WashU`](https://ai.policy.nestudy.cn/WashU) |
+| 07 | Columbia | [`/Columbia`](https://ai.policy.nestudy.cn/Columbia) | 17 | UCLA | [`/UCLA`](https://ai.policy.nestudy.cn/UCLA) | 27 | UVA | [`/UVA`](https://ai.policy.nestudy.cn/UVA) |
+| 08 | Duke | [`/Duke`](https://ai.policy.nestudy.cn/Duke) | 18 | Rice | [`/Rice`](https://ai.policy.nestudy.cn/Rice) | 28 | USC | [`/USC`](https://ai.policy.nestudy.cn/USC) |
+| 09 | Northwestern | [`/Northwestern`](https://ai.policy.nestudy.cn/Northwestern) | 19 | Dartmouth | [`/Dartmouth`](https://ai.policy.nestudy.cn/Dartmouth) | 29 | UC San Diego | [`/UCSD`](https://ai.policy.nestudy.cn/UCSD) |
+| 10 | UChicago | [`/UChicago`](https://ai.policy.nestudy.cn/UChicago) | 20 | Notre Dame | [`/NotreDame`](https://ai.policy.nestudy.cn/NotreDame) | 30 | NYU | [`/NYU`](https://ai.policy.nestudy.cn/NYU) |
+
+**申请端政策**：把某校的申请端材料存为 `admissions/<与 univ/ 相同的文件名>.md`
+（如 `admissions/02-MIT.md`），重跑 `tools/build_schools.py`，该校页面就会多出「申请端的
+AI 政策」一节，渲染方式与原文区相同。
+
 ## 站点发布 / GitHub Pages
 
-图谱是一个零依赖的静态单文件，不需要构建流水线或服务器。
+站点是零依赖的静态文件，不需要构建流水线或服务器。
 
 - **发布源**：`main` 分支的 `/docs` 目录（GitHub Pages 原生支持的三个位置之一）
-- **产物**：三个页面，全部是生成物，不要手改
+- **产物**：`docs/` 下的所有页面都是生成物，**不要手改**
 
   | 页面 | 源文件 | 构建 |
   |------|--------|------|
   | `docs/index.html` 主页 | `home/home.html` | `tools/build_home.py` |
   | `docs/atlas.html` 政策图谱 | `atlas/atlas.template.html` + `data/policies.json` | `tools/build_atlas.py` |
   | `docs/guidelines.html` 学生规范 | `guidelines/guidelines.html` | `tools/build_guidelines.py` |
+  | `docs/<slug>/index.html` 单校页面 ×30 | `schools/school.template.html` + `univ/*.md` + 数据 | `tools/build_schools.py` |
+  | `docs/404.html` 网址路由 | `tools/schools.py` | `tools/build_schools.py` |
 
-  `docs/.nojekyll` 让 Pages 跳过 Jekyll。三个构建脚本共用 `tools/sitelib.py`
-  （文本比对、中文断行处理、断言登记、引文校验）
+  构建脚本共用 `tools/sitelib.py`（文本比对、中文断行处理、断言登记、引文校验、文档外壳）；
+  原文渲染与高亮在 `tools/mdlite.py`。`docs/.nojekyll` 让 Pages 跳过 Jekyll。
 - **地址**：<https://ai.policy.nestudy.cn/>（自定义域名，`docs/CNAME` 由 Pages 管理）
   ｜ 备用 <https://chromitecr.github.io/AIGuidelines-university/>
 
-`docs/index.html` 是**生成物，不要手改**。改动流程：编辑 `atlas/atlas.template.html`
-或源数据 → 重跑构建 → 提交 `docs/index.html` → 推送，Pages 自动重新部署（约一分钟）。
+源文件按 Artifact 的习惯写成「页面内容」（`<title>`、`<style>`、正文），构建时统一补上
+`<!doctype html>` 与 `viewport`。缺了这两样，GitHub Pages 原样输出的页面会进入怪异模式，
+手机上还会按 980px 桌面宽度缩小显示，所有手机适配都不生效。
 
-若启用了自定义域名，GitHub 会在 `docs/` 下提交一个 `CNAME` 文件（内容为该域名）。
-**不要删除它**——Pages 靠它判断服务哪个域名，删了会退回 `*.github.io` 地址。
-`build_atlas.py` 只写 `index.html` 与 `.nojekyll`，不会触碰 `CNAME`，重跑构建是安全的；
-但如果整个删掉 `docs/` 重建，记得把它加回来。
+`docs/CNAME` 是 GitHub 在启用自定义域名时写入的，**不要删除**——Pages 靠它判断服务哪个
+域名。构建脚本都不会触碰它；但如果整个删掉 `docs/` 重建，记得把它加回来。
+
+### 构建、检查、本地预览
 
 ```bash
 python3 tools/build_data.py <raw-extraction.json>   # 仅在重跑抽取后需要
 python3 tools/build_atlas.py
 python3 tools/build_guidelines.py
 python3 tools/build_home.py
+python3 tools/build_schools.py
+python3 tools/check_site.py                         # 全站检查，有问题则非零退出
+python3 tools/serve.py                              # 本地预览 http://localhost:8765/MIT
 ```
+
+`check_site.py` 核对每个页面都有文档外壳、HTML 嵌套正确、所有内部链接和页内锚点都指向
+存在的目标，并确认 30 个单校页面都能从主页和 404 路由到达（当前 34 个页面、1533 条链接、
+0 问题）。
+
+`serve.py` 按 GitHub Pages 的方式提供 `docs/`：路径**区分大小写**（macOS 磁盘默认不区分，
+直接开服务器会让 `/mit` 绕过路由）、缺失路径返回 `404.html`、不列目录——本地能用的，线上
+就能用。
 
 ## 版本记录
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A3c | 2026-09-24 | 单校独立页面：30 所大学各有 `ai.policy.nestudy.cn/<slug>` 地址，含十二项条款、原文全文与逐句引文标注，图谱与单校页双向深链；`404.html` 路由支持大小写、常见写法与中文名共 224 种；主页新增按学校索引；全站补上 doctype 与 viewport（修复线上手机端缩小显示）；新增 `serve.py` 本地预览与 `check_site.py` 全站检查；预留申请端政策接入位 | feat |
 | A3b | 2026-08-31 | 站点改为三页结构：新增独立主页（`docs/index.html`），图谱移至 `docs/atlas.html`，三页互链；规范正文整体改写为更严谨的表述，去除口语化与修辞性说法；三个构建脚本共用 `tools/sitelib.py`，中文断行处理扩展到图谱 | feat |
 | A3a | 2026-08-31 | 定为不指定 AI 工具，相应强化 §4 隐私（无豁免口、不得依赖厂商隐私承诺）；补 §5 违规处理条款（走现有学术诚信通道）；顶栏加分节跳转；断言校验扩至 88 处、引文 9 条，并禁止会退化成部分匹配的弱断言 | feat |
 | A3 | 2026-08-31 | 《学生 AI 使用规范》初稿：四档许可框架、默认规则与标级、披露三件套、责任三条、认定与申诉、国际部专章（英语能力／申请文书）、一页速查与 12 条灰区判例；中英双语可切换；构建时对 74 处数字断言与 7 条引文做机器校验 | milestone |

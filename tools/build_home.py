@@ -13,6 +13,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import html  # noqa: E402
+
+import schools as reg  # noqa: E402
 from sitelib import ROOT, assertion_builder, load_data, publish  # noqa: E402
 
 SRC = ROOT / "home" / "home.html"
@@ -36,8 +39,25 @@ def checks():
     return C
 
 
+def school_index():
+    """One entry per university, linking to its page, with its row of the atlas as a strip."""
+    d, _, _, _ = load_data()
+    out = []
+    for s in sorted(d["schools"], key=lambda s: s["num"]):
+        _, en, zh, _ = reg.SCHOOLS[s["id"]]
+        strip = "".join(f'<i data-r="{c["rank"]}"></i>' for c in s["cells"])
+        out.append(
+            f'<a class="sch" href="{reg.slug(s["id"])}/" title="{html.escape(en)}">'
+            f'<span class="n">{s["num"]:02d}</span><b>{html.escape(s["short"])}</b>'
+            f'<span class="zh">{html.escape(zh)}</span><span class="fp">{strip}</span></a>')
+    return "\n".join(out)
+
+
 def main():
-    publish(SRC.read_text(encoding="utf-8"), DST, checks(), label="主页")
+    src = SRC.read_text(encoding="utf-8")
+    if "<!--__SCHOOLS__-->" not in src:
+        raise SystemExit("home.html 缺少 <!--__SCHOOLS__--> 标记")
+    publish(src.replace("<!--__SCHOOLS__-->", school_index()), DST, checks(), label="主页")
 
 
 if __name__ == "__main__":

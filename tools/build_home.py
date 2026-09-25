@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import html  # noqa: E402
 import re  # noqa: E402
 
+import admissions as adm  # noqa: E402
 import build_guidelines as bg  # noqa: E402
 import schools as reg  # noqa: E402
 from sitelib import ROOT, assertion_builder, load_data, publish  # noqa: E402
@@ -49,7 +50,26 @@ def checks():
     n_quote = len(re.findall(r"<blockquote>", bg.SRC.read_text(encoding="utf-8")))
     add("规范断言数", n_assert, "当前 {n} 处断言", "Currently {n} assertions")
     add("规范引文数", n_quote, "{n} 条引文全部通过", "and {n} quotations pass")
+
+    # the admissions door
+    a = adm.load()
+    explicit = sum(1 for s in a["by_id"].values() if s["status"] == "explicit-undergraduate-ai")
+    add("申请·学校数", len(a["by_id"]), "{n} 所 · 以本科为主", "{n} · undergraduate first")
+    add("申请·明文边界", explicit, "30 所中有 {n} 所对本科申请人写明了 AI 使用边界",
+        "{n} of the 30 state explicit lines for undergraduate applicants")
     return C
+
+
+def admissions_bar():
+    """One segment per evidence status, sized by its number of schools."""
+    a = adm.load()
+    out = []
+    for st in adm.STATUS_ORDER:
+        n = sum(1 for s in a["by_id"].values() if s["status"] == st)
+        if n:
+            zh, en = adm.status_short(st)
+            out.append(f'<span style="flex:{n}" title="{html.escape(zh)} / {html.escape(en)}：{n}">{n}</span>')
+    return "".join(out)
 
 
 def school_index():
@@ -70,7 +90,10 @@ def main():
     src = SRC.read_text(encoding="utf-8")
     if "<!--__SCHOOLS__-->" not in src:
         raise SystemExit("home.html 缺少 <!--__SCHOOLS__--> 标记")
-    publish(src.replace("<!--__SCHOOLS__-->", school_index()), DST, checks(), label="主页")
+    if "<!--__ADM_BAR__-->" not in src:
+        raise SystemExit("home.html 缺少 <!--__ADM_BAR__--> 标记")
+    src = src.replace("<!--__SCHOOLS__-->", school_index()).replace("<!--__ADM_BAR__-->", admissions_bar())
+    publish(src, DST, checks(), label="主页")
 
 
 if __name__ == "__main__":

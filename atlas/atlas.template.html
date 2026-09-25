@@ -319,10 +319,13 @@ table.matrix th,table.matrix td{padding:0;margin:0}
   padding:0 10px !important;border-bottom:1px solid var(--rule-soft);
   border-right:1px solid var(--rule);
 }
-.rh-in{display:flex;align-items:center;gap:8px;height:34px;cursor:pointer;width:100%;text-align:left}
+.rh-in{display:flex;align-items:center;gap:8px;height:34px;cursor:pointer;width:100%;text-align:left;
+  text-decoration:none;color:inherit}
 .rh-n{font-family:var(--mono);font-size:10px;color:var(--ink-3);width:17px;flex:none;font-variant-numeric:tabular-nums}
 .rh-name{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
-.rh-in:hover .rh-name{color:var(--seal-ink)}
+.rh-in:hover .rh-name{color:var(--seal-ink);text-decoration:underline;text-underline-offset:3px}
+.rh-go{font-size:11px;color:var(--seal-ink);flex:none;opacity:0;transition:opacity .12s}
+.rh-in:hover .rh-go,.rh-in:focus-visible .rh-go{opacity:1}
 .rh-scope{width:5px;height:5px;border-radius:50%;flex:none;background:var(--ink-3)}
 .rh-scope[data-s="university_wide"]{background:var(--f3)}
 .rh-scope[data-s="mixed"]{background:var(--f2)}
@@ -496,6 +499,7 @@ footer .num{color:var(--ink-2)}
       <div class="mast-top">
         <span class="eyebrow">Policy atlas · 官方文本对照 · 采集于 <span id="accessed"></span></span>
         <a class="eyebrow xlink" href="index.html">← 项目主页</a>
+        <a class="eyebrow xlink" href="admissions.html">→ 申请环节的 AI 政策</a>
         <a class="eyebrow xlink" href="guidelines.html">→ 《学生 AI 使用规范》草案</a>
         <span class="eyebrow" id="mast-count"></span>
       </div>
@@ -542,7 +546,7 @@ footer .num{color:var(--ink-2)}
         <span class="rule"></span>
       </div>
       <p class="sec-sub">
-        点击单元格查看原文依据与来源；点击列标题按该条款的规定强度排序；点击校名查看该校概况。
+        点击单元格查看原文依据与来源；点击列标题按该条款的规定强度排序；点击校名打开该校页面。
         颜色深浅表示规定的明确程度与约束力，不代表政策优劣。
       </p>
 
@@ -810,14 +814,15 @@ function buildMatrix() {
     tr.dataset.id = s.id;
 
     const rh = el("th", "rowhead");
-    const btn = el("button", "rh-in");
-    btn.type = "button";
+    const link = el("a", "rh-in");
+    link.href = SLUGS[s.id] + "/";
+    link.title = `打开 ${s.short} 的页面：十二项条款、申请环节与官方原文`;
     const dot = el("span", "rh-scope");
     dot.dataset.s = s.scope;
     dot.title = `${s.scope_zh} — ${DATA.scopes[s.scope].hint}`;
-    btn.append(el("span", "rh-n", String(s.num).padStart(2, "0")), el("span", "rh-name", s.short), dot);
-    btn.addEventListener("click", () => openSchool(s.id));
-    rh.append(btn);
+    link.append(el("span", "rh-n", String(s.num).padStart(2, "0")), el("span", "rh-name", s.short),
+                el("span", "rh-go", "↗"), dot);
+    rh.append(link);
     tr.append(rh);
 
     s.cells.forEach(c => {
@@ -1012,15 +1017,13 @@ function openCell(schoolId, dimKey, btn) {
   body.append(sourceBlock(s));
 
   const acts = el("div", "acts");
-  const more = el("button", "chip", "查看 " + s.short + " 概况 →");
-  more.type = "button";
-  more.addEventListener("click", () => openSchool(schoolId));
-  acts.append(more);
-  if (SLUGS && SLUGS[schoolId]) {
-    const pg = el("a", "chip pagelink",
-      c.evidence ? "在 /" + SLUGS[schoolId] + " 原文中定位此句 ↗" : "打开 /" + SLUGS[schoolId] + " 单校页面 ↗");
-    pg.href = SLUGS[schoolId] + "/" + (c.evidence ? "#ev-" + dimKey : "#p-" + dimKey);
-    acts.append(pg);
+  const page = el("a", "chip pagelink", "打开 " + s.short + " 的页面 →");
+  page.href = SLUGS[schoolId] + "/#p-" + dimKey;
+  acts.append(page);
+  if (c.evidence) {
+    const at = el("a", "chip pagelink", "在原文中定位此句 ↗");
+    at.href = SLUGS[schoolId] + "/#ev-" + dimKey;
+    acts.append(at);
   }
   body.append(acts);
 

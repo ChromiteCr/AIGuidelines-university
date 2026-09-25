@@ -19,6 +19,10 @@ useful contribution you can make.
 **③ 分类判断有误** — 例如某校明明写了"须核实"，矩阵里却标成"未提及"。开 issue 或直接
 提 PR，说明是哪一格、你认为应该是什么、以及支持它的**原文那一句**。
 
+**④ 申请环节资料过期或有误** — 改 `admissions/NN-School.md`（来源、引文、中文说明与检索
+记录），并同步 `admissions/application-index.json` 中该校的 `status` 与 `summary_zh`。旧的
+记录保留为历史，不要覆盖。
+
 ## 硬性要求 / Non-negotiables
 
 1. **逐字。** 引文必须是官方页面上的原文，一个字符都不能改——不改标点、不改大小写、
@@ -36,6 +40,7 @@ python3 tools/build_atlas.py                        # 重新生成图谱
 python3 tools/build_guidelines.py                   # 学生规范（数字断言校验）
 python3 tools/build_home.py                         # 主页
 python3 tools/build_schools.py                      # 30 个单校页面 + 网址路由
+python3 tools/build_admissions.py                   # 申请环节汇总页
 python3 tools/check_site.py                         # 全站链接与结构检查
 ```
 

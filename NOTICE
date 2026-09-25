@@ -29,6 +29,8 @@ LICENSE file. Free to use, modify, and redistribute.
 
     data/policies.json
     tools/codebook.py   （作为编码体系而非代码时）
+    admissions/application-index.json、admissions/application-summary.csv
+    admissions/*.md 中的中文分析与证据状态（引文除外）
 
 以下内容是本项目的原创学术贡献，按 Creative Commons Attribution 4.0
 International (CC BY 4.0) 发布 —— https://creativecommons.org/licenses/by/4.0/
@@ -38,27 +40,32 @@ International (CC BY 4.0) 发布 —— https://creativecommons.org/licenses/by/
   - 每所学校在每项条款上的取值判定
   - 来源层级（校级／院系级／面向教师／混合）的标注
   - 由此计算的分布、一致度与沉默率
+  - 申请环节资料的证据状态分类、中文摘要与分析
 
 使用时请注明出处。
 
 CAVEAT: data/policies.json 的 `evidence`、`quote` 与 `takeaways` 字段包含
-第 3 节所述的原文引文（每条至多约 320 字符）。这些字符串的版权状态见第 3 节，
-不因被收入本数据集而改变。
+第 3 节所述的原文引文（每条至多约 320 字符）；admissions/ 的索引与 Markdown
+文件同样内嵌英文原文引文。这些字符串的版权状态见第 3 节，不因被收入本数据集
+而改变。
 
 The classification itself is this project's original scholarly contribution and
 is released under CC BY 4.0; please attribute. Note that the `evidence`,
 `quote`, and `takeaways` fields embed short verbatim quotations whose status is
-governed by section 3 below — inclusion here does not change that status.
+governed by section 3 below — inclusion here does not change that status. The
+same holds for the English quotations embedded in admissions/.
 
 
 -----------------------------------------------------------------------------
 3. 大学官方文本引文 / Quoted university source text  —  各校保留版权
 -----------------------------------------------------------------------------
 
-    univ/*.md
+    univ/*.md、univ/full/*.md
+    admissions/*.md 与 admissions/application-index.json 中的英文引文
 
-这些文件包含美国三十所大学官方网页的**逐字引文与摘录**。版权归各该大学所有，
-本项目不拥有、也无权向任何人授予对这些文字的权利。
+这些文件包含美国三十所大学及两个申请平台（Common App、UC 系统）官方网页的
+**逐字引文与摘录**。版权归各原发布者所有，本项目不拥有、也无权向任何人授予对
+这些文字的权利。
 
 收录方式与目的：
 
@@ -66,7 +73,10 @@ governed by section 3 below — inclusion here does not change that status.
   - 来源：全部为各校公开发布的官方网页；每份文件均记录其官方 URL、发布单位
     与访问日期。
   - 范围：摘录相关政策段落，去除导航与站点框架，保留原始措辞。
-  - 时点：2026 年 8 月 21 日至 29 日的快照；见第 5 节关于更新与更正。
+  - 时点：univ/ 为 2026 年 8 月 21 日至 29 日的快照，admissions/ 为 2026 年
+    9 月 24 日至 25 日的快照；见第 5 节关于更新与更正。
+  - univ/full/ 保存删减前的完整采集文本（目前仅 MIT），站点以灰色小字显示其中
+    未被引用的部分；univ/ 下的同名文件是研究所依据的版本。
 
 本项目与上述任何一所大学均无隶属、赞助或背书关系。校名仅用于指称其自身的政策
 文本。
@@ -75,7 +85,8 @@ governed by section 3 below — inclusion here does not change that status.
 删减或改为仅保留链接。
 
 These files contain verbatim excerpts from the official web pages of thirty
-U.S. universities. Copyright remains with the respective universities. This
+U.S. universities and two application platforms (Common App, the UC system).
+Copyright remains with the respective publishers. This
 project neither owns these texts nor can grant anyone any rights in them.
 
 They are reproduced for non-commercial academic research, comparison, and
@@ -101,8 +112,9 @@ Open Font License 1.1.
 5. 时效与更正 / Currency and corrections
 -----------------------------------------------------------------------------
 
-本仓库收录的是各校官方发布的政策原文，但它是一份**快照**，不是实时镜像。采集完成
-于 2026 年 8 月 21 日至 29 日；此后各校若修订政策，本仓库不会自动跟进。
+本仓库收录的是各校官方发布的政策原文，但它是一份**快照**，不是实时镜像。校内政策
+采集完成于 2026 年 8 月 21 日至 29 日，申请环节资料采集于 2026 年 9 月 24 日至 25 日；
+此后各校若修订政策，本仓库不会自动跟进。
 
 本项目会定期复核并更新。若你发现某条已经过期、与官网有出入，或某校发布了新的政策
 页面，欢迎提 Pull Request——附上官方链接与访问日期即可，流程见 CONTRIBUTING.md。

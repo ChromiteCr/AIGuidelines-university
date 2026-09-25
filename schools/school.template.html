@@ -102,6 +102,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -219,6 +222,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -243,7 +279,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -255,6 +291,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>

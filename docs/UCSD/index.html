@@ -107,6 +107,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -224,6 +227,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -248,7 +284,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -260,6 +296,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>
@@ -311,6 +348,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="chip" title="中央或教务层级、面向全校学生的政策"><span lang="zh">来源层级 · <b>校级通用</b></span><span lang="en">Source level · <b>University-wide</b></span></span>
     <span class="chip"><span lang="zh"><b>10</b> / 12 项有明文规定</span><span lang="en"><b>10</b> of 12 provisions addressed</span></span>
     <span class="chip"><span lang="zh">采集于 <b>2026-08-29</b></span><span lang="en">Accessed <b>2026-08-29</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>UC 系统共同规定</b></span><span lang="en">Admissions · <b>UC system (shared source)</b></span></a>
   </div>
   <nav class="strip" aria-label="十二项条款 / Twelve provisions"><a class="sc" data-r="3" href="#p-default_rule" title="默认规则：默认禁止"><em><span lang="zh">默认规则</span><span lang="en">Default rule</span></em><b><span lang="zh">默认禁止</span><span lang="en">Prohibited by default</span></b></a><a class="sc" data-r="2" href="#p-instructor_override" title="课程规则优先：教师可定但有底线"><em><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></em><b><span lang="zh">教师可定但有底线</span><span lang="en">Instructor rules within limits</span></b></a><a class="sc" data-r="0" href="#p-tiered_scale" title="分级许可：未提及"><em><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-disclosure" title="披露要求：依课程而定"><em><span lang="zh">披露要求</span><span lang="en">Disclosure</span></em><b><span lang="zh">依课程而定</span><span lang="en">Course dependent</span></b></a><a class="sc" data-r="0" href="#p-process_evidence" title="过程留证：未提及"><em><span lang="zh">过程留证</span><span lang="en">Process evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-verification_duty" title="核实责任：一般性提醒"><em><span lang="zh">核实责任</span><span lang="en">Verification duty</span></em><b><span lang="zh">一般性提醒</span><span lang="en">General caution</span></b></a><a class="sc" data-r="2" href="#p-integrity_framing" title="违规定性：学术不端"><em><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></em><b><span lang="zh">学术不端</span><span lang="en">Academic integrity violation</span></b></a><a class="sc" data-r="2" href="#p-detector_stance" title="检测器证据：质疑其可靠性"><em><span lang="zh">检测器证据</span><span lang="en">Detector evidence</span></em><b><span lang="zh">质疑其可靠性</span><span lang="en">Reliability questioned</span></b></a><a class="sc" data-r="1" href="#p-data_privacy" title="数据与隐私：一般性提醒"><em><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></em><b><span lang="zh">一般性提醒</span><span lang="en">General caution</span></b></a><a class="sc" data-r="2" href="#p-ip_copyright" title="知识产权：有明确规定"><em><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></em><b><span lang="zh">有明确规定</span><span lang="en">Addressed</span></b></a><a class="sc" data-r="2" href="#p-institutional_tools" title="机构工具：提供机构版工具"><em><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></em><b><span lang="zh">提供机构版工具</span><span lang="en">Institution-provided tool</span></b></a><a class="sc" data-r="3" href="#p-learning_rationale" title="学习理由：明确以学习目标为据"><em><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></em><b><span lang="zh">明确以学习目标为据</span><span lang="en">Explicit learning-objective rationale</span></b></a></nav>
   <p class="print-url">ai.policy.nestudy.cn/UCSD</p>
@@ -497,7 +535,58 @@ mark.flash{animation:flash 1.8s ease-out}
 </div>
 </section>
 
-
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/29-UC-San-Diego.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">UC 系统本科 AI 规则/指导（共同来源）</span><span lang="en">UC system undergraduate AI rules and guidance (a shared source, not a campus policy)</span></span>
+    <p class="adm-sum">UC 系统声明允许 AI 辅助可读性，要求 PIQ 由本人独立写作、内容和最终文字属于本人；2026–27 first-year 指南另提早期构思/整理，须保留本人作品与声音。有真实性核验和虚假申请后果，非 UCSD 独有规则。</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai; per-source retrieval timestamps are ISO 8601 UTC).</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Exact English excerpts are separate from Chinese summaries. Whitespace is normalized; wording is retained. Local snapshots retain visible text (including some navigation) for validation. Blocked responses are not policy evidence.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">S1为UC全系统本科申请诚信声明，适用于UC申请（包括UC San Diego），非UCSD独立校区AI政策；S2为UCSD本科入口；S3为UC系统官方说明。</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>uc-system-ai-guidance</code> — UC全系统本科申请诚信声明允许内容/编辑建议及生成式AI辅助可读性，但PIQ须由学生独立写作，内容和最终文字必须属于本人；声明列出真实性核验及虚假申请处罚。</span></li><li><span class="k"><span lang="zh">校内／课程指导（非招生政策）</span><span lang="en">Original campus/course guidance (not admissions policy)</span></span> <span class="v"><a href="#source">29-UC-San-Diego.md</a></span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">中文结论 / Findings</h3>
+<ul><li>系统诚信声明允许内容和编辑建议，包括AI辅助可读性；同时要求PIQ体现本人想法经历、由本人独立写作，内容和最终文字属于本人。[S1]</li><li>UC可能要求证明内容/文字为本人；一般虚假申请可导致拒录、撤销录取、取消注册、开除或撤销学位，不是任何AI使用都会受罚。[S1]</li><li>UCSD本科申请要求页列明PIQ要求，并在申请说明中提及UC Application；这里明确标示UC全系统诚信声明，不冒称UCSD独有AI规则。[S1][S2]</li><li>UC官方新闻区分工具辅助与完全AI生成回答，并说未注明来源的AI生成PIQ可能导致失去UC录取考虑资格；主要规则仍取自诚信声明。[S3]</li></ul>
+<h3 class="src-h2">Official sources and source text</h3>
+<h4 class="src-h3">[S1] Statement of Application Integrity</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">University of California (UC application system)</span></li><li><span class="k"><span lang="zh">链接</span><span lang="en">URL</span></span> <span class="v"><a href="https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf" target="_blank" rel="noopener noreferrer">https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2023-08 — PDF footer: Last updated August 2023.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v"><code>undergraduate-system-wide</code></span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>policy</code></span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; HTTP 200; 2026-09-24T15:07:00.249946+00:00</span></li></ul>
+<p><strong>[S1-Q1] PIQ authorship, AI readability and verification</strong></p>
+<blockquote><p>The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own. Students must not plagiarize or copy from sources in print or online nor use any other person’s words or published works. UC conducts regular screenings to verify the integrity of the responses, may request authentication of the content or writing as the student’s, and will take action when it is determined that the integrity of the response is compromised.</p></blockquote>
+<p><strong>[S1-Q2] general falsification penalties</strong></p>
+<blockquote><p>Students found to have falsified application information will be subject to penalties up to and including denial of admission, withdrawal of an admission offer, registration cancellation, expulsion or revocation of a University of California degree.</p></blockquote>
+<h4 class="src-h3">[S2] First-Year Student Application Requirements</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">UC San Diego Admissions</span></li><li><span class="k"><span lang="zh">链接</span><span lang="en">URL</span></span> <span class="v"><a href="https://admissions.ucsd.edu/first-year/application-requirements.html" target="_blank" rel="noopener noreferrer">https://admissions.ucsd.edu/first-year/application-requirements.html</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated / not verified — Not stated.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v"><code>undergraduate</code></span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>official-admissions-instructions</code></span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; HTTP 200; 2026-09-24T15:07:00.407128+00:00</span></li></ul>
+<p><strong>[S2-Q1] UC San Diego undergraduate PIQ requirement</strong></p>
+<blockquote><p>The personal insight questions are about getting to know you better – your life experience, interests, ambitions and inspirations. This is your opportunity to tell us who you are, what’s important to you and the contributions you would make to the UC San Diego Triton community. You must answer 4 out of 8 questions. Each answer is limited to 350 words.</p></blockquote>
+<h4 class="src-h3">[S3] How the University of California evaluates student applications</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">University of California; Apollonia Morrill</span></li><li><span class="k"><span lang="zh">链接</span><span lang="en">URL</span></span> <span class="v"><a href="https://www.universityofcalifornia.edu/news/how-the-university-of-california-evaluates-student-applications" target="_blank" rel="noopener noreferrer">https://www.universityofcalifornia.edu/news/how-the-university-of-california-evaluates-student-applications</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2024-10-31 — Visible publication date: October 31, 2024; HTML modified_time: 2025-09-09.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v"><code>undergraduate-system-wide</code></span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>official-news</code></span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; HTTP 200; 2026-09-24T15:07:00.502809+00:00</span></li></ul>
+<p><strong>[S3-Q1] system explanation and qualification</strong></p>
+<blockquote><p>And, while using AI as a tool is one thing, using a completely AI-generated answer is another — and one that is equivalent to academic dishonesty. UC runs plagiarism checks on applications, and if your PIQs are found to have been generated by AI with unattributed sources, you could be disqualified from UC admission entirely.</p></blockquote>
+<h4 class="src-h3">[S4] Frequently Asked Questions</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">UC San Diego Admissions</span></li><li><span class="k"><span lang="zh">链接</span><span lang="en">URL</span></span> <span class="v"><a href="https://admissions.ucsd.edu/faq/index.html" target="_blank" rel="noopener noreferrer">https://admissions.ucsd.edu/faq/index.html</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated — Not stated.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v"><code>undergraduate</code></span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>official-faq</code></span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; HTTP 200; 2026-09-24T15:17:51.755158+00:00</span></li></ul>
+<p>本页用于校区FAQ范围核查；未提取AI政策性引文。</p>
+<h4 class="src-h3">[S5] Planning Ahead</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">UC San Diego Admissions</span></li><li><span class="k"><span lang="zh">链接</span><span lang="en">URL</span></span> <span class="v"><a href="https://admissions.ucsd.edu/first-year/planning-ahead.html" target="_blank" rel="noopener noreferrer">https://admissions.ucsd.edu/first-year/planning-ahead.html</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated — Not stated.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v"><code>undergraduate</code></span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>official-advice</code></span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; HTTP 200; 2026-09-24T15:17:53.648318+00:00</span></li></ul>
+<p><strong>[S5-Q1] campus advice to plan, write, review and seek trusted-adult feedback</strong></p>
+<blockquote><p>Give yourself plenty of time to plan, write, review and get feedback from trusted adults.</p></blockquote>
+<h3 class="src-h2">中文归纳（与原文分开）</h3>
+<p>UC全系统本科申请诚信声明允许内容/编辑建议及生成式AI辅助可读性，但PIQ须由学生独立写作，内容和最终文字必须属于本人；声明列出真实性核验及虚假申请处罚。</p>
+<h4 class="src-h3">可用 / Permitted or positively advised</h4>
+<p>内容与编辑建议，以及AI辅助提升可读性；前提为独立写作、内容和最终文字仍属于本人。[S1]</p>
+<p>另见<a href="../admissions.html#platforms">共享系统资料</a> UC5-Q1：UC <strong>2026–27 first-year</strong> 申请指南正面提及 AI 辅助早期构思、整理本人思路，前提是最终 PIQ 保持本人作品与声音。这是 UC 系统指导，不是 UCSD 独有许可，也不自动扩展到转学或专项申请。</p>
+<h4 class="src-h3">禁止或不建议 / Prohibited or discouraged</h4>
+<p>抄袭/复制印刷或在线来源、使用他人文字或已出版作品，以及虚假申请；完全AI生成回答不符合独立写作和本人最终文字要求。[S1][S3]</p>
+<h4 class="src-h3">未明确 / Not stated or not verified</h4>
+<p>未逐项明确 AI 提纲、翻译或大幅改写许可，没有通用披露格式、检测阈值或软件名单；不能把 readability 扩大为代写或翻译授权。早期构思/整理已有共享 first-year 指导，见上节 UC5-Q1，不属于本次未说明项。</p>
+<details class="fold"><summary><span class="fold-h">Search log</span></summary>
+<p>检索日：2026-09-24。搜索结果用于发现来源；只有成功实时取得的正文支持已核验规则。</p>
+<ul class="kv"><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site:admissions.ucsd.edu "AI" application</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">未找到校区独立本科AI细则；核验其申请入口与PIQ要求。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>University California San Diego application personal insight AI artificial intelligence policy</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">定位并核验UC系统官方解释性报道。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>University California application statement integrity "generative artificial"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">发现官方StatementOfIntegrity.pdf；下载后用pypdf提取核验AI辅助readability及本人最终文字条款。</span></li></ul></li></ul>
+<ul class="kv"><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site:admissions.ucsd.edu "artificial intelligence" "personal insight"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">追加校区定向检索；核验UCSD FAQ与Planning Ahead，未在正文找到AI专项措辞，后者提供真人反馈建议。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>UC San Diego undergraduate admissions ChatGPT AI personal insight essay guidance</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">结果主要指向既有校区PIQ要求、UC系统材料和二手网站；没有新增可验证的UCSD校区独立AI规则。二手网站关于披露/检测的断言未采用。</span></li></ul></li></ul>
+</details>
+<h3 class="src-h2">Limitations</h3>
+<ul><li>系统声明页尾为Last updated August 2023，是本次仍在线的官方PDF，不假定最近重新颁布。</li><li>AI具体段落针对PIQ；全申请真实性与PIQ专门规则的范围不可混同。</li><li>S3是系统官方新闻解释，不是独立校区规则；保留generated by AI with unattributed sources等限定。</li><li>Common App等平台由主项目另行处理；这里保留UC系统自身申请声明并标为system-wide。</li><li>未说明不等于允许；本科、研究生、校区/学院与招生官建议的适用范围和效力不可相互替代。</li></ul>
+<ul><li>追加检查UCSD官方FAQ与Planning Ahead，只核验到一般申请和真人反馈建议，未发现校区独立AI细则；系统新材料由主项目共享补充，不标为UCSD独立政策。</li></ul></div>
+</section>
 <section id="source">
   <div class="sec-head"><h2><span lang="zh">官方原文</span><span lang="en">The official text</span></h2><span class="en2">univ/29-UC-San-Diego.md</span></div>
   <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span></p>
@@ -526,7 +615,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </main>
 <footer><div class="wrap">
   <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
-  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
 </div></footer>
 
 <script>

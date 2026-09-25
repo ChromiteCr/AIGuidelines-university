@@ -12,6 +12,9 @@
 提 Pull Request，附上官方链接与访问日期即可（见 [CONTRIBUTING.md](../CONTRIBUTING.md)）。
 正式引用前请回官网核实当前版本。
 
+`univ/full/` 保存删减前的完整采集文本（目前仅 MIT）。`univ/` 下的同名文件是研究所依据的
+版本，删去的是未被本项目引用的段落；站点以灰色小字显示这些段落，仅供参考。
+
 本仓库由个人整理编排，非各校发布，与其无隶属、赞助或背书关系。完整说明见根目录的
 [NOTICE](../NOTICE)。
 
@@ -29,5 +32,8 @@ apply here. Reproduced for non-commercial academic research and commentary.
 refreshed periodically; if you find something out of date or at odds with the
 official page, open a Pull Request with the official link and access date (see
 [CONTRIBUTING.md](../CONTRIBUTING.md)). Verify against the official page before
-relying on any of it. Independently compiled; not affiliated with, sponsored by,
-or endorsed by any institution named here. Full statement in [NOTICE](../NOTICE).
+relying on any of it. `univ/full/` keeps the complete collected text where the
+research copy was trimmed (currently MIT only); the site shows the uncited parts
+in small grey type for reference. Independently compiled; not affiliated with,
+sponsored by, or endorsed by any institution named here. Full statement in
+[NOTICE](../NOTICE).

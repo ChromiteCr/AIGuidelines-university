@@ -1,0 +1,3675 @@
+{
+  "title": "Thirty-school application/admissions AI source set",
+  "assembled_at": "2026-09-24T16:09:54.229810+00:00",
+  "primary_scope": "Undergraduate applicants; graduate supplements explicitly scoped",
+  "school_count": 30,
+  "status_labels": {
+    "explicit-undergraduate-ai": "本科申请 AI 明文边界（效力见来源）",
+    "undergraduate-advice-ai": "本科申请 AI 官方指导/建议",
+    "authenticity-only": "本科本人写作/真实性要求（未证实细化 AI 边界）",
+    "graduate-only-ai": "AI 明文仅核实于研究生/特定项目",
+    "no-verified-guidance": "未取得可核实的适用指导",
+    "uc-system-ai-guidance": "UC 系统本科 AI 规则/指导（共同来源）"
+  },
+  "status_counts": {
+    "graduate-only-ai": 2,
+    "authenticity-only": 4,
+    "explicit-undergraduate-ai": 16,
+    "undergraduate-advice-ai": 5,
+    "uc-system-ai-guidance": 3
+  },
+  "schools": [
+    {
+      "id": "01",
+      "slug": "Stanford",
+      "university": "Stanford University",
+      "file": "01-Stanford.md",
+      "status": "graduate-only-ai",
+      "summary_zh": "本科文书页要求本人措辞与真实声音，但本次未核验到本科专门 AI 使用细则。研究生指南提醒慎用生成式 AI；GSB MBA 禁止他人或工具代写，均不得外推至本科。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Application and Essays",
+          "url": "https://admission.stanford.edu/apply/first-year/apply.html",
+          "publisher": "Stanford Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2026-07-21",
+          "accessed_at": "2026-09-24T23:06:33+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/01-Stanford-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The essays are your chance to tell us about yourself in your own words; there are no right or wrong answers and you should allow your genuine voice to come through.",
+              "topic": "undergraduate authenticity"
+            }
+          ],
+          "final_url": "https://admission.stanford.edu/apply/first-year/apply.html"
+        },
+        {
+          "id": "S2",
+          "title": "Application Status FAQ",
+          "url": "https://admission.stanford.edu/apply/first-year/submitted.html",
+          "publisher": "Stanford Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": "2026-09-11",
+          "accessed_at": "2026-09-24T23:06:34+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/01-Stanford-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "We do not add supplementary materials like writing samples, research papers, or other special work to your application file, and we do not offer an option for applicants to upload supplementary materials to their file.",
+              "topic": "research supplements; not AI-specific"
+            }
+          ],
+          "final_url": "https://admission.stanford.edu/apply/first-year/submitted.html"
+        },
+        {
+          "id": "S3",
+          "title": "Writing Your Personal Statements",
+          "url": "https://humsci.stanford.edu/prospective-students/guide-getting-grad-school/writing-your-personal-statements",
+          "publisher": "Stanford School of Humanities and Sciences",
+          "scope": "graduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:33+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/01-Stanford-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "Think very carefully about the use of generative AI (artificial intelligence) bots, as these may lead to statements that are not authentic to your own experiences.",
+              "topic": "graduate personal-statement caution, not a ban"
+            }
+          ],
+          "final_url": "https://humsci.stanford.edu/prospective-students/guide-getting-grad-school/writing-your-personal-statements"
+        },
+        {
+          "id": "S4",
+          "title": "Essays — MBA Application",
+          "url": "https://www.gsb.stanford.edu/programs/mba/admission/application/essays",
+          "publisher": "Stanford Graduate School of Business",
+          "scope": "graduate (MBA; includes MBA/MSx joint applicants)",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:33+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/01-Stanford-S4.txt",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "Appropriate feedback occurs when others review your completed application — perhaps once or twice — and apprise you of omissions, errors, or inaccuracies that you later correct or address. After editing is complete, your thoughts, voice, and style remain intact.",
+              "topic": "MBA acceptable feedback"
+            },
+            {
+              "id": "S4-Q2",
+              "text": "Inappropriate coaching occurs when you allow others to craft any part of your application for you and, as a result, your application or self-presentation is not authentic.",
+              "topic": "MBA impermissible ghostwriting"
+            },
+            {
+              "id": "S4-Q3",
+              "text": "It is improper and a violation of the terms of this application process to have another person or tool write your essays. Such behavior may result in denial of your application or revocation of your admission.",
+              "topic": "MBA tool-written essays and possible sanctions"
+            }
+          ],
+          "final_url": "https://www.gsb.stanford.edu/programs/mba/admission/application/essays"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admission.stanford.edu application essays \"AI\"",
+          "result": "以本科招生域名检索文书 AI 条款；最终核验 Application and Essays [S1]。"
+        },
+        {
+          "query": "site.admission.stanford.edu \"artificial intelligence\" OR \"ChatGPT\" OR \"own work\"",
+          "result": "第二组本科专门检索；未取得可核验的本科 AI 用途细则，续查 FAQ。"
+        },
+        {
+          "query": "Stanford undergraduate admissions FAQ application essays ChatGPT authenticity",
+          "result": "定位本科文书页面及二手线索；直接访问 Application Status FAQ [S2]，二手结论未作证据。"
+        },
+        {
+          "query": "site.stanford.edu \"personal statements\" \"generative AI\"",
+          "result": "找到并全文核验研究生指南 [S3]，明确限定研究生范围。"
+        },
+        {
+          "query": "site.gsb.stanford.edu \"another person or tool\" essays",
+          "result": "找到并全文核验 GSB MBA 文书要求 [S4]。"
+        },
+        {
+          "query": "Stanford undergraduate application AI ChatGPT \"admission.stanford.edu\"",
+          "result": "补查本科申请、夏校和新闻混杂结果；未把夏校或学生工具新闻当作本科政策。"
+        }
+      ],
+      "limitations": [
+        "“未核验到本科专门规则”仅指本次公开页面与检索范围，不等于学校没有其他要求，也不等于允许 AI。未登录申请系统查看提交时认证。",
+        "研究生指南及 GSB MBA 条款不能作为 Stanford 全校、本科或所有研究生项目的 AI 规则。",
+        "Stanford 在校课程 Honor Code/生成式 AI 指南、AI4ALL 夏校页面和学生创业工具新闻不作为本科招生证据。",
+        "来源全文以普通公开 HTTP 请求取得；保存可读正文时可能保留部分菜单。文中短引文与本地正文逐条匹配。"
+      ]
+    },
+    {
+      "id": "02",
+      "slug": "MIT",
+      "university": "Massachusetts Institute of Technology",
+      "file": "02-MIT.md",
+      "status": "authenticity-only",
+      "summary_zh": "MIT 本科申请页强调诚实、开放、真实；旧招生官博客区分校对与代写，但未专门讨论 AI。招生博客转载的 AI 教学讨论不具政策效力；化学系研究生 AI 线索因无法取回正文未采用。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Essays, activities & academics",
+          "url": "https://mitadmissions.org/apply/firstyear/essays-activities-academics/",
+          "publisher": "MIT Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:33+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/02-MIT-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Rather than asking you to write one long essay, the MIT application consists of several short response questions and essays designed to help us get to know you. Remember that this is not a writing test. Be honest, be open, be authentic—this is your opportunity to connect with us.",
+              "topic": "current undergraduate authenticity advice"
+            }
+          ],
+          "final_url": "https://mitadmissions.org/apply/firstyear/essays-activities-academics/"
+        },
+        {
+          "id": "S2",
+          "title": "Advice On The Essay",
+          "url": "https://mitadmissions.org/blogs/entry/advice_on_the_essay/",
+          "publisher": "MIT Admissions; Ben Jones",
+          "scope": "undergraduate",
+          "authority": "official-advice (historical admissions staff blog)",
+          "page_date": "2007-09-25",
+          "accessed_at": "2026-09-24T23:06:34+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/02-MIT-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "The rules are simple: write your own essays. That's the best advice anyone can give to you.",
+              "topic": "historical admissions staff authorship advice"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "To clarify, I'm not telling you to shut your parents or counselors out of the process entirely. It's always nice to have someone look over your writing and fix the things that spell-check doesn't catch, like when you spell \"here\" as \"hear\" or \"their\" as \"there\" or \"they're.\"",
+              "topic": "historical human proofreading advice; not AI permission"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "But there's a big difference between those little things and the act of someone else rewriting your essay for you to the point that it's no longer your work – or, even worse, your voice. So don't go there.",
+              "topic": "historical boundary against ghostwriting"
+            }
+          ],
+          "final_url": "https://mitadmissions.org/blogs/entry/advice_on_the_essay/"
+        },
+        {
+          "id": "S3",
+          "title": "MIT writing faculty comment on GPT and other AI assisted writing in education",
+          "url": "https://mitadmissions.org/blogs/entry/mit-writing-faculty-comment-on-gpt-and-other-ai-assisted-writing/",
+          "publisher": "MIT Admissions; Chris Peterson SM ’13, reposting MIT writing faculty",
+          "scope": "coursework / writing pedagogy; not an applicant policy",
+          "authority": "faculty-commentary (explicitly non-policy)",
+          "page_date": "2023-01-24",
+          "accessed_at": "2026-09-24T23:06:34+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/02-MIT-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "The following thoughts on this topic are advisory from the two of us: They have no official standing within even our department, and certainly not within the Institute. Nonetheless, we hope you find them useful.",
+              "topic": "explicit non-policy caveat in faculty pedagogy commentary"
+            }
+          ],
+          "final_url": "https://mitadmissions.org/blogs/entry/mit-writing-faculty-comment-on-gpt-and-other-ai-assisted-writing/"
+        },
+        {
+          "id": "S4",
+          "title": "FAQ",
+          "url": "https://mitadmissions.org/help/faq/",
+          "publisher": "MIT Admissions",
+          "scope": "undergraduate",
+          "authority": "official-faq-index",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:34+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/02-MIT-S4.txt",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "At MIT, we hope to get to know you better through the application process and want you to be able to express yourself authentically.",
+              "topic": "FAQ index search-scope record; not AI guidance"
+            }
+          ],
+          "final_url": "https://mitadmissions.org/help/faq/"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.mitadmissions.org application \"AI\" essays",
+          "result": "定向检索本科申请与文书；核验现行页面 [S1]。"
+        },
+        {
+          "query": "site.mitadmissions.org \"AI\" \"application\" \"policy\"",
+          "result": "第二组政策关键词检索；未取得明确本科申请 AI 用途条款。"
+        },
+        {
+          "query": "MIT admissions ChatGPT applicant essays FAQ certification",
+          "result": "补查 FAQ、认证及化学系研究生线索；[S4] 可访问，研究生线索全文失败。"
+        },
+        {
+          "query": "site.chemistry.mit.edu \"AI tools\" \"statement\"",
+          "result": "找到二手页面指向化学系 FAQ；官网 HTTPS 普通访问失败，未当作政策证据。"
+        },
+        {
+          "query": "site.mitadmissions.org/blogs \"ChatGPT\" \"essays\" \"application\"",
+          "result": "核验历史招生人员建议 [S2] 与教师 AI 教学讨论 [S3]，严格区分适用范围和效力。"
+        },
+        {
+          "query": "site.mitadmissions.org/help \"artificial intelligence\"",
+          "result": "补查帮助/FAQ 域；返回内容多为其他域或一般 AI 讨论，未获得本科 AI 专门条款。"
+        }
+      ],
+      "limitations": [
+        "检索覆盖本科文书页、FAQ 索引、站点定向检索、招生官方博客；并未登录 MIT 申请门户取得全部提交认证，也未声称逐页遍历所有分页 FAQ。",
+        "未验证的研究生线索：https://chemistry.mit.edu/academic-programs/graduate-programs/faqs/ 。web_fetch 超时，普通 requests 报 No route to host，HTTP 公开地址重试也超时；未采纳二手引语或据此标为 graduate-only-ai。",
+        "2007 年建议距今较久；它只能证明已发表的历史招生建议，不能冒充现行 AI 专门政策。",
+        "未使用 MIT 在校课程、校园 IT 指南或学生评论建立招生规则。未找到规则不等于没有规则或允许使用。"
+      ]
+    },
+    {
+      "id": "03",
+      "slug": "Harvard",
+      "university": "Harvard University",
+      "file": "03-Harvard.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Harvard College 官方 FAQ 明确讨论 AI：引用 Common App 对将 AI 实质内容故意冒认为原创的欺诈条款，并提出本人内容、文风与英语水平要求及哈佛虚假陈述后果；未列 AI 语法、构思或翻译许可。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Frequently Asked Questions — What help can students receive in writing their essays?",
+          "url": "https://college.harvard.edu/resources/faq",
+          "publisher": "Harvard College Admissions & Financial Aid",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:36+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/03-Harvard-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "A student's essay should reflect their own content, writing style, and English proficiency.",
+              "topic": "Harvard authorship and English-proficiency standard"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "We are aware that it is possible to use tools or other services to fraudulently create essays or pass off another's work as one’s own. Doing so in the application process violates the Common Application standards as well as the Harvard College Honor Code.",
+              "topic": "Harvard application-integrity standard"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "The Common Application identifies the following as a possible form of fraud and violation of its application standards: “submitting plagiarized essays or other written or oral material, or intentionally misrepresenting as one's own original work: (1) another person's thoughts, language, ideas, expressions, or experiences or (2) the substantive content or output of an artificial intelligence platform, technology, or algorithm.”",
+              "topic": "Common App rule expressly quoted in Harvard FAQ, not an independently authored Harvard AI definition"
+            },
+            {
+              "id": "S1-Q4",
+              "text": "If we discover a misrepresentation during the admissions process, you will be denied admission. If you have already been admitted, your offer will typically be withdrawn. If you have already registered, your admission will normally be revoked, and we will require you to leave the College. Harvard rescinds degrees if misrepresentations in application materials are discovered.",
+              "topic": "Harvard sanctions with typically/normally qualifications"
+            }
+          ],
+          "final_url": "https://college.harvard.edu/resources/faq"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.college.harvard.edu application \"AI\" essays",
+          "result": "第一组本科 AI 文书检索，随后转向官方 FAQ 核验。"
+        },
+        {
+          "query": "site.college.harvard.edu \"artificial intelligence\" \"application\"",
+          "result": "第二组本科 AI/申请检索；寻求本校直接条款。"
+        },
+        {
+          "query": "Harvard College FAQ \"substantive content\" artificial intelligence",
+          "result": "二手页面定位相关问答；直接打开 college.harvard.edu/resources/faq 并普通请求取得完整 HTML。"
+        },
+        {
+          "query": "Harvard \"What help can students receive\" \"grammar\"",
+          "result": "补查是否有明文 AI 语法许可；未取得此类官方许可依据。"
+        },
+        {
+          "query": "Direct public fetch: https://college.harvard.edu/resources/faq",
+          "result": "web_fetch 仅抽取导航且大响应截断；普通 requests 成功取得相关完整问答并保存 [S1]。"
+        }
+      ],
+      "limitations": [
+        "范围仅为 Harvard College 本科 FAQ，不适用于 Harvard 各研究生院或专业学院。",
+        "FAQ 未标注该问题的发布日期或更新日；2026-09-24 是本次访问日。",
+        "全文抓取含整个公开 FAQ 集合；本文件只引用相关问答，没有把其他 FAQ 或隐藏导航当作 AI 规定。",
+        "未登录申请系统；未说明的用途不得解释为许可，也未核验 AI 检测机制。"
+      ]
+    },
+    {
+      "id": "04",
+      "slug": "Yale",
+      "university": "Yale University",
+      "file": "04-Yale.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Yale 本科有明确 AI 政策：允许语法/拼写检查及写作开始时的一般建议或选题建议；把 AI 实质内容用于申请视为欺诈，AI 代写个人陈述或其他回答可能导致撤销录取或开除。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "AI Policy",
+          "url": "https://admissions.yale.edu/ai-policy",
+          "publisher": "Yale Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:35+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/04-Yale-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "As detailed in the above statements, it is Yale’s policy that submitting “the substantive content or output of an artificial intelligence platform, technology, or algorithm” constitutes application fraud. Submitting personal statements or other written application responses composed by text-generating software may result in admission revocation or expulsion.",
+              "topic": "Yale policy and possible consequences"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Using an AI platform to review one’s grammar or spelling, or to seek general advice or topic suggestions at the start of the writing process does not constitute application fraud. Some applicants may find AI tools useful in these ways; others may not.",
+              "topic": "permitted grammar/spelling and early-stage advice/topic suggestions"
+            }
+          ],
+          "final_url": "https://admissions.yale.edu/ai-policy"
+        },
+        {
+          "id": "S2",
+          "title": "Supplementary Materials",
+          "url": "https://admissions.yale.edu/supplementary",
+          "publisher": "Yale Office of Undergraduate Admissions",
+          "scope": "undergraduate (first-year and transfer)",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:35+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/04-Yale-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "First-year and transfer applicants may supplement their application with an arts portfolio or academic research.",
+              "topic": "undergraduate supplement scope"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Complete the STEM Research Supplement form to describe your research and your specific contributions if the work was done in collaboration with others. Use the form to attach a research paper, abstract, or poster. Full research papers are generally the most helpful. You may also use the form to invite a research mentor to submit a letter of recommendation electronically to the admissions office.",
+              "topic": "research-contribution disclosure; no separate AI rule here"
+            }
+          ],
+          "final_url": "https://admissions.yale.edu/supplementary"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admissions.yale.edu \"artificial intelligence\" application",
+          "result": "找到并全文核验 Yale AI Policy [S1]。"
+        },
+        {
+          "query": "site.admissions.yale.edu \"AI\" \"research\" supplement",
+          "result": "第二组专查科研补充材料；取得 Supplementary Materials [S2]。"
+        },
+        {
+          "query": "Yale admissions STEM research supplement artificial intelligence disclose AI tools",
+          "result": "补查 AI 披露与 STEM 补充表；没有获得超出 [S1][S2] 的可核验公开条款。"
+        }
+      ],
+      "limitations": [
+        "范围限 Yale 本科招生办，不扩展到 Yale Law、SOM 或其他研究生项目。",
+        "没有登录申请者状态门户查看动态 STEM Research Supplement 表，公开页面未说明的事项可能在表内另有要求。",
+        "本次查到的 AI 政策及补充材料页未标明发布日期；不能用访问日冒充政策生效日。",
+        "第三方声称学校是否检测 AI、是否要求披露等，不作为结论；未说明不意味着许可或无需披露。"
+      ]
+    },
+    {
+      "id": "05",
+      "slug": "Cornell",
+      "university": "Cornell University",
+      "file": "05-Cornell.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Cornell 本科明确允许 AI 查学校、构思文书题目、检查已完成文书的语法拼写；明确不接受 AI 列提纲、起草/代写、翻译另一语言的文书及生成必需作品集内容。一般撤录政策另行适用。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Can prospective students use generative AI to help with their application to Cornell?",
+          "url": "https://faq.enrollment.cornell.edu/kb/article/428-can-prospective-students-use-generative-ai-to-help-with-their-application-to-cornell/",
+          "publisher": "Cornell Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy (official admissions FAQ)",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:36+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/05-Cornell-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "If you choose to use generative AI in your application process, we expect you to do so ethically. Ethical uses of generative AI include researching colleges, brainstorming essay topics, and reviewing the grammar and spelling of your completed essays. Unethical uses include (but are not limited to) using generative AI to outline, draft, or write your essays; translating an essay written in another language; and creating images for a required portfolio.",
+              "topic": "explicit permitted and prohibited AI uses"
+            }
+          ],
+          "final_url": "https://faq.enrollment.cornell.edu/kb/article/428-can-prospective-students-use-generative-ai-to-help-with-their-application-to-cornell/"
+        },
+        {
+          "id": "S2",
+          "title": "Receiving Help with Your Application",
+          "url": "https://admissions.cornell.edu/policies/receiving-help-with-your-application",
+          "publisher": "Cornell University Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:49+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/05-Cornell-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Help that is ethical and acceptable to utilize in your application process includes: Using AI tools to research specific colleges or help you build your college list. Working with your college counselor or a community-based organization staff member to brainstorm essay topics. Asking a friend or family member to read your essays and give feedback or check for grammatical errors.",
+              "topic": "acceptable help with attribution to AI vs humans"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "However, there are unethical – and therefore unacceptable – forms of application assistance as well. These include: Having AI tools outline, draft, or write your application responses, translate your responses from another language, or create works for a required portfolio. Having any person write or rewrite your essays/responses. Having someone else choose your essay topics. Using a template you found online to write your essay.",
+              "topic": "unacceptable AI outlining/drafting/translation/portfolio and human ghostwriting"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "When you hit “submit” on your Common Application, you’re agreeing that you have not used unacceptable, unethical support resources to complete your application.",
+              "topic": "Cornell submission certification explanation"
+            }
+          ],
+          "final_url": "https://admissions.cornell.edu/policies/receiving-help-with-your-application"
+        },
+        {
+          "id": "S3",
+          "title": "Admission Revocation Policy",
+          "url": "https://admissions.cornell.edu/policies/admission-revocation-policy",
+          "publisher": "Cornell University Office of Undergraduate Admissions",
+          "scope": "undergraduate; general admission-revocation wording",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:50+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/05-Cornell-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "Cornell University reserves the right to revoke an offer of admission under certain circumstances, and at any time, including after a student is in attendance at the university. Authority to revoke admission rests with the admitting academic unit. Admission may be revoked for fraud, misrepresentation, material omission of fact, failure to meet a condition of admission (including but not limited to satisfactorily completing any schoolwork in progress at the time an offer of admission is extended and upholding high standards of character in all activities within and outside of the classroom), or any other pre-attendance misconduct.",
+              "topic": "general revocation policy, not automatic AI-specific penalty"
+            }
+          ],
+          "final_url": "https://admissions.cornell.edu/policies/admission-revocation-policy"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.cornell.edu admissions application \"AI\" essays",
+          "result": "找到本科 FAQ 并全文核验 [S1]。"
+        },
+        {
+          "query": "site.admissions.cornell.edu \"Receiving Help\" application policy AI",
+          "result": "第二组定向检索正式政策；从公开 Policies 索引找到 [S2][S3] 并抓取正文。"
+        },
+        {
+          "query": "Direct public fetch: https://admissions.cornell.edu/policies",
+          "result": "普通 requests 读取索引，确认 Receiving Help 与 Admission Revocation 两个官方链接。"
+        },
+        {
+          "query": "Direct public fetch: Cornell Graduate School AI-policy candidate URL",
+          "result": "补充探查研究生候选页面遭 403，未确认内容，未用于任何政策结论。"
+        }
+      ],
+      "limitations": [
+        "本文件不适用 Cornell Tech 或其他研究生项目；未把本科较严格翻译规则推广到全校。",
+        "本科 FAQ 与 Receiving Help 的允许例子细致程度不同；本文合并阅读而非把其中某页未提到的内容视为反向禁止。",
+        "官方页面没有明确发布日期；访问日期不等于生效日。",
+        "web_fetch 对 Cornell 的 Policies 索引抽取不完整，改用普通 requests 读取链接并全文抓取子页面；S2/S3 的 main 标签只有标题，保存时改用完整页面 body 提取。",
+        "额外探查研究生 URL https://gradschool.cornell.edu/admissions/application-steps/important-application-policies/use-of-generative-ai-in-graduate-admissions-applications 返回 403；未确认正文与页面是否实际存在，未作为证据。"
+      ]
+    },
+    {
+      "id": "06",
+      "slug": "Penn",
+      "university": "University of Pennsylvania",
+      "file": "06-Penn.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Penn 本科明确允许 AI 组织自己的思路和检查语法；申请须为本人工作，AI 生成回答、他人代写或虚构经历会破坏申请认证。2026–2027 升学顾问页再次确认，并区分推荐人及校方的 AI 使用。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Integrity and AI Use in the Admissions Process",
+          "url": "https://admissions.upenn.edu/how-to-apply/preparing-your-application/integrity-AI-in-admissions-process",
+          "publisher": "Penn Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:37+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/06-Penn-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Penn Admissions asks every applicant to certify that their application is their own work, factually true, and honestly presented.",
+              "topic": "applicant certification"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Getting help is not the same as losing ownership. Talking through an idea with a parent, teacher, or counselor, having someone proofread your writing, or using a tool, including an AI tool, to organize your thoughts or check your grammar, doesn't compromise your application certification.",
+              "topic": "permitted AI thought organization and grammar"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "What would compromise your application is submitting work, ideas, or experiences that aren't authentically yours, whether that means someone else wrote your essay, an AI tool generated your responses, or your activities and honors are embellished or invented.",
+              "topic": "AI-generated responses and false experiences violate certification"
+            },
+            {
+              "id": "S1-Q4",
+              "text": "This same standard extends to every part of your file. Supporting materials must come from you or from an authorized source, and any change in your circumstances or the information you've provided should be reported to us directly, as your certification already requires.",
+              "topic": "entire file and supporting materials"
+            },
+            {
+              "id": "S1-Q5",
+              "text": "Your offer of admission remains contingent on the same standards you affirmed when you applied.",
+              "topic": "continuing integrity obligation; no enumerated AI sanction"
+            }
+          ],
+          "final_url": "https://admissions.upenn.edu/how-to-apply/preparing-your-application/integrity-AI-in-admissions-process"
+        },
+        {
+          "id": "S2",
+          "title": "About the Application",
+          "url": "https://admissions.upenn.edu/supporting-your-student/counselors/about-the-application",
+          "publisher": "Penn Admissions",
+          "scope": "undergraduate; counselors and teachers; 2026–2027 cycle",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:37+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/06-Penn-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Just as talking through an idea with a parent, teacher, or counselor or having someone proofread your writing are permissible, so is using an AI to organize your thoughts or check your grammar.",
+              "topic": "2026–2027 counselor-page corroboration"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Counselors’ and teachers’ judgement and direct, detailed knowledge of students cannot be replaced by AI-generated letters of recommendation and evaluations.",
+              "topic": "recommendation writers, not applicant essays"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "Penn does not use AI to evaluate materials or to make decisions about admissions.",
+              "topic": "institutional review use is separate from applicant use"
+            }
+          ],
+          "final_url": "https://admissions.upenn.edu/supporting-your-student/counselors/about-the-application"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admissions.upenn.edu \"AI\" application essays",
+          "result": "找到并全文核验 Integrity and AI Use in the Admissions Process [S1]。"
+        },
+        {
+          "query": "site.admissions.upenn.edu \"AI\" \"grammar\" integrity",
+          "result": "第二组定向检索明确允许边界；取得顾问页面 [S2] 交叉核验。"
+        },
+        {
+          "query": "Direct public fetch: Penn Admissions integrity page and counselor About the Application page",
+          "result": "两页均实时取得完整正文；2026–2027 申请变化说明与专页一致。"
+        }
+      ],
+      "limitations": [
+        "范围为 Penn 本科招生，不能用 Wharton Global Youth、在校课程、Wharton MBA 或其他研究生院规则替代。",
+        "2026–2027 申请季由官方顾问页面确认，但两个页面都未明确标注发布时间；不据学生报纸日期推断政策发布日期。",
+        "没有登录申请门户取得所有动态补充表或认证字段；公开页未说明的用途不能当作已许可。",
+        "没有用校方不依赖 AI 作录取判断，推断校方从不使用任何 AI 或从不调查申请真实性。"
+      ]
+    },
+    {
+      "id": "07",
+      "slug": "Columbia",
+      "university": "Columbia University",
+      "file": "07-Columbia.md",
+      "status": "authenticity-only",
+      "summary_zh": "Columbia 本科新生页承认申请人会使用各种工具与支持，但要求全部材料为本人原创、体现本人声音，并提示入学后须遵守校内 Generative AI Policy；本科真实性声明列出撤销录取等可能后果。两页均未逐项规定 AI 用途。（2026-09-25 补充检索取得本科正文）",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First-Year Applicants",
+          "url": "https://undergrad.admissions.columbia.edu/apply/firstyear",
+          "publisher": "Columbia Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-admissions-instructions",
+          "page_date": null,
+          "accessed_at": "2026-09-25 (Asia/Shanghai)",
+          "retrieval": "full-text",
+          "local_text": null,
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "topic": "Tools and support; own original work and authentic voice",
+              "text": "Students may utilize a wide range of resources, tools and support during the college admissions process. Regardless of the tools and support you may have used, we expect that all submitted application materials are your own original work and reflect your authentic voice. We encourage you to familiarize yourself with Columbia’s Honor Pledge & Honor Code and Generative AI Policy, which all enrolling students are expected to uphold."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "authority": "unverified-official-page",
+              "accessed_at": "2026-09-24",
+              "retrieval": "blocked",
+              "local_text": "sources/07-Columbia-S1.txt"
+            },
+            {
+              "authority": "unverified-official-page",
+              "accessed_at": "2026-09-24T15:56:00.653301+00:00",
+              "retrieval": "blocked",
+              "local_text": "sources/07-Columbia-S1-browser.txt"
+            }
+          ],
+          "final_url": "https://undergrad.admissions.columbia.edu/apply/firstyear",
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "supplementary_retrieval": {
+            "date": "2026-09-25",
+            "method": "page loaded in a browser; a command-line request without a browser receives 403"
+          },
+          "page_date_note": "Not stated on the page; the access date is not an effective date."
+        },
+        {
+          "id": "S2",
+          "title": "Accuracy and Authenticity Statement",
+          "url": "https://undergrad.admissions.columbia.edu/accuracy-authenticity",
+          "publisher": "Columbia Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-25 (Asia/Shanghai)",
+          "retrieval": "full-text",
+          "local_text": null,
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "topic": "Accurate and authentic representation",
+              "text": "Your application to Columbia (and all materials submitted as part of that application) must be an accurate and authentic representation of yourself and your accomplishments. Please read the full accuracy and authenticity statement below—you’ll be required to confirm that you understand and agree to these terms before you can submit your application."
+            },
+            {
+              "id": "S2-Q2",
+              "topic": "Possible consequences and verification",
+              "text": "Failure to submit complete, accurate, and authentic application documents consistent with these instructions may result in denial or revocation of admission, cancellation of academic credit, suspension, expulsion, or eventual revocation of degree. Applicants may be required to assist admissions staff and faculty involved in admission reviews in the verification of all documents and statements made in documents submitted by students as part of the application review process."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "authority": "unverified-official-page",
+              "accessed_at": "2026-09-24",
+              "retrieval": "blocked",
+              "local_text": "sources/07-Columbia-S2.txt"
+            },
+            {
+              "authority": "unverified-official-page",
+              "accessed_at": "2026-09-24T15:54:35.012576+00:00",
+              "retrieval": "blocked",
+              "local_text": "sources/07-Columbia-S2-browser.txt"
+            }
+          ],
+          "final_url": "https://undergrad.admissions.columbia.edu/accuracy-authenticity",
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "supplementary_retrieval": {
+            "date": "2026-09-25",
+            "method": "page loaded in a browser; a command-line request without a browser receives 403"
+          },
+          "page_date_note": "Not stated on the page; the access date is not an effective date."
+        },
+        {
+          "id": "S3",
+          "title": "Admissions Supporting Materials",
+          "url": "https://www.gsas.columbia.edu/content/admissions-supporting-materials",
+          "publisher": "Columbia Graduate School of Arts and Sciences (GSAS)",
+          "scope": "graduate",
+          "authority": "official-admissions-instructions",
+          "page_date": null,
+          "accessed_at": "2026-09-24T15:56:20.655326+00:00",
+          "retrieval": "partial",
+          "local_text": "sources/07-Columbia-S3-browser.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "topic": "authenticity attestation",
+              "text": "In addition, applicants will be required to attest to the accuracy and authenticity of all information and documents submitted."
+            },
+            {
+              "id": "S3-Q2",
+              "topic": "graduate authenticity consequences",
+              "text": "Failure to submit complete, accurate, and authentic application documents consistent with these instructions may result in denial or revocation of admission, cancellation of academic credit, suspension, expulsion, or eventual revocation of degree. Applicants may be required to assist with the verification of application materials."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "authority": "unverified-official-page",
+              "accessed_at": "2026-09-24",
+              "retrieval": "blocked",
+              "local_text": "sources/07-Columbia-S3.txt"
+            }
+          ],
+          "final_url": "https://www.gsas.columbia.edu/content/admissions-supporting-materials",
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "GSAS 页首总说明成功显示，真实性要求属于研究生范围；该已读段落不含 AI 细则，推荐信等折叠子栏未逐一展开。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/07-S3-safari-meta.json",
+            "accessibility_tree": "research/computer-use/07-S3-safari.json",
+            "screenshot": "research/computer-use/07-S3-safari.png"
+          },
+          "page_date_note": "Not stated in the rendered page; browser acquisition time is not a publication date."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.undergrad.admissions.columbia.edu AI artificial intelligence application essays",
+          "result": "Located the first-year admissions page and secondary summaries; official page fetch was blocked."
+        },
+        {
+          "query": "site.columbia.edu admissions application \"AI\" \"essays\" policy undergraduate authenticity",
+          "result": "Found school-specific and secondary leads, but no additional verifiable undergraduate AI text."
+        },
+        {
+          "query": "site.undergrad.admissions.columbia.edu application authenticity original work generative AI",
+          "result": "Located the official Accuracy and Authenticity Statement; live fetch and ordinary request both returned 403."
+        },
+        {
+          "query": "site.columbia.edu GSAS application artificial intelligence materials",
+          "result": "Located GSAS Admissions Supporting Materials; official graduate page also returned 403."
+        },
+        {
+          "query": "site.columbia.edu \"admissions\" \"AI tools\" \"application\" undergraduate",
+          "result": "Reconfirmed first-year and supplemental-materials leads. Secondary classifications were not adopted as Columbia policy."
+        },
+        {
+          "query": "Computer-use retry of previously blocked official pages (Safari / Peekaboo, 2026-09-24–25)",
+          "result": "S1: Safari 可见页仍为 CloudFront 403 ERROR；没有取得本科正文。；S2: Safari 可见页仍为 CloudFront 403 ERROR；没有取得本科真实性声明正文。；S3: GSAS 页首总说明成功显示，真实性要求属于研究生范围；该已读段落不含 AI 细则，推荐信等折叠子栏未逐一展开。"
+        },
+        {
+          "query": "Supplementary retrieval of S1 and S2 (2026-09-25, pages loaded in a browser)",
+          "result": "两页正常加载并取得正文；引文逐字核对。证据状态由 no-verified-guidance 更新为 authenticity-only。"
+        }
+      ],
+      "limitations": [
+        "本科 S1/S2 于 2026-09-25 取得正文；两页均未标注发布日期，访问日不是生效日。",
+        "未登录申请系统查看最终确认条款；研究生 S3 的真实内容不能泛化至本科。",
+        "未绕过网站验证或访问控制，未使用课程政策填补申请要求。",
+        "未查到或无法读取不等于允许；Common App 平台规则另列。"
+      ],
+      "computer_use_recheck": "2026-09-24–25 Asia/Shanghai; same originally blocked URLs opened in visible Safari",
+      "scope_note": "本科优先；S1/S2 在桌面浏览器中仍为403。S3现已核验，但仅为GSAS研究生真实性要求，没有明确AI条款。",
+      "findings": [
+        "本科两页在实际桌面浏览器中仍显示 CloudFront 403；没有将错误页或摘要作为政策。[S1][S2]",
+        "GSAS 研究生页已核验：须证明材料准确真实，并可能被要求配合核验；不实材料可能导致一系列后果。该页未明确讨论 AI，不外推到本科。[S3]"
+      ],
+      "uses": {
+        "allowed": "本科 AI 具体许可未核验；GSAS 真实性要求也不产生 AI 许可。",
+        "prohibited": "本科 AI 禁令未核验；研究生不得提交不完整、不准确或不真实材料，具体后果见 S3，不能直接套用本科。",
+        "not_stated": "本科构思、校对、翻译、代写、披露、检测与处罚仍缺少可核实正文；GSAS 本页也未逐项说明 AI 用法。"
+      },
+      "evidence_status_note": "Columbia 本科两页在 Safari 中仍为403，无法核验本科AI边界；GSAS页首已读到研究生真实性承诺与不实材料后果，不含AI专项规则，其他折叠栏未展开，不能填补本科缺口。"
+    },
+    {
+      "id": "08",
+      "slug": "Duke",
+      "university": "Duke University",
+      "file": "08-Duke.md",
+      "status": "graduate-only-ai",
+      "summary_zh": "本科申请与 FAQ 正文已检查，未找到校方明确的本科申请 AI 使用细则。Fuqua Daytime MBA 有明确规则：AI 可辅助编辑与清晰表达，不应生成内容；该规则不能外推本科。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Apply",
+          "url": "https://admissions.duke.edu/apply/",
+          "publisher": "Duke Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-application-instructions",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/08-Duke-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The following questions are required for all first-year applicants to Duke University during the 2026-27 application cycle.",
+              "topic": "current undergraduate application cycle"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Resources + FAQs",
+          "url": "https://admissions.duke.edu/resources/",
+          "publisher": "Duke Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/08-Duke-S2.txt",
+          "quotes": []
+        },
+        {
+          "id": "S3",
+          "title": "What You Should Know About Applying to Fuqua This Year",
+          "url": "https://blogs.fuqua.duke.edu/duke-mba/2026/07/08/allison-jamison/what-you-should-know-about-applying-to-fuqua-this-year",
+          "publisher": "Duke Fuqua School of Business; Allison Jamison; Daytime MBA Student Blog",
+          "scope": "graduate: Fuqua Daytime MBA",
+          "authority": "official-hosted-blog",
+          "page_date": "2026-07-08",
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/08-Duke-S3.txt",
+          "quotes": []
+        },
+        {
+          "id": "S4",
+          "title": "DAYTIME: Application Instructions",
+          "url": "https://www.fuqua.duke.edu/programs/daytime-mba/application-instructions",
+          "publisher": "Duke Fuqua School of Business",
+          "scope": "graduate: Fuqua Daytime MBA",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/08-Duke-S4.txt",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "These tools may be used to support editing and clarity, but your ideas, experiences, and responses should be your own. AI should help refine your content, not generate it.",
+              "topic": "permitted editing versus generated content"
+            },
+            {
+              "id": "S4-Q2",
+              "text": "Essays may also be reviewed using AI-detection tools. Submissions that rely heavily on AI-generated content, misrepresent the applicant, or are written by another person may negatively affect an applicant's evaluation and may constitute a violation of the Fuqua Honor Code.",
+              "topic": "review and potential consequences"
+            },
+            {
+              "id": "S4-Q3",
+              "text": "Using language or content from external sources, including websites, publications, other applicants' materials, consultants, or AI-generated content, without proper attribution constitutes plagiarism. Plagiarism is a violation of the Fuqua Honor Code and may result in denial of admission.",
+              "topic": "attribution, plagiarism and denial"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admissions.duke.edu artificial intelligence AI application essays policy",
+          "result": "Located undergraduate application material, older AI-prompt reports, and graduate/Fuqua leads; secondary reports not used as policy evidence."
+        },
+        {
+          "query": "site.admissions.duke.edu \"application\" \"own\" \"AI\" OR \"artificial intelligence\" OR \"authentic\"",
+          "result": "Did not locate an explicit undergraduate applicant-AI rule; followed official admissions sources."
+        },
+        {
+          "query": "site.admissions.duke.edu application essay artificial intelligence guidance",
+          "result": "Located official Apply page and Fuqua admissions-update lead; no undergraduate AI-specific rule verified."
+        },
+        {
+          "query": "site.admissions.duke.edu frequently asked questions application integrity original work",
+          "result": "Located and fetched Apply and Resources + FAQs, including application-related conditions."
+        },
+        {
+          "query": "site.fuqua.duke.edu daytime mba application instructions AI essays editing clarity",
+          "result": "Located and fetched explicit Daytime MBA written-submission rules; kept graduate-only."
+        }
+      ],
+      "limitations": [
+        "Undergraduate conclusion is a bounded search finding, not an assertion that Duke has no rules and not permission to use AI.",
+        "The current undergraduate page is for 2026–27. An older essay prompt asking applicants to discuss AI is not a use policy; it is not listed among the current prompts inspected.",
+        "Fuqua MBA editing permission, attribution requirements, detection statements and penalties do not apply to undergraduate applicants on the strength of these sources.",
+        "Undergraduate grammar, brainstorming, translation, research-supplement AI use, disclosure and AI-specific penalties were not specified in the inspected pages.",
+        "No private application form or complete Conditions of Application was accessed. Common App rules are researched separately."
+      ]
+    },
+    {
+      "id": "09",
+      "slug": "Northwestern",
+      "university": "Northwestern University",
+      "file": "09-Northwestern.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "本科招生办公室明确区分建设性与不当 AI 用法：可研究学校、构思文书题目、检查完成稿语法等；不当用法包括代写、翻译文书、将本人提纲交给 AI 写成文书、改写其他学校补充文书。属于官方招生指导，不虚构处罚。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Artificial Intelligence and Admission",
+          "url": "https://admissions.northwestern.edu/apply/advice/ai.html",
+          "publisher": "Northwestern Office of Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2025-09-23",
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/09-Northwestern-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Constructive Uses of Generative AI\nThese uses can support your research and spark your ideas:\nResearching colleges and admission terms\nBuilding a college tour itinerary (even a virtual college tour itinerary!)\nExploring how your academic interests and goals connect to fields of study\nBrainstorming essay topics\nReviewing the grammar, punctuation, and spelling of your completed essays",
+              "topic": "constructive uses"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Problematic Uses of Generative AI\nThese uses make understanding your fit for Northwestern difficult for our admissions committee:\nUsing generative AI to write your personal statement or supplemental essays by inputting prompts and submitting the output as your own writing\nTranslating an essay written in another language\nProviding generative AI with an essay outline and submitting AI’s completed piece of writing\nUsing generative AI to rework a supplemental essay that was written for one school for another school",
+              "topic": "problematic uses"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Just as you wouldn’t ask another person to write your essays for you, we expect you won’t ask AI to do that work on your behalf.",
+              "topic": "applicant authorship expectation"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admissions.northwestern.edu artificial intelligence AI application essays",
+          "result": "Located official Artificial Intelligence and Admission page with explicit applicant-use categories."
+        },
+        {
+          "query": "site.admissions.northwestern.edu \"AI\" \"grammar\" \"Translating\"",
+          "result": "Reconfirmed the official page and its translation/grammar distinction; fetched full text and saved a readable snapshot."
+        }
+      ],
+      "limitations": [
+        "This is official undergraduate admissions advice with explicit expectations; the page does not call every problematic use a formally adjudicated violation or prescribe an automatic rejection/rescission penalty.",
+        "The translation example concerns an essay written in another language; do not extend it to required translations of transcripts or official documents.",
+        "The outline example prohibits providing an outline and submitting AI’s completed writing. It does not separately settle whether asking AI for an outline is allowed.",
+        "No explicit research-supplement AI rule, standalone short-answer rule, disclosure format, detector policy, or penalty is specified here.",
+        "A link to the university academic-integrity policy does not itself import every enrolled-student course rule into admissions."
+      ]
+    },
+    {
+      "id": "10",
+      "slug": "UChicago",
+      "university": "University of Chicago",
+      "file": "10-UChicago.md",
+      "status": "authenticity-only",
+      "summary_zh": "本科申请页要求以自己的声音、真实的自己呈现申请；FAQ 提到可提交原创研究摘要。已核验的申请与 FAQ 正文没有明确 AI 使用分类，不能从一般真实性建议推导全面禁用或允许。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Application",
+          "url": "https://collegeadmissions.uchicago.edu/apply/application/",
+          "publisher": "University of Chicago Office of College Admissions",
+          "scope": "undergraduate",
+          "authority": "originality-only",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/10-UChicago-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The very best way to approach your UChicago application is to simply be yourself and write in your own voice.",
+              "topic": "own voice / authenticity advice"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "UChicago Admissions FAQ",
+          "url": "https://collegeadmissions.uchicago.edu/apply/uchicago-admissions-faq/",
+          "publisher": "University of Chicago Office of College Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/10-UChicago-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "The most effective supplements share a representative sample of work that is important to the applicant. One to two minutes of a recorded work, two or three high-quality prints of a work of art, the best paragraph or page of a creatively written work, or an abstract of original research are some types of supplemental materials you can consider adding to your application.",
+              "topic": "supplemental materials and original research"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.collegeadmissions.uchicago.edu artificial intelligence AI application essays",
+          "result": "Found general application/essay pages and secondary commentary; no explicit undergraduate AI rule verified."
+        },
+        {
+          "query": "site.uchicago.edu undergraduate admissions \"application\" \"AI\" \"policy\"",
+          "result": "Results included non-undergraduate or non-applicant contexts; none adopted as a College admissions AI rule."
+        },
+        {
+          "query": "site.collegeadmissions.uchicago.edu frequently asked questions essays own voice",
+          "result": "Located official own-voice application language and FAQ lead."
+        },
+        {
+          "query": "site.collegeadmissions.uchicago.edu \"Frequently Asked Questions\" application",
+          "result": "Located official Admissions FAQ; fetched HTML and public first-party Gatsby page-data to inspect the substantive content."
+        },
+        {
+          "query": "site.collegeadmissions.uchicago.edu \"ChatGPT\" OR \"generative AI\" OR \"artificial intelligence\" essays",
+          "result": "No explicit AI-specific undergraduate applicant instruction verified; the application page remained the relevant official result."
+        }
+      ],
+      "limitations": [
+        "Authenticity-only means a verified general expectation, not a verified AI-specific policy and not proof that no other rule exists.",
+        "Grammar, brainstorming, translation, AI drafting, short answers, disclosure, detection and AI-specific penalties are not expressly classified in the pages reviewed.",
+        "An invitation to submit original research does not resolve whether/how AI may assist that research or its application summary.",
+        "HTML-only fetches did not render the content; source snapshots are first-party page-data text, not search snippets. Public data retrieval required no authentication or challenge bypass.",
+        "University operational, Law School, course, graduate or professional-program rules are not substituted for College admissions requirements. Common App rules remain separate."
+      ]
+    },
+    {
+      "id": "11",
+      "slug": "Princeton",
+      "university": "Princeton University",
+      "file": "11-Princeton.md",
+      "status": "undergraduate-advice-ai",
+      "summary_zh": "招生院长的 2026 与 2025 官方博客明确劝申请人不要依赖生成想法或代写文书的 AI，并强调本人作品的申请承诺；属于官方劝告，不能改写成细分用途的统一禁止政策。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Authentically You: Application Essays and AI",
+          "url": "https://admission.princeton.edu/blogs/authentically-you-application-essays-and-ai",
+          "publisher": "Princeton Office of Admission; Dean Karen Richardson",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2026-09-01",
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/11-Princeton-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Newer on the scene are tools that allow for the generation of ideas and actual composition of papers and essays. While it might be tempting to rely on these types of aides, here’s my two cents about why you should shy away from them when preparing your college essays.",
+              "topic": "advice against idea/composition generation"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "First and foremost, nothing generated by an AI tool will be as authentic and compelling as something you compose all on your own.",
+              "topic": "authenticity rationale"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Testing, Rigor, AI, and What Are We Really Looking For? Your Questions Answered by Dean Richardson",
+          "url": "https://admission.princeton.edu/blogs/testing-rigor-ai-and-what-are-we-really-looking-your-questions-answered-dean-richardson",
+          "publisher": "Princeton Office of Admission; Dean Karen Richardson",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2025-08-18",
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/11-Princeton-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "AI is not inherently “bad”, but I caution against it in your college application.",
+              "topic": "application AI caution"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Also, you are asked to sign off on your application verifying that the work is yours alone.",
+              "topic": "application authorship attestation"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admission.princeton.edu artificial intelligence AI application essays",
+          "result": "Located Dean Richardson’s 2026 Authenticity/AI essay and 2025 Q&A; fetched both full pages."
+        },
+        {
+          "query": "site.admission.princeton.edu \"AI\" \"essays\" \"Richardson\"",
+          "result": "Returned mixed/noisy results; no additional verified official AI rule found from this query."
+        },
+        {
+          "query": "site.admission.princeton.edu essays AI application authenticity policy",
+          "result": "Reconfirmed both official Dean-authored pages and their authorship/attestation language. Secondary policy classifications were not adopted."
+        }
+      ],
+      "limitations": [
+        "Both sources are official advice by the Dean, not student opinion, but neither is a detailed formal AI-use code or list of automatic admission penalties.",
+        "The 2026 article mentions spell/grammar tools as longstanding technologies; mere mention is not an express permission for all AI editing. The latest advice particularly cautions against generated ideas and composition.",
+        "Neither page separately settles translation, research supplements, short answers, a disclosure procedure, or an AI-detector regime.",
+        "The 2025 statement refers to an application attestation; the full attestation form was not accessed and should not be reconstructed from this short description.",
+        "No silence is treated as permission; Common App platform rules and enrolled-student coursework policies are separate."
+      ]
+    },
+    {
+      "id": "12",
+      "slug": "Caltech",
+      "university": "California Institute of Technology (Caltech)",
+      "file": "12-Caltech.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Fall 2027 明确要求遵守经本科招生与研究生委员会批准的 AI 指南，违规则可能撤销录取：可检查完成稿语法拼写、生成启发构思的问题／练习、研究申请流程；不得依赖 AI 写提纲／初稿、替换个人声音或翻译文书。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Undergraduate and Graduate Admissions AI Policy: Guidelines for Fall Applicants",
+          "url": "https://www.admissions.caltech.edu/apply/first-year-applicants/supplemental-application-essays/ethical-use-of-ai-guidelines-for-fall-applicants",
+          "publisher": "Caltech Undergraduate Admissions; approved by Undergraduate Faculty Admissions and Graduate Studies committees",
+          "scope": "undergraduate and graduate: Fall 2027 application cycle",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/12-Caltech-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Failure to comply with the Ethical Use of AI guidelines may result in the rescission of your admission to Caltech.",
+              "topic": "possible rescission"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Copying and pasting directly from an AI generator\nRelying on AI generated content to outline or draft an essay\nReplacing your unique voice and tone with AI generated content\nTranslating an essay written in another language",
+              "topic": "listed unethical essay uses"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Using AI tools, like Grammarly or Microsoft Editor, to review grammar and spelling of your completed essays\nGenerating questions or exercises to help kick start the brainstorming process\nUsing AI to research the college application process",
+              "topic": "listed ethical essay/application uses"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Research Papers and Publications",
+          "url": "https://www.admissions.caltech.edu/apply/first-year-applicants/supplemental-materials/research-papers-and-publications",
+          "publisher": "Caltech Undergraduate Admissions",
+          "scope": "undergraduate: first-year research supplements",
+          "authority": "official-application-instructions",
+          "page_date": null,
+          "accessed_at": "2026-09-24",
+          "retrieval": "full-text",
+          "local_text": "sources/12-Caltech-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "This letter can come from a supervisor, a mentor, an adult collaborator, or an administrator, but they must speak to your specific contributions to the submitted research.",
+              "topic": "research contribution verification"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "No, a VIVA is not required.",
+              "topic": "optional VIVA"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.admissions.caltech.edu artificial intelligence AI application essays policy",
+          "result": "Located and fetched the explicit admissions AI guidelines; current page says Fall 2027."
+        },
+        {
+          "query": "site.admissions.caltech.edu \"AI\" \"research\" \"supplement\"",
+          "result": "Located official Research Papers and Publications page; inspected full text and research-description/recommender FAQ alongside AI guidelines."
+        }
+      ],
+      "limitations": [
+        "The AI examples specifically concern admissions essays and the application process; do not automatically turn them into a complete policy on research code, lab analysis, or required document translations.",
+        "Permitted brainstorming is phrased as generating questions or exercises; AI-generated outlines or drafts are explicitly listed as unethical, so generic brainstorming permission must not erase that boundary.",
+        "Rescission is a possible consequence (may), not an asserted automatic consequence in every case.",
+        "Research supplement requirements verify the applicant’s contribution, but the source does not publish a separate AI disclosure or detection rule; VIVA is encouraged, not required.",
+        "Fall 2027 is the cycle shown on the accessed page. The page says expectations can evolve for later cycles, and no publication date is stated."
+      ]
+    },
+    {
+      "id": "13",
+      "slug": "Johns-Hopkins",
+      "university": "Johns Hopkins University",
+      "file": "13-Johns-Hopkins.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "本科招生 FAQ 明确允许写作开始前用 AI 构思/细化想法，以及对本人文字做拼写、语法等基础校对；申请材料必须原创，提交 AI 实质内容被列为申请欺诈。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Frequently Asked Questions | Johns Hopkins University Admissions",
+          "url": "https://apply.jhu.edu/frequently-asked-questions/",
+          "publisher": "Johns Hopkins University — Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:34+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/13-Johns-Hopkins-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "It is Hopkins’ policy that you may use AI tools for brainstorming or refining ideas before the writing process begins and for basic proofreading of your own writing, such as spelling and grammar review, but all material submitted within the application must be your own original work.",
+              "topic": "Allowed preparatory help and proofreading; original work requirement"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Submitting “the substantive content or output of an artificial intelligence platform, technology, or algorithm” is not permissible and is considered an instance of application fraud in accordance with Common Application policies.",
+              "topic": "Substantive AI output is impermissible application fraud"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "I understand that I may be subject to a range of possible disciplinary actions, including admission revocation, expulsion, or revocation of course credit, grades, and degree should the information I have certified be false.",
+              "topic": "Consequences in the affirmation reproduced by Hopkins"
+            }
+          ],
+          "scope_note": "Undergraduate admissions FAQ, Applications & Requirements. The page expressly states Hopkins policy and adopts Common Application affirmations; it is not a coursework rule."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site.apply.jhu.edu application artificial intelligence essays AI admissions",
+          "result": "广义定向检索定位本科 FAQ；首个查询的域名限定语法较宽，随后用正确 site: 语法复核。"
+        },
+        {
+          "query": "site:apply.jhu.edu \"AI\" \"proofreading\"",
+          "result": "定位 FAQ 明确 AI 条款；普通 HTTP 完整抓取核验，不能沿用旧的“无官方政策”二手说法。"
+        },
+        {
+          "query": "site:apply.jhu.edu application essays artificial intelligence admissions",
+          "result": "第二条使用正确 site: 限定的不同检索再次定位本科 FAQ；课程介绍和学生范文命中不作为申请规则。"
+        },
+        {
+          "query": "Direct review: https://apply.jhu.edu/frequently-asked-questions/",
+          "result": "检查 Applications & Requirements / AI 问答及其本人作品真实性承诺；源码中的折叠问答已提取。"
+        }
+      ],
+      "limitations": [
+        "网页未标明 AI 条款发布日期；访问日不是生效日。",
+        "明确许可中的构思/细化想法限于写作开始前，基础校对限于本人文字；不得扩大为任意重写或代写。",
+        "未单列 AI 翻译、研究补充材料、图片/作品集、披露格式或提示词留存要求；通用原创要求仍适用于提交材料。",
+        "原文列出的撤销录取、开除、撤销学分/成绩/学位来自其采用的真实性承诺，表述为可能后果，不是每次 AI 使用都会自动触发。"
+      ]
+    },
+    {
+      "id": "14",
+      "slug": "Brown",
+      "university": "Brown University",
+      "file": "14-Brown.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Brown 本科招生办明确：任何情况下都不得将 AI 用于申请内容，仅允许像其他基础校对工具一样用 AI 检查拼写和语法；文书、短答等全部材料须为本人作品，并认可 Common App 的欺诈定义；可能后果包括撤销录取、开除或撤销学位。（2026-09-25 补充检索取得本科正文）",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Integrity in the Application Process — Undergraduate Admission",
+          "url": "https://admission.brown.edu/apply/how-apply/integrity-application-process",
+          "publisher": "Brown University — Office of College Admission",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-25 (Asia/Shanghai)",
+          "retrieval": "full-text",
+          "local_text": null,
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "topic": "Undergraduate AI rule and proofreading exception",
+              "text": "Brown affirms this definition and reiterates our own independent policy that the use of artificial intelligence by an applicant is not permitted under any circumstances in conjunction with application content. While an applicant may use artificial intelligence to assist with spelling and grammar review, in the same way as any other platform that supports basic proofreading, the content of all essays, short-answer questions and any other material submitted by an applicant must be the work of that individual."
+            },
+            {
+              "id": "S1-Q2",
+              "topic": "Common App definition affirmed by Brown",
+              "text": "As per the Common App's policy linked above, their definition of application fraud includes: \"submitting plagiarized essays or other written or oral material, or intentionally misrepresenting as one’s own original work: (1) another person’s thoughts, language, ideas, expressions, or experiences or (2) the substantive content or output of an artificial intelligence platform, technology, or algorithm.\""
+            },
+            {
+              "id": "S1-Q3",
+              "topic": "Certification statement and possible consequences",
+              "text": "I certify that all information submitted in the admission process — including this application and any other supporting materials — is my own work, factually true, and honestly presented, and that these documents will become the property of the institution to which I am applying and will not be returned to me. I understand that I may be subject to a range of possible disciplinary actions, including admission revocation, expulsion, or revocation of course credit, grades, and degree should the information I have certified be false."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "authority": "policy-unverified",
+              "accessed_at": "2026-09-24T23:15:11+08:00",
+              "retrieval": "blocked",
+              "local_text": "sources/14-Brown-S1.txt",
+              "scope_note": "Official undergraduate integrity-page lead only. The local .txt file is a failed-retrieval log, not a source-text snapshot; search snippets are not evidence."
+            },
+            {
+              "authority": "policy-unverified",
+              "accessed_at": "2026-09-24T16:02:38.725673+00:00",
+              "retrieval": "blocked",
+              "local_text": "sources/14-Brown-S1-browser.txt"
+            }
+          ],
+          "final_url": "https://admission.brown.edu/apply/how-apply/integrity-application-process",
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "supplementary_retrieval": {
+            "date": "2026-09-25",
+            "method": "ordinary public request; rechecked in a browser"
+          },
+          "page_date_note": "Not stated on the page; the access date is not an effective date."
+        },
+        {
+          "id": "S2",
+          "title": "Application FAQs | Graduate School | Brown University",
+          "url": "https://graduateschool.brown.edu/apply/application-faqs",
+          "publisher": "Brown University — Graduate School",
+          "scope": "graduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:09:05+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/14-Brown-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "The use of artificial intelligence by an applicant is not permitted under any circumstances in conjunction with application content. While an applicant may use artificial intelligence to assist with spelling and grammar review, in the same way as any other platform that supports basic proofreading, the content of all essays, short-answer questions and any other material submitted by an applicant must be the work of that individual.",
+              "topic": "Graduate-only AI content restriction and basic proofreading exception"
+            }
+          ],
+          "scope_note": "This Graduate School FAQ is verified, but does not establish undergraduate requirements."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:brown.edu undergraduate admission AI application essay artificial intelligence",
+          "result": "定位本科招生 Integrity in the Application Process 页面，另见研究生申请 FAQ。"
+        },
+        {
+          "query": "site:admission.brown.edu \"artificial intelligence\" \"integrity\"",
+          "result": "搜索返回本科完整性政策线索；正文普通抓取超时，不以摘要作为证据。"
+        },
+        {
+          "query": "Brown admission integrity application process AI proofreading Brown affirms",
+          "result": "再次定位相同本科官方 URL；第三方复述仅作线索，未纳入已核验结论。"
+        },
+        {
+          "query": "site:brown.edu \"applicant\" \"spelling and grammar\"",
+          "result": "发现独立 Graduate School FAQ；普通 HTTP 成功取得完整正文，单独标为研究生范围。"
+        },
+        {
+          "query": "Live retrieval of undergraduate integrity/certification page",
+          "result": "HTTPS、尾斜杠、HTTP、普通 requests 和 curl 均未取得正文；错误为超时、fetch failed 或 no route to host，无绕过。"
+        },
+        {
+          "query": "Computer-use retry of previously blocked official pages (Safari / Peekaboo, 2026-09-24–25)",
+          "result": "S1: Safari 等待后显示“服务器意外中断了连接”，正文仍未取得。"
+        },
+        {
+          "query": "Supplementary retrieval of S1 (2026-09-25, ordinary public request; rechecked in a browser)",
+          "result": "取得本科页面正文，含 Artificial Intelligence in the Application Process 一节；引文逐字核对。证据状态由 graduate-only-ai 更新为 explicit-undergraduate-ai。"
+        }
+      ],
+      "limitations": [
+        "S1 页面未标注发布或更新日期；访问日不是生效日，提交申请前须按当季页面复核。",
+        "未登录申请系统查看最终声明版本；Common App 平台规则另见 00-Application-Platforms.md。",
+        "本科 S1 与研究生 S2 措辞相同，但属于不同申请，不相互替代；没有使用 Brown 在校生学术规范作为申请规则。",
+        "构思、翻译、研究附件、检测方法、披露或提示词留存均未逐项讨论；不从校对例外推导其他用途获准。"
+      ],
+      "computer_use_recheck": "2026-09-24–25 Asia/Shanghai; same originally blocked URLs opened in visible Safari",
+      "scope_note": "本科 S1 经 Safari 重试仍连接失败；研究生 S2 原有已验证规则保留，不能代替本科证据。",
+      "findings": [
+        "已实际打开本科完整性页面并等待，Safari 最终显示服务器意外中断连接；本科允许/禁止边界仍无法核验。[S1]",
+        "研究生 FAQ 明确禁止 AI 参与申请内容，但允许基础拼写和语法检查；这是既有核验结果，不是本次浏览器新取得的本科规则。[S2]"
+      ],
+      "uses": {
+        "allowed": "本科未核验；研究生 S2 明确例外为基础拼写和语法校对。",
+        "prohibited": "研究生申请材料内容须为申请者本人作品；不代替本科规则。[S2]",
+        "not_stated": "本科全部 AI 使用边界仍待正文；研究生构思、翻译、结构编辑、披露和处罚未逐项明确，不从校对例外推出其他许可。"
+      },
+      "evidence_status_note": "Brown 本科完整性页面经 Safari 重试仍因连接中断无法读取；仅核验到研究生 FAQ 的 AI 内容限制及基础拼写/语法校对例外，不可外推本科。"
+    },
+    {
+      "id": "15",
+      "slug": "Vanderbilt",
+      "university": "Vanderbilt University",
+      "file": "15-Vanderbilt.md",
+      "status": "undergraduate-advice-ai",
+      "summary_zh": "本科新生申请 FAQ 将 ChatGPT 等视为可能的辅助来源，以构思辅导、语法工具和清晰度/结构反馈作类比；明确 AI 不应替代申请者独立思考，文书应使用本人声音与真实经历。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Application Process: First-year | Undergraduate Admissions | Vanderbilt University",
+          "url": "https://admissions.vanderbilt.edu/apply/first-year-process",
+          "publisher": "Vanderbilt University — Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:32+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/15-Vanderbilt-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "We understand that many students will use various forms of assistance as they prepare their application; ChatGPT and other forms of AI may be viewed as one of these sources of assistance. For example, students may rely on an essay-writing class to help brainstorm topic ideas for their essay. Or they may use grammar tools available online to check grammar in their writing. Or students may ask a parent or guardian or peer to read their essay and offer feedback on clarity or offer advice regarding structure of the essay.",
+              "topic": "AI as a source of assistance, with brainstorming/grammar/feedback analogies"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "However, students should understand that it would not be proper to ask a teacher or parent to come up with the essay topic or to re-write an essay for the student. Likewise, AI should never be used to replace independent thinking on the part of the applicant.",
+              "topic": "No replacement of independent thought or rewriting for the applicant"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "As applicants complete the essay portions of the application, they should always use their own voice and write about their own life experiences.",
+              "topic": "Own voice and own experience"
+            }
+          ],
+          "scope_note": "Official first-year admissions FAQ. Direct applicant guidance with clear boundaries, not a separately issued disciplinary regulation or a universal permission list."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:vanderbilt.edu admissions application artificial intelligence essay AI",
+          "result": "定位本科 First-year application process FAQ；排除研究生和在校课程 AI 搜索结果。"
+        },
+        {
+          "query": "site:admissions.vanderbilt.edu \"first-year\" \"ChatGPT\"",
+          "result": "命中招生办公室直接回答 AI 辅助的问题，完整抓取并核验。"
+        },
+        {
+          "query": "Direct review: Application Process: First-year FAQ",
+          "result": "核对 AI 问答全段；其措辞为 assistance/should，未找到该段的专门处罚、翻译或披露规范。"
+        }
+      ],
+      "limitations": [
+        "范围是本科 first-year 申请 FAQ；本页不据此断言研究生、转学或所有专项申请采用相同细则。",
+        "语法工具、构思课程、他人反馈是帮助方式的类比，不是逐项授权所有 AI 工具、整段重写或让 AI 代选题。",
+        "该 AI 问答未单列 AI 翻译、研究补充材料、披露/留档、检测器或违规处分。",
+        "网页未注明该条款发布日期；文内招生周期或截止日期不等于 AI 条款更新时间。"
+      ]
+    },
+    {
+      "id": "16",
+      "slug": "UC-Berkeley",
+      "university": "University of California, Berkeley",
+      "file": "16-UC-Berkeley.md",
+      "status": "uc-system-ai-guidance",
+      "summary_zh": "UC 系统申请诚信声明明确允许 AI 辅助可读性，要求本人独立写作及本人内容/最终文字；2026–27 指南另提早期构思/整理。非 Berkeley 独有。LL.M. 个人陈述有另行的生成式 AI 限制，仅限该项目。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Personal Insight Questions - Office of Undergraduate Admissions",
+          "url": "https://admissions.berkeley.edu/apply-to-berkeley/application-resources/personal-insight-questions/",
+          "publisher": "University of California, Berkeley — Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:32+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/16-UC-Berkeley-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Thoughtfully describe not only what you’ve done, but also the choices you have made and what you have gained as a result.",
+              "topic": "Personal reflection expected in PIQs"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Your answers are not evaluated on correct grammar, spelling, or sentence structure, but these qualities will enhance overall presentation and readability.",
+              "topic": "Grammar is not a separate evaluation criterion; not an AI permission"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "If we have learned very little about you, your answers were not successful.",
+              "topic": "Purpose of personal insight responses"
+            }
+          ],
+          "scope_note": "Campus PIQ advice for first-year and transfer applicants; retrieved text does not mention AI."
+        },
+        {
+          "id": "S2",
+          "title": "Presenting yourself on the first-year UC application",
+          "url": "https://admission.universityofcalifornia.edu/counselors/_files/documents/presenting-yourself-on-the-uc-application-first-year.pdf",
+          "publisher": "University of California — UC Admissions (system-level counselor/applicant guide)",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "Not stated; cover identifies the 2026–27 application cycle.",
+          "accessed_at": "2026-09-24T23:05:26+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/16-UC-Berkeley-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Can be a useful tool for brainstorming or organizing your thoughts in the early stages, but your final PIQ responses should be your own work and voice",
+              "topic": "UC-system first-year PIQ advice, PDF page 67"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "All applicants must agree to UC’s Statement of Application Integrity when submitting their UC application!",
+              "topic": "System guide references the required application-integrity statement"
+            }
+          ],
+          "scope_note": "SYSTEM authorship, not Berkeley- or UCLA-specific policy. First-year UC application presentation, live PDF page 67. This quotes the current PDF, not longer/older search-index snippets. The full UC Statement of Application Integrity is researched separately by the parent project."
+        },
+        {
+          "id": "S3",
+          "title": "Ready to Apply - UC Berkeley Law",
+          "url": "https://www.law.berkeley.edu/admissions/llm-admissions/application-admission/application-checklist/",
+          "publisher": "UC Berkeley School of Law — LL.M. Admissions",
+          "scope": "graduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:06:20+08:00",
+          "retrieval": "partial",
+          "local_text": "sources/16-UC-Berkeley-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "The thoughts and words contained in your personal statement must be your own and no one else should assist in its creation beyond basic proofreading or critiquing. This must be your original work and should be written without assistance from others, including generative AI (e.g., ChatGPT, Claude, etc.).",
+              "topic": "LL.M.-only personal-statement authorship and AI restriction"
+            },
+            {
+              "id": "S3-Q2",
+              "text": "There are two optional opportunities to provide additional information as part of the application: the Video & Written Assessment and the Generative AI Questions. Applicants may choose to complete either or both components. Neither is required to submit a complete application.",
+              "topic": "Separate optional components; not a personal-statement exception"
+            }
+          ],
+          "scope_note": "Graduate LL.M. program only. Standard web_fetch returned readable HTTP 200; local snapshot retains the relevant sections, not the entire page. The separate optional Generative AI Questions are not evidence that AI may write the personal statement."
+        },
+        {
+          "id": "S4",
+          "title": "Application FAQs - Office of Undergraduate Admissions",
+          "url": "https://admissions.berkeley.edu/application-faqs/",
+          "publisher": "University of California, Berkeley — Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "Updated February 2026",
+          "accessed_at": "2026-09-24T23:07:15+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/16-UC-Berkeley-S4.txt",
+          "quotes": [],
+          "scope_note": "Application FAQ checked as a campus-policy fallback; no AI-specific applicant instruction found in the retrieved FAQ text."
+        },
+        {
+          "id": "S5",
+          "title": "Statement of Application Integrity",
+          "url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+          "publisher": "University of California undergraduate admissions application",
+          "scope": "undergraduate-system-wide",
+          "authority": "system-application-policy",
+          "page_date": "Last updated August 2023",
+          "accessed_at": "2026-09-24T15:10:13.275383+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/platform-uc-S4.txt",
+          "quotes": [
+            {
+              "id": "S5-Q1",
+              "text": "The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own.",
+              "topic": "Explicit system application-integrity rule and AI exception"
+            },
+            {
+              "id": "S5-Q2",
+              "text": "UC conducts regular screenings to verify the integrity of the responses, may request authentication of the content or writing as the student’s, and will take action when it is determined that the integrity of the response is compromised.",
+              "topic": "Verification and authorship authentication"
+            },
+            {
+              "id": "S5-Q3",
+              "text": "Students found to have falsified application information will be subject to penalties up to and including denial of admission, withdrawal of an admission offer, registration cancellation, expulsion or revocation of a University of California degree.",
+              "topic": "Possible consequences for falsified application information"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:berkeley.edu admissions \"AI\" \"personal insight\"",
+          "result": "检索本科 PIQ 与校级 AI 线索；校园教学内容不作申请证据。"
+        },
+        {
+          "query": "site:admissions.berkeley.edu \"artificial intelligence\" OR \"ChatGPT\" application",
+          "result": "未得到经核验的 Berkeley 独有本科 AI 条款；搜索结果中项目申请与其他大学材料不能替代。"
+        },
+        {
+          "query": "site:admissions.berkeley.edu \"application\" \"authentic\" \"AI\"",
+          "result": "结果相关性差，未据此认定无政策；继续直接检查官方本科材料。"
+        },
+        {
+          "query": "Berkeley undergraduate admissions FAQ artificial intelligence essays authentic own work",
+          "result": "第三方汇总指向 UC 系统规则，仅作为线索；直接取得 Berkeley PIQ 页与系统指南。"
+        },
+        {
+          "query": "site:admissions.berkeley.edu \"FAQs\" application",
+          "result": "定位并完整读取 Application FAQs；未检出 AI、ChatGPT 或 artificial intelligence。"
+        },
+        {
+          "query": "site:admission.universityofcalifornia.edu \"AI\" \"personal insight\"",
+          "result": "官方系统 PDF 搜索摘要与现场版本不同；直接下载的 2026–27 PDF 第 67 页才是本页引文依据。"
+        },
+        {
+          "query": "Direct graduate cross-check: Berkeley Law LL.M. Ready to Apply",
+          "result": "普通 requests 为 403；标准 web_fetch 成功 HTTP 200，核验个人陈述及独立可选组件；仅作研究生补充。"
+        }
+      ],
+      "limitations": [
+        "本科 AI 证据来自 UC 系统作者，不是 Berkeley 校园独有声明。学校 status 必须结合此归属说明理解。",
+        "校园 PIQ 页与 Application FAQs 未检出 AI 专条，只是本次公开检索范围内的结果，不能证明不存在其他规则。",
+        "系统 PDF 为 first-year 2026–27 版本；不自行把该页扩大为所有转学/专项申请规则。",
+        "已补入公开 UC 申请诚信声明，核验可读性辅助、本人写作与内容、真实性核验及一般虚假申请后果；未登录当季申请界面核对最终认证流程。",
+        "AI 翻译、研究补充材料、披露和具体编辑阈值未逐项说明；声明中的一般虚假申请后果不等于任何 AI 使用的自动处分。",
+        "Berkeley Law LL.M. 限制及其可选 AI 题目只适用于该研究生项目；不得外推本科或所有 Berkeley 研究生。"
+      ],
+      "shared_policy_origin": "University of California system; not a campus-specific issuance",
+      "shared_source_refs": [
+        "UC4",
+        "UC5"
+      ]
+    },
+    {
+      "id": "17",
+      "slug": "UCLA",
+      "university": "University of California, Los Angeles",
+      "file": "17-UCLA.md",
+      "status": "uc-system-ai-guidance",
+      "summary_zh": "UC 系统申请诚信声明允许 AI 辅助可读性但要求最终内容/文字为本人所有；2026–27 指南允许早期构思/整理。非 UCLA 独有。Anderson MBA 另允许校对但禁止生成/实质改写，仅限研究生项目。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Personal Insight Questions | UCLA Undergraduate Admission",
+          "url": "https://admission.ucla.edu/apply/personal-insight-questions",
+          "publisher": "University of California, Los Angeles — Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:32+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/17-UCLA-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "These questions are about getting to know you better, so be open, reflective, find your individual voice and express it.",
+              "topic": "Personal voice in PIQs"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Input from people you trust — teachers, friends, relatives — can help you get perspective on how your answers affect those who are reading them.",
+              "topic": "Human feedback on reader perspective"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Read your writing to others, and revise for clarity in content and in style. Pay attention to rules of correct grammar and punctuation, and don’t forget to spell check.",
+              "topic": "Revision advice; not an AI-specific permission"
+            }
+          ],
+          "scope_note": "Campus PIQ advice for first-year and transfer applicants. AI is not mentioned in the retrieved page."
+        },
+        {
+          "id": "S2",
+          "title": "Presenting yourself on the first-year UC application",
+          "url": "https://admission.universityofcalifornia.edu/counselors/_files/documents/presenting-yourself-on-the-uc-application-first-year.pdf",
+          "publisher": "University of California — UC Admissions (system-level counselor/applicant guide)",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "Not stated; cover identifies the 2026–27 application cycle.",
+          "accessed_at": "2026-09-24T23:05:26+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/17-UCLA-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Can be a useful tool for brainstorming or organizing your thoughts in the early stages, but your final PIQ responses should be your own work and voice",
+              "topic": "UC-system first-year PIQ advice, PDF page 67"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "All applicants must agree to UC’s Statement of Application Integrity when submitting their UC application!",
+              "topic": "System guide references the required application-integrity statement"
+            }
+          ],
+          "scope_note": "SYSTEM authorship, not Berkeley- or UCLA-specific policy. First-year UC application presentation, live PDF page 67. This quotes the current PDF, not longer/older search-index snippets. The full UC Statement of Application Integrity is researched separately by the parent project."
+        },
+        {
+          "id": "S3",
+          "title": "FAQ | UCLA Anderson School of Management",
+          "url": "https://www.anderson.ucla.edu/degrees/full-time-mba/admissions/faq",
+          "publisher": "UCLA Anderson School of Management — Full-Time MBA Admissions",
+          "scope": "graduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:35+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/17-UCLA-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "Authenticity is essential in your application essays. While AI can assist in refining essays, applicants must ensure their final work represents their originality and creativity. Applicants may use tools to edit and proof their essays for grammar, spelling, and clarity, but the content, ideas, and writing style must be their own. AI should not generate, rewrite, or significantly alter the essay’s substance. The admissions team values genuine, personal reflections that showcase each applicant’s unique voice.",
+              "topic": "Full-Time MBA only: grammar/clarity editing permitted, substance generation/rewriting restricted"
+            }
+          ],
+          "scope_note": "Graduate Full-Time MBA FAQ only; not UCLA undergraduate or university-wide admissions policy."
+        },
+        {
+          "id": "S4",
+          "title": "International Applicants | UCLA Undergraduate Admission",
+          "url": "https://admission.ucla.edu/apply/international-applicants",
+          "publisher": "UCLA Undergraduate Admission — International Applicants",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:07:14+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/17-UCLA-S4.txt",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "UCLA expects an application to be the work of the student and any deviation violates University policy which may lead to rejection of application materials, revocation of an admission offer, cancellation of admission, or involuntary withdrawal from the University.",
+              "topic": "Authenticity requirement and possible consequences; no AI-specific wording"
+            }
+          ],
+          "scope_note": "Located under Message About Agents and Consultants, addressed to international undergraduate applicants. Authenticity-only provision, not an AI-use list."
+        },
+        {
+          "id": "S5",
+          "title": "UC Application FAQ",
+          "url": "https://admission.ucla.edu/sites/default/files/documents/UCLA-Counselor-Admission-FAQ-March-2025_0.pdf",
+          "publisher": "UCLA Undergraduate Admission — counselor application FAQ",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "March 2025",
+          "accessed_at": "2026-09-24T23:09:05+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/17-UCLA-S5.txt",
+          "quotes": [],
+          "scope_note": "Historical four-page UC Application FAQ hosted by UCLA. Checked as an admissions FAQ fallback; no AI-specific passage found. Not treated as current AI policy."
+        },
+        {
+          "id": "S6",
+          "title": "Statement of Application Integrity",
+          "url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+          "publisher": "University of California undergraduate admissions application",
+          "scope": "undergraduate-system-wide",
+          "authority": "system-application-policy",
+          "page_date": "Last updated August 2023",
+          "accessed_at": "2026-09-24T15:10:13.275383+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/platform-uc-S4.txt",
+          "quotes": [
+            {
+              "id": "S6-Q1",
+              "text": "The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own.",
+              "topic": "Explicit system application-integrity rule and AI exception"
+            },
+            {
+              "id": "S6-Q2",
+              "text": "UC conducts regular screenings to verify the integrity of the responses, may request authentication of the content or writing as the student’s, and will take action when it is determined that the integrity of the response is compromised.",
+              "topic": "Verification and authorship authentication"
+            },
+            {
+              "id": "S6-Q3",
+              "text": "Students found to have falsified application information will be subject to penalties up to and including denial of admission, withdrawal of an admission offer, registration cancellation, expulsion or revocation of a University of California degree.",
+              "topic": "Possible consequences for falsified application information"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:admission.ucla.edu \"artificial intelligence\" application",
+          "result": "检索本科站点 AI 条款；无可核验的校园本科专门 AI 使用条款命中。"
+        },
+        {
+          "query": "site:ucla.edu admissions \"ChatGPT\" \"personal\"",
+          "result": "出现 Anderson MBA FAQ 线索，单独划为研究生；排除课程、课堂和法律学生行为规则。"
+        },
+        {
+          "query": "site:admission.ucla.edu \"personal insight\" \"own\"",
+          "result": "定位并抓取本科 PIQ 页，核验个人声音和人工反馈建议。"
+        },
+        {
+          "query": "UCLA undergraduate admission AI essays generative personal insight guidance",
+          "result": "系统 PIQ 规则线索转向 UC 官方 PDF；二手检测/自动拒绝说法未采信。"
+        },
+        {
+          "query": "site:admission.universityofcalifornia.edu \"AI\" \"personal insight\"",
+          "result": "现场取得 2026–27 UC 系统 PDF 第 67 页；没有使用不同版本的搜索摘要作引文。"
+        },
+        {
+          "query": "Direct fallback review: UCLA International Applicants and March 2025 counselor FAQ",
+          "result": "核验国际本科申请本人作品要求及可能后果；PDF FAQ 正文未见 AI 专条。"
+        }
+      ],
+      "limitations": [
+        "S2 是 UC 系统作者的 first-year 指南；不得在网站上标成 UCLA 独有 AI 政策。",
+        "S4 的明确真实性条款位于国际本科申请/代理与顾问栏目，不是独立 AI 政策；后果为 may lead to，不能写成自动拒绝。",
+        "S1 的人工反馈、修订和拼写检查建议没有明文许可 AI；不以人工许可替代 AI 规则。",
+        "UCLA 本科 AI 翻译、研究补充材料、深度润色、披露/留档或 AI 检测程序未在这些校园来源逐项说明。",
+        "已并列补入 UC 公开申请诚信声明；本人写作、可读性辅助和一般虚假申请后果以该声明为据，不以系统指南简句推导全部后果。",
+        "Anderson FAQ 仅限 Full-Time MBA，不能用于本科 PIQ、所有研究生或全校申请。",
+        "历史 March 2025 FAQ 只作搜索范围记录；来源未说明的发布日期不以版权年份推断。"
+      ],
+      "shared_policy_origin": "University of California system; not a campus-specific issuance",
+      "shared_source_refs": [
+        "UC4",
+        "UC5"
+      ]
+    },
+    {
+      "id": "18",
+      "slug": "Rice",
+      "university": "Rice University",
+      "file": "18-Rice.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "现行本科招生 FAQ 明确回答 AI 帮助申请的问题：可用于构思或整理申请者自己的想法，但必须保留原创思考和本人声音，工具不应替申请者创作内容。并非只有在校生 AI/Honor Code 政策。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Four Tips for Writing Your Supplemental Essays | Office of Admission | Rice University",
+          "url": "https://admission.rice.edu/blog/in-the-know/writing-supplemental-essays",
+          "publisher": "Rice University — Office of Admission; Steffannie Alter ’19, identified on page as a Rice admission counselor",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2025-06-18",
+          "accessed_at": "2026-09-24T23:04:33+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/18-Rice-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Remember that the people reading your application want to understand your interests, background and perspective through your eyes.",
+              "topic": "Applicant perspective"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Refining your college list is a normal part of the process, and being honest with yourself is the first step in writing a genuine and thoughtful supplemental essay.",
+              "topic": "Genuine supplemental writing"
+            }
+          ],
+          "scope_note": "Admissions-counselor advice hosted by the Office of Admission, not a student-authored AI policy. The author’s alumni year is not a current-student byline. This article does not mention AI."
+        },
+        {
+          "id": "S2",
+          "title": "Frequently Asked Questions | Office of Admission | Rice University",
+          "url": "https://admission.rice.edu/frequently-asked-questions",
+          "publisher": "Rice University — Office of Admission",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:32+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/18-Rice-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "As part of our contextual review at Rice, we value your authentic voice and story above all else. AI can be a helpful tool for brainstorming or organizing your ideas, much like consulting teachers, counselors, or family members. However, preserving your original thoughts remains essential. In alignment with Rice’s commitment to responsible AI usage, any resource you use should ultimately amplify your voice and should not create content for you, as no one else can articulate your unique lived experiences and perspective.",
+              "topic": "Undergraduate FAQ policy: brainstorm/organize, not content creation"
+            }
+          ],
+          "scope_note": "FAQ explicitly asks Rice’s policy on AI/external help for application writing; undergraduate first-year and transfer applicants are the surrounding page audience. This is direct admissions guidance, not the enrolled-student Honor Code. No AI-specific sanction is stated in the answer."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:admission.rice.edu application essays \"AI\"",
+          "result": "搜索主要返回一般申请/论文建议与无关 AI 结果，未仅凭低召回率认定没有政策。"
+        },
+        {
+          "query": "site:rice.edu undergraduate admissions \"artificial intelligence\" essay",
+          "result": "出现 FAQ 及在校生/品牌 AI 规则；后两者不适用于本科申请，未引用为申请依据。"
+        },
+        {
+          "query": "Rice admissions AI essays \"rice.edu\" authenticity",
+          "result": "定位招生 FAQ 与 first-year 页面；二手文章只作线索。"
+        },
+        {
+          "query": "site:admission.rice.edu/blog \"essay\" \"voice\"",
+          "result": "找到 Four Tips for Writing Your Supplemental Essays，核实作者为招生顾问及发布日期。"
+        },
+        {
+          "query": "site:admission.rice.edu \"ChatGPT\"",
+          "result": "无有效 AI 规则命中，不能据此作缺失判断。"
+        },
+        {
+          "query": "Direct full-text review: https://admission.rice.edu/frequently-asked-questions",
+          "result": "完整正文 Application Materials 栏实际含 AI policy 问答；页面当前题目年份为 2026–2027。关键发现来自直接读取而非搜索摘要。"
+        }
+      ],
+      "limitations": [
+        "FAQ 未标明 AI 问答发布日期；2026–2027 题目标签不是 AI 条款发布日期。",
+        "明确举例仅有 brainstorming / organizing ideas；未在该段明确列出 AI 拼写/语法、翻译、逐句润色或结构重写许可。",
+        "研究补充材料、The Box 图像生成、作品集和其他特殊材料的 AI 使用未在该回答分别说明；不可从写作辅助推导全面许可。",
+        "未找到该 AI 问答中的统一披露/提示词留存、AI 检测或具体违规处罚；不能移植 Rice 课堂 Honor Council 规则。",
+        "政策问答的语气为 can / should，未自称独立纪律规章；本页 policy 分类表示招生 FAQ 明确以 policy 为题说明边界。"
+      ]
+    },
+    {
+      "id": "19",
+      "slug": "Dartmouth",
+      "university": "Dartmouth College",
+      "file": "19-Dartmouth.md",
+      "status": "undergraduate-advice-ai",
+      "summary_zh": "官方历史播客中，招生负责人认可用AI帮助组织思路，反对外包个人表达；当时“没有政策”不能推出2026年仍无政策。现行文书页强调本人真实声音，未给AI逐项许可或处罚清单。[S1][S2]",
+      "scope_note": "本科申请文书与准备阶段；AI证据为历史招生负责人访谈，不是已核验的现行规章。",
+      "allowed_zh": "建议层面认可工具帮助自己组织思路；不是无限制写作许可。[S1-Q3]",
+      "prohibited_zh": "建议反对外包个人表达与自我介绍；本次未取得现行、带处罚的本科AI禁令。[S1-Q2][S1-Q3]",
+      "not_stated_zh": "AI翻译、逐句润色、拼写语法检查、生成草稿、披露、比例阈值、检测与AI专项处罚未明确规定。",
+      "interpretation_zh": "将官方建议与正式规则分开。S1只引用Lee Coffin本人的话，不把同集SMU嘉宾对brainstorming的具体意见单独归给Dartmouth；“We don’t have a policy either.”只描述访谈当时。S2的父母/同伴编辑建议也不能类推为AI改写或翻译许可。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Admissions Beat S4E1 transcript — A Guide to Navigating the Admissions News Beat",
+          "url": "https://admissions.dartmouth.edu/admissions-beat-s4e1-transcript",
+          "publisher": "Dartmouth Undergraduate Admissions; Lee Coffin, dean of admissions and financial aid",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:47+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/19-Dartmouth-S1.txt",
+          "audience": "本科申请者、家长、升学顾问；所引均为Lee Coffin发言",
+          "authority_note": "官方招生播客建议，不是正式申请认证。正文是2023年判决后的申请季语境；页面未标具体发布日期。",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "We don't have a policy either.",
+              "topic": "historical policy status, not a 2026 claim"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "I don't like the idea that we are outsourcing our verbal expression to a computer.",
+              "topic": "do not outsource personal expression"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "And I would say the students don't outsource that to someone besides your own brain. And if it's a tool that helps you get yourself organized, great.",
+              "topic": "organization as assistance; self-authorship"
+            },
+            {
+              "id": "S1-Q4",
+              "text": "So it's a tool. It shouldn't be a crutch.",
+              "topic": "supplementary role"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Writing Supplement",
+          "url": "https://admissions.dartmouth.edu/glossary-term/writing-supplement",
+          "publisher": "Dartmouth Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2026-07-22",
+          "accessed_at": "2026-09-24T23:07:33+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/19-Dartmouth-S2.txt",
+          "audience": "申请Dartmouth Class of 2031的本科申请者",
+          "authority_note": "页面注明Updated July 22, 2026；所引推荐播客简介属于真实性建议，不含AI专项许可。",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Parents and peers can be helpful editors, but at the heart of every memorable essay is the writer's authentic voice telling the story only they can tell.",
+              "topic": "authentic voice; human editing context"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:admissions.dartmouth.edu \"ChatGPT\"",
+          "result": "找到官方Admissions Beat S4E1/S3E15历史访谈，完整读取S4E1。"
+        },
+        {
+          "query": "site:admissions.dartmouth.edu \"artificial intelligence\" \"essays\"",
+          "result": "定位招生播客；排除课程及AI研究介绍。"
+        },
+        {
+          "query": "site:admissions.dartmouth.edu \"AI\" \"application\" \"policy\"",
+          "result": "未定位到新的独立本科申请AI政策页；结果中有课程内容及噪声，不能据此认定允许。"
+        },
+        {
+          "query": "site:admissions.dartmouth.edu \"artificial intelligence\" \"admissions beat\"",
+          "result": "另读取S4E5、S6E5；嘉宾/顾问意见不升级为Dartmouth规则。"
+        },
+        {
+          "query": "site:admissions.dartmouth.edu \"ChatGPT\" \"essay\" \"2025\"",
+          "result": "读取S8E13嘉宾写作建议，不当作校方政策；另完整检查现行Writing Supplement。"
+        }
+      ],
+      "limitations": [
+        "S1为历史访谈；当时无政策的表态不能证明2026年仍没有政策。",
+        "S2标注的更新时间为文书页面日期，不是AI规则颁布日期。",
+        "未说明的用途不能视为许可；未把SMU嘉宾、学生博客、课堂规则或Common App平台规则当作Dartmouth规则。"
+      ]
+    },
+    {
+      "id": "20",
+      "slug": "Notre-Dame",
+      "university": "University of Notre Dame",
+      "file": "20-Notre-Dame.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "本科AI政策明确允许拼写/语法审查及动笔前头脑风暴；文书、短答、活动等全部材料须为本人作品。提交AI生成、起草或实质写成的内容可能撤销录取或开除。[S1]",
+      "scope_note": "本科申请；覆盖essays、short answers、activities及其他提交材料。",
+      "allowed_zh": "spelling and grammar review；brainstorming support before writing。提交内容仍须由本人创作。[S1-Q1]",
+      "prohibited_zh": "提交AI或其他文本生成软件生成、起草或实质写成的内容，政策列明可能撤录/开除。[S1-Q2]",
+      "not_stated_zh": "翻译、深度改写界线、披露格式、AI比例阈值、工具名单和检测流程未单列。",
+      "interpretation_zh": "这是本科招生办公室的AI Policy，而非一般真实性倡议。不能把“允许头脑风暴”扩大成“AI先代写、本人再修改”。may result是可能后果，不是每次违规必然处分。该校页面虽明确采用Common App Fraud Policy，本条用法与后果依据其自身AI段落，不另移植平台规则。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "AI Policy | Apply | Undergraduate Admissions",
+          "url": "https://admissions.nd.edu/apply/ai-policy/",
+          "publisher": "University of Notre Dame, Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:47+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/20-Notre-Dame-S1.txt",
+          "audience": "本科申请者；所有提交材料",
+          "authority_note": "独立本科AI Policy页面，明确许可、限制与可能后果。",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "While an applicant may use artificial intelligence to assist with spelling and grammar review, or brainstorming support before writing, the content of all essays, short answer questions, activities, and any other material submitted must be an applicant’s own work.",
+              "topic": "allowed assistance and own-work requirement"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Submitting content generated, drafted, or substantially written by artificial intelligence tools or other text-generating software may result in the revocation of your offer of admission or potential expulsion.",
+              "topic": "AI-generated/drafted content and possible consequences"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:admissions.nd.edu \"AI\" \"policy\"",
+          "result": "定位本科招生AI Policy。"
+        },
+        {
+          "query": "site:admissions.nd.edu \"artificial intelligence\" \"application\"",
+          "result": "再次定位政策，排除课程/学生研究介绍；web_fetch及普通GET均全文可读。"
+        },
+        {
+          "query": "site:admissions.nd.edu artificial intelligence application",
+          "result": "交叉确认本科招生办公室政策入口。"
+        }
+      ],
+      "limitations": [
+        "页面未明确发布日期或更新时间。",
+        "没有明示的用途不等于许可，尤其不补写翻译或实质改写豁免。",
+        "may result不代表自动撤录或开除；学校自身采用平台条款与平台统一政策须区分。"
+      ]
+    },
+    {
+      "id": "21",
+      "slug": "Carnegie-Mellon",
+      "university": "Carnegie Mellon University",
+      "file": "21-Carnegie-Mellon.md",
+      "status": "undergraduate-advice-ai",
+      "summary_zh": "本科FAQ说明AI只能辅助：语法拼写检查、结构或词汇改进建议，不能替代个人声音、经历与表达，并提示抄袭风险；未列本科专项处罚。Heinz研究生文书另禁AI写任何部分，不得把研究生拒录后果泛化到本科。[S1][S2]",
+      "scope_note": "本科Admission FAQ为主；Heinz College MS in AI Systems Management研究生要求仅作分项目补充。",
+      "allowed_zh": "本科FAQ列举grammar/spelling checks、suggested structural or vocabulary improvements；仅作辅助、不得替代本人表达。[S1-Q1]",
+      "prohibited_zh": "本科用should never replace限制AI替代个人声音、经历与表达；Heinz研究生页面另明确不应用AI写文书任何部分。[S1-Q1][S2-Q1]",
+      "not_stated_zh": "本科AI翻译、独立头脑风暴、工具披露、比例阈值、检测及具体处罚均未列明，不能用研究生条款补齐。",
+      "interpretation_zh": "本科证据归为官方招生建议，保留should/should never的强度，不伪装成已取得完整处罚规章。Heinz主文书/optional essay的规则更严格，属于研究生项目页面；其中any degree program的拒录用语不可移植为全CMU本科自动拒录承诺。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Admission FAQ — Undergraduate Admission",
+          "url": "https://www.cmu.edu/admission/admission/admission-faq",
+          "publisher": "Carnegie Mellon University, Office of Admission",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:50+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/21-Carnegie-Mellon-S1.txt",
+          "audience": "本科申请者；直接回答ChatGPT/AI组织补充文书及改善语言的问题",
+          "authority_note": "官方本科FAQ的规范性建议，不附独立处分程序。",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "AI should never replace your unique voice, experiences and personal expression and, if used at all, should only serve as a supplementary tool to enhance your writing (i.e., grammar and spelling checks, suggested structural or vocabulary improvements).",
+              "topic": "supplementary assistance only"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Additionally, if the generated content closely resembles published work, there may be a risk of unintentional plagiarism. Carefully consider any and all risks when using generative AI for any part of your application.",
+              "topic": "plagiarism risk; caution"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Master of Science in AI Systems Management Application Process",
+          "url": "https://www.heinz.cmu.edu/programs/artificial-intelligence-masters/admissions-how-to-apply",
+          "publisher": "Carnegie Mellon University, Heinz College of Information Systems and Public Policy",
+          "scope": "graduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:05:44+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/21-Carnegie-Mellon-S2.txt",
+          "audience": "Heinz College MS in AI Systems Management研究生申请者",
+          "authority_note": "仅是Heinz研究生项目申请页，不构成本科统一禁令或处罚。",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Your essay should contain only true information and your own, original content. You should not use artificial intelligence (AI), such as ChatGPT, to write any portion of your essay.",
+              "topic": "graduate essay self-authorship"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "The Heinz College Office of Admissions utilizes several methods to identify plagiarized, AI-generated, and falsified content in uploaded documents.",
+              "topic": "graduate document verification; methods not specified"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "Submission of false, plagiarized or AI-generated material as part of the application for admission may result in automatic denial of admission to any degree program.",
+              "topic": "graduate possible denial"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:cmu.edu admission \"AI\" \"essay\"",
+          "result": "找到本科Admission FAQ与Heinz研究生申请页，分别核验范围。"
+        },
+        {
+          "query": "site:cmu.edu admission \"artificial intelligence\" \"application\" \"use\"",
+          "result": "交叉定位申请相关说明，排除仅介绍学位/课程的AI内容；两页普通GET全文可读。"
+        }
+      ],
+      "limitations": [
+        "本科FAQ以should/should never给出边界，没有AI专项处罚与检测流程。",
+        "本科未明示翻译或实质改写许可；未提及不等于允许。",
+        "研究生S2的拒录表述不得推及所有CMU本科申请者。",
+        "两页未明确政策发布日期或更新时间。"
+      ]
+    },
+    {
+      "id": "22",
+      "slug": "Michigan",
+      "university": "University of Michigan–Ann Arbor",
+      "file": "22-Michigan.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "本科文书页列举审慎使用AI进行头脑风暴、提纲、校对、整理信息；须体现本人想法、经历与声音，禁止粘贴AI生成文字或提交不代表自己的作品。Apply页另要求遵守Common App Fraud Policy。[S1][S2]",
+      "scope_note": "Michigan–Ann Arbor本科first-year申请文书；不推及Dearborn/Flint、所有研究生或课程作业。",
+      "allowed_zh": "brainstorming、outlining、proofreading、organizing information；限定thoughtfully，且不替代本人的思想与声音。[S1-Q1]",
+      "prohibited_zh": "Do not copy and paste AI-generated text；不得提交不代表自己的作品。[S1-Q2]",
+      "not_stated_zh": "AI翻译、实质改写界线、披露、工具/比例阈值、检测与具体本科处分未列明。",
+      "interpretation_zh": "不能把禁止粘贴AI生成文字改写成所有AI辅助一律禁止，也不能把允许提纲/校对扩成允许代写。S2仅记录学校明确采用平台要求及其页面概括，不另移植Common App平台原文；应和S1明确列举的辅助用途同时阅读。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Essay Questions — Representing Your Authentic Voice",
+          "url": "https://admissions.umich.edu/apply/first-year-applicants/essay-questions",
+          "publisher": "University of Michigan Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:45+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/22-Michigan-S1.txt",
+          "audience": "Michigan–Ann Arbor本科first-year申请者；页面另链接transfer文书",
+          "authority_note": "官方本科文书指示，明确列出辅助例子及Do not禁止项。web_fetch曾403，普通requests GET为200且全文可读。",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Your essays should tell your story, in your words. AI tools can be helpful when used thoughtfully, such as for brainstorming, outlining, proofreading, or organizing information. We recognize these tools may be especially useful for applicants who have limited access to application guidance.",
+              "topic": "allowed assistance; own words"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "However, your application should reflect your own ideas, experiences, and authentic voice. Do not copy and paste AI-generated text or submit work that does not represent you.",
+              "topic": "no pasted generated text; authentic voice"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Apply",
+          "url": "https://admissions.umich.edu/apply",
+          "publisher": "University of Michigan Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:46+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/22-Michigan-S2.txt",
+          "audience": "本科申请者；页面说明新生、转学、国际生流程差异",
+          "authority_note": "这是Michigan页面自身的平台遵循要求及概括；不是独立整理Common App原文，也不抹去S1的有限辅助许可。",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "The University of Michigan expects all applicants to be familiar with and abide by the Common App Fraud Policy",
+              "topic": "university explicitly adopts platform requirement"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "The Policy also prohibits the use of AI systems to generate content.",
+              "topic": "university summary of platform restriction"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:admissions.umich.edu \"AI\" \"essays\"",
+          "result": "定位Essay Questions的Representing Your Authentic Voice与Apply总页。"
+        },
+        {
+          "query": "site:umich.edu undergraduate application \"artificial intelligence\" essays",
+          "result": "交叉定位本科说明及研究生Rackham线索；后者取文403，未用于认定政策。"
+        }
+      ],
+      "limitations": [
+        "S1在web_fetch为403，但普通GET成功200并保存完整可读正文；没有绕过访问控制。",
+        "两页未明确标注AI政策发布或更新时间。",
+        "S2是校方对平台要求的概括，不据此否定S1的辅助用途，也不另整理平台政策。",
+        "研究生线索 https://rackham.umich.edu/admissions/applying/guidance-and-policies-related-to-use-of-genai-for-rackham-applicants/ 的web_fetch和普通GET均403；仅为未核验线索，不据摘要作本科或研究生规则结论。",
+        "未明确说明的用途不是默认允许。"
+      ]
+    },
+    {
+      "id": "23",
+      "slug": "Georgetown",
+      "university": "Georgetown University",
+      "file": "23-Georgetown.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "公开本科申请表的签名确认明确禁止用AI工具完成申请任何部分（含文书），未列校对/润色例外。CEH硕士亦禁AI辅助/代写，而MBA允许有限辅助；这些研究生差异不能覆盖本科禁令。[S1][S2][S3]",
+      "scope_note": "主要证据为Fall 2027 first-year Georgetown Application的公开申请认证；研究生CEH与MBA仅作分项目对照。",
+      "allowed_zh": "本科S1没有列出AI例外；不得将研究生MBA的有限许可移植过来。[S1][S3]",
+      "prohibited_zh": "本科：使用AI工具完成申请任何部分，包括文书。MS-CEH禁AI辅助或撰写文书；MBA则禁止粘贴生成回答、虚构、代写和失实表达。[S1-Q1][S2-Q1][S3-Q3]",
+      "not_stated_zh": "本科未单列翻译、校对、头脑风暴例外，未细分准备/检索与完成申请的界线，也未给披露例外、AI阈值或专项自动处分。未列细项不能当作豁免。",
+      "interpretation_zh": "主结论是本科申请认证的明文禁止，不是仅有研究生政策。普通requests从公开表单取得完整正文，补足web_fetch只抽到页脚的情况。撤录/开除原文直接针对不完整、不准确或虚假的信息，不应写成AI一经使用必然开除。研究生项目差异不能冲抵本科认证；也不声称逐字核验了Common App路径中的签名界面。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First Year Application for Admission — Application Affirmation and Electronic Signature",
+          "url": "https://uapply.georgetown.edu/register/firstyearapplication",
+          "publisher": "Georgetown University, Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:08:37+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/23-Georgetown-S1.txt",
+          "audience": "Fall 2027 first-year Georgetown Application申请者及签名的家长/监护人",
+          "authority_note": "公开申请表的签名确认，具有申请认证性质；未登录、未提交，仅普通GET读取。表单显示Fall 2027，不是网页发布日。",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Further, the applicant understands that the use of artificial intelligence (AI) tools to complete any portion of the application, including essays, is prohibited.",
+              "topic": "explicit undergraduate prohibition"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "The applicant understands that Georgetown may take disciplinary action, including rescission of admission and dismissal from the university, if information or statements submitted during the admissions process are incomplete, inaccurate, or false.",
+              "topic": "general false/incomplete/inaccurate information consequences"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "If the applicant received assistance from a third party in completing the application, the applicant takes full responsibility for the accuracy of the information that was submitted.",
+              "topic": "responsibility for third-party assistance"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "How to Apply — M.S. in Climate, Environment, and Health",
+          "url": "https://ceh.georgetown.edu/admissions/how-to-apply/",
+          "publisher": "Georgetown University, M.S. in Climate, Environment, and Health",
+          "scope": "graduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:05:40+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/23-Georgetown-S2.txt",
+          "audience": "MS-CEH硕士申请者；页面显示Fall 2027周期",
+          "authority_note": "仅适用此研究生项目，不能扩展到全校所有申请。",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Essay responses should be original and authentic. The use of artificial intelligence to assist in or write essay responses for this application is strictly prohibited.",
+              "topic": "program-specific prohibition including assistance"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "MBA Application Components",
+          "url": "https://msb.georgetown.edu/mba/application-components/",
+          "publisher": "Georgetown University, McDonough School of Business MBA Admissions",
+          "scope": "graduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:05:41+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/23-Georgetown-S3.txt",
+          "audience": "该MBA申请组件页面涵盖的申请者，不适用于本科",
+          "authority_note": "MBA官方招生指导与禁用清单，反映分项目规则差异，不能放宽本科S1。",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "AI can be a valuable collaborator to help you brainstorm, edit, and refine your ideas, especially if you do not have access to other support.",
+              "topic": "MBA conditional assistance"
+            },
+            {
+              "id": "S3-Q2",
+              "text": "However, your application materials should ultimately reflect your own voice, experiences, and unique perspective. As with collaboration with other people, any assistance from AI should be used to enhance and not replace your own work.",
+              "topic": "MBA own voice and work"
+            },
+            {
+              "id": "S3-Q3",
+              "text": "Do not copy and paste AI-generated responses\nDo not use AI to fabricate experiences, achievements, or credentials\nDo not rely on AI to write your essays for you\nDo not use AI to misrepresent your qualifications or intentions\nDo not assume all use is acceptable – when unsure, reach out for clarification",
+              "topic": "MBA prohibited misuse"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:georgetown.edu undergraduate application \"AI\" \"prohibited\"",
+          "result": "先定位研究生线索，继续核查本科申请原文，不据摘要认定本科规则。"
+        },
+        {
+          "query": "site:georgetown.edu \"application\" \"artificial intelligence\" \"essays\"",
+          "result": "多个研究生项目结果，逐项区分范围。"
+        },
+        {
+          "query": "site:uadmissions.georgetown.edu application certification \"artificial\"",
+          "result": "没有相关可读本科结果，返回噪声，不视为不存在政策。"
+        },
+        {
+          "query": "site:uadmissions.georgetown.edu \"essays\" \"own\"",
+          "result": "定位Application Requirements and Forms和First Year Applicants；其正常请求超时或连接失败，摘要不纳入规则证据。"
+        },
+        {
+          "query": "site:georgetown.edu \"application\" \"I certify\" \"essays\"",
+          "result": "定位公开first-year申请表；web_fetch仅页脚，普通GET取得完整正文并在Application Affirmation中核验AI禁止条款。"
+        },
+        {
+          "query": "site:georgetown.edu \"AI tools\" \"application\" \"essays\" admissions",
+          "result": "完整核查MBA与CEH的分项目指导。"
+        },
+        {
+          "query": "site:uadmissions.georgetown.edu FAQ essays authenticity artificial intelligence admissions",
+          "result": "检索并尝试读取本科FAQ及申请要求页面，超时或连接失败；改以可读公开申请认证作为主要证据。"
+        }
+      ],
+      "limitations": [
+        "S1未提交表单、创建账户或联系学校；只是读取公开表单，正文显示Fall 2027。",
+        "表单说明也可通过Common Application申请，但未进入该平台内核验对应签名页；不声称逐字检查了所有路径的界面。",
+        "不得将完成申请任何部分的禁用表述扩大为与申请无关的所有日常AI学习活动也被禁止。",
+        "撤录/开除条款直接针对不完整、不准确或虚假信息，不等于AI使用必然自动开除。",
+        "本科FAQ、First Year Applicants、Application Requirements页面普通请求超时或连接失败；其搜索摘要没有作为政策证据。",
+        "S2/S3适用不同研究生项目，不能泛化到本科或全校。"
+      ]
+    },
+    {
+      "id": "24",
+      "slug": "Emory",
+      "university": "Emory University",
+      "file": "24-Emory.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "本科FAQ将AI定位为写作教练而非创作者，允许有限润色/编辑建议、活动栏表达澄清和个人陈述思路组织；不得替代或生成个人内容与创意，须保持本人声音。入学后Honor Code段落不能当作申请AI专项处罚。[S1]",
+      "scope_note": "本科申请写作FAQ；不将入学后课堂、考试或作业Honor Code规则移用于申请材料。",
+      "allowed_zh": "作为suggestive tool提供编辑/润色建议；澄清活动栏想法、组织个人陈述思路；本人思想、声音、经历不被替代。[S1-Q1][S1-Q2][S1-Q3]",
+      "prohibited_zh": "should not replace or generate个人内容或创意；AI用于enhance，而非create申请者的写作。[S1-Q2]",
+      "not_stated_zh": "AI翻译、从零生成草稿、专门披露、阈值、检测和申请期专项后果未明确给出。没有另写头脑风暴许可；仅凭组织思路不能推断无限制创意生成获准。",
+      "interpretation_zh": "依据本科招生FAQ自称的申请写作policy / guiding principles，保留could/should的限定。原文允许polish/refine，但紧接着限制不得替代或生成个人输入与创意。同页Should you enroll以及instructor/Honor Council文字针对入学后学术工作，不能说申请者用AI就必交Honor Council或撤录。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Frequently Asked Questions — Use of Artificial Intelligence (AI)",
+          "url": "https://apply.emory.edu/apply/faqs",
+          "publisher": "Emory University, Office of Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "accessed_at": "2026-09-24T23:04:47+08:00",
+          "retrieval": "full-text",
+          "local_text": "sources/24-Emory-S1.txt",
+          "audience": "本科申请者；问题为college application writing，例子包括活动栏和个人陈述",
+          "authority_note": "FAQ明确以policy提问，答复为Guiding Principles；其入学后Honor Code段不作申请期惩处依据。",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Your submission should always reflect your own ideas, creativity, and experiences.",
+              "topic": "own ideas and experiences"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "AI tools could polish or refine, but they should not replace or generate your personal input or creativity. If you choose to use AI for editing, treat it as a suggestive tool to enhance your writing, not to create it.",
+              "topic": "editing, not creation"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "For example, AI might help you clarify your thoughts in the Activities section of the Common Application or organize ideas in a personal statement.",
+              "topic": "activities and personal statement assistance"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:apply.emory.edu \"AI\" \"essay\"",
+          "result": "定位本科FAQ的Use of Artificial Intelligence (AI)段。"
+        },
+        {
+          "query": "site:emory.edu undergraduate admissions \"artificial intelligence\" essays",
+          "result": "再次定位FAQ并筛除课程/写作项目规则；普通GET保存全文，避免web_fetch长页截断遗漏末尾AI段。"
+        }
+      ],
+      "limitations": [
+        "FAQ未明确AI政策发布日期或最后更新日。",
+        "保留Guiding Principles中的具体限定，不改写成一切润色均获准。",
+        "入学后Honor Code/教师授权/Honor Council不等于申请阶段AI违规的专项处分条款。",
+        "未说明不代表允许；未把课程AI规则或Common App平台规则移植为Emory申请规则。"
+      ]
+    },
+    {
+      "id": "25",
+      "slug": "UNC-Chapel-Hill",
+      "file": "25-UNC-Chapel-Hill.md",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First-Year Application",
+          "url": "https://admissions.unc.edu/apply/types-of-applications/first-year/",
+          "final_url": "https://admissions.unc.edu/apply/types-of-applications/first-year/",
+          "accessed_at": "2026-09-24T15:06:58.124607+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/25-UNC-Chapel-Hill-S1.txt",
+          "page_metadata": [
+            "<meta content=\"https://www.facebook.com/UNCAdmissions/\" property=\"article:publisher\"/>",
+            "<meta content=\"2026-07-31T04:10:04+00:00\" property=\"article:modified_time\"/>"
+          ],
+          "publisher": "UNC Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "page_date_note": "Publication date not stated; HTML modified_time: 2026-07-31.",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Your personal essay gives us the chance to hear your voice and see you as a whole person, not just a student. When you respond, we hope you’ll be yourself and sound like yourself.",
+              "topic": "personal voice"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Application Prompts for 2026-2027",
+          "url": "https://admissions.unc.edu/application-prompts-for-2025-2026/",
+          "final_url": "https://admissions.unc.edu/application-prompts-for-2025-2026/",
+          "accessed_at": "2026-09-24T15:06:58.124787+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/25-UNC-Chapel-Hill-S2.txt",
+          "page_metadata": [
+            "<meta content=\"https://www.facebook.com/UNCAdmissions/\" property=\"article:publisher\"/>",
+            "<meta content=\"2023-07-20T20:13:08+00:00\" property=\"article:published_time\"/>",
+            "<meta content=\"2026-06-19T17:47:37+00:00\" property=\"article:modified_time\"/>"
+          ],
+          "publisher": "UNC Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "page_date_note": "Current-cycle date not stated; HTML published_time: 2023-07-20; modified_time: 2026-06-19. URL retains 2025-2026.",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Your personal essay response helps us get to know you.",
+              "topic": "essay purpose"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "Does Undergraduate Admissions use AI and why?",
+          "url": "https://admissions.unc.edu/faqs/does-undergraduate-admissions-use-ai-and-why/",
+          "final_url": "https://admissions.unc.edu/faqs/does-undergraduate-admissions-use-ai-and-why/",
+          "accessed_at": "2026-09-24T15:06:58.124969+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/25-UNC-Chapel-Hill-S3.txt",
+          "page_metadata": [
+            "<meta content=\"https://www.facebook.com/UNCAdmissions/\" property=\"article:publisher\"/>",
+            "<meta content=\"2025-08-14T22:15:27+00:00\" property=\"article:modified_time\"/>"
+          ],
+          "publisher": "UNC Office of Undergraduate Admissions",
+          "scope": "undergraduate-reviewer-side",
+          "authority": "official-faq",
+          "page_date": null,
+          "page_date_note": "Page date not stated; HTML modified_time: 2025-08-14.",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "UNC uses AI programs to provide data points about students’ common application essay and their school transcripts. Data points include writing style and grammar and the rigor of students’ coursework.",
+              "topic": "reviewer-side AI, not applicant permission"
+            }
+          ]
+        },
+        {
+          "id": "S4",
+          "title": "Artificial Intelligence (AI) - FAQ category",
+          "url": "https://admissions.unc.edu/faq/category/artificial-intelligence-ai/",
+          "final_url": "https://admissions.unc.edu/faq/category/artificial-intelligence-ai/",
+          "accessed_at": "2026-09-24T15:06:58.125148+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/25-UNC-Chapel-Hill-S4.txt",
+          "page_metadata": [],
+          "publisher": "UNC Office of Undergraduate Admissions",
+          "scope": "undergraduate-reviewer-side",
+          "authority": "official-index",
+          "page_date": null,
+          "page_date_note": "Not stated.",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "Does AI make decisions about whether an application is accepted, waitlisted, or denied?",
+              "topic": "reviewer-side FAQ scope"
+            }
+          ]
+        }
+      ],
+      "university": "University of North Carolina at Chapel Hill",
+      "status": "authenticity-only",
+      "scope_note": "本科新生申请及个人文书；S3–S4的AI内容针对招生办公室审阅申请，不是申请人写作许可。",
+      "summary_zh": "已核验本科申请页希望个人文书展现本人声音；未在所查页面核验到申请人AI用途的具体规则。招生办自身使用AI的FAQ不能当作申请人可以使用AI的依据。",
+      "findings": [
+        "本科申请页强调“be yourself and sound like yourself”；这是写作与真实性建议，不是明确AI禁用条款。[S1]",
+        "题目页当前标题为2026–2027，虽URL仍包含2025–2026；该页没有AI脑暴、润色或翻译边界。[S2]",
+        "官方AI FAQ解释招生办如何从文书和成绩单获得数据点，讨论审阅端而非申请人的AI写作行为。[S3][S4]"
+      ],
+      "uses": {
+        "permitted": "未核验到本科申请人使用AI的明确许可；个人文书应以本人声音呈现。[S1]",
+        "prohibited": "所查正文未列出申请人AI用途的明确禁令；不能把空白写成允许。",
+        "not_stated": "AI选题/脑暴、提纲、起草、改写、语法拼写、翻译、短答/补充材料、披露格式、AI检测及AI违规处罚均未在这些申请人指导正文中明确。"
+      },
+      "search_log": [
+        {
+          "query": "site:admissions.unc.edu \"AI\" essay",
+          "result": "发现官方AI FAQ，实时正文的范围为招生办审阅流程。"
+        },
+        {
+          "query": "site:admissions.unc.edu \"essay\" \"own\"",
+          "result": "定位First-Year Application与Application Prompts，核验本人声音建议。"
+        }
+      ],
+      "limitations": [
+        "这是有限范围的申请人AI规则未核验，不是证明学校没有AI规则。",
+        "AI FAQ目录列出What is AI、Does Undergraduate Admissions use AI and why、Does AI make decisions等审阅端问题；目录空白不意味着申请人获得许可。",
+        "题目页沿用包含2025–2026的URL；HTML发布时间早于现有内容，不作为本版题目生效日期。",
+        "Common App等平台规则由主项目另行处理；未把原始课程/校园AI材料当作申请要求。"
+      ],
+      "evidence_status_note": "Status describes verified live bodies in this research, not the absence of other rules."
+    },
+    {
+      "id": "26",
+      "slug": "WashU",
+      "file": "26-WashU.md",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "What We’re Looking For - Our policy on generative AI",
+          "url": "https://admissions.washu.edu/how-to-apply/what-were-looking-for/",
+          "final_url": "https://admissions.washu.edu/how-to-apply/what-were-looking-for/",
+          "accessed_at": "2026-09-24T15:06:58.125301+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/26-WashU-S1.txt",
+          "page_metadata": [
+            "<meta content=\"2026-07-17T20:50:12+00:00\" property=\"article:modified_time\"/>"
+          ],
+          "publisher": "WashU Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "page_date_note": "Publication/effective date not stated; HTML modified_time: 2026-07-17.",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Never Unethical uses include (but are not limited to) using AI to brainstorm topics, draft, or write your essays; generating images for your Sam Fox School of Design & Visual Arts portfolio; or producing fraudulent application materials such as a letter of recommendation, a transcript of high school courses, or a certificate for an award.",
+              "topic": "prohibited brainstorming, authorship, portfolio images, fraud"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Always Researching colleges and developing your list of colleges are ethical uses of AI.",
+              "topic": "college research allowed"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Sometimes Reviewing the grammar and spelling of your completed essays can be a helpful use of AI, but you may ask a teacher or counselor to review as well. You can use AI to find answers to questions you have about the application process; beware that AI can be wrong or out of date!",
+              "topic": "conditional proofreading and application research"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Common Questions - Generative AI in the application process",
+          "url": "https://admissions.washu.edu/how-to-apply/common-questions/",
+          "final_url": "https://admissions.washu.edu/how-to-apply/common-questions/",
+          "accessed_at": "2026-09-24T15:09:39.548215+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/26-WashU-S2.txt",
+          "page_metadata": [
+            "<meta content=\"2026-09-09T18:30:28+00:00\" property=\"article:modified_time\"/>"
+          ],
+          "publisher": "WashU Office of Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "policy",
+          "page_date": null,
+          "page_date_note": "Publication/effective date not stated; HTML modified_time: 2026-09-09.",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Never Unethical uses include (but are not limited to) using AI to brainstorm essay topics or draft or write your essays; generating images for your Sam Fox School of Design & Visual Arts portfolio; or producing fraudulent application materials such as a letter of recommendation, a transcript of high school courses, or a certificate for an award.",
+              "topic": "FAQ confirms brainstorming ban"
+            }
+          ]
+        }
+      ],
+      "university": "Washington University in St. Louis",
+      "status": "explicit-undergraduate-ai",
+      "scope_note": "本科招生办公室的申请AI规则，涉及文书、Sam Fox作品集和申请证明材料；不是课程政策。",
+      "summary_zh": "WashU本科招生页与FAQ均将AI为文书脑暴选题、起草和写作列为Never/不道德用法；允许研究大学及拟定选校名单，审慎允许检查已完成文书的语法拼写。",
+      "findings": [
+        "重要：当前官方页面明确把AI“brainstorm topics”列入Never，FAQ进一步写成“brainstorm essay topics”；不能沿用允许脑暴的二手概括。[S1][S2]",
+        "生成Sam Fox作品集图像，以及伪造推荐信、成绩单或获奖证明，也列入Never；文书起草/代写同样在此列。[S1][S2]",
+        "研究大学、制定选校名单属于Always；检查已完成文书的语法拼写、询问申请流程属于Sometimes，提醒AI可能错误或过时。[S1]"
+      ],
+      "uses": {
+        "permitted": "研究大学和制定选校名单；有条件/审慎地检查已完成文书的语法拼写、查问申请流程（分别标为Always和Sometimes）。[S1]",
+        "prohibited": "用AI脑暴文书选题、起草或写文书；生成Sam Fox作品集图像；制作虚假的推荐信、课程成绩单、获奖证明等。[S1][S2]",
+        "not_stated": "翻译、整句改写/风格润色、短答单独细则、使用声明模板、AI检测方法和具体处分未明确；不能将语法拼写许可扩张为重写许可。"
+      },
+      "search_log": [
+        {
+          "query": "site:admissions.washu.edu \"artificial intelligence\"",
+          "result": "定位本科What We’re Looking For页面的generative AI规则。"
+        },
+        {
+          "query": "WashU undergraduate admissions ethical artificial intelligence writing application",
+          "result": "交叉定位招生规则；核验What We’re Looking For与Common Questions两个官方页面，均禁止AI脑暴选题。"
+        }
+      ],
+      "limitations": [
+        "网页未给出规则的独立发布/生效日期；HTML修改时间不等同政策开始时间。",
+        "S1为brainstorm topics，S2为brainstorm essay topics；保留各自原文，不擅自合并改写。",
+        "未把Sometimes改写成无条件允许，未推断未刊载的处罚。"
+      ],
+      "evidence_status_note": "Status describes verified live bodies in this research, not the absence of other rules."
+    },
+    {
+      "id": "27",
+      "slug": "UVA",
+      "file": "27-UVA.md",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Is there a policy about Large Language Models or Generative AI?",
+          "url": "https://admission.virginia.edu/node/1146",
+          "final_url": "https://admission.virginia.edu/node/1146",
+          "accessed_at": "2026-09-24T15:55:28.262389+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/27-UVA-S1-browser.txt",
+          "page_metadata": [],
+          "publisher": "UVA Office of Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "official-admissions-policy-faq",
+          "page_date": null,
+          "page_date_note": "Not stated in the rendered page; browser acquisition time is not a publication date.",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "topic": "limited AI assistance and no copy-paste",
+              "text": "Generative AI may play a minor role in your final product by helping you brainstorm essay topics or check for grammar mistakes, but we ask that you do not cut and paste any part of your essay or personal statements from an AI tool. All final submitted materials should be your original work."
+            },
+            {
+              "id": "S1-Q2",
+              "topic": "honor statement and authorship",
+              "text": "As an applicant to UVA, we ask you to sign an honor statement before submitting the Common Application because the UVA community is anchored by trust and integrity. Our students pledge not to lie, cheat, or steal, and we ask the same of our applicants. By agreeing to this honor statement, you are pledging that the application materials you submit to us are your original work, not primarily a product of AI."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "accessed_at": "2026-09-24T15:06:59.538970+00:00",
+              "http_status": 403,
+              "retrieval": "blocked",
+              "local_text": "sources/27-UVA-S1.txt",
+              "authority": "unverified-official-lead",
+              "page_date_note": "Title identified in search index; body blocked (403)."
+            }
+          ],
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "官方 AI FAQ 的三段正文在 Safari 中完整显示，已对照可见截图核验。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/27-S1-safari-meta.json",
+            "accessibility_tree": "research/computer-use/27-S1-safari.json",
+            "screenshot": "research/computer-use/27-S1-safari.png"
+          }
+        },
+        {
+          "id": "S2",
+          "title": "Frequently Asked Questions",
+          "url": "https://admission.virginia.edu/faq",
+          "final_url": "https://admission.virginia.edu/faqs",
+          "accessed_at": "2026-09-24T15:56:43.293260+00:00",
+          "retrieval": "partial",
+          "local_text": "sources/27-UVA-S2-browser.txt",
+          "page_metadata": [],
+          "publisher": "UVA Office of Undergraduate Admission",
+          "scope": "undergraduate",
+          "authority": "official-faq-index",
+          "page_date": null,
+          "page_date_note": "Not stated in the rendered page; browser acquisition time is not a publication date.",
+          "quotes": [],
+          "retrieval_history": [
+            {
+              "accessed_at": "2026-09-24T15:06:59.539775+00:00",
+              "http_status": 403,
+              "retrieval": "blocked",
+              "local_text": "sources/27-UVA-S2.txt",
+              "authority": "unverified-official-lead",
+              "page_date_note": "Body blocked (403); date not verified."
+            }
+          ],
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "浏览器从 /faq 跳转 /faqs，FAQ 总页成功显示；AI 问题答案另在已完整读取的 S1。未逐一展开总页所有其他问题。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/27-S2-safari-meta.json",
+            "accessibility_tree": "research/computer-use/27-S2-safari.json",
+            "screenshot": "research/computer-use/27-S2-safari.png"
+          }
+        },
+        {
+          "id": "S3",
+          "title": "Customizing the Common App Essay for UVA",
+          "url": "https://uvaapplication.blogspot.com/2026/09/customizing-common-app-essay-for-uva.html",
+          "final_url": "https://uvaapplication.blogspot.com/2026/09/customizing-common-app-essay-for-uva.html",
+          "accessed_at": "2026-09-24T15:08:59.962745+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/27-UVA-S3.txt",
+          "page_metadata": [
+            "<h2 class=\"date-header\"><span>Wednesday, September 02, 2026</span></h2>"
+          ],
+          "publisher": "Jeannine Lalonde (Dean J), Notes from Peabody",
+          "scope": "undergraduate",
+          "authority": "admissions-officer-blog",
+          "page_date": "2026-09-02",
+          "page_date_note": "Visible date header: Wednesday, September 02, 2026. Personally hosted Blogspot admissions blog, not a university policy document.",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "Focus on telling your story well. Authentic voice, style, and tone is far more important than trying to work a college's name into an essay where it doesn't naturally belong.",
+              "topic": "authentic voice"
+            }
+          ]
+        },
+        {
+          "id": "S4",
+          "title": "UVA Admission Essays Are Posted. Learn How to Write Your Best One",
+          "url": "https://news.virginia.edu/content/uva-admission-essays-are-posted-learn-how-write-your-best-one",
+          "final_url": "https://archive.news.virginia.edu/content/uva-admission-essays-are-posted-learn-how-write-your-best-one/",
+          "accessed_at": "2026-09-24T15:08:59.962985+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/27-UVA-S4.txt",
+          "page_metadata": [
+            "<meta content=\"2018-07-12T10:47:36-0400\" property=\"og:updated_time\"/>",
+            "<meta content=\"2018-07-12 10:47:36 -0400 EDT\" property=\"article:published_time\"/>",
+            "<meta content=\"2018-07-12 13:30:12 -0400 EDT\" property=\"article:modified_time\"/>"
+          ],
+          "publisher": "UVA Today / University News, Rob Seal",
+          "scope": "undergraduate-historical",
+          "authority": "official-news",
+          "page_date": "2018-07-12",
+          "page_date_note": "Archived 2018-2019 application-cycle article; not a current AI rule.",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "It’d be foolish to submit an essay without having someone you trust take a look first and give feedback, but essays shouldn’t read like they were done by committee. And if you don’t like the advice someone gives, feel free to ignore it. When you submit it, it should feel good to you, and it should sound like you.",
+              "topic": "historical human feedback and authenticity"
+            },
+            {
+              "id": "S4-Q2",
+              "text": "Stay up with news about admission by following Lalonde’s blog, Notes From Peabody , or following her Twitter, where she’s @UVADeanJ.",
+              "topic": "official provenance of admissions officer blog"
+            }
+          ]
+        },
+        {
+          "id": "S5",
+          "title": "About this blog",
+          "url": "https://uvaapplication.blogspot.com/p/about-this-blog.html",
+          "final_url": "https://uvaapplication.blogspot.com/p/about-this-blog.html",
+          "accessed_at": "2026-09-24T15:08:59.963105+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/27-UVA-S5.txt",
+          "page_metadata": [],
+          "publisher": "Jeannine Lalonde (Dean J), Notes from Peabody",
+          "scope": "source-provenance",
+          "authority": "admissions-officer-blog",
+          "page_date": null,
+          "page_date_note": "Not stated.",
+          "quotes": [
+            {
+              "id": "S5-Q1",
+              "text": "The Office of Admission is located in Peabody Hall (along with the Dean of Students on the second floor). So the blog is a series of notes written to students from my office in Peabody Hall.",
+              "topic": "blog office provenance"
+            },
+            {
+              "id": "S5-Q2",
+              "text": "I've considered moving everything over to a more official home on the UVA website a few times, but blogspot has been a good, free home for the blog all these years.",
+              "topic": "personally hosted, not policy site"
+            }
+          ]
+        }
+      ],
+      "university": "University of Virginia",
+      "status": "explicit-undergraduate-ai",
+      "scope_note": "本科招生办公室 AI FAQ 已经实际 Safari 页面及截图核验；旧招生博客与2018年新闻仅为辅助背景。",
+      "summary_zh": "UVA 本科 AI FAQ 允许有限的选题构思和语法检查，但不得把 AI 内容复制粘贴进文书；最终材料须为本人原创，申请人须签署真实性 honor statement。官方正文已通过桌面浏览器核验。",
+      "findings": [
+        "官方 FAQ 明确允许 AI 在选题构思、语法检查中发挥有限辅助作用；要求不得剪贴 AI 生成内容至文书或个人陈述，最终材料须本人原创。[S1-Q1]",
+        "提交 Common Application 前须签 honor statement；学校将它解释为承诺材料为本人原创、并非主要由 AI 产生。[S1-Q2]",
+        "此前受阻的 FAQ 总页也已成功打开；从 /faq 跳转到 /faqs。S1 是直接核验规则的正文，不能只以 FAQ 列表推断答案。[S2]",
+        "旧招生官博客及历史新闻保留来源与日期，但不再用于代替现已核实的 AI 规则。[S3][S4][S5]"
+      ],
+      "uses": {
+        "allowed": "AI 对文书选题构思、语法检查的有限辅助，仍须本人原创。[S1-Q1]",
+        "prohibited": "不要把 AI 工具产出的任何部分复制粘贴进文书/个人陈述；不得让提交材料主要成为 AI 的产物。[S1]",
+        "not_stated": "未逐项说明翻译、AI 提纲、不同幅度改写、披露格式、软件名单、检测阈值或 AI 专门处分；不从 honor statement 推出自动撤录。"
+      },
+      "search_log": [
+        {
+          "query": "site:admission.virginia.edu AI artificial intelligence essay",
+          "result": "找到官方AI FAQ node/1146；web_fetch及普通GET均403。"
+        },
+        {
+          "query": "UVA Dean J artificial intelligence ChatGPT application essay admissions",
+          "result": "再次定位同一AI FAQ；索引摘要未作为政策。"
+        },
+        {
+          "query": "site:virginia.edu \"application\" \"Generative AI\" \"brainstorm\"",
+          "result": "索引显示AI FAQ线索，正文仍受阻。"
+        },
+        {
+          "query": "UVA admissions essay own words authenticity official Dean J",
+          "result": "核验UVA Today历史文章，并从博客首页找到2026年真实性建议。"
+        },
+        {
+          "query": "Computer-use retry of previously blocked official pages (Safari / Peekaboo, 2026-09-24–25)",
+          "result": "S1: 官方 AI FAQ 的三段正文在 Safari 中完整显示，已对照可见截图核验。；S2: 浏览器从 /faq 跳转 /faqs，FAQ 总页成功显示；AI 问题答案另在已完整读取的 S1。未逐一展开总页所有其他问题。"
+        }
+      ],
+      "limitations": [
+        "S1 正文通过真实 Safari 可见页面与可访问性树取得；旧403响应作为历史记录保留，不再代表当前核验状态。",
+        "S2 仅确认FAQ总页成功打开，未展开所有非AI问题；AI回答以S1为据。",
+        "页面未注明发布日期；2026-09-24是此次访问日，不是政策生效日。",
+        "2018年新闻与个人托管的招生官博客仍按原日期、效力标注。",
+        "未说明不等于允许；Common App平台规则与本校FAQ分开。"
+      ],
+      "evidence_status_note": "UVA 本科 AI FAQ 允许有限的选题构思和语法检查，但不得把 AI 内容复制粘贴进文书；最终材料须为本人原创，申请人须签署真实性 honor statement。官方正文已通过桌面浏览器核验。",
+      "computer_use_recheck": "2026-09-24–25 Asia/Shanghai; same originally blocked URLs opened in visible Safari"
+    },
+    {
+      "id": "28",
+      "slug": "USC",
+      "file": "28-USC.md",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Why U.S. Universities Ask for So Many Essays, and What They Reveal",
+          "url": "https://www.admissionblog.usc.edu/p/why-us-universities-ask-for-so-many",
+          "final_url": "https://www.admissionblog.usc.edu/p/why-us-universities-ask-for-so-many",
+          "accessed_at": "2026-09-24T15:06:59.549528+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/28-USC-S1.txt",
+          "page_metadata": [
+            "<meta content=\"2025-10-17T16:03:05.708Z\" data-rh=\"true\" property=\"article:modified_time\"/>",
+            "<time datetime=\"2025-10-17T16:00:27.198Z\" title=\"2025-10-17T16:00:27.198Z\">Oct 17, 2025</time>"
+          ],
+          "publisher": "USC Office of Admission; Tyler Swartout, International Admission Officer",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2025-10-17",
+          "page_date_note": "Visible publication date: Oct 17, 2025.",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Your USC short-answer questions help us get to know your academic interests and how you might fit into our campus culture.",
+              "topic": "USC short-answer context"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "You don’t need a dramatic life story. You just need to speak sincerely. If you’re funny, be funny. If you’re serious, that’s okay too. The best essays sound like they were written by the real you... not by someone trying to impress a committee with big words and vague ideas, not by adults, and definitely not by AI.",
+              "topic": "AI authorship discouraged"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "So, take a deep breath. Write in your own words.",
+              "topic": "own words"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "How to Write a Compelling College Essay",
+          "url": "https://www.admissionblog.usc.edu/p/how-to-write-a-compelling-college",
+          "final_url": "https://www.admissionblog.usc.edu/p/how-to-write-a-compelling-college",
+          "accessed_at": "2026-09-24T15:06:59.829336+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/28-USC-S2.txt",
+          "page_metadata": [
+            "<meta content=\"2026-04-15T12:57:00.936Z\" data-rh=\"true\" property=\"article:modified_time\"/>",
+            "<time datetime=\"2025-07-02T16:00:32.686Z\" title=\"2025-07-02T16:00:32.686Z\">Jul 02, 2025</time>"
+          ],
+          "publisher": "USC Office of Undergraduate Admission; Natasha Hunter, Senior Assistant Director",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": "2025-07-02",
+          "page_date_note": "Visible publication date: Jul 02, 2025; HTML modified_time: 2026-04-15.",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Use your own words and way of speaking when writing your essay. Write how you typically would to a friend, parent, classmate, teacher, etc. Be sure to be professional but stay true to your personal writing style.",
+              "topic": "own voice"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Please have someone else look at your essay! You don’t need a million different opinions but getting input from one or two other people will help you see your essay from a different perspective. Make sure you pick someone you’re comfortable receiving feedback from, whether that be a teacher, friend, counselor, etc.",
+              "topic": "human feedback"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "Make sure to triple check your essay for punctuation and grammatical errors.",
+              "topic": "proofreading advice"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "Humanizing the Admission Process",
+          "url": "https://www.admissionblog.usc.edu/p/humanizing-the-admissions-process",
+          "final_url": "https://www.admissionblog.usc.edu/p/humanizing-the-admissions-process",
+          "accessed_at": "2026-09-24T15:06:59.846214+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/28-USC-S3.txt",
+          "page_metadata": [
+            "<meta content=\"2026-02-23T17:01:39.760Z\" data-rh=\"true\" property=\"article:modified_time\"/>",
+            "<time datetime=\"2026-02-23T17:01:19.502Z\" title=\"2026-02-23T17:01:19.502Z\">Feb 23, 2026</time>"
+          ],
+          "publisher": "USC Office of Admission; Jaelin Robin, Assistant Director",
+          "scope": "undergraduate-reviewer-side",
+          "authority": "official-advice",
+          "page_date": "2026-02-23",
+          "page_date_note": "Visible publication date: Feb 23, 2026.",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "For example, do we use AI to calculate GPAs from transcripts? Do we use ChatGPT to summarize sections of applications? The answer to these questions is no; we do NOT use any of those advanced tech options to aid us in our review process.",
+              "topic": "office review only"
+            }
+          ]
+        }
+      ],
+      "university": "University of Southern California",
+      "status": "undergraduate-advice-ai",
+      "scope_note": "USC本科招生办公室博客的文书建议；明确涉及AI，但不是完整强制用途/处罚清单。办公室不用AI审阅与申请人用AI须分开。",
+      "summary_zh": "USC本科招生官博客明确说好的文书应来自真实的你，而不是成人或AI；另建议用自己的话和风格、请真人反馈。属于官方招生建议，未细分AI脑暴、润色、翻译许可或处罚。",
+      "findings": [
+        "国际招生官Tyler Swartout写道，最好的文书应由真实申请人写成，“not by adults, and definitely not by AI”；这是申请写作AI建议，不能归为完全无AI相关指导。[S1]",
+        "另一篇本科招生写作建议要求用自己的话和风格，鼓励老师、朋友或升学指导等真人反馈并自行校对。[S2]",
+        "Humanizing the Admission Process说明USC不用AI审阅申请；这是办公室流程，不能推出申请人AI禁令或许可。[S3]"
+      ],
+      "uses": {
+        "permitted": "鼓励真人提供第二意见、反馈和校对；没有授权AI代替真人。[S2]",
+        "prohibited": "作为招生办公室建议，反对文书由AI而非本人写成；不要升级为已核验的全用途禁令或处分条款。[S1]",
+        "not_stated": "AI脑暴、选题、语法检查、润色幅度、翻译、补充短答的细分AI限制、披露、检测及处罚未明确。"
+      },
+      "search_log": [
+        {
+          "query": "site:admission.usc.edu artificial intelligence application essay",
+          "result": "初步结果混有课程/一般AI页面，未用作申请规则。"
+        },
+        {
+          "query": "USC undergraduate admissions blog AI ChatGPT personal statement",
+          "result": "定位官方招生博客与审阅端说明。"
+        },
+        {
+          "query": "site:admissionblog.usc.edu \"writing\" \"essay\"",
+          "result": "定位两篇写作文章；Why U.S. Universities Ask for So Many Essays明确提到AI，成功实时核验。"
+        },
+        {
+          "query": "USC admissions application \"artificial intelligence\" policy",
+          "result": "二手汇总及一般AI政策只作线索，未采用其本科无AI指导概括。"
+        }
+      ],
+      "limitations": [
+        "来源是署名招生官的USC Office of Admission博客，非学生投稿；authority为official-advice。",
+        "S1面向国际学生解释本科文书，不能扩张成所有研究生项目或全大学统一政策。",
+        "S3的no AI专指办公室审阅，不是申请人写作。",
+        "没有完整用途表不等于许可；未咨询学校，未核验登录后认证。"
+      ],
+      "evidence_status_note": "Status describes verified live bodies in this research, not the absence of other rules."
+    },
+    {
+      "id": "29",
+      "slug": "UC-San-Diego",
+      "file": "29-UC-San-Diego.md",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Statement of Application Integrity",
+          "url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+          "final_url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+          "accessed_at": "2026-09-24T15:07:00.249946+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/29-UC-San-Diego-S1.txt",
+          "page_metadata": [],
+          "publisher": "University of California (UC application system)",
+          "scope": "undergraduate-system-wide",
+          "authority": "policy",
+          "page_date": "2023-08",
+          "page_date_note": "PDF footer: Last updated August 2023.",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own. Students must not plagiarize or copy from sources in print or online nor use any other person’s words or published works. UC conducts regular screenings to verify the integrity of the responses, may request authentication of the content or writing as the student’s, and will take action when it is determined that the integrity of the response is compromised.",
+              "topic": "PIQ authorship, AI readability and verification"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Students found to have falsified application information will be subject to penalties up to and including denial of admission, withdrawal of an admission offer, registration cancellation, expulsion or revocation of a University of California degree.",
+              "topic": "general falsification penalties"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "First-Year Student Application Requirements",
+          "url": "https://admissions.ucsd.edu/first-year/application-requirements.html",
+          "final_url": "https://admissions.ucsd.edu/first-year/application-requirements.html",
+          "accessed_at": "2026-09-24T15:07:00.407128+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/29-UC-San-Diego-S2.txt",
+          "page_metadata": [],
+          "publisher": "UC San Diego Admissions",
+          "scope": "undergraduate",
+          "authority": "official-admissions-instructions",
+          "page_date": null,
+          "page_date_note": "Not stated.",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "The personal insight questions are about getting to know you better – your life experience, interests, ambitions and inspirations. This is your opportunity to tell us who you are, what’s important to you and the contributions you would make to the UC San Diego Triton community. You must answer 4 out of 8 questions. Each answer is limited to 350 words.",
+              "topic": "UC San Diego undergraduate PIQ requirement"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "How the University of California evaluates student applications",
+          "url": "https://www.universityofcalifornia.edu/news/how-the-university-of-california-evaluates-student-applications",
+          "final_url": "https://www.universityofcalifornia.edu/news/how-the-university-of-california-evaluates-student-applications",
+          "accessed_at": "2026-09-24T15:07:00.502809+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/29-UC-San-Diego-S3.txt",
+          "page_metadata": [
+            "<meta content=\"2025-09-09T11:54:02-07:00\" property=\"og:updated_time\"/>",
+            "<meta content=\"2024-10-31T14:15:00-07:00\" property=\"article:published_time\"/>",
+            "<meta content=\"2025-09-09T11:54:02-07:00\" property=\"article:modified_time\"/>",
+            "<time class=\"datetime\" datetime=\"2024-10-18T16:30:00Z\">Friday, October 18, 2024</time>",
+            "<time class=\"datetime\" datetime=\"2024-08-07T18:59:16Z\">Wednesday, August 7, 2024</time>"
+          ],
+          "publisher": "University of California; Apollonia Morrill",
+          "scope": "undergraduate-system-wide",
+          "authority": "official-news",
+          "page_date": "2024-10-31",
+          "page_date_note": "Visible publication date: October 31, 2024; HTML modified_time: 2025-09-09.",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "And, while using AI as a tool is one thing, using a completely AI-generated answer is another — and one that is equivalent to academic dishonesty. UC runs plagiarism checks on applications, and if your PIQs are found to have been generated by AI with unattributed sources, you could be disqualified from UC admission entirely.",
+              "topic": "system explanation and qualification"
+            }
+          ]
+        },
+        {
+          "id": "S4",
+          "title": "Frequently Asked Questions",
+          "url": "https://admissions.ucsd.edu/faq/index.html",
+          "final_url": "https://admissions.ucsd.edu/faq/index.html",
+          "publisher": "UC San Diego Admissions",
+          "scope": "undergraduate",
+          "authority": "official-faq",
+          "page_date": null,
+          "page_date_note": "Not stated.",
+          "accessed_at": "2026-09-24T15:17:51.755158+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/29-UC-San-Diego-S4.txt",
+          "page_metadata": [],
+          "quotes": []
+        },
+        {
+          "id": "S5",
+          "title": "Planning Ahead",
+          "url": "https://admissions.ucsd.edu/first-year/planning-ahead.html",
+          "final_url": "https://admissions.ucsd.edu/first-year/planning-ahead.html",
+          "publisher": "UC San Diego Admissions",
+          "scope": "undergraduate",
+          "authority": "official-advice",
+          "page_date": null,
+          "page_date_note": "Not stated.",
+          "accessed_at": "2026-09-24T15:17:53.648318+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/29-UC-San-Diego-S5.txt",
+          "page_metadata": [],
+          "quotes": [
+            {
+              "id": "S5-Q1",
+              "text": "Give yourself plenty of time to plan, write, review and get feedback from trusted adults.",
+              "topic": "campus advice to plan, write, review and seek trusted-adult feedback"
+            }
+          ]
+        }
+      ],
+      "university": "University of California San Diego",
+      "status": "uc-system-ai-guidance",
+      "scope_note": "S1为UC全系统本科申请诚信声明，适用于UC申请（包括UC San Diego），非UCSD独立校区AI政策；S2为UCSD本科入口；S3为UC系统官方说明。",
+      "summary_zh": "UC 系统声明允许 AI 辅助可读性，要求 PIQ 由本人独立写作、内容和最终文字属于本人；2026–27 first-year 指南另提早期构思/整理，须保留本人作品与声音。有真实性核验和虚假申请后果，非 UCSD 独有规则。",
+      "findings": [
+        "系统诚信声明允许内容和编辑建议，包括AI辅助可读性；同时要求PIQ体现本人想法经历、由本人独立写作，内容和最终文字属于本人。[S1]",
+        "UC可能要求证明内容/文字为本人；一般虚假申请可导致拒录、撤销录取、取消注册、开除或撤销学位，不是任何AI使用都会受罚。[S1]",
+        "UCSD本科申请要求页列明PIQ要求，并在申请说明中提及UC Application；这里明确标示UC全系统诚信声明，不冒称UCSD独有AI规则。[S1][S2]",
+        "UC官方新闻区分工具辅助与完全AI生成回答，并说未注明来源的AI生成PIQ可能导致失去UC录取考虑资格；主要规则仍取自诚信声明。[S3]"
+      ],
+      "uses": {
+        "permitted": "内容与编辑建议，以及AI辅助提升可读性；前提为独立写作、内容和最终文字仍属于本人。[S1]",
+        "prohibited": "抄袭/复制印刷或在线来源、使用他人文字或已出版作品，以及虚假申请；完全AI生成回答不符合独立写作和本人最终文字要求。[S1][S3]",
+        "not_stated": "没有逐项明确AI脑暴、提纲、翻译或大幅改写许可，没有通用披露格式、检测阈值或软件名单；不能把readability扩大为代写或翻译授权。"
+      },
+      "search_log": [
+        {
+          "query": "site:admissions.ucsd.edu \"AI\" application",
+          "result": "未找到校区独立本科AI细则；核验其申请入口与PIQ要求。"
+        },
+        {
+          "query": "University California San Diego application personal insight AI artificial intelligence policy",
+          "result": "定位并核验UC系统官方解释性报道。"
+        },
+        {
+          "query": "University California application statement integrity \"generative artificial\"",
+          "result": "发现官方StatementOfIntegrity.pdf；下载后用pypdf提取核验AI辅助readability及本人最终文字条款。"
+        },
+        {
+          "query": "site:admissions.ucsd.edu \"artificial intelligence\" \"personal insight\"",
+          "result": "追加校区定向检索；核验UCSD FAQ与Planning Ahead，未在正文找到AI专项措辞，后者提供真人反馈建议。"
+        },
+        {
+          "query": "UC San Diego undergraduate admissions ChatGPT AI personal insight essay guidance",
+          "result": "结果主要指向既有校区PIQ要求、UC系统材料和二手网站；没有新增可验证的UCSD校区独立AI规则。二手网站关于披露/检测的断言未采用。"
+        }
+      ],
+      "limitations": [
+        "系统声明页尾为Last updated August 2023，是本次仍在线的官方PDF，不假定最近重新颁布。",
+        "AI具体段落针对PIQ；全申请真实性与PIQ专门规则的范围不可混同。",
+        "S3是系统官方新闻解释，不是独立校区规则；保留generated by AI with unattributed sources等限定。",
+        "Common App等平台由主项目另行处理；这里保留UC系统自身申请声明并标为system-wide。",
+        "追加检查UCSD官方FAQ与Planning Ahead，只核验到一般申请和真人反馈建议，未发现校区独立AI细则；系统新材料由主项目共享补充，不标为UCSD独立政策。"
+      ],
+      "evidence_status_note": "Status describes verified live bodies in this research, not the absence of other rules.",
+      "shared_policy_origin": "University of California system; not a campus-specific issuance",
+      "shared_source_refs": [
+        "UC4",
+        "UC5"
+      ]
+    },
+    {
+      "id": "30",
+      "slug": "NYU",
+      "file": "30-NYU.md",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "How to Apply - Undergraduate Admissions",
+          "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply.html",
+          "final_url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply.html",
+          "accessed_at": "2026-09-24T16:01:57.168525+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/30-NYU-S1-browser.txt",
+          "page_metadata": [],
+          "publisher": "New York University Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-application-instructions",
+          "page_date": null,
+          "page_date_note": "Not stated in the rendered page; browser acquisition time is not a publication date.",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "topic": "review-stage AI detection and original-work/student-standard expectations",
+              "text": "NYU does not use AI detection technology as part of the review process. We trust that ­applicants are submitting their original work and expect prospective students to uphold the same practices and standards as all NYU students, when incorporating AI in their academic work."
+            },
+            {
+              "id": "S1-Q2",
+              "topic": "AI tool use and authentic final creation",
+              "text": "While applicants may utilize AI as a tool during the college application process, their final application submission should be their authentic creation."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "accessed_at": "2026-09-24T15:07:00.725058+00:00",
+              "http_status": 405,
+              "retrieval": "blocked",
+              "local_text": "sources/30-NYU-S1.txt",
+              "authority": "unverified-official-lead",
+              "page_date_note": "Title/AI-section lead from search index; body blocked (405 Human Verification)."
+            }
+          ],
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "初次可见人机验证；稍后重新选择同一标签页时已正常载入。助手未点击或解答验证控件。使用浏览器查找定位 AI use in the Application，并对照截图核验两个段落。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/30-S1-safari-ai-confirmed-meta.json",
+            "accessibility_tree": "research/computer-use/30-S1-safari-ai-confirmed.json",
+            "screenshot": "research/computer-use/30-S1-safari-ai-confirmed.png"
+          }
+        },
+        {
+          "id": "S2",
+          "title": "How Am I Unique? Standing Out in a Crowd of Essays",
+          "url": "https://meet.nyu.edu/uncategorized/how-am-i-unique-standing-out-in-a-crowd-of-essays",
+          "final_url": "https://meet.nyu.edu/uncategorized/how-am-i-unique-standing-out-in-a-crowd-of-essays/",
+          "accessed_at": "2026-09-24T15:57:04.434784+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/30-NYU-S2-browser.txt",
+          "page_metadata": [],
+          "publisher": "Meet NYU; Lisa Mortini, Senior Assistant Director, NYU Abu Dhabi Admissions",
+          "scope": "undergraduate",
+          "authority": "official-admissions-advice",
+          "page_date": "2021-10-19",
+          "page_date_note": "Rendered byline: Published October 19, 2021; historical admissions advice.",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "topic": "authenticity advice",
+              "text": "“Being yourself” in the personal statement is not about being perfect. It’s not about pretending to be what others may expect you to be. On the contrary, it’s about recognizing, in the context you’re in, what matters to you and how it informs the way you experience life and interpret the world."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "accessed_at": "2026-09-24T15:07:00.833793+00:00",
+              "http_status": 403,
+              "retrieval": "blocked",
+              "local_text": "sources/30-NYU-S2.txt",
+              "authority": "unverified-official-lead",
+              "page_date_note": "Title from search index; body blocked (403); author/authority not verified."
+            }
+          ],
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "招生人员署名与发布日期已从浏览器正文核验。这是历史文书建议，不是 AI 专项政策。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/30-S2-safari-meta.json",
+            "accessibility_tree": "research/computer-use/30-S2-safari.json",
+            "screenshot": "research/computer-use/30-S2-safari.png"
+          }
+        },
+        {
+          "id": "S3",
+          "title": "Master of Science in Public Policy Application Checklist",
+          "url": "https://wagner.nyu.edu/admissions/degree-checklist/mspp",
+          "final_url": "https://wagner.nyu.edu/admissions/degree-checklist/mspp",
+          "accessed_at": "2026-09-24T15:59:35.052405+00:00",
+          "retrieval": "partial",
+          "local_text": "sources/30-NYU-S3-browser.txt",
+          "page_metadata": [],
+          "publisher": "NYU Wagner",
+          "scope": "graduate-MSPP",
+          "authority": "program-application-policy",
+          "page_date": null,
+          "page_date_note": "Rendered banner: Now Accepting Applications for Spring & Fall 2027; exact update date not stated.",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "topic": "graduate-only AI restriction and admission consequence",
+              "text": "We require you to certify that the essays you submit are entirely your own original work. If necessary, use of proper references and quotes is permissible. The use of artificial intelligence tools is only permissible for providing assistance with spelling and grammar. Please be aware that if it is discovered that the submitted essays do not meet this requirement, we retain the right to revoke your admission."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "accessed_at": "2026-09-24T15:07:01.283677+00:00",
+              "http_status": 202,
+              "retrieval": "blocked",
+              "local_text": "sources/30-NYU-S3.txt",
+              "authority": "unverified-official-lead",
+              "page_date_note": "Title from search index; ordinary GET returned 202 with empty body."
+            }
+          ],
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "实际点击 ESSAYS 折叠栏并重新观察，文书要求与 AI 限制完整显示；未声称已展开整张清单的所有其他栏。页面横幅为 Spring & Fall 2027。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/30-S3-safari-expanded-meta.json",
+            "accessibility_tree": "research/computer-use/30-S3-safari-expanded.json",
+            "screenshot": "research/computer-use/30-S3-safari-expanded.png"
+          }
+        },
+        {
+          "id": "S4",
+          "title": "Portfolio Requirements for MFA in Film Production",
+          "url": "https://tisch.nyu.edu/grad-film/admissions/portfolio-requirements-for-mfa-in-filmmaking",
+          "final_url": "https://tisch.nyu.edu/grad-film/admissions/portfolio-requirements-for-mfa-in-filmmaking",
+          "accessed_at": "2026-09-24T15:07:01.580585+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/30-NYU-S4.txt",
+          "page_metadata": [
+            "<meta name=\"dc.date.modified\"/>",
+            "<meta name=\"dc.date.created\"/>"
+          ],
+          "publisher": "NYU Tisch School of the Arts, Graduate Film",
+          "scope": "graduate",
+          "authority": "policy",
+          "page_date": null,
+          "page_date_note": "Page date not stated; body says The 2027 graduate application is now open.",
+          "quotes": [
+            {
+              "id": "S4-Q1",
+              "text": "Any use of Artificial Intelligence (AI) technology must be disclosed by the applicant in SlideRoom. Failure to disclose use of AI technology will disqualify applicants from admissions consideration and/or expulsion from the program if later discovered.",
+              "topic": "graduate disclosure and penalties"
+            }
+          ]
+        },
+        {
+          "id": "S5",
+          "title": "Admissions - Silver School of Social Work (Undergraduate)",
+          "url": "https://bulletins.nyu.edu/undergraduate/social-work/admissions/",
+          "final_url": "https://bulletins.nyu.edu/undergraduate/social-work/admissions/",
+          "accessed_at": "2026-09-24T15:08:59.963211+00:00",
+          "http_status": 200,
+          "retrieval": "full-text",
+          "local_text": "sources/30-NYU-S5.txt",
+          "page_metadata": [],
+          "publisher": "NYU Bulletins / Silver School of Social Work",
+          "scope": "undergraduate-school-specific",
+          "authority": "official-admissions-instructions",
+          "page_date": null,
+          "page_date_note": "Not stated.",
+          "quotes": [
+            {
+              "id": "S5-Q1",
+              "text": "It is your responsibility to ensure that your application information and all supporting documents are truthful and correct. NYU has a strict policy on application authenticity and working with agents or third parties.",
+              "topic": "undergraduate authenticity"
+            }
+          ]
+        },
+        {
+          "id": "S6",
+          "title": "Application Authenticity",
+          "url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/application-authenticity.html",
+          "final_url": "https://www.nyu.edu/admissions/undergraduate-admissions/how-to-apply/application-authenticity.html",
+          "accessed_at": "2026-09-24T15:58:14.435967+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/30-NYU-S6-browser.txt",
+          "page_metadata": [],
+          "publisher": "New York University Undergraduate Admissions",
+          "scope": "undergraduate",
+          "authority": "official-application-integrity-policy",
+          "page_date": null,
+          "page_date_note": "Not stated in the rendered page; browser acquisition time is not a publication date.",
+          "quotes": [
+            {
+              "id": "S6-Q1",
+              "topic": "undergraduate authenticity expectation",
+              "text": "It is our expectation that our applicants act in good faith to submit original applications that are truthful and accurate."
+            },
+            {
+              "id": "S6-Q2",
+              "topic": "falsified-information consequence",
+              "text": "In the event that a student is found to have applied with any type of falsified information, the student's application, admission, or enrollment status will be revoked."
+            }
+          ],
+          "retrieval_history": [
+            {
+              "accessed_at": "2026-09-24T15:09:40.163430+00:00",
+              "http_status": 405,
+              "retrieval": "blocked",
+              "local_text": "sources/30-NYU-S6.txt",
+              "authority": "unverified-official-lead",
+              "page_date_note": "Linked by S5; ordinary GET returned 405 Human Verification."
+            }
+          ],
+          "acquisition_method": "computer-use: Safari desktop via Peekaboo GUI; accessibility text plus screenshot",
+          "browser_retry_note": "中央本科真实性页面正常显示；其虚假信息后果不得改写成任何 AI 使用的自动处罚。",
+          "browser_evidence": {
+            "metadata": "research/computer-use/30-S6-safari-meta.json",
+            "accessibility_tree": "research/computer-use/30-S6-safari.json",
+            "screenshot": "research/computer-use/30-S6-safari.png"
+          }
+        }
+      ],
+      "university": "New York University",
+      "status": "explicit-undergraduate-ai",
+      "scope_note": "中央本科 How to Apply 的 AI 段落已核验；Wagner MSPP 和 Tisch Film Production MFA 的不同研究生要求单独列出，不外推。",
+      "summary_zh": "NYU 本科允许 AI 作工具，但最终须真实原创，须遵守与在校生相同的相关实践/标准；称审阅中不使用 AI 检测。Wagner MSPP 仅允许拼写/语法辅助，Tisch Film Production MFA 要求披露，均仅限各研究生项目。",
+      "findings": [
+        "中央本科申请页允许将 AI 作为工具，但最终须为 authentic creation；还要求申请者遵守与在校生相同的相关实践/标准。所链接的学生AI规范未在本轮复核，不补推其具体内容，也不把广义许可扩大为逐项用途清单。[S1-Q1][S1-Q2]",
+        "该本科页面声明审阅过程中不使用 AI detection technology；这不等于不核验原创性、真实性，也不保证任何 AI 用法都合规。[S1-Q1][S6]",
+        "Wagner MSPP 的 ESSAYS 折叠栏现已实际展开并读取：AI 仅可辅助拼写和语法，提交文书须完全本人原创，违反要求学校保留撤录权。这是该研究生项目的更窄要求。[S3]",
+        "Tisch Film Production MFA 原有 AI 披露与不披露后果保留，仅限该项目。[S4]",
+        "中央本科 Application Authenticity 正文也已读取；伪造申请信息的后果不能改写成对一切 AI 使用的处罚。[S6]",
+        "2021年署名招生建议只支持真实个人表达，不是当季 AI 专项政策。[S2]"
+      ],
+      "uses": {
+        "allowed": "本科：可以把AI作为工具，但最终提交须为真实原创，不能据此自行列出更细的许可；Wagner MSPP：仅拼写、语法；Tisch MFA：要求披露不等于无条件授权任何用途。[S1][S3][S4]",
+        "prohibited": "最终材料仍受本人原创/真实性要求约束。Wagner MSPP 明文限定AI为拼写和语法辅助；Tisch MFA 不得隐瞒AI使用；本科虚假信息处分以S6为据，三种要求不混为全校一条禁令。",
+        "not_stated": "本科未逐项说明构思、提纲、翻译、润色幅度、短答或补充材料例外、通用披露格式、各工具名单；“不使用AI检测”不等于不核验真实性，也不是不合规使用的保证。"
+      },
+      "search_log": [
+        {
+          "query": "site:nyu.edu admissions \"AI\" \"essays\"",
+          "result": "定位Wagner研究生等页面，未泛化为本科规则。"
+        },
+        {
+          "query": "NYU undergraduate admissions artificial intelligence essay policy authenticity",
+          "result": "发现中央本科How to Apply及真实性线索，实时请求受阻。"
+        },
+        {
+          "query": "site:nyu.edu \"undergraduate\" \"AI\" \"application essays\"",
+          "result": "找到AI-use索引摘要，405验证页导致正文无法核验。"
+        },
+        {
+          "query": "site:tisch.nyu.edu \"artificial intelligence\" \"application\"",
+          "result": "找到并实时核验Film Production MFA作品集AI披露条款。"
+        },
+        {
+          "query": "\"NYU\" \"application authenticity\"",
+          "result": "核验NYU Bulletins本科真实性段落；其中央Application Authenticity链接也受阻。"
+        },
+        {
+          "query": "Computer-use retry of previously blocked official pages (Safari / Peekaboo, 2026-09-24–25)",
+          "result": "S1: 初次可见人机验证；稍后重新选择同一标签页时已正常载入。助手未点击或解答验证控件。使用浏览器查找定位 AI use in the Application，并对照截图核验两个段落。；S2: 招生人员署名与发布日期已从浏览器正文核验。这是历史文书建议，不是 AI 专项政策。；S3: 实际点击 ESSAYS 折叠栏并重新观察，文书要求与 AI 限制完整显示；未声称已展开整张清单的所有其他栏。页面横幅为 Spring & Fall 2027。；S6: 中央本科真实性页面正常显示；其虚假信息后果不得改写成任何 AI 使用的自动处罚。"
+        }
+      ],
+      "limitations": [
+        "S1/S2/S3/S6均已通过可见Safari页面取得内容，原405/403/202记录保留为历史；S1初次曾显示人机验证，助手未操作验证控件，后续同一标签页已正常载入。",
+        "S3只展开并完整核验ESSAYS相关部分，因此来源标partial，其他清单折叠栏未全部展开。",
+        "S1广义工具许可及审阅阶段检测表述仅按页面范围解释；不把课程指导链接直接变成完整申请许可清单。",
+        "S3为Wagner MSPP、S4为Tisch Film Production MFA，均属研究生特定项目；不能覆盖中央本科要求，也不能用本科的一般表述豁免项目要求。",
+        "S2发布日期2021-10-19为历史招生建议；S3横幅为Spring & Fall 2027，并非明示政策更新日。",
+        "未说明不等于允许；未登录申请系统、未提交申请、未联系招生办公室。"
+      ],
+      "evidence_status_note": "NYU 本科允许 AI 作工具，但最终须真实原创，须遵守与在校生相同的相关实践/标准；称审阅中不使用 AI 检测。Wagner MSPP 仅允许拼写/语法辅助，Tisch Film Production MFA 要求披露，均仅限各研究生项目。",
+      "computer_use_recheck": "2026-09-24–25 Asia/Shanghai; same originally blocked URLs opened in visible Safari"
+    }
+  ],
+  "platform_sources": [
+    {
+      "id": "UC5",
+      "title": "Presenting yourself on the first-year UC application 2026–27",
+      "url": "https://admission.universityofcalifornia.edu/counselors/_files/documents/presenting-yourself-on-the-uc-application-first-year.pdf",
+      "publisher": "University of California Admissions",
+      "scope": "UC first-year application, 2026–27 cycle; physical PDF page 67 of 84",
+      "authority": "official-application-guidance",
+      "page_date": "2026–27 cycle on cover; exact publication/update date not stated",
+      "accessed_at": "2026-09-24T15:18:36.505882+00:00",
+      "retrieval": "full-text",
+      "local_text": "sources/platform-uc-S5.txt",
+      "quotes": [
+        {
+          "id": "UC5-Q1",
+          "text": "Can be a useful tool for brainstorming or organizing your thoughts in the early stages, but your final PIQ responses should be your own work and voice",
+          "topic": "2026–27 early-stage assistance and final own authorship"
+        },
+        {
+          "id": "UC5-Q2",
+          "text": "All applicants must agree to UC’s Statement of Application Integrity when submitting their UC application!",
+          "topic": "Integrity certification"
+        }
+      ]
+    },
+    {
+      "id": "UC4",
+      "title": "Statement of Application Integrity",
+      "url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+      "publisher": "University of California undergraduate admissions application",
+      "scope": "UC undergraduate application; shared system rule; public PDF page 1",
+      "authority": "system-application-policy",
+      "page_date": "Last updated August 2023",
+      "accessed_at": "2026-09-24T15:10:13.275383+00:00",
+      "retrieval": "full-text",
+      "local_text": "sources/platform-uc-S4.txt",
+      "quotes": [
+        {
+          "id": "UC4-Q1",
+          "text": "The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own.",
+          "topic": "Explicit system application-integrity rule and AI exception"
+        },
+        {
+          "id": "UC4-Q2",
+          "text": "UC conducts regular screenings to verify the integrity of the responses, may request authentication of the content or writing as the student’s, and will take action when it is determined that the integrity of the response is compromised.",
+          "topic": "Verification and authorship authentication"
+        },
+        {
+          "id": "UC4-Q3",
+          "text": "Students found to have falsified application information will be subject to penalties up to and including denial of admission, withdrawal of an admission offer, registration cancellation, expulsion or revocation of a University of California degree.",
+          "topic": "Possible consequences for falsified application information"
+        }
+      ]
+    },
+    {
+      "id": "CA1",
+      "title": "Common Application Fraud Policy",
+      "url": "https://www.commonapp.org/fraud-policy/",
+      "data_url": "https://www.commonapp.org/page-data/fraud-policy/page-data.json",
+      "publisher": "The Common Application, Inc.",
+      "scope": "Common App registered users; platform policy, not an individual university policy",
+      "authority": "platform-policy",
+      "page_date": "August 2023 (Date of Last Update)",
+      "accessed_at": "2026-09-24T15:05:47.743991+00:00",
+      "retrieval": "full-text",
+      "local_text": "sources/platform-commonapp-S1.txt",
+      "quotes": [
+        {
+          "id": "CA1-Q1",
+          "text": "Submitting plagiarized essays or other written or oral material, or intentionally misrepresenting as one’s own original work: (1) another person’s thoughts, language, ideas, expressions, or experiences or (2) the substantive content or output of an artificial intelligence platform, technology, or algorithm;",
+          "topic": "AI substantive content misrepresented as own work"
+        },
+        {
+          "id": "CA1-Q2",
+          "text": "A Registered User who receives notice that Common App has determined a violation of our Terms of Use occurred shall be provided an opportunity to appeal Common App’s decision within ten (10) business days from the date of Common App’s written notice by submitting a written statement and any relevant supporting documentation refuting the Fraud determination or otherwise explaining the circumstances around the misconduct.",
+          "topic": "10-business-day opportunity to appeal platform determination"
+        },
+        {
+          "id": "CA1-Q3",
+          "text": "Common App in its sole discretion may take action as a result of a Fraud determination which may include permanent suspension, temporary suspension, or termination of their Common App user account, and disclosure of the Fraud to the Registered User’s “My Colleges List.\"",
+          "topic": "Platform sanctions and disclosure"
+        }
+      ]
+    },
+    {
+      "id": "UC1",
+      "title": "Shaping your personal narrative: PIQ tips and more from UC admissions experts",
+      "url": "https://www.universityofcalifornia.edu/news/shaping-your-personal-narrative-piq-tips-and-more-uc-admissions-experts",
+      "publisher": "University of California; interview with UC admissions staff",
+      "scope": "UC undergraduate application; system-hosted interview, not a campus-specific rule",
+      "authority": "official-advice",
+      "page_date": "2025-10-23; metadata modified 2025-10-30",
+      "accessed_at": "2026-09-24",
+      "retrieval": "full-text",
+      "local_text": "sources/platform-uc-S1.txt",
+      "quotes": [
+        {
+          "id": "UC1-Q1",
+          "text": "First, whatever you ultimately submit better be your own creation.",
+          "topic": "Final authorship"
+        },
+        {
+          "id": "UC1-Q2",
+          "text": "That said, an AI tool can help you with structure and readability, but use it with caution.",
+          "topic": "Cautious structure/readability assistance"
+        },
+        {
+          "id": "UC1-Q3",
+          "text": "Your writing needs to reflect your own experiences, in your own words.",
+          "topic": "Personal experience and own words"
+        }
+      ]
+    },
+    {
+      "id": "UC2",
+      "title": "Personal insight questions — Applying as a first year",
+      "url": "https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/personal-insight-questions.html",
+      "publisher": "University of California Admissions",
+      "scope": "UC first-year application PIQs",
+      "authority": "official-application-instructions",
+      "page_date": null,
+      "accessed_at": "2026-09-24",
+      "retrieval": "full-text",
+      "local_text": "sources/platform-uc-S2.txt",
+      "quotes": [
+        {
+          "id": "UC2-Q1",
+          "text": "Your answers should reflect your own ideas and be written by you alone, but others — family, teachers and friends can offer valuable suggestions. Ask advice of whomever you like, but do not plagiarize from sources in print or online and do not use anyone's words, published or unpublished, but your own.",
+          "topic": "Authorship and permitted human feedback"
+        }
+      ]
+    },
+    {
+      "id": "UC3",
+      "title": "We just want to talk: Approaching the PIQ conversation with purpose",
+      "url": "https://admission.universityofcalifornia.edu/counselors/_files/documents/2025-counselor-conference-pdfs/ada-pdfs/cc-piq-workshop_ada.pdf",
+      "publisher": "University of California Admissions — 2025 Counselor Conference",
+      "scope": "UC PIQ counselor training; PDF page 29 of 44",
+      "authority": "official-counselor-guidance",
+      "page_date": "2025 conference material (not a confirmed 2026–27 rule update)",
+      "accessed_at": "2026-09-24T15:05:16.235853+00:00",
+      "retrieval": "full-text",
+      "local_text": "sources/platform-uc-S3.txt",
+      "quotes": [
+        {
+          "id": "UC3-Q1",
+          "text": "If used thoughtfully, AI tools might assist in the early stages of the writing process. But students should ensure that their final PIQ responses are entirely their own in voice, substance, and reflection.",
+          "topic": "Early assistance versus final own voice/substance/reflection"
+        },
+        {
+          "id": "UC3-Q2",
+          "text": "AI is not a replacement for a student's own words!",
+          "topic": "No substitution of authorship"
+        }
+      ]
+    }
+  ],
+  "important_limit": "Evidence status labels are research classifications, not AI permission rankings; shared UC sources are not independent campus policies.",
+  "supplemented_at": "2026-09-25"
+}

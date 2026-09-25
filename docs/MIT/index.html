@@ -107,6 +107,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -224,6 +227,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -248,7 +284,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -260,6 +296,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>
@@ -311,6 +348,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="chip" title="文件同时含校级来源与更窄范围的来源"><span lang="zh">来源层级 · <b>混合来源</b></span><span lang="en">Source level · <b>Mixed</b></span></span>
     <span class="chip"><span lang="zh"><b>11</b> / 12 项有明文规定</span><span lang="en"><b>11</b> of 12 provisions addressed</span></span>
     <span class="chip"><span lang="zh">采集于 <b>2026-08-21</b></span><span lang="en">Accessed <b>2026-08-21</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>仅本人写作／真实性要求</b></span><span lang="en">Admissions · <b>Authenticity requirement only</b></span></a>
   </div>
   <nav class="strip" aria-label="十二项条款 / Twelve provisions"><a class="sc" data-r="1" href="#p-default_rule" title="默认规则：交由教师决定"><em><span lang="zh">默认规则</span><span lang="en">Default rule</span></em><b><span lang="zh">交由教师决定</span><span lang="en">Instructor decides, no default</span></b></a><a class="sc" data-r="2" href="#p-instructor_override" title="课程规则优先：教师可定但有底线"><em><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></em><b><span lang="zh">教师可定但有底线</span><span lang="en">Instructor rules within limits</span></b></a><a class="sc" data-r="1" href="#p-tiered_scale" title="分级许可：非正式分类"><em><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></em><b><span lang="zh">非正式分类</span><span lang="en">Informal categories</span></b></a><a class="sc" data-r="1" href="#p-disclosure" title="披露要求：依课程而定"><em><span lang="zh">披露要求</span><span lang="en">Disclosure</span></em><b><span lang="zh">依课程而定</span><span lang="en">Course dependent</span></b></a><a class="sc" data-r="1" href="#p-process_evidence" title="过程留证：建议留证"><em><span lang="zh">过程留证</span><span lang="en">Process evidence</span></em><b><span lang="zh">建议留证</span><span lang="en">Recommended</span></b></a><a class="sc" data-r="1" href="#p-verification_duty" title="核实责任：一般性提醒"><em><span lang="zh">核实责任</span><span lang="en">Verification duty</span></em><b><span lang="zh">一般性提醒</span><span lang="en">General caution</span></b></a><a class="sc" data-r="2" href="#p-integrity_framing" title="违规定性：学术不端"><em><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></em><b><span lang="zh">学术不端</span><span lang="en">Academic integrity violation</span></b></a><a class="sc" data-r="0" href="#p-detector_stance" title="检测器证据：未提及"><em><span lang="zh">检测器证据</span><span lang="en">Detector evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="3" href="#p-data_privacy" title="数据与隐私：禁止上传受限数据"><em><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></em><b><span lang="zh">禁止上传受限数据</span><span lang="en">Restricted data prohibited</span></b></a><a class="sc" data-r="2" href="#p-ip_copyright" title="知识产权：有明确规定"><em><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></em><b><span lang="zh">有明确规定</span><span lang="en">Addressed</span></b></a><a class="sc" data-r="2" href="#p-institutional_tools" title="机构工具：提供机构版工具"><em><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></em><b><span lang="zh">提供机构版工具</span><span lang="en">Institution-provided tool</span></b></a><a class="sc" data-r="3" href="#p-learning_rationale" title="学习理由：明确以学习目标为据"><em><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></em><b><span lang="zh">明确以学习目标为据</span><span lang="en">Explicit learning-objective rationale</span></b></a></nav>
   <p class="print-url">ai.policy.nestudy.cn/MIT</p>
@@ -501,10 +539,55 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="sec-head"><h2><span lang="zh">补充信息</span><span lang="en">Further detail</span></h2></div>
   <div class="extras"><div class="extra"><h3><span lang="zh">该校的分级框架</span><span lang="en">Its permission levels</span></h3><ol><li>High Risk Data</li><li>Medium Risk Data</li><li>Low Risk Data</li></ol></div><div class="extra"><h3><span lang="zh">要求披露的内容</span><span lang="en">What must be disclosed</span></h3><div class="tags"><span class="chip"><span lang="zh">正式引注</span><span lang="en">Formal citation</span></span><span class="chip"><span lang="zh">使用范围与程度</span><span lang="en">Extent of use</span></span></div></div></div>
 </section>
-
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/02-MIT.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">本科本人写作/真实性要求（未证实细化 AI 边界）</span><span lang="en">Own-work and authenticity requirements; no detailed AI boundaries verified</span></span>
+    <p class="adm-sum">MIT 本科申请页强调诚实、开放、真实；旧招生官博客区分校对与代写，但未专门讨论 AI。招生博客转载的 AI 教学讨论不具政策效力；化学系研究生 AI 线索因无法取回正文未采用。</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Short, verbatim English excerpts from live official webpages; whitespace and layout may be normalized. Chinese analysis is separate. Saved readable source bodies may retain some menus or comments; URL and retrieval metadata are in research/group1.json, not inserted into source text.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">Undergraduate application essays and short answers. Historical admissions-staff advice and non-policy faculty commentary are clearly labeled. An inaccessible Chemistry graduate FAQ is an unverified lead only.</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>authenticity-only</code> — current undergraduate authenticity advice verified; no explicit undergraduate admissions AI-use rule verified in the searched public sources.</span></li><li><span class="k"><span lang="zh">校内 AI 政策原文</span><span lang="en">Original campus-AI source file</span></span> <span class="v"><a href="#source">02-MIT.md</a> (separate scope; not an admissions rule).</span></li><li><span class="k"><span lang="zh">用途说明</span><span lang="en">Use note</span></span> <span class="v">本文件供来源比较与核验，不构成学校新增规定；未说明不代表许可。</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">关键发现（中文）</h3>
+<ul><li>现行本科申请页要求诚实、开放、真实，覆盖多道短答和文书；本次没有在所核验页面找到申请者 AI 具体用途清单。[S1]</li><li>2007 年招生人员 Ben Jones 的官方博客建议自己写文书，并区分亲友校对与将文章重写到不再属于本人。这是历史写作建议，不能自动换算成 AI 校对许可或新的 AI 禁令。[S2]</li><li>2023 年招生博客由招生工作人员转贴写作教师的 AI 教学讨论；所引教师说明明确表示不具系内或全校官方效力。不能因它在招生网站上，就当作招生 AI 政策。[S3]</li><li>MIT 本科 FAQ 索引也纳入补查；化学系研究生 FAQ 是外部页面提供的线索，但全文连接失败，未据摘要宣称 MIT 允许 AI。[S4]</li></ul>
+<h3 class="src-h2">Official sources</h3>
+<h4 class="src-h3">1. [S1] Essays, activities &amp; academics</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://mitadmissions.org/apply/firstyear/essays-activities-academics/" target="_blank" rel="noopener noreferrer">https://mitadmissions.org/apply/firstyear/essays-activities-academics/</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">MIT Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">official-advice</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:33+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S1-Q1]</strong></p>
+<blockquote><p>Rather than asking you to write one long essay, the MIT application consists of several short response questions and essays designed to help us get to know you. Remember that this is not a writing test. Be honest, be open, be authentic—this is your opportunity to connect with us.</p></blockquote>
+<p><strong>中文说明：</strong>现行本科第一年申请页面，正文标注 2026–2027 申请季，未标明页面发布日期。申请季不是发布日期。真实性指导可直接采用；未出现的 AI 用途不能补写。</p>
+<h4 class="src-h3">2. [S2] Advice On The Essay</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://mitadmissions.org/blogs/entry/advice_on_the_essay/" target="_blank" rel="noopener noreferrer">https://mitadmissions.org/blogs/entry/advice_on_the_essay/</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">MIT Admissions; Ben Jones</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2007-09-25 (explicit page update/publication date)</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">official-advice (historical admissions staff blog)</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:34+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S2-Q1]</strong></p>
+<blockquote><p>The rules are simple: write your own essays. That's the best advice anyone can give to you.</p></blockquote>
+<p><strong>[S2-Q2]</strong></p>
+<blockquote><p>To clarify, I'm not telling you to shut your parents or counselors out of the process entirely. It's always nice to have someone look over your writing and fix the things that spell-check doesn't catch, like when you spell "here" as "hear" or "their" as "there" or "they're."</p></blockquote>
+<p><strong>[S2-Q3]</strong></p>
+<blockquote><p>But there's a big difference between those little things and the act of someone else rewriting your essay for you to the point that it's no longer your work – or, even worse, your voice. So don't go there.</p></blockquote>
+<p><strong>中文说明：</strong>作者 Ben Jones 为招生人员；这是官方招生网站上的历史工作人员建议，不是学生博客，也不是 AI 专门规定。保留校对可以接受与不可变成他人代写的相邻边界；页面下方读者留言未作证据。</p>
+<h4 class="src-h3">3. [S3] MIT writing faculty comment on GPT and other AI assisted writing in education</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://mitadmissions.org/blogs/entry/mit-writing-faculty-comment-on-gpt-and-other-ai-assisted-writing/" target="_blank" rel="noopener noreferrer">https://mitadmissions.org/blogs/entry/mit-writing-faculty-comment-on-gpt-and-other-ai-assisted-writing/</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">MIT Admissions; Chris Peterson SM ’13, reposting MIT writing faculty</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2023-01-24 (explicit page update/publication date)</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">coursework / writing pedagogy; not an applicant policy</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">faculty-commentary (explicitly non-policy)</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:34+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S3-Q1]</strong></p>
+<blockquote><p>The following thoughts on this topic are advisory from the two of us: They have no official standing within even our department, and certainly not within the Institute. Nonetheless, we hope you find them useful.</p></blockquote>
+<p><strong>中文说明：</strong>作者为招生工作人员 Chris Peterson，正文转载写作教师面向教学的讨论。引文中的 “two of us” 指被转载的教师 Nick Montfort 和 Ed Schiappa；这段免责限定不能扩展为 MIT 整体没有政策的证明。此来源仅用于排除误分类，不用于确立申请者许可。</p>
+<h4 class="src-h3">4. [S4] FAQ</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://mitadmissions.org/help/faq/" target="_blank" rel="noopener noreferrer">https://mitadmissions.org/help/faq/</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">MIT Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">official-faq-index</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:34+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S4-Q1]</strong></p>
+<blockquote><p>At MIT, we hope to get to know you better through the application process and want you to be able to express yourself authentically.</p></blockquote>
+<p><strong>中文说明：</strong>本页是分页 FAQ 索引，不是独立 AI FAQ。引句来自 “Who will have access to my application information?” 的索引摘要；用于记录补查范围，不能代表查遍全部 FAQ 或所有申请认证。</p>
+<h3 class="src-h2">Permitted / prohibited / not stated（按用途）</h3>
+<ul><li><strong>明确允许的 AI 用途：</strong>在已核验的本科材料中未逐项说明。</li><li><strong>真实性要求 / 官方建议：</strong>现行页面强调诚实真实；历史招生人员建议允许亲友指出校对问题，但不要把文书重写到不再是本人的工作或声音。[S1][S2]</li><li><strong>未说明：</strong>AI 构思、提纲、起草、改写、语法/拼写检查、翻译、研究补充材料 AI 披露及 AI 专门制裁。未说明不构成许可。</li><li><strong>不能作为依据：</strong>面向教师的 AI 教学讨论不能给申请者授权；未取回的化学系研究生 FAQ 不能作为本文结论，更不能推广到本科。[S3]</li></ul>
+<h3 class="src-h2">Research limitations</h3>
+<ul><li>检索覆盖本科文书页、FAQ 索引、站点定向检索、招生官方博客；并未登录 MIT 申请门户取得全部提交认证，也未声称逐页遍历所有分页 FAQ。</li><li>未验证的研究生线索：<a href="https://chemistry.mit.edu/academic-programs/graduate-programs/faqs/" target="_blank" rel="noopener noreferrer">https://chemistry.mit.edu/academic-programs/graduate-programs/faqs/</a> 。web_fetch 超时，普通 requests 报 No route to host，HTTP 公开地址重试也超时；未采纳二手引语或据此标为 graduate-only-ai。</li><li>2007 年建议距今较久；它只能证明已发表的历史招生建议，不能冒充现行 AI 专门政策。</li><li>未使用 MIT 在校课程、校园 IT 指南或学生评论建立招生规则。未找到规则不等于没有规则或允许使用。</li></ul>
+<details class="fold"><summary><span class="fold-h">Search log</span></summary>
+<ul class="kv"><li><span class="k"><span lang="zh">检索日期</span><span lang="en">Research date</span></span> <span class="v">2026-09-24, Asia/Shanghai. Search results were leads only; findings above are based on retrieved official body text.</span></li></ul>
+<ol class="kv"><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.mitadmissions.org application "AI" essays</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">定向检索本科申请与文书；核验现行页面 [S1]。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.mitadmissions.org "AI" "application" "policy"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">第二组政策关键词检索；未取得明确本科申请 AI 用途条款。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>MIT admissions ChatGPT applicant essays FAQ certification</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">补查 FAQ、认证及化学系研究生线索；[S4] 可访问，研究生线索全文失败。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.chemistry.mit.edu "AI tools" "statement"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">找到二手页面指向化学系 FAQ；官网 HTTPS 普通访问失败，未当作政策证据。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.mitadmissions.org/blogs "ChatGPT" "essays" "application"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">核验历史招生人员建议 [S2] 与教师 AI 教学讨论 [S3]，严格区分适用范围和效力。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.mitadmissions.org/help "artificial intelligence"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">补查帮助/FAQ 域；返回内容多为其他域或一般 AI 讨论，未获得本科 AI 专门条款。</span></li></ul></li></ol>
+</details></div>
+</section>
 <section id="source">
   <div class="sec-head"><h2><span lang="zh">官方原文</span><span lang="en">The official text</span></h2><span class="en2">univ/02-MIT.md</span></div>
-  <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span></p>
+  <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span><span lang="zh">灰色小字为其余原文（约 4,418 词），未被本项目引用，仅供参考。</span><span lang="en"> Text in small grey type (about 4,418 words) is the rest of the collected text; it is not cited by this project and is shown for reference.</span></p>
   <div class="about">
     <h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3>
     <ul class="kv"><li><span class="k"><span lang="zh">来源层级</span><span lang="en">Source level</span></span><span class="v"><span lang="zh">混合来源 —— 文件同时含校级来源与更窄范围的来源</span><span lang="en">Mixed — the file combines a university-wide source with a narrower one</span></span></li><li><span class="k"><span lang="zh">抽取审计</span><span lang="en">Extraction audit</span></span><span class="v"><span lang="zh">轻微修正（审计员修正 6 处）</span><span lang="en">Minor corrections (6 corrections by the auditor)</span></span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span><span class="v">IS&amp;T<br><a href="https://ist.mit.edu/ai-guidance" target="_blank" rel="noopener noreferrer">https://ist.mit.edu/ai-guidance</a></span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span><span class="v">Teaching + Learning Lab<br><a href="https://tll.mit.edu/teaching-resources/course-design/ai-in-teaching-learning" target="_blank" rel="noopener noreferrer">https://tll.mit.edu/teaching-resources/course-design/ai-in-teaching-learning</a></span></li></ul>
@@ -514,89 +597,227 @@ mark.flash{animation:flash 1.8s ease-out}
 <ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://ist.mit.edu/ai-guidance" target="_blank" rel="noopener noreferrer">https://ist.mit.edu/ai-guidance</a></span></li><li><span class="k"><span lang="zh">域名</span><span lang="en">Domain</span></span> <span class="v">ist.mit.edu</span></li></ul>
 <hr>
 <h3 class="src-h2">Using Generative AI at MIT</h3>
+<div class="uncited">
+<p>Generative AI tools can support many types of work at MIT. However, using these tools requires care — especially when working with Institute data. MIT work should be conducted using MIT-licensed AI tools whenever Institute data is involved.</p>
+</div>
 <p><span class="ev-anchor" id="ev-data_privacy"></span><mark data-ev="data_privacy">Generative AI tools licensed by MIT are acceptable for use with Institute low- and medium-risk data. High-risk data should never be used with generative AI tools.</mark><sup class="evtag"><a href="#p-data_privacy" data-ev="data_privacy" title="数据与隐私 / Data &amp; privacy"><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></a></sup></p>
-<p class="omit"><span lang="zh">本节另有 38 词未被本项目引用，已略去。</span><span lang="en">38 further words omitted — not cited by this project.</span></p>
 <h3 class="src-h2">Determine the Risk Level of Your Data Before Using AI Tools</h3>
-<p class="omit"><span lang="zh">本节共 180 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">180 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>The Institute's data classification framework is found on the Infoprotect website. Use the self-assessment tool and see the risk level definitions with examples to determine the risk level of your data.</p>
+<p>| Publicly Available GenAI Tool |
+| MIT-Licensed GenAI Tool |
+| Low Risk Data |
+| Not recommended* |
+| Allowed |
+| Medium Risk Data |
+| Not allowed |
+| Allowed |
+| High Risk Data |
+| Not allowed** |
+| Not allowed** |
+*For MIT-related work, low-risk information should be used only in MIT-licensed generative AI tools. Public generative AI tools may use submitted data for model training or external sharing and are not governed by MIT agreements. MIT provides licensed tools , such as Parley , that are designed to support Institute work while protecting MIT data.</p>
+<p>**Do not use high-risk information with Generative AI tools, including MIT enterprise Generative AI tools. If you have used high-risk data in a Generative AI tool, contact security@mit.edu immediately.</p>
+<p>If you are unsure if an AI tool is right for your data’s risk level, contact ai-guidance@mit.edu .</p>
+</div>
 <h3 class="src-h2">Generative AI Tools Licensed by MIT</h3>
+<div class="uncited">
+<p>MIT enterprise agreements govern the safety and security of data entered into MIT-approved tools. A list of Generative AI tools currently licensed by IS&amp;T can be found on the IS&amp;T website.</p>
+</div>
 <p><span class="ev-anchor" id="ev-institutional_tools"></span><mark data-ev="institutional_tools">If you are unsure of which tool to start with, use MIT’s Parley platform , which allows users to select from a variety of LLMs. All the models in Parley are protected by MIT data privacy agreements</mark><sup class="evtag"><a href="#p-institutional_tools" data-ev="institutional_tools" title="机构工具 / Institutional tools"><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></a></sup>, which prevent use of MIT data for model training and external sharing by the third-party platforms.</p>
-<p class="omit"><span lang="zh">本节另有 91 词未被本项目引用，已略去。</span><span lang="en">91 further words omitted — not cited by this project.</span></p>
+<div class="uncited">
+<p>If you wish to purchase new Generative AI tools, you must go through the VPF procurement process to ensure the vendor agreement has the appropriate terms. IS&amp;T works closely with the MIT IT Governance Committee , Information Technology Policy Committee , and the Office of General Counsel to determine appropriate terms for vendor agreements relating to generative AI.</p>
+</div>
 <h3 class="src-h2">Generative AI Tools for MIT Education and Research</h3>
-<p class="omit"><span lang="zh">本节共 127 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">127 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>MIT's Chair of the Faculty has recommended the use of these resources on generative AI and teaching provided by the Teaching and Learning Laboratory. This guidance does not address all issues for consideration when using generative AI tools as part of MIT research, nor does this guidance focus on when MIT researchers are creating generative AI tools or publicly releasing datasets/information that could become ingestible data for use by MIT researchers or third parties for training generative AI tools. Please contact mitogc@mit.edu for further guidance on research-related applications or development of AI tools.</p>
+<p>Researchers should also refer to the COUCHES Guidance on AI in Research and the MIT Libraries Guidance on Citing AI-Generated Content .</p>
+</div>
 <h3 class="src-h2">Generative AI Tools with Patent and Invention-Related Data (TLO Guidance)</h3>
 <p><span class="ev-anchor" id="ev-ip_copyright"></span><mark data-ev="ip_copyright">Additional restrictions apply to patent-related materials and invention disclosures.</mark><sup class="evtag"><a href="#p-ip_copyright" data-ev="ip_copyright" title="知识产权 / IP &amp; copyright"><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></a></sup> See the TLO Statement on Using Public Generative AI Tools in Patent‑Related Activities for complete information.</p>
 <h3 class="src-h2">Compliance with Federal and State Laws and Orders</h3>
 <p>As with any use of information technology at MIT, ensure that your use of generative AI tools and services complies with all applicable federal and state laws and orders (including, without limitation, FERPA, HIPAA, Massachusetts Data Protection Standards , export control laws, and Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence ), <span class="ev-anchor" id="ev-integrity_framing"></span><mark data-ev="integrity_framing">Institute policies (including 10.1 Academic and Research Misconduct , 11.0 Privacy and Disclosure of Personal Information , and 13.0 Information Policies )</mark><sup class="evtag"><a href="#p-integrity_framing" data-ev="integrity_framing" title="违规定性 / Integrity framing"><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></a></sup>, follows all guidelines outlined on Information Protection , the Institute's Written Information Security Program (WISP), and <span class="ev-anchor" id="ev-instructor_override"></span><mark data-ev="instructor_override">complies with any additional policies established by your department, lab, center, or institute (DLCI)</mark><sup class="evtag"><a href="#p-instructor_override" data-ev="instructor_override" title="课程规则优先 / Instructor override"><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></a></sup>.</p>
 <h3 class="src-h2">Resources</h3>
-<p class="omit"><span lang="zh">本节共 110 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">110 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>IS&amp;T's list of generative AI tools available at MIT</p>
+<p>Report of the Working Group on Artificial Intelligence in Administration and Operations</p>
+<p>Related MIT Policies</p>
+<ul><li>9.2 Personal Conduct and Responsibilities Towards Students and Employees</li><li>10.0 Academic and Research Misconduct and Dishonesty</li><li>Academic Integrity at MIT</li><li>Policies Regarding Student Behavior</li><li>Responsible and Ethical Conduct at MIT</li></ul>
+<p>MIT’s Written Information Security Program</p>
+<ul><li>Information Protection at MIT</li></ul>
+<p>Intellectual Property</p>
+<ul><li>Patenting and Commercializing Your Invention</li></ul>
+<p>Patent Applications and Invention Disclosures</p>
+<ul><li>Technology Licensing Office Guidelines for Using Generative AI in Patent-Related Activities</li></ul>
+<p>Publishing</p>
+<ul><li>Scholarly Communications: Publishing and Research</li><li>Citing AI tools</li></ul>
+<p>Sponsored Research &amp; Proprietary Information of Third Parties</p>
+<ul><li>Industry Sponsored Research Agreements</li></ul>
+<p>Page updated 6/23/2026</p>
+</div>
 <h3 class="src-h2">AI in Teaching &amp; Learning / Generative AI &amp; Your Course</h3>
-<p class="omit"><span lang="zh">本节共 55 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">55 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Current official hub: <a href="https://tll.mit.edu/teaching-resources/course-design/ai-in-teaching-learning" target="_blank" rel="noopener noreferrer">https://tll.mit.edu/teaching-resources/course-design/ai-in-teaching-learning</a></li><li>Source-history note: The excerpt originated on an earlier TLL subpage that was no longer available when rechecked on 2026-08-29; the current official hub above replaces the stale link.</li><li>Domain: tll.mit.edu</li></ul>
+<hr>
+</div>
 <h4 class="src-h3">Read, Refine, Define &amp; Articulate</h4>
-<p class="omit"><span lang="zh">本节共 272 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">272 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>The sheer daily volume of new information and insights about Generative AI (genAI) makes it imperative for all of us to set aside regular periods of time to reflect 1 on this powerful tool. We hope you’ll take time to develop your own reflections as well as discuss with your colleagues and students the successes and challenges you encounter, as well as identify lessons learned, and brainstorm about potential modifications for future semesters.</p>
+<p>To help MIT faculty &amp; instructors navigate the sea of information on the use of genAI in higher education 2 , TLL has combined timely news, advice, and resources on genAI with best practices in teaching and learning. As you design and deliver your subjects in this rapidly changing world of genAI, we recommend that you engage with the following:</p>
+<ul><li>Refine your goals for learning</li><li>Be clear about your expectations and the acceptable use of GAI</li><li>Rethink your assignments &amp; assessments</li><li>Consider alternate subject formats</li><li>Design for equity, accessibility, and student privacy</li></ul>
+<p>For a variety of AI-aware assessment makeovers see our AI-Aware Implementation: Examples page .</p>
+<p>The corresponding tabs below are designed to guide you through your planning process and support your teaching throughout the semester.</p>
+<p>In addition, you can download our Quickstart Guide to Thinking about AI in your Course to reference when considering how to use (or not use) genAI in your course.</p>
+<p>Are you interested in leveraging the utility of generative AI to create more meaningful assignments and more authentic learning experiences? Would you like to talk with someone about your ideas and concerns about genAI? Contact us (TLL@mit.edu) to request a consultation.</p>
+</div>
 <h3 class="src-h2">Refine Your Goals</h3>
 <h3 class="src-h2">Define Acceptable Use</h3>
 <h3 class="src-h2">Revise Your Assignments &amp; Assessments</h3>
 <h3 class="src-h2">Consider Course Format</h3>
 <h3 class="src-h2">Equity, Access, Privacy</h3>
 <h4 class="src-h3">How might generative AI prompt us to reconsider and refine goals for student learning?</h4>
-<p class="omit"><span lang="zh">本节共 265 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">265 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>Over the years, our ideas have changed regarding what students need to know how to do “from scratch” and what they can outsource to technology. For example, many courses permit (encourage) the use of software packages for mathematical operations and/or the analysis of scientific and engineering processes (e.g., Wolfram Alpha, Matlab, etc.) and the use of existing pieces of code (e.g., GitHub, etc.) in programming. And, of course – there is the calculator.</p>
+<p>Before considering the affordances or annoyances of generative AI in your teaching context, it is important to critically examine your real goals for student learning . Are there levels of higher-order thinking – more complex, more authentic learning goals – that you’d like students to achieve? If so, you can begin to explore how generative AI tools help students achieve those goals.</p>
+<p>In particular, you may wish to:</p>
+<ul><li>Engage with GenAI and examine how it handles your current assignment prompts and problems. Think back to your ideal goals for student learning and consider how you can modify your assignments to support your actual goals for student learning.</li><li>Consider how you might (re)design your assignments and/or course format to leverage generative AI and better support meaningful student learning.</li><li>Consider how GenAI can help you leverage the science of learning in your teaching. See TLL’s post, Applying the Science of Learning in your Teaching: Generative AI May Help .</li></ul>
+<p>Teaching + Learning Lab Staff are available to help you refine your goals. Contact us at tll@mit.edu.</p>
+</div>
 <h4 class="src-h3">AI Acceptable Use Statements</h4>
 <p><span class="ev-anchor" id="ev-default_rule"></span><mark data-ev="default_rule">Regardless of your thoughts on using GenAI in your subject, convey those thoughts, the resultant subject policies, and the consequences of their violation with your students at the beginning of the semester.</mark><sup class="evtag"><a href="#p-default_rule" data-ev="default_rule" title="默认规则 / Default rule"><span lang="zh">默认规则</span><span lang="en">Default rule</span></a></sup> Including an AI Acceptable-use Statement in your syllabus and discussing your rationale for the policy on the first day of class can help regulate students’ use of GenAI and open the door for additional conversations about GenAI and learning in your subject as the semester progresses. <span class="ev-anchor" id="ev-disclosure"></span><mark data-ev="disclosure">If you choose to permit using GenAI for assignments, clearly specify how you expect students to cite and document its use.</mark><sup class="evtag"><a href="#p-disclosure" data-ev="disclosure" title="披露要求 / Disclosure"><span lang="zh">披露要求</span><span lang="en">Disclosure</span></a></sup></p>
+<div class="uncited">
+<p>Note that OpenAI’s terms of use include the following among its restrictions: users may not “represent that output from the Services was human-generated when it is not.” For guidelines on properly attributing GenAI output, see: How to Cite ChatGPT .</p>
+<p>Teaching + Learning Lab Staff are available to help you develop an AI Acceptable Use statement for your syllabus. Additional resources are provided below.</p>
+</div>
 <ul><li>TLL’s February Post: Teaching &amp; Learning with ChatGPT: Opportunity or Quagmire? Part III – Academic Integrity | Student Privacy | Equity &amp; Accessibility <span class="ev-anchor" id="ev-tiered_scale"></span><mark data-ev="tiered_scale">includes three examples of AI Acceptable-use Syllabus Statements: A statement that prohibits its use; A statement that permits use with proper citation; and A statement that allows use on a case-by-case basis.</mark><sup class="evtag"><a href="#p-tiered_scale" data-ev="tiered_scale" title="分级许可 / Tiered scale"><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></a></sup></li><li>TLL’s Kaufman Teaching Certificate Program’s (KTCP’s) syllabus statement Derek Bruff’s Intentional Teaching newsletter Show Us Your Syllabus: Chatbot Edition has several examples of AI Acceptable-use Syllabus Statements from colleges and universities across the country.</li><li>Lance Eaton’s compilation of crowd-sourced policy statements Classroom Policies for AI Generative Tools .</li><li>Torrey Trust’s articles in Faculty Focus Essential Considerations for Addressing the Possibility of AI-Driven Cheating, Part 1 Essential Considerations for Addressing the Possibility of AI-Driven Cheating, Part 2</li><li>The Best AI Policies I’ve Seen So Far Daniel Stanford’s Substack</li><li>For additional information on creating a syllabus that acknowledges and incorporates policies regarding the use of generative AI, see the Syllabus Resources on the Sentient Syllabus Project’s website .</li></ul>
 <p>As you rethink your assignments and assessments in light of genAI, keep your revised goals for student learning in mind. Consider whether you are hoping to leverage genAI’s affordances or mitigate its use.</p>
-<p class="omit"><span lang="zh">本节另有 162 词未被本项目引用，已略去。</span><span lang="en">162 further words omitted — not cited by this project.</span></p>
+<div class="uncited">
+<p>Writing in his blog, Agile Learning , Derek Bruff suggests that instructors ask themselves the following questions when considering an assignment revision:</p>
+<ul><li>Why does this assignment make sense for this course?</li><li>What are specific learning objectives for this assignment?</li><li>How might students use AI tools while working on this assignment?</li><li>How might AI undercut the goals of this assignment? How could you mitigate this?</li><li>How might AI enhance the assignment? Where would students need help figuring that out?</li><li>Focus on the process. How could you make the assignment more meaningful for students or support them more in the work?</li></ul>
+</div>
 <h4 class="src-h3">Mitigating the Use of GenAI</h4>
 <p><span class="ev-anchor" id="ev-learning_rationale"></span><mark data-ev="learning_rationale">For many instructors, thinking about the process of student learning and the assessment of that process is a useful way to (1) help students develop the habits of mind and skills essential to the discipline (or subject)</mark><sup class="evtag"><a href="#p-learning_rationale" data-ev="learning_rationale" title="学习理由 / Learning rationale"><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></a></sup> and (2) shift the focus of student learning assessment away from end products that may lend themselves to genAI reliance and plagiarism.</p>
+<div class="uncited">
+<p>Helping students to engage with the learning process may be particularly relevant here at MIT, where developing students as agile critical thinkers and problem solvers are primary and essential goals of an MIT education and cornerstones of the campus ethos. Experts in a field are fluent in the problem-solving process. They are comfortable “playing” with multiple solution paths and ideas – i.e., hitting dead ends – and learning from these mistakes to eventually formulate solutions. Many novices (our students included) believe if they don’t see the solution right away, that they will fail. Learning how to solve problems involves learning from failed solution attempts and accepting that initial “failure” is almost always part of developing a successful solution. Here, a focus on the process , in addition to the product, can help students achieve our goals for them as MIT graduates and minimize chatbot plagiarism. (For more on expert v. novice learners , see the Resources section below.)</p>
+<p>Higher education author and consultant John Warner recently commented: “ One of the hallmarks of growing sophistication as a writer is seeing the idea you thought you were expressing change in front of your eyes as you are writing. This is high-level critical thinking. This kind of emergent rethinking is an experience that every college-level writer should be familiar with. ” (Warner, 2022).</p>
+<p>And, as Nancy Gleason, director of the Hilary Ballon Center for Teaching and Learning at NYU Abu Dhabi, wrote in The Times Higher Ed , “[…the assessment of only] a completed product is no longer viable. Scaffolding [and assessing] the skills and competencies associated with writing, producing and creating is the way forward.” (Gleason, 2022).</p>
+<p>Consider the usefully prescient comments of cognitive and learning scientist Michelene Chi in her 1994 paper on the impact of self-explanations during problem solving on the improvement of student science understanding: “ …especially for challenging science domains….students should learn to be able to talk science (to understand how the discourse of the field is organized, how viewpoints are presented, and what counts as arguments and support for these arguments), so that students can participate in scientific discussions, rather than just hear science. ” (Chi, 1994)”</p>
+<p>In subjects that use problem sets , ask students to explain their thought processes as they solve (a subset of) the problems.</p>
+<p>A few (of many possible) helpful prompts may include asking them to describe:</p>
+<ul><li>Why they chose a particular method;</li><li>Why they made certain assumptions and/or simplifications;</li><li>Where they ran into dead ends and how they found their way forward;</li><li>What broader takeaways did they learn from solving the problem?</li></ul>
+<p>As a follow-up to any type of assignment, you can ask them to reflect on and articulate:</p>
+</div>
 <ul><li>Any issues they had in beginning the assignment;</li><li>What they found most interesting or surprising;</li><li>Their “aha moment”;</li><li>How the completion of the assignment added to their understanding of the topic, etc.</li></ul>
 <p>Developing students’ metacognitive skills by requiring them to self-regulate and self-explain their solution process may mitigate their use of AI-generated responses. <span class="ev-anchor" id="ev-quote"></span><mark data-ev="quote">Self-evidently, it is much more difficult for students to explain their problem-solving process when they didn’t actually solve the problem!</mark><sup class="evtag"><a href="#quote" data-ev="quote"><span lang="zh">摘录</span><span lang="en">Excerpt</span></a></sup> <span class="ev-anchor" id="ev-process_evidence"></span><mark data-ev="process_evidence">If a student uses generative AI in some aspect of the solution, the requirement that they document their thought processes will force them to engage a bit deeper with certain aspects of the problem and the learning process overall.</mark><sup class="evtag"><a href="#p-process_evidence" data-ev="process_evidence" title="过程留证 / Process evidence"><span lang="zh">过程留证</span><span lang="en">Process evidence</span></a></sup></p>
-<p class="omit"><span lang="zh">本节另有 444 词未被本项目引用，已略去。</span><span lang="en">444 further words omitted — not cited by this project.</span></p>
 <h5 class="src-h4">Frequent Low-stakes, In-class Quizzes</h5>
-<p class="omit"><span lang="zh">本节共 221 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">221 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>Regardless of your assignment types (psets, weekly papers, reading reflections, coding), consider adding weekly, low-stakes, in-class quizzes that ask them to solve a close variant of one or two of the pset questions from the week and/or a previous week; reflect on and/or summarize a discussion from a previous class.</p>
+<p>Frequent, low-stakes quizzing allows students to practice retrieval – a key component of the learning process, and if the quizzes pull questions from previous weeks, it can further develop students’ ability to retrieve and apply recently learned concepts and skills. See TLL’s How to Teach pages for additional information on retrieval and spaced &amp; interleaved practices.</p>
+<p>If you use this strategy, you’ll want to:</p>
+<ul><li>Be explicit with students about what you are doing and why.</li><li>Include follow-up questions from the previous section of the course (above) in your pset – to encourage students to reflect on the problem-solving process.</li><li>During the first few weeks of the semester, model the type of reflective and engaged responses that you are looking for on the quizzes.</li><li>Reconsider how you allocate points for the various assignments in your subject. With the addition of weekly, in-class quizzes – you may want to decrease point value and/or the grading time required for other assignments.</li></ul>
+</div>
 <h4 class="src-h3">Leveraging GenAI</h4>
+<div class="uncited">
+<p>As noted in the Refine Your Goals for Learning section, the affordances of GenAI may allow you to better support students’ development of higher-order, more complex skills like synthesis, analysis, and creation.</p>
+<p>In their paper, Mollick and Mollick offer detailed descriptions of ways to leverage programs like ChatGPT in student assignments. They suggest that “ …AI can be used to overcome three barriers to learning in the classroom: improving transfer , breaking the illusion of explanatory depth , and training students to critically evaluate explanations .” (Mollick &amp; Mollick, 2022).</p>
+<p>In line with the Mollicks, Lucinda McKnight, senior lecturer in pedagogy and curriculum at Deakin University, offers several suggestions for incorporating genAI into student assignments to support deeper and more robust learning, including:</p>
+</div>
 <ul><li>Use AI writers as researchers. They can research a topic exhaustively in seconds and compile text for review, along with (real &amp; hallucinated) references for students to follow up. This material can then inform original and carefully referenced student writing.</li><li>Use AI writers to produce text on a given topic for critique. Design assessment tasks that involve this efficient use of AI writers, then [ask students to provide] critical annotation of the text that is produced.</li><li>Use different AI writers to produce different versions of text on the same topic to compare and evaluate.</li><li>Use and attribute AI writers for routine text, for example, blog content. Use discrimination to work out where and why AI text, human text, or hybrid text are appropriate and give accounts of this thinking.</li><li>Research and establish the specific affordances of AI-based content generators for your discipline. For example, how might it be useful to be able to produce text in multiple languages in seconds? Or create text optimized for search engines?</li><li>Explore different ways AI writers and their input can be acknowledged and attributed ethically and appropriately in your discipline. Model effective note-making and record-keeping. Use formative assessment that explicitly involves discussion of the role of AI in given tasks. Discuss how AI could lead to various forms of plagiarism and how to avoid this. (McKnight, 2022).</li></ul>
 <p>Whether or not you explicitly incorporate generative AI into all your assignments (or a subset of your assignments), <span class="ev-anchor" id="ev-verification_duty"></span><mark data-ev="verification_duty">make sure to stress that it doesn’t always produce correct answers and provide examples. Underscore that genAI output requires reflection and input from humans.</mark><sup class="evtag"><a href="#p-verification_duty" data-ev="verification_duty" title="核实责任 / Verification duty"><span lang="zh">核实责任</span><span lang="en">Verification duty</span></a></sup></p>
-<p class="omit"><span lang="zh">本节另有 164 词未被本项目引用，已略去。</span><span lang="en">164 further words omitted — not cited by this project.</span></p>
+<div class="uncited">
+<p>Many of the resources included at the end of this section provide examples of redesigned assignments from a wide range of disciplines that leverage or mitigate the use of GAI.</p>
+<p>Staff from the Teaching + Learning Lab are available to help you revise your assignments and assessments.</p>
+</div>
 <h4 class="src-h3">Resources</h4>
 <p>Updated April, 2025</p>
 <h5 class="src-h4">Expert v. novice learners</h5>
-<p class="omit"><span lang="zh">本节共 91 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">91 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Hardiman, P.T., Dufresne, R. &amp; Mestre, J.P. (1989). The relation between problem categorization and problem solving among experts and novices . Memory &amp; Cognition 17, 627–638. <a href="https://doi.org/10.3758/BF0319708" target="_blank" rel="noopener noreferrer">https://doi.org/10.3758/BF0319708</a> 5</li><li>Larkin, J., McDermott, J., Simon, D.P., &amp; Simon, H. (1980). Expert and Novice Performance in Solving Physics Problems. Science , 208(4450). pp. 1335-1342. DOI:10.1126/science.208.4450.1335</li><li>Polya, G., &amp; Conway, J. H. (2014). How to solve it: A New aspect of mathematical method . Princeton University Press.</li><li>Wankat, P.C., and F.S. Oreovicz (2015). Problem solving &amp; creativity in Teaching Engineering , Second Edition (pp. 93-115). Purdue University Press. (Open Access Edition)</li></ul>
+</div>
 <h5 class="src-h4">Assignments</h5>
-<p class="omit"><span lang="zh">本节共 140 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">140 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>For information on developing psets that incorporate GenAI, see our post: Rethinking Your Problem Sets in the World of Generative AI</p>
+<ul><li>Mollick, Ethan R. and Mollick, Lilach, Assigning AI: Seven Approaches for Students, with Prompts (June 12, 2023). Available at SSRN: <a href="https://ssrn.com/abstract=4475995" target="_blank" rel="noopener noreferrer">https://ssrn.com/abstract=4475995</a> or <a href="http://dx.doi.org/10.2139/ssrn.4475995" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.2139/ssrn.4475995</a></li><li>Mollick, Ethan R. and Mollick, Lilach, New Modes of Learning Enabled by AI Chatbots: Three Methods and Assignments (December 13, 2022). Available at SSRN: <a href="https://ssrn.com/abstract=4300783" target="_blank" rel="noopener noreferrer">https://ssrn.com/abstract=4300783</a> or <a href="http://dx.doi.org/10.2139/ssrn.4300783" target="_blank" rel="noopener noreferrer">http://dx.doi.org/10.2139/ssrn.4300783</a></li></ul>
+<p>For additional ideas for rethinking assignments, see Appendices B-F of Cornell’s Committee Report: Generative Artificial Intelligence for Education and Pedagogy</p>
+<ul class="kv"><li><span class="k"><span lang="zh">Appendix B</span><span lang="en">Appendix B</span></span> <span class="v">Courses that develop writing as a skill</span></li><li><span class="k"><span lang="zh">Appendix C</span><span lang="en">Appendix C</span></span> <span class="v">Creative courses for music, literature, and art</span></li><li><span class="k"><span lang="zh">Appendix D</span><span lang="en">Appendix D</span></span> <span class="v">Courses in social sciences</span></li><li><span class="k"><span lang="zh">Appendix E</span><span lang="en">Appendix E</span></span> <span class="v">Mathematics, physical sciences, and engineering</span></li><li><span class="k"><span lang="zh">Appendix F</span><span lang="en">Appendix F</span></span> <span class="v">Courses in programming</span></li></ul>
+</div>
 <h4 class="src-h3">Course Format</h4>
-<p class="omit"><span lang="zh">本节共 310 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">310 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>If you are committed to limiting students’ use of genAI in your subject, you may want consider how a change in its format and/or structure of might impact students’ use of genAI. Take a fresh look at Blended Learning (BL). In BL, students generally view recordings of lectures and/or engage with pre-class readings to gain a basic understanding of relevant topics (this is the “information-delivery” component of the class). They then engage in active problem solving (information retrieval and application and knowledge creation) during class time. Depending on the subject (topic, level, etc.), you may be able to restrict students’ use of computers during class to ensure that they are engaging in traditional problem solving as they grapple with key problems from the week’s material. 1 Additionally, even if students are required to use particular software or applications – you can monitor their use during class time.</p>
+<p>Teaching + Learning Lab staff are available to help you implement blended learning in your courses. Additional Resources are provided below.</p>
+<ul><li>Professors Wolfgang Ketterle and Lorna Gibson describe their uses of flipped classrooms (blended learning) to better support learning and engage students.</li><li>The Blended Learning section of the Report of the RIC16 Ad Hoc Committee: Leveraging Best Practices from Remote Teaching for On-Campus Education</li><li>Dealing with the Lack of Student Engagement in Lectures . Richard de Neufville, MIT Faculty Newsletter , January-April 2023, vol. XXXV no. 3</li><li>Blended Learning . Center for Teaching &amp; Learning at Columbia</li><li>Freeman S, Haak D, Wenderoth MP. Increased course structure improves performance in introductory biology. CBE Life Sciences Education 2011 Summer;10(2):175-86. doi: 10.1187/cbe.10-08-0105. PMID: 21633066; PMCID: PMC3105924. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3105924/" target="_blank" rel="noopener noreferrer">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3105924/</a></li></ul>
+<p>1 If you use this approach – make sure that you can accommodate students who require the use of computers, and/or specific software, etc. Reach out to Disability and Access Services (DAS) for guidance.</p>
+</div>
 <h4 class="src-h3">Equity</h4>
-<p class="omit"><span lang="zh">本节共 93 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">93 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>Currently, OpenAI’s ChatGPT-3.5 is open-access and free but more prone to producing incorrect (“hallucinated”) responses. ChatGPT-4 is much “better” than ChatGPT-3.5 but costs $20/month. Bing, Microsoft’s version, has comparable capability to ChatGPT-4 and is “free” but requires a Microsoft account and must be used in the Microsoft Edge browser. Without some planning on your part, some students in your class will have access to ChatGPT-4, while others may only have ChatGPT-3.5 or Bing. See the Assessments &amp; Assignments section for ideas for more equitable incorporation of GenAI in your subjects.</p>
+</div>
 <h4 class="src-h3">Accessibility</h4>
-<p class="omit"><span lang="zh">本节共 92 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">92 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>Concerning accessibility, writing in Wired, Pia Ceres writes, “completely barring ChatGPT from classrooms, tempting as that may be, could introduce a host of new problems. Torrey Trust at the University of Massachusetts Amherst studies how teachers use technology to reshape learning. She points out that reverting to analog forms of assessment, like oral exams, can put students with disabilities at a disadvantage.” (Ceres, 2023)</p>
+<p>See the Transparency in Learning and Teaching project for additional resources for developing transparent and equitable assignments and assessments or contact MIT’s Disability and Access Services (DAS) .</p>
+</div>
 <h4 class="src-h3">Student Privacy</h4>
-<p class="omit"><span lang="zh">本节共 289 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">289 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>If you would like students to engage with AI-generated content in your subjects, consider student privacy issues (e.g., ChatGPT is an open-access tool, not supported by IS&amp;T and not subject to MIT’s student data safeguards), as well as the ethics of mandating that students use the tool. Read and encourage all students to read ChatGPT’s privacy policy, which states that data collected by ChatGPT can be shared with third-party vendors, law enforcement, affiliates, and other users, and the terms of use, which states that “you must be 18 years or older and able to form a binding contract with OpenAI to use the Services” (i.e., students under 18 years old should not be asked to use the tool.) Users can request to delete their ChatGPT account, but all prompts and inputs to the site cannot be removed. Writing in her blog, Jill Walker Rettberg, professor of digital culture at the University of Bergen in Norway, notes, “OpenAI knows my email and the country I am connecting from, so they can assume my judgements [sic] about how ChatGPT responds to me align with “Norwegian values.” OpenAI also knows what device, browser and operating system I am using, which can be a proxy for class and socio-economic status.” (Rettberg, 2022)</p>
+<p>To address data privacy concerns, consider ways that students can use AI-generated content without generating it themselves (E.g., you or a TA volunteer could enter questions/prompts as specified by students and share them for use in the assignment).</p>
+<p>For additional guidance re student privacy and GAI use, see MIT Sloan’s Generative AI for Teaching &amp; Learning Resources Hub</p>
+<p>Teaching + Learning Lab Staff are available to help you address these concerns.</p>
+</div>
 <h3 class="src-h2">MIT Resources and Support</h3>
-<p class="omit"><span lang="zh">本节共 202 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">202 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<p>Staff from TLL and Open Learning-Residential are available to facilitate discussions within MIT DLCs on the topic of Teaching with GenAI . MIT community members can email ai-teaching@mit.edu to arrange a session. If you’d like to facilitate your own discussion – a customizable slide deck is available here . [You will be prompted to make a copy.]</p>
+<p>Sloan – Teaching &amp; Learning with Generative AI Hub</p>
+<p>Advice Concerning the Increase in AI-Assisted Writin g , Profs. Ed Schiappa and Nicholas Montfort, Comparative Media Studies &amp; Writing @ MIT.</p>
+<p>If you are an MIT community member and have resources you’d like to share, please email us at: ai-teaching@mit.edu.</p>
+<p>1 The Poorvu Center for Teaching and Learning at Yale states: “Reflective teaching involves examining one’s underlying beliefs about teaching and learning and one’s alignment with actual classroom practice before, during, and after a course is taught. When teaching reflectively, instructors think critically about their teaching and look for evidence of effective teaching.”</p>
+<p>2 For a good overview of what LLMs are and how they work, see. Kevin Rose and Cade Metz, On Tech: AI Newsletter series: How to Become an Expert on A.I. , New York Times , 7 April 2023.</p>
+</div>
 <h3 class="src-h2">Additional Resources on the Use of Generative AI in Teaching &amp; Learning</h3>
 <p>(updated April 2025)</p>
 <h4 class="src-h3">General</h4>
-<p class="omit"><span lang="zh">本节共 37 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">37 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>GAI Basics: a Technical Primer – MT Sloan , Rama Ramakrishnan, MIT Sloan (Video); part of Sloan Technology Services AI Hub</li><li>An MIT Exploration of Generative AI</li><li>Teaching + Learning Lab GAI Blog posts</li><li>Open AI’s ChatGPT documentation</li></ul>
+</div>
 <h4 class="src-h3">In Teaching &amp; Learning</h4>
 <h5 class="src-h4">Overview</h5>
-<p class="omit"><span lang="zh">本节共 258 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">258 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>AI Meets Education at Stanford (AIMES)</li><li>Generative AI in Teaching &amp; Learning – Teaching Hub, University of Virginia</li><li>OSU Faculty Recommendations</li><li>Philippa Hardman’s AI Learning Taxonomy</li><li>How should AI-generated content be labeled? MIT Sloan</li><li>There are some incredible folks writing about this on Substack . We recommend: Marc Watkins – Rhetorica Beyond ChatGPT Series: Reading: No One is Talking About AI’s Impact on Reading AI’s Promise to Pay Attention for You Teaching is Not a Problem for AI to Solve Ethan Mollick – One Useful Thing All of Mollick’s posts interesting and thought provoking Ethan &amp; Lillach Mollick have a very useful paper called: Using AI to Implement Effective Teaching Strategies in Classrooms: Five Strategies, Including Prompts (note that this article addresses teaching practices (rather than student work)) Ethan Mollick’s examples of elaborate prompts in Assigning AI: 7 Ways of using AI in Class Ai x Education Josh Brake – The Absent Minded Professor Lance Eaton – AI + Education = Simplified Eric Hudson – Teaching on Purpose Nick Potkalitsky – Educating AI Emily Pitts Donahoe – Unmaking the Grade See additional authors/Substacks in the sections below</li><li>OpenAI Teaching w/ChatGPT Handbook</li><li>MIT Physics YouTube Playlist: Impact of ChatGPT</li><li>Applying the Science of Learning in Your Teaching: Generative AI May Help , MIT TLL Blog.</li><li>Acceptable GAI-use: Syllabus Statements: KTCP syllabus statement Lance Eaton: Crowd-sourced Google Doc (caveat emptor: some statements are from the dawn of GPTs) Derek Bruff: Show us your syllabus – Chatbot edition The Best AI Policies I’ve Seen So Far Daniel Stanford’s Substack Other syllabus statements from TLL</li></ul>
+</div>
 <h5 class="src-h4">Writing</h5>
-<p class="omit"><span lang="zh">本节共 269 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">269 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Laura Roberts’ AI Tool Box for Research &amp; Writing , Padlet</li><li>An Introduction to Teaching with Text Generation Technologies , Tim Laquintano, Carly Schnitzler, and Annette Vee. Writing Across the Curriculum at Colorado State.</li><li>Annette Vee, AI Aware Teaching Examples , AI &amp; How We Teach Writing</li><li>Four Rules for Writing in the Age of AI , writinghacks.substack.com</li><li>Jane Rosenzweig: Writing Hacks (Harvard College Writing Center)</li><li>Josh Brake The Absent Minded Professor <a href="https://joshbrake.substack.com/p/process-over-product" target="_blank" rel="noopener noreferrer">https://joshbrake.substack.com/p/process-over-product</a> “But writing is not just about the text that you write at the end of it. Writing is about the process that leads you to that eventual end product. It’s about iteration and failure: the cycle of drafting, critiquing, editing, and revising. It’s the same underlying truth about any worthwhile pursuit: it’s about the journey and not just the destination.”</li><li>Lauren Goodlad and the team at Critical AI : Jane Rosenzweig: <a href="https://criticalai.org/2023/09/21/teaching-insights-what-happens-when-a-novice-writer-asks-chatgpt-for-editing-advice-dr-jane-rosenzweig/" target="_blank" rel="noopener noreferrer">https://criticalai.org/2023/09/21/teaching-insights-what-happens-when-a-novice-writer-asks-chatgpt-for-editing-advice-dr-jane-rosenzweig/</a></li><li>AI Pedagogy Project – Harvard</li><li>Perry Share Welcome to the machine: Generative AI &amp; higher education: a selective guide to resources (see Student Writing)</li><li>Anna Mills Template Phrases for Critiquing AI Outputs</li><li>Leon Furze – A series of blog posts that explore how multimodal generative AI (genAI) writing tools can be applied to all stages of the writing cycle, from purpose through to publication. Purpose Exploration Ideas Skills Collaboration Publication</li><li>Cornell: <a href="https://teaching.cornell.edu/generative-artificial-intelligence/cu-committee-report-generative-artificial-intelligence-2" target="_blank" rel="noopener noreferrer">https://teaching.cornell.edu/generative-artificial-intelligence/cu-committee-report-generative-artificial-intelligence-2</a></li><li><a href="https://docs.google.com/document/d/1uyrUHFfTuGsi-c3xtIOy3wNIsw29UD2F1DqttOiFJuI/edit" target="_blank" rel="noopener noreferrer">https://docs.google.com/document/d/1uyrUHFfTuGsi-c3xtIOy3wNIsw29UD2F1DqttOiFJuI/edit</a></li><li>How to Cite ChatGPT , APA.</li></ul>
+</div>
 <h5 class="src-h4">Assessments</h5>
-<p class="omit"><span lang="zh">本节共 230 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">230 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Derek Bruff, Agile Learning Blog Assignment Makeovers in the AI Age: Reading Response Edition , Assignment Makeovers in the AI Age: Essay Edition</li><li>Integrating AI into Assignments to Support Student Learning , UVA Teaching Hub</li><li>Marc Watkins, CHE – Make AI Part of the Assignment : Include an AI-assisted Learning Template as part of student assignments</li><li>Rethinking Your Problem Sets in the World of Generative AI , MIT TLL</li><li>Reimagining Assessments in the Age of AI , aixeducation.substack.com:</li><li>Assessment for Reform in the Age of Artificial Intelligence , TESQA – Australia</li><li>Appendices B-F of Cornell’s Committee Report: Generative Artificial Intelligence for Education and Pedagogy Appendix B: Courses that develop writing as a skill Appendix C: Creative courses for music, literature, and art Appendix D: Courses in social sciences Appendix E: Mathematics, physical sciences, and engineering Appendix F: Courses in programming</li><li>Filling in Research Gaps with Generative AI . Carrick, T.H. (2023). John S. Knight Institute for Writing in the Disciplines</li><li>Assigning AI: Seven Approaches for Students, with Prompts , Mollick, Ethan R. and Mollick, Lilach, (June 12, 2023).</li><li>New Modes of Learning Enabled by AI Chatbots: Three Methods and Assignments (December 13, 2022).</li><li>Daniel Stanford. Incorporating AI in Teaching: Practical Examples for Busy Instructors</li><li>Brett Becker. Programming Is Hard – Or at Least It Used to Be: Educational Opportunities And Challenges of AI Code Generation</li><li>Ryan Cordell. Building a (better) book) – Course taught at UIUC: Lab 1: Amanuenses to AI</li></ul>
+</div>
 <h5 class="src-h4">Prompt Engineering</h5>
-<p class="omit"><span lang="zh">本节共 31 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">31 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Coursera Course: Prompt Engineering for ChatGPT</li><li>Ethan Mollick’s examples of elaborate prompts in Assigning AI: 7 Ways of using AI in Class</li><li>Open AI’s documentation on prompt engineering</li></ul>
+</div>
 <h5 class="src-h4">Biases</h5>
-<p class="omit"><span lang="zh">本节共 105 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">105 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Researchers reduce bias in AI models while preserving or improving accuracy | MIT News, December, 2024</li><li>How Harmful Are AI’s Biases on Diverse Student Populations? | Stanford HAI, October 2024</li><li>Generative AI bias poses risk to democratic values, research suggests , Science X, February 2025</li><li>Lauren Leffer, Humans Absorb Bias from AI—And Keep It after They Stop Using the Algorithm , Scientific American</li><li>Better images of AI A site to combat bias in AI generated images</li><li>Navigating The Biases In LLM Generative AI: A Guide To Responsible Implementation</li><li>Broader implications and critical perspectives: Section 6, p. 24 of Perry Share’s compilation )</li><li>Humans are Biased Generative AI is Even Worse , Bloomberg, 2023.</li></ul>
+</div>
 <h5 class="src-h4">AI Detection Tools 1</h5>
-<p class="omit"><span lang="zh">本节共 134 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">134 words omitted here — not cited by this project; see the official source.</span></p>
+<div class="uncited">
+<ul><li>Generative AI and Policy Development: Guidance from the MLA-CCCC Joint Task Force on Writing and AI , April 2024.</li><li>Anna Mills, Why I’m using AI detection after all, alongside many other strategies , February 2025.</li><li>Christopher Ostro A big picture look at AI detection tools , Teaching in Higher Ed podcast Slides Video</li><li>Laura Dumin, AI detectors: A look at some arguments and where I ended up , February 2025.</li><li>Derek Newton – The Cheat Sheet ,academic honesty blogger with many posts on the use of AI detection software.</li><li>University of Sydney What to do about assessments if we can’t out-design or out-run AI? , Danny Liu and Adam Bridgeman, 2023 Follow-up FAQ , 2025</li><li>Joseph Thibault, Agentic AI &amp; Academic Integrity .</li><li>AI Detectors Don’t Work. Here’s What to Do Instead , MIT Sloan Teaching &amp; Learning Technologies,</li></ul>
+</div>
 <h3 class="src-h2">References</h3>
-<p class="omit"><span lang="zh">本节共 127 词，未被本项目引用，已略去；全文见官方来源。</span><span lang="en">127 words omitted here — not cited by this project; see the official source.</span></p></div>
+<div class="uncited">
+<p>Chi, M. T., De Leeuw, N., Chiu, M., &amp; Lavancher, C. (1994). Eliciting self-explanations improves understanding. Cognitive Science , 18(3), 439-477. <a href="https://www.sciencedirect.com/science/article/pii/0364021394900167" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/pii/0364021394900167</a></p>
+<p>Gleason, Nancy (2022). ChatGPT and the rise of AI writers: How should higher education respond? Times Higher Education .</p>
+<p>McKnight, Lucinda (2022). Eight ways to engage with AI writers in higher education. Times Higher Education .</p>
+<p>Mollick, E., &amp; Mollick, L. (2022). New modes of learning enabled by AI chatbots: Three methods and assignments. Social Science Research Network . <a href="https://doi.org/10.2139/ssrn.4300783" target="_blank" rel="noopener noreferrer">https://doi.org/10.2139/ssrn.4300783</a></p>
+<p>Warner, J. (2022, August 31). The biggest mistake I see college freshmen make. Slate Magazine . <a href="https://slate.com/human-interest/2022/08/advice-to-first-year-college-students-on-freshman-comp.html" target="_blank" rel="noopener noreferrer">https://slate.com/human-interest/2022/08/advice-to-first-year-college-students-on-freshman-comp.html</a></p>
+<ul><li>Thanks to Dr. Rachel Remmel at the University of Rochester TLC for passing along many of these resources ↩︎</li></ul>
+</div></div>
 </section>
 <nav class="pager"><a class="prev" href="../Stanford/"><span>← No.01</span><b>Stanford</b></a><a class="next" href="../Harvard/"><span>No.03 →</span><b>Harvard</b></a></nav>
 </main>
 <footer><div class="wrap">
   <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
-  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
 </div></footer>
 
 <script>

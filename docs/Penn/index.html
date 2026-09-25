@@ -107,6 +107,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -224,6 +227,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -248,7 +284,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -260,6 +296,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>
@@ -311,6 +348,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="chip" title="仅适用于某一学院、项目或系"><span lang="zh">来源层级 · <b>院系或项目级</b></span><span lang="en">Source level · <b>Unit or school</b></span></span>
     <span class="chip"><span lang="zh"><b>6</b> / 12 项有明文规定</span><span lang="en"><b>6</b> of 12 provisions addressed</span></span>
     <span class="chip"><span lang="zh">采集于 <b>2026-08-21</b></span><span lang="en">Accessed <b>2026-08-21</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>本科 AI 明文边界</b></span><span lang="en">Admissions · <b>Explicit undergraduate rules</b></span></a>
   </div>
   <nav class="strip" aria-label="十二项条款 / Twelve provisions"><a class="sc" data-r="2" href="#p-default_rule" title="默认规则：有条件允许"><em><span lang="zh">默认规则</span><span lang="en">Default rule</span></em><b><span lang="zh">有条件允许</span><span lang="en">Conditional use allowed</span></b></a><a class="sc" data-r="0" href="#p-instructor_override" title="课程规则优先：未提及"><em><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-tiered_scale" title="分级许可：非正式分类"><em><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></em><b><span lang="zh">非正式分类</span><span lang="en">Informal categories</span></b></a><a class="sc" data-r="3" href="#p-disclosure" title="披露要求：强制披露"><em><span lang="zh">披露要求</span><span lang="en">Disclosure</span></em><b><span lang="zh">强制披露</span><span lang="en">Required</span></b></a><a class="sc" data-r="0" href="#p-process_evidence" title="过程留证：未提及"><em><span lang="zh">过程留证</span><span lang="en">Process evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-verification_duty" title="核实责任：一般性提醒"><em><span lang="zh">核实责任</span><span lang="en">Verification duty</span></em><b><span lang="zh">一般性提醒</span><span lang="en">General caution</span></b></a><a class="sc" data-r="2" href="#p-integrity_framing" title="违规定性：学术不端"><em><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></em><b><span lang="zh">学术不端</span><span lang="en">Academic integrity violation</span></b></a><a class="sc" data-r="0" href="#p-detector_stance" title="检测器证据：未提及"><em><span lang="zh">检测器证据</span><span lang="en">Detector evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-data_privacy" title="数据与隐私：未提及"><em><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-ip_copyright" title="知识产权：未提及"><em><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-institutional_tools" title="机构工具：未提及"><em><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-learning_rationale" title="学习理由：一般性表述"><em><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></em><b><span lang="zh">一般性表述</span><span lang="en">General statement</span></b></a></nav>
   <p class="print-url">ai.policy.nestudy.cn/Penn</p>
@@ -496,7 +534,50 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="sec-head"><h2><span lang="zh">补充信息</span><span lang="en">Further detail</span></h2></div>
   <div class="extras"><div class="extra"><h3><span lang="zh">要求披露的内容</span><span lang="en">What must be disclosed</span></h3><div class="tags"><span class="chip"><span lang="zh">AI 输出内容</span><span lang="en">AI output</span></span><span class="chip"><span lang="zh">使用范围与程度</span><span lang="en">Extent of use</span></span><span class="chip"><span lang="zh">正式引注</span><span lang="en">Formal citation</span></span></div></div></div>
 </section>
-
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/06-Penn.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">本科申请 AI 明文边界（效力见来源）</span><span lang="en">Explicit AI boundaries for undergraduate applicants (force as stated in the source)</span></span>
+    <p class="adm-sum">Penn 本科明确允许 AI 组织自己的思路和检查语法；申请须为本人工作，AI 生成回答、他人代写或虚构经历会破坏申请认证。2026–2027 升学顾问页再次确认，并区分推荐人及校方的 AI 使用。</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Short, verbatim English excerpts from live official webpages; whitespace and layout may be normalized. Chinese analysis is separate. Saved readable source bodies may retain some menus or comments; URL and retrieval metadata are in research/group1.json, not inserted into source text.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">Penn undergraduate admissions, including essays, activities, responses and supporting materials. Counselor/teacher recommendations and Penn’s internal AI use are identified separately.</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>explicit-undergraduate-ai</code> — Penn Admissions publishes an integrity/AI page, corroborated by its 2026–2027 counselor guidance.</span></li><li><span class="k"><span lang="zh">校内 AI 政策原文</span><span lang="en">Original campus-AI source file</span></span> <span class="v"><a href="#source">06-Penn.md</a> (separate scope; not an admissions rule).</span></li><li><span class="k"><span lang="zh">用途说明</span><span lang="en">Use note</span></span> <span class="v">本文件供来源比较与核验，不构成学校新增规定；未说明不代表许可。</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">关键发现（中文）</h3>
+<ul><li>Penn 明确说用 AI 组织自己的思路、检查语法不会破坏申请认证；这些帮助必须保留申请人的内容所有权。[S1]</li><li>提交不真实属于本人的作品、想法或经历会破坏认证，例子包括他人写文书、AI 生成回答、活动/荣誉虚构。规则覆盖文书、活动、回答及整个申请档案，不是只针对一篇主文书。[S1]</li><li>诚信义务不止到提交为止，录取仍以申请时确认的同样标准为条件；页面没有逐项列出 AI 违规对应的自动撤录或开除制裁。[S1]</li><li>面向升学顾问的 2026–2027 申请变化页再次确认上述允许边界，并说明 AI 生成推荐信不能替代教师/顾问基于直接了解的判断。[S2]</li><li>Penn 另说不让 AI 评价材料或作录取决定；AI 可以辅助部分行政工作且有人复核。这是校方流程说明，不是扩大学生 AI 使用权限。[S1][S2]</li></ul>
+<h3 class="src-h2">Official sources</h3>
+<h4 class="src-h3">1. [S1] Integrity and AI Use in the Admissions Process</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admissions.upenn.edu/how-to-apply/preparing-your-application/integrity-AI-in-admissions-process" target="_blank" rel="noopener noreferrer">https://admissions.upenn.edu/how-to-apply/preparing-your-application/integrity-AI-in-admissions-process</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">Penn Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">policy</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:37+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S1-Q1]</strong></p>
+<blockquote><p>Penn Admissions asks every applicant to certify that their application is their own work, factually true, and honestly presented.</p></blockquote>
+<p><strong>[S1-Q2]</strong></p>
+<blockquote><p>Getting help is not the same as losing ownership. Talking through an idea with a parent, teacher, or counselor, having someone proofread your writing, or using a tool, including an AI tool, to organize your thoughts or check your grammar, doesn't compromise your application certification.</p></blockquote>
+<p><strong>[S1-Q3]</strong></p>
+<blockquote><p>What would compromise your application is submitting work, ideas, or experiences that aren't authentically yours, whether that means someone else wrote your essay, an AI tool generated your responses, or your activities and honors are embellished or invented.</p></blockquote>
+<p><strong>[S1-Q4]</strong></p>
+<blockquote><p>This same standard extends to every part of your file. Supporting materials must come from you or from an authorized source, and any change in your circumstances or the information you've provided should be reported to us directly, as your certification already requires.</p></blockquote>
+<p><strong>[S1-Q5]</strong></p>
+<blockquote><p>Your offer of admission remains contingent on the same standards you affirmed when you applied.</p></blockquote>
+<p><strong>中文说明：</strong>这是一份 Penn Admissions 自己对申请认证的具体解释，含申请者、推荐人和校方三个范围。短引文集中保留可接受帮助、AI 生成回答的反例、支持材料来源与持续诚信义务。原文无可见发布日期。</p>
+<h4 class="src-h3">2. [S2] About the Application</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admissions.upenn.edu/supporting-your-student/counselors/about-the-application" target="_blank" rel="noopener noreferrer">https://admissions.upenn.edu/supporting-your-student/counselors/about-the-application</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">Penn Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate; counselors and teachers; 2026–2027 cycle</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">official-advice</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:37+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S2-Q1]</strong></p>
+<blockquote><p>Just as talking through an idea with a parent, teacher, or counselor or having someone proofread your writing are permissible, so is using an AI to organize your thoughts or check your grammar.</p></blockquote>
+<p><strong>[S2-Q2]</strong></p>
+<blockquote><p>Counselors’ and teachers’ judgement and direct, detailed knowledge of students cannot be replaced by AI-generated letters of recommendation and evaluations.</p></blockquote>
+<p><strong>[S2-Q3]</strong></p>
+<blockquote><p>Penn does not use AI to evaluate materials or to make decisions about admissions.</p></blockquote>
+<p><strong>中文说明：</strong>本页标题下明确是 What’s Changing for Penn’s 2026-2027 Application；申请季不是发布日期，故 page_date 仍为 not stated。引文分别对应申请人、推荐人和校方，不能混作一个统一的“AI 可用/不可用”结论。</p>
+<h3 class="src-h2">Permitted / prohibited / not stated（按用途）</h3>
+<ul><li><strong>明确允许：</strong>用 AI 组织自己的思路、检查语法；真人讨论想法或校对同样被认可，但申请内容仍须属于本人。[S1][S2]</li><li><strong>不符合认证：</strong>AI 生成申请回答、他人代写、提交非本人真实想法/经历、虚构或夸大活动荣誉。[S1]</li><li><strong>未单独说明：</strong>AI 翻译、生成提纲与“组织思路”的具体界线、逐句重写、科研补充材料专门规则、AI 使用披露格式、AI 检测工具和具体制裁表。不能把“组织思路”扩张为任意生成内容的许可。</li><li><strong>推荐人另行适用：</strong>直接了解学生的判断与细节不可被 AI 生成信件替代；这不是一条已经明确禁止所有推荐信 AI 语法辅助的规定。[S2]</li><li><strong>后果 / 持续义务：</strong>申请认证及诚实要求贯穿后续，录取以遵守同样标准为条件；未查到本文来源列举的专门 AI 自动惩罚。[S1]</li></ul>
+<h3 class="src-h2">Research limitations</h3>
+<ul><li>范围为 Penn 本科招生，不能用 Wharton Global Youth、在校课程、Wharton MBA 或其他研究生院规则替代。</li><li>2026–2027 申请季由官方顾问页面确认，但两个页面都未明确标注发布时间；不据学生报纸日期推断政策发布日期。</li><li>没有登录申请门户取得所有动态补充表或认证字段；公开页未说明的用途不能当作已许可。</li><li>没有用校方不依赖 AI 作录取判断，推断校方从不使用任何 AI 或从不调查申请真实性。</li></ul>
+<details class="fold"><summary><span class="fold-h">Search log</span></summary>
+<ul class="kv"><li><span class="k"><span lang="zh">检索日期</span><span lang="en">Research date</span></span> <span class="v">2026-09-24, Asia/Shanghai. Search results were leads only; findings above are based on retrieved official body text.</span></li></ul>
+<ol class="kv"><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.admissions.upenn.edu "AI" application essays</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">找到并全文核验 Integrity and AI Use in the Admissions Process [S1]。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.admissions.upenn.edu "AI" "grammar" integrity</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">第二组定向检索明确允许边界；取得顾问页面 [S2] 交叉核验。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>Direct public fetch: Penn Admissions integrity page and counselor About the Application page</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">两页均实时取得完整正文；2026–2027 申请变化说明与专页一致。</span></li></ul></li></ol>
+</details></div>
+</section>
 <section id="source">
   <div class="sec-head"><h2><span lang="zh">官方原文</span><span lang="en">The official text</span></h2><span class="en2">univ/06-Penn.md</span></div>
   <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span></p>
@@ -518,7 +599,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </main>
 <footer><div class="wrap">
   <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
-  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
 </div></footer>
 
 <script>

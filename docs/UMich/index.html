@@ -107,6 +107,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -224,6 +227,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -248,7 +284,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -260,6 +296,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>
@@ -311,6 +348,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="chip" title="文件同时含校级来源与更窄范围的来源"><span lang="zh">来源层级 · <b>混合来源</b></span><span lang="en">Source level · <b>Mixed</b></span></span>
     <span class="chip"><span lang="zh"><b>6</b> / 12 项有明文规定</span><span lang="en"><b>6</b> of 12 provisions addressed</span></span>
     <span class="chip"><span lang="zh">采集于 <b>2026-08-21</b></span><span lang="en">Accessed <b>2026-08-21</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>本科 AI 明文边界</b></span><span lang="en">Admissions · <b>Explicit undergraduate rules</b></span></a>
   </div>
   <nav class="strip" aria-label="十二项条款 / Twelve provisions"><a class="sc" data-r="1" href="#p-default_rule" title="默认规则：交由教师决定"><em><span lang="zh">默认规则</span><span lang="en">Default rule</span></em><b><span lang="zh">交由教师决定</span><span lang="en">Instructor decides, no default</span></b></a><a class="sc" data-r="2" href="#p-instructor_override" title="课程规则优先：教师可定但有底线"><em><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></em><b><span lang="zh">教师可定但有底线</span><span lang="en">Instructor rules within limits</span></b></a><a class="sc" data-r="0" href="#p-tiered_scale" title="分级许可：未提及"><em><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-disclosure" title="披露要求：依课程而定"><em><span lang="zh">披露要求</span><span lang="en">Disclosure</span></em><b><span lang="zh">依课程而定</span><span lang="en">Course dependent</span></b></a><a class="sc" data-r="0" href="#p-process_evidence" title="过程留证：未提及"><em><span lang="zh">过程留证</span><span lang="en">Process evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="2" href="#p-verification_duty" title="核实责任：须自行核实"><em><span lang="zh">核实责任</span><span lang="en">Verification duty</span></em><b><span lang="zh">须自行核实</span><span lang="en">Verification required</span></b></a><a class="sc" data-r="2" href="#p-integrity_framing" title="违规定性：学术不端"><em><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></em><b><span lang="zh">学术不端</span><span lang="en">Academic integrity violation</span></b></a><a class="sc" data-r="2" href="#p-detector_stance" title="检测器证据：质疑其可靠性"><em><span lang="zh">检测器证据</span><span lang="en">Detector evidence</span></em><b><span lang="zh">质疑其可靠性</span><span lang="en">Reliability questioned</span></b></a><a class="sc" data-r="0" href="#p-data_privacy" title="数据与隐私：未提及"><em><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-ip_copyright" title="知识产权：未提及"><em><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-institutional_tools" title="机构工具：未提及"><em><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-learning_rationale" title="学习理由：未提及"><em><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a></nav>
   <p class="print-url">ai.policy.nestudy.cn/UMich</p>
@@ -493,7 +531,42 @@ mark.flash{animation:flash 1.8s ease-out}
 </div>
 </section>
 
-
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/22-Michigan.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">本科申请 AI 明文边界（效力见来源）</span><span lang="en">Explicit AI boundaries for undergraduate applicants (force as stated in the source)</span></span>
+    <p class="adm-sum">本科文书页列举审慎使用AI进行头脑风暴、提纲、校对、整理信息；须体现本人想法、经历与声音，禁止粘贴AI生成文字或提交不代表自己的作品。Apply页另要求遵守Common App Fraud Policy。[S1][S2]</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Official pages were live-fetched using ordinary requests GET. Readable UTF-8 text is preserved locally; navigation/scripts were removed where tagged, and layout/whitespace may differ. Short English excerpts retain the source wording and were checked after whitespace normalization.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">Michigan–Ann Arbor本科first-year申请文书；不推及Dearborn/Flint、所有研究生或课程作业。</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>explicit-undergraduate-ai</code> — 各来源分别标明政策/申请认证或官方建议，不以搜索空白推断许可。</span></li><li><span class="k"><span lang="zh">原研究参考</span><span lang="en">Original reference</span></span> <span class="v"><a href="#source">../22-Michigan.md</a>（原在校AI使用资料，不代替申请规则）</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">中文要点</h3>
+<p>本科文书页列举审慎使用AI进行头脑风暴、提纲、校对、整理信息；须体现本人想法、经历与声音，禁止粘贴AI生成文字或提交不代表自己的作品。Apply页另要求遵守Common App Fraud Policy。[S1][S2]</p>
+<h3 class="src-h2">Official sources and exact excerpts</h3>
+<h4 class="src-h3">[S1] Essay Questions — Representing Your Authentic Voice</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">University of Michigan Office of Undergraduate Admissions</span></li><li><span class="k"><span lang="zh">官方链接</span><span lang="en">Official URL</span></span> <span class="v"><a href="https://admissions.umich.edu/apply/first-year-applicants/essay-questions" target="_blank" rel="noopener noreferrer">https://admissions.umich.edu/apply/first-year-applicants/essay-questions</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">Not stated</span></li><li><span class="k"><span lang="zh">适用对象</span><span lang="en">Audience / scope</span></span> <span class="v">Michigan–Ann Arbor本科first-year申请者；页面另链接transfer文书 (<code>undergraduate</code>)</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>policy</code> — 官方本科文书指示，明确列出辅助例子及Do not禁止项。web_fetch曾403，普通requests GET为200且全文可读。</span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; ordinary GET returned HTTP 200. Accessed/saved: 2026-09-24T23:04:45+08:00</span></li></ul>
+<p><strong>[S1-Q1] allowed assistance; own words</strong></p>
+<blockquote><p>Your essays should tell your story, in your words. AI tools can be helpful when used thoughtfully, such as for brainstorming, outlining, proofreading, or organizing information. We recognize these tools may be especially useful for applicants who have limited access to application guidance.</p></blockquote>
+<p><strong>[S1-Q2] no pasted generated text; authentic voice</strong></p>
+<blockquote><p>However, your application should reflect your own ideas, experiences, and authentic voice. Do not copy and paste AI-generated text or submit work that does not represent you.</p></blockquote>
+<h4 class="src-h3">[S2] Apply</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">University of Michigan Office of Undergraduate Admissions</span></li><li><span class="k"><span lang="zh">官方链接</span><span lang="en">Official URL</span></span> <span class="v"><a href="https://admissions.umich.edu/apply" target="_blank" rel="noopener noreferrer">https://admissions.umich.edu/apply</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">Not stated</span></li><li><span class="k"><span lang="zh">适用对象</span><span lang="en">Audience / scope</span></span> <span class="v">本科申请者；页面说明新生、转学、国际生流程差异 (<code>undergraduate</code>)</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v"><code>policy</code> — 这是Michigan页面自身的平台遵循要求及概括；不是独立整理Common App原文，也不抹去S1的有限辅助许可。</span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; ordinary GET returned HTTP 200. Accessed/saved: 2026-09-24T23:04:46+08:00</span></li></ul>
+<p><strong>[S2-Q1] university explicitly adopts platform requirement</strong></p>
+<blockquote><p>The University of Michigan expects all applicants to be familiar with and abide by the Common App Fraud Policy</p></blockquote>
+<p><strong>[S2-Q2] university summary of platform restriction</strong></p>
+<blockquote><p>The Policy also prohibits the use of AI systems to generate content.</p></blockquote>
+<h3 class="src-h2">中文解释（非原文）</h3>
+<p>不能把禁止粘贴AI生成文字改写成所有AI辅助一律禁止，也不能把允许提纲/校对扩成允许代写。S2仅记录学校明确采用平台要求及其页面概括，不另移植Common App平台原文；应和S1明确列举的辅助用途同时阅读。</p>
+<h3 class="src-h2">允许 / 禁止 / 未说明</h3>
+<ul><li><strong>允许或认可的辅助</strong>：brainstorming、outlining、proofreading、organizing information；限定thoughtfully，且不替代本人的思想与声音。[S1-Q1]</li><li><strong>禁止或反对的使用</strong>：Do not copy and paste AI-generated text；不得提交不代表自己的作品。[S1-Q2]</li><li><strong>未明确说明</strong>：AI翻译、实质改写界线、披露、工具/比例阈值、检测与具体本科处分未列明。</li></ul>
+<h3 class="src-h2">检索与局限</h3>
+<p>实际执行的官方站点定向检索如下。摘要仅用于定位；规则结论均来自已取得的可读官方正文。</p>
+<ul><li><code>site:admissions.umich.edu "AI" "essays"</code> — 定位Essay Questions的Representing Your Authentic Voice与Apply总页。</li><li><code>site:umich.edu undergraduate application "artificial intelligence" essays</code> — 交叉定位本科说明及研究生Rackham线索；后者取文403，未用于认定政策。</li></ul>
+<p>局限：</p>
+<ul><li>S1在web_fetch为403，但普通GET成功200并保存完整可读正文；没有绕过访问控制。</li><li>两页未明确标注AI政策发布或更新时间。</li><li>S2是校方对平台要求的概括，不据此否定S1的辅助用途，也不另整理平台政策。</li><li>研究生线索 <a href="https://rackham.umich.edu/admissions/applying/guidance-and-policies-related-to-use-of-genai-for-rackham-applicants/" target="_blank" rel="noopener noreferrer">https://rackham.umich.edu/admissions/applying/guidance-and-policies-related-to-use-of-genai-for-rackham-applicants/</a> 的web_fetch和普通GET均403；仅为未核验线索，不据摘要作本科或研究生规则结论。</li><li>未明确说明的用途不是默认允许。</li></ul>
+<p>“未说明”不代表允许。本次没有提交申请、创建申请账号、联系学校或修改原有大学资料/网站；未来申请周期、其他路径与院系仍须各自核对。</p></div>
+</section>
 <section id="source">
   <div class="sec-head"><h2><span lang="zh">官方原文</span><span lang="en">The official text</span></h2><span class="en2">univ/22-Michigan.md</span></div>
   <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span></p>
@@ -521,7 +594,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </main>
 <footer><div class="wrap">
   <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
-  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
 </div></footer>
 
 <script>

@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>申请环节的 AI 政策 · 美国 30 所大学</title>
+<meta name="description" content="美国 30 所大学招生办公室与申请平台就申请人使用 AI 的公开表述：证据状态、摘要、官方链接与逐字原文。">
+<link rel="canonical" href="https://ai.policy.nestudy.cn/admissions.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+/* ============================================================================
+   TOKENS — same family as the other pages. The evidence statuses deliberately
+   get no colour ramp: they say what material was found, not how strict a rule
+   is, and a dark-to-light scale would read as a ranking.
+   ========================================================================= */
+:root{
+  --paper:#E7E9EF; --surface:#FBFBFD; --surface-2:#F1F3F7; --surface-3:#E7EAF1;
+  --ink:#131A2B; --ink-2:#414B61; --ink-3:#79839A;
+  --rule:#D2D6E0; --rule-soft:#E3E6ED;
+  --seal:#8A2B34; --seal-ink:#8A2B34; --seal-wash:rgba(138,43,52,.08);
+  --mark-edge:rgba(138,43,52,.55);
+  --focus:#3C5BD6;
+  --display:"Spectral","Noto Serif SC",Georgia,serif;
+  --serif:"Spectral","Noto Serif SC",Georgia,serif;
+  --sans:"IBM Plex Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --pad:clamp(16px,5vw,44px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+    --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+    --rule:#28303F; --rule-soft:#1E2532;
+    --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+    --mark-edge:rgba(233,163,170,.6);
+    --focus:#7D95F0;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+  --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+  --rule:#28303F; --rule-soft:#1E2532;
+  --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+  --mark-edge:rgba(233,163,170,.6);
+  --focus:#7D95F0;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0}
+a{color:var(--seal-ink);text-underline-offset:2px}
+
+:root:not([data-lang="en"]) [lang="en"],
+:root[data-lang="en"] [lang="zh"]{display:none !important}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---- top bar ------------------------------------------------------------ */
+.bar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--rule)}
+.bar .wrap{display:flex;align-items:center;gap:10px;height:48px}
+.bar a.home{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-decoration:none;
+  padding:2px 8px;border:1px solid var(--rule);border-radius:2px;flex:none;line-height:1.4}
+.bar a.home:hover{color:var(--ink);border-color:var(--ink-3)}
+.bar a.nav{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);text-decoration:none;
+  padding:3px 6px;border-radius:2px;white-space:nowrap}
+.bar a.nav:hover{color:var(--ink);background:var(--surface-2)}
+.bar .doc{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink);white-space:nowrap;
+  min-width:0;overflow:hidden;text-overflow:ellipsis}
+.bar .sp{flex:1}
+.lang{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;flex:none}
+.lang button{background:var(--surface-2);font-family:var(--mono);font-size:11px;padding:3px 10px;
+  color:var(--ink-3);letter-spacing:.05em}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+@media (max-width:620px){ .bar a.nav{display:none} }
+
+/* ---- masthead ----------------------------------------------------------- */
+.mast{border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
+.mast .wrap{padding-top:clamp(34px,7vw,72px);padding-bottom:clamp(26px,4vw,40px)}
+/* keep-all: a Chinese title breaks only at its spaces, never inside a word */
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5.2vw,52px);line-height:1.1;
+  letter-spacing:-.02em;margin:12px 0 14px;text-wrap:balance;word-break:keep-all}
+h1 .thin{display:block;margin-top:.3em;font-size:.5em;line-height:1.2;color:var(--ink-3);font-weight:600;letter-spacing:0}
+.lede{margin:0;max-width:40rem;font-size:clamp(15.5px,1.7vw,17.5px);color:var(--ink-2)}
+
+/* one column per status on wide screens; two on phones, the odd one out spanning */
+.stats{display:grid;gap:1px;margin-top:clamp(24px,4vw,34px);grid-template-columns:repeat(var(--n,5),minmax(0,1fr));
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.stat{background:var(--surface);padding:12px 14px 13px;display:flex;flex-direction:column;gap:3px;
+  text-align:left;transition:background .14s}
+.stat:hover{background:var(--surface-2)}
+.stat[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.stat[aria-pressed="true"] span{color:var(--surface);opacity:.85}
+.stat b{font-family:var(--mono);font-weight:500;font-size:25px;line-height:1.1;font-variant-numeric:tabular-nums}
+.stat span{font-family:var(--sans);font-size:11.5px;color:var(--ink-3);line-height:1.4}
+@media (max-width:640px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:last-child:nth-child(odd){grid-column:1 / -1}
+}
+
+/* ---- sections ----------------------------------------------------------- */
+section{padding-top:clamp(36px,5vw,56px);scroll-margin-top:60px}
+.sec-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:12px;
+  padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.3vw,25px);margin:0}
+.sec-head .en2{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.sec-sub{margin:0 0 16px;font-family:var(--sans);font-size:13.5px;color:var(--ink-2);max-width:66ch}
+.filter-note{font-family:var(--sans);font-size:12.5px;color:var(--ink-3);margin:0 0 10px;min-height:1.2em}
+.filter-note button{color:var(--seal-ink);text-decoration:underline;text-underline-offset:2px}
+
+/* ---- the table ------------------------------------------------------------ */
+.adm-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--rule);
+  border-radius:3px;font-family:var(--sans);font-size:13.5px;line-height:1.6}
+.adm-table th{text-align:left;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);padding:9px 12px;border-bottom:1px solid var(--rule);
+  background:var(--surface-2);white-space:nowrap}
+.adm-table td{padding:12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+.adm-table tr:last-child td{border-bottom:none}
+.adm-table tr[hidden]{display:none}
+.adm-table .n{font-family:var(--mono);font-size:11px;color:var(--ink-3);width:44px}
+.adm-table .sch{width:170px}
+.adm-table .sch a{text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
+.adm-table .sch b{font-family:var(--display);font-size:16px;font-weight:600;line-height:1.25}
+.adm-table .sch span{font-size:11.5px;color:var(--ink-3)}
+.adm-table .sch a:hover b{color:var(--seal-ink);text-decoration:underline;text-underline-offset:3px}
+.adm-table .st{width:170px}
+.schip{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:2px;
+  box-shadow:inset 0 0 0 1px var(--ink-3);color:var(--ink);line-height:1.5}
+.adm-table .sum{color:var(--ink-2)}
+.adm-table .src{width:96px;font-family:var(--mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
+.adm-table .src b{font-weight:500;color:var(--ink-2)}
+@media (max-width:760px){
+  .adm-table thead{display:none}
+  .adm-table, .adm-table tbody, .adm-table tr, .adm-table td{display:block;width:auto}
+  .adm-table tr{display:grid;grid-template-columns:36px minmax(0,1fr);gap:2px 8px;padding:12px 12px 14px;
+    border-bottom:1px solid var(--rule-soft)}
+  .adm-table td{padding:0;border:none}
+  .adm-table .n{grid-row:1 / span 2;padding-top:3px}
+  .adm-table .st,.adm-table .sum,.adm-table .src{grid-column:2}
+  .adm-table .st{margin-top:4px}
+  .adm-table .sum{margin-top:6px}
+}
+
+/* ---- status definitions and method ----------------------------------------- */
+dl.defs{margin:0;display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr);gap:8px 18px;
+  font-family:var(--sans);font-size:13.5px;line-height:1.6}
+dl.defs dt{margin:0}
+dl.defs dd{margin:0;color:var(--ink-2)}
+@media (max-width:620px){ dl.defs{grid-template-columns:1fr;gap:2px} dl.defs dd{margin-bottom:10px} }
+.method{margin:0;padding-left:20px;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2);max-width:66ch}
+.method li{margin-bottom:8px}
+.method b{color:var(--ink)}
+
+/* ---- rendered source file (platforms) ---------------------------------------- */
+.about{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:14px 16px 16px;margin-bottom:22px}
+.about h3{margin:0 0 10px;font-family:var(--display);font-size:16px;font-weight:600}
+ul.kv{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;
+  font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink-2)}
+ul.kv li{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px}
+ul.kv .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3);padding-top:2px}
+ul.kv .v{min-width:0;overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+@media (max-width:560px){ ul.kv li{grid-template-columns:1fr;gap:0} }
+.source{max-width:46rem}
+.source p,.source li{font-size:15px;line-height:1.75}
+.source p{margin:0 0 14px}
+.source h3,.source h4{font-family:var(--display);font-weight:600;line-height:1.3;margin:28px 0 10px}
+.source h3{font-size:19px;padding-top:14px;border-top:1px solid var(--rule)}
+.source h4{font-size:17px}
+.source ul,.source ol{padding-left:22px;margin:0 0 14px}
+.source li{margin:0 0 6px}
+.source ul.kv{padding:12px 14px;margin:0 0 14px;background:var(--surface);border:1px solid var(--rule-soft);border-radius:2px}
+.source ul.kv li{margin:0;font-size:13px}
+.source blockquote{margin:0 0 14px;padding:2px 0 2px 16px;border-left:2px solid var(--mark-edge);color:var(--ink)}
+.source hr{border:none;border-top:1px dashed var(--rule);margin:18px 0}
+.source a{overflow-wrap:anywhere}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+details.fold{margin:28px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
+footer{margin-top:clamp(40px,6vw,64px);padding:22px 0 52px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:12px;color:var(--ink-3);line-height:1.65}
+footer p{max-width:46rem;margin:0 0 8px}
+
+@media print{
+  :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
+  body{font-size:10.5pt;background:#fff}
+  .bar,#platforms,.filter-note{display:none !important}
+  .adm-table tr[hidden]{display:table-row}
+  .adm-table tr{break-inside:avoid}
+}
+</style>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="home" href="./" title="项目主页 / Home">←</a>
+    <span class="doc" lang="zh">申请环节的 AI 政策</span>
+    <span class="doc" lang="en">AI in the Application</span>
+    <a class="nav" href="atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
+    <span class="sp"></span>
+    <div class="lang" role="group" aria-label="语言 / Language">
+      <button id="b-zh" aria-pressed="true">中文</button>
+      <button id="b-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="eyebrow" lang="zh">申请环节 · 采集于 2026 年 9 月 24 日 · 补充检索 9 月 25 日</span>
+    <span class="eyebrow" lang="en">Admissions · Collected 24 September 2026 · Supplemented 25 September</span>
+    <h1 lang="zh">申请环节的 AI 政策<span class="thin">美国 30 所大学 · 以本科新生申请为主</span></h1>
+    <h1 lang="en">AI in the Application<span class="thin">30 U.S. universities · first-year undergraduate applicants</span></h1>
+    <p class="lede" lang="zh">
+      本页汇总美国 30 所大学招生办公室与申请平台就申请人使用 AI 的公开表述。每所学校附官方链接与逐字原文；「证据状态」描述找到了什么材料，不是宽严等级。
+    </p>
+    <p class="lede" lang="en">
+      What the admissions offices of 30 U.S. universities, and the application platforms, publish about applicants
+      using AI. Each university's entry carries official links and verbatim text; the evidence status describes what
+      material was found, not how strict the rules are.
+    </p>
+    <div class="stats" style="--n:5" role="group" aria-label="按证据状态筛选 / Filter by evidence status"><button class="stat" type="button" data-s="explicit-undergraduate-ai" aria-pressed="false"><b>16</b><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></button><button class="stat" type="button" data-s="uc-system-ai-guidance" aria-pressed="false"><b>3</b><span lang="zh">UC 系统共同规定</span><span lang="en">UC system (shared source)</span></button><button class="stat" type="button" data-s="undergraduate-advice-ai" aria-pressed="false"><b>5</b><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></button><button class="stat" type="button" data-s="authenticity-only" aria-pressed="false"><b>4</b><span lang="zh">仅本人写作／真实性要求</span><span lang="en">Authenticity requirement only</span></button><button class="stat" type="button" data-s="graduate-only-ai" aria-pressed="false"><b>2</b><span lang="zh">AI 明文仅见于研究生</span><span lang="en">Graduate programmes only</span></button></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="schools">
+  <div class="sec-head">
+    <h2 lang="zh">30 所大学</h2><h2 lang="en">By university</h2>
+    <span class="en2">admissions/*.md</span>
+  </div>
+  <p class="sec-sub" lang="zh">点击校名查看该校的来源、逐字原文与整理者分析。摘要为整理者所写，以各校页面中的原文为准。</p>
+  <p class="sec-sub" lang="en">Select a university for its sources, verbatim text and the collector's analysis. Summaries are the collector's, written in Chinese; the source text on each page governs.</p>
+  <p class="filter-note" id="filter-note" aria-live="polite"></p>
+  <table class="adm-table">
+    <thead><tr>
+      <th><span lang="zh">编号</span><span lang="en">No.</span></th>
+      <th><span lang="zh">学校</span><span lang="en">University</span></th>
+      <th><span lang="zh">证据状态</span><span lang="en">Evidence status</span></th>
+      <th><span lang="zh">摘要</span><span lang="en">Summary (in Chinese)</span></th>
+      <th><span lang="zh">来源</span><span lang="en">Sources</span></th>
+    </tr></thead>
+    <tbody id="rows"><tr data-s="graduate-only-ai"><td class="n">01</td><td class="sch"><a href="Stanford/#admissions" title="Stanford University"><b>Stanford</b><span>斯坦福大学</span></a></td><td class="st"><span class="schip"><span lang="zh">AI 明文仅见于研究生</span><span lang="en">Graduate programmes only</span></span></td><td class="sum">本科文书页要求本人措辞与真实声音，但本次未核验到本科专门 AI 使用细则。研究生指南提醒慎用生成式 AI；GSB MBA 禁止他人或工具代写，均不得外推至本科。</td><td class="src"><span lang="zh">来源 <b>4</b><br>引文 <b>6</b></span><span lang="en"><b>4</b> sources<br><b>6</b> quotes</span></td></tr>
+<tr data-s="authenticity-only"><td class="n">02</td><td class="sch"><a href="MIT/#admissions" title="Massachusetts Institute of Technology"><b>MIT</b><span>麻省理工学院</span></a></td><td class="st"><span class="schip"><span lang="zh">仅本人写作／真实性要求</span><span lang="en">Authenticity requirement only</span></span></td><td class="sum">MIT 本科申请页强调诚实、开放、真实；旧招生官博客区分校对与代写，但未专门讨论 AI。招生博客转载的 AI 教学讨论不具政策效力；化学系研究生 AI 线索因无法取回正文未采用。</td><td class="src"><span lang="zh">来源 <b>4</b><br>引文 <b>6</b></span><span lang="en"><b>4</b> sources<br><b>6</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">03</td><td class="sch"><a href="Harvard/#admissions" title="Harvard University"><b>Harvard</b><span>哈佛大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">Harvard College 官方 FAQ 明确讨论 AI：引用 Common App 对将 AI 实质内容故意冒认为原创的欺诈条款，并提出本人内容、文风与英语水平要求及哈佛虚假陈述后果；未列 AI 语法、构思或翻译许可。</td><td class="src"><span lang="zh">来源 <b>1</b><br>引文 <b>4</b></span><span lang="en"><b>1</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">04</td><td class="sch"><a href="Yale/#admissions" title="Yale University"><b>Yale</b><span>耶鲁大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">Yale 本科有明确 AI 政策：允许语法/拼写检查及写作开始时的一般建议或选题建议；把 AI 实质内容用于申请视为欺诈，AI 代写个人陈述或其他回答可能导致撤销录取或开除。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>4</b></span><span lang="en"><b>2</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">05</td><td class="sch"><a href="Cornell/#admissions" title="Cornell University"><b>Cornell</b><span>康奈尔大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">Cornell 本科明确允许 AI 查学校、构思文书题目、检查已完成文书的语法拼写；明确不接受 AI 列提纲、起草/代写、翻译另一语言的文书及生成必需作品集内容。一般撤录政策另行适用。</td><td class="src"><span lang="zh">来源 <b>3</b><br>引文 <b>5</b></span><span lang="en"><b>3</b> sources<br><b>5</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">06</td><td class="sch"><a href="Penn/#admissions" title="University of Pennsylvania"><b>Penn</b><span>宾夕法尼亚大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">Penn 本科明确允许 AI 组织自己的思路和检查语法；申请须为本人工作，AI 生成回答、他人代写或虚构经历会破坏申请认证。2026–2027 升学顾问页再次确认，并区分推荐人及校方的 AI 使用。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>8</b></span><span lang="en"><b>2</b> sources<br><b>8</b> quotes</span></td></tr>
+<tr data-s="authenticity-only"><td class="n">07</td><td class="sch"><a href="Columbia/#admissions" title="Columbia University"><b>Columbia</b><span>哥伦比亚大学</span></a></td><td class="st"><span class="schip"><span lang="zh">仅本人写作／真实性要求</span><span lang="en">Authenticity requirement only</span></span></td><td class="sum">Columbia 本科新生页承认申请人会使用各种工具与支持，但要求全部材料为本人原创、体现本人声音，并提示入学后须遵守校内 Generative AI Policy；本科真实性声明列出撤销录取等可能后果。两页均未逐项规定 AI 用途。（2026-09-25 补充检索取得本科正文）</td><td class="src"><span lang="zh">来源 <b>3</b><br>引文 <b>5</b></span><span lang="en"><b>3</b> sources<br><b>5</b> quotes</span></td></tr>
+<tr data-s="graduate-only-ai"><td class="n">08</td><td class="sch"><a href="Duke/#admissions" title="Duke University"><b>Duke</b><span>杜克大学</span></a></td><td class="st"><span class="schip"><span lang="zh">AI 明文仅见于研究生</span><span lang="en">Graduate programmes only</span></span></td><td class="sum">本科申请与 FAQ 正文已检查，未找到校方明确的本科申请 AI 使用细则。Fuqua Daytime MBA 有明确规则：AI 可辅助编辑与清晰表达，不应生成内容；该规则不能外推本科。</td><td class="src"><span lang="zh">来源 <b>4</b><br>引文 <b>4</b></span><span lang="en"><b>4</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">09</td><td class="sch"><a href="Northwestern/#admissions" title="Northwestern University"><b>Northwestern</b><span>西北大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">本科招生办公室明确区分建设性与不当 AI 用法：可研究学校、构思文书题目、检查完成稿语法等；不当用法包括代写、翻译文书、将本人提纲交给 AI 写成文书、改写其他学校补充文书。属于官方招生指导，不虚构处罚。</td><td class="src"><span lang="zh">来源 <b>1</b><br>引文 <b>3</b></span><span lang="en"><b>1</b> sources<br><b>3</b> quotes</span></td></tr>
+<tr data-s="authenticity-only"><td class="n">10</td><td class="sch"><a href="UChicago/#admissions" title="University of Chicago"><b>UChicago</b><span>芝加哥大学</span></a></td><td class="st"><span class="schip"><span lang="zh">仅本人写作／真实性要求</span><span lang="en">Authenticity requirement only</span></span></td><td class="sum">本科申请页要求以自己的声音、真实的自己呈现申请；FAQ 提到可提交原创研究摘要。已核验的申请与 FAQ 正文没有明确 AI 使用分类，不能从一般真实性建议推导全面禁用或允许。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>2</b></span><span lang="en"><b>2</b> sources<br><b>2</b> quotes</span></td></tr>
+<tr data-s="undergraduate-advice-ai"><td class="n">11</td><td class="sch"><a href="Princeton/#admissions" title="Princeton University"><b>Princeton</b><span>普林斯顿大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></span></td><td class="sum">招生院长的 2026 与 2025 官方博客明确劝申请人不要依赖生成想法或代写文书的 AI，并强调本人作品的申请承诺；属于官方劝告，不能改写成细分用途的统一禁止政策。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>4</b></span><span lang="en"><b>2</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">12</td><td class="sch"><a href="Caltech/#admissions" title="California Institute of Technology"><b>Caltech</b><span>加州理工学院</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">Fall 2027 明确要求遵守经本科招生与研究生委员会批准的 AI 指南，违规则可能撤销录取：可检查完成稿语法拼写、生成启发构思的问题／练习、研究申请流程；不得依赖 AI 写提纲／初稿、替换个人声音或翻译文书。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>5</b></span><span lang="en"><b>2</b> sources<br><b>5</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">13</td><td class="sch"><a href="JHU/#admissions" title="Johns Hopkins University"><b>Johns Hopkins</b><span>约翰斯·霍普金斯大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">本科招生 FAQ 明确允许写作开始前用 AI 构思/细化想法，以及对本人文字做拼写、语法等基础校对；申请材料必须原创，提交 AI 实质内容被列为申请欺诈。</td><td class="src"><span lang="zh">来源 <b>1</b><br>引文 <b>3</b></span><span lang="en"><b>1</b> sources<br><b>3</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">14</td><td class="sch"><a href="Brown/#admissions" title="Brown University"><b>Brown</b><span>布朗大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">Brown 本科招生办明确：任何情况下都不得将 AI 用于申请内容，仅允许像其他基础校对工具一样用 AI 检查拼写和语法；文书、短答等全部材料须为本人作品，并认可 Common App 的欺诈定义；可能后果包括撤销录取、开除或撤销学位。（2026-09-25 补充检索取得本科正文）</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>4</b></span><span lang="en"><b>2</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="undergraduate-advice-ai"><td class="n">15</td><td class="sch"><a href="Vanderbilt/#admissions" title="Vanderbilt University"><b>Vanderbilt</b><span>范德堡大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></span></td><td class="sum">本科新生申请 FAQ 将 ChatGPT 等视为可能的辅助来源，以构思辅导、语法工具和清晰度/结构反馈作类比；明确 AI 不应替代申请者独立思考，文书应使用本人声音与真实经历。</td><td class="src"><span lang="zh">来源 <b>1</b><br>引文 <b>3</b></span><span lang="en"><b>1</b> sources<br><b>3</b> quotes</span></td></tr>
+<tr data-s="uc-system-ai-guidance"><td class="n">16</td><td class="sch"><a href="Berkeley/#admissions" title="University of California, Berkeley"><b>UC Berkeley</b><span>加州大学伯克利分校</span></a></td><td class="st"><span class="schip"><span lang="zh">UC 系统共同规定</span><span lang="en">UC system (shared source)</span></span></td><td class="sum">UC 系统申请诚信声明明确允许 AI 辅助可读性，要求本人独立写作及本人内容/最终文字；2026–27 指南另提早期构思/整理。非 Berkeley 独有。LL.M. 个人陈述有另行的生成式 AI 限制，仅限该项目。</td><td class="src"><span lang="zh">来源 <b>5</b><br>引文 <b>10</b></span><span lang="en"><b>5</b> sources<br><b>10</b> quotes</span></td></tr>
+<tr data-s="uc-system-ai-guidance"><td class="n">17</td><td class="sch"><a href="UCLA/#admissions" title="University of California, Los Angeles"><b>UCLA</b><span>加州大学洛杉矶分校</span></a></td><td class="st"><span class="schip"><span lang="zh">UC 系统共同规定</span><span lang="en">UC system (shared source)</span></span></td><td class="sum">UC 系统申请诚信声明允许 AI 辅助可读性但要求最终内容/文字为本人所有；2026–27 指南允许早期构思/整理。非 UCLA 独有。Anderson MBA 另允许校对但禁止生成/实质改写，仅限研究生项目。</td><td class="src"><span lang="zh">来源 <b>6</b><br>引文 <b>10</b></span><span lang="en"><b>6</b> sources<br><b>10</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">18</td><td class="sch"><a href="Rice/#admissions" title="Rice University"><b>Rice</b><span>莱斯大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">现行本科招生 FAQ 明确回答 AI 帮助申请的问题：可用于构思或整理申请者自己的想法，但必须保留原创思考和本人声音，工具不应替申请者创作内容。并非只有在校生 AI/Honor Code 政策。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>3</b></span><span lang="en"><b>2</b> sources<br><b>3</b> quotes</span></td></tr>
+<tr data-s="undergraduate-advice-ai"><td class="n">19</td><td class="sch"><a href="Dartmouth/#admissions" title="Dartmouth College"><b>Dartmouth</b><span>达特茅斯学院</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></span></td><td class="sum">官方历史播客中，招生负责人认可用AI帮助组织思路，反对外包个人表达；当时“没有政策”不能推出2026年仍无政策。现行文书页强调本人真实声音，未给AI逐项许可或处罚清单。[S1][S2]</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>5</b></span><span lang="en"><b>2</b> sources<br><b>5</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">20</td><td class="sch"><a href="NotreDame/#admissions" title="University of Notre Dame"><b>Notre Dame</b><span>圣母大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">本科AI政策明确允许拼写/语法审查及动笔前头脑风暴；文书、短答、活动等全部材料须为本人作品。提交AI生成、起草或实质写成的内容可能撤销录取或开除。[S1]</td><td class="src"><span lang="zh">来源 <b>1</b><br>引文 <b>2</b></span><span lang="en"><b>1</b> sources<br><b>2</b> quotes</span></td></tr>
+<tr data-s="undergraduate-advice-ai"><td class="n">21</td><td class="sch"><a href="CMU/#admissions" title="Carnegie Mellon University"><b>Carnegie Mellon</b><span>卡内基梅隆大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></span></td><td class="sum">本科FAQ说明AI只能辅助：语法拼写检查、结构或词汇改进建议，不能替代个人声音、经历与表达，并提示抄袭风险；未列本科专项处罚。Heinz研究生文书另禁AI写任何部分，不得把研究生拒录后果泛化到本科。[S1][S2]</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>5</b></span><span lang="en"><b>2</b> sources<br><b>5</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">22</td><td class="sch"><a href="UMich/#admissions" title="University of Michigan–Ann Arbor"><b>Michigan</b><span>密歇根大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">本科文书页列举审慎使用AI进行头脑风暴、提纲、校对、整理信息；须体现本人想法、经历与声音，禁止粘贴AI生成文字或提交不代表自己的作品。Apply页另要求遵守Common App Fraud Policy。[S1][S2]</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>4</b></span><span lang="en"><b>2</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">23</td><td class="sch"><a href="Georgetown/#admissions" title="Georgetown University"><b>Georgetown</b><span>乔治城大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">公开本科申请表的签名确认明确禁止用AI工具完成申请任何部分（含文书），未列校对/润色例外。CEH硕士亦禁AI辅助/代写，而MBA允许有限辅助；这些研究生差异不能覆盖本科禁令。[S1][S2][S3]</td><td class="src"><span lang="zh">来源 <b>3</b><br>引文 <b>7</b></span><span lang="en"><b>3</b> sources<br><b>7</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">24</td><td class="sch"><a href="Emory/#admissions" title="Emory University"><b>Emory</b><span>埃默里大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">本科FAQ将AI定位为写作教练而非创作者，允许有限润色/编辑建议、活动栏表达澄清和个人陈述思路组织；不得替代或生成个人内容与创意，须保持本人声音。入学后Honor Code段落不能当作申请AI专项处罚。[S1]</td><td class="src"><span lang="zh">来源 <b>1</b><br>引文 <b>3</b></span><span lang="en"><b>1</b> sources<br><b>3</b> quotes</span></td></tr>
+<tr data-s="authenticity-only"><td class="n">25</td><td class="sch"><a href="UNC/#admissions" title="University of North Carolina at Chapel Hill"><b>UNC Chapel Hill</b><span>北卡罗来纳大学教堂山分校</span></a></td><td class="st"><span class="schip"><span lang="zh">仅本人写作／真实性要求</span><span lang="en">Authenticity requirement only</span></span></td><td class="sum">已核验本科申请页希望个人文书展现本人声音；未在所查页面核验到申请人AI用途的具体规则。招生办自身使用AI的FAQ不能当作申请人可以使用AI的依据。</td><td class="src"><span lang="zh">来源 <b>4</b><br>引文 <b>4</b></span><span lang="en"><b>4</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">26</td><td class="sch"><a href="WashU/#admissions" title="Washington University in St. Louis"><b>WashU</b><span>圣路易斯华盛顿大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">WashU本科招生页与FAQ均将AI为文书脑暴选题、起草和写作列为Never/不道德用法；允许研究大学及拟定选校名单，审慎允许检查已完成文书的语法拼写。</td><td class="src"><span lang="zh">来源 <b>2</b><br>引文 <b>4</b></span><span lang="en"><b>2</b> sources<br><b>4</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">27</td><td class="sch"><a href="UVA/#admissions" title="University of Virginia"><b>UVA</b><span>弗吉尼亚大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">UVA 本科 AI FAQ 允许有限的选题构思和语法检查，但不得把 AI 内容复制粘贴进文书；最终材料须为本人原创，申请人须签署真实性 honor statement。官方正文已通过桌面浏览器核验。</td><td class="src"><span lang="zh">来源 <b>5</b><br>引文 <b>7</b></span><span lang="en"><b>5</b> sources<br><b>7</b> quotes</span></td></tr>
+<tr data-s="undergraduate-advice-ai"><td class="n">28</td><td class="sch"><a href="USC/#admissions" title="University of Southern California"><b>USC</b><span>南加州大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></span></td><td class="sum">USC本科招生官博客明确说好的文书应来自真实的你，而不是成人或AI；另建议用自己的话和风格、请真人反馈。属于官方招生建议，未细分AI脑暴、润色、翻译许可或处罚。</td><td class="src"><span lang="zh">来源 <b>3</b><br>引文 <b>7</b></span><span lang="en"><b>3</b> sources<br><b>7</b> quotes</span></td></tr>
+<tr data-s="uc-system-ai-guidance"><td class="n">29</td><td class="sch"><a href="UCSD/#admissions" title="University of California San Diego"><b>UC San Diego</b><span>加州大学圣地亚哥分校</span></a></td><td class="st"><span class="schip"><span lang="zh">UC 系统共同规定</span><span lang="en">UC system (shared source)</span></span></td><td class="sum">UC 系统声明允许 AI 辅助可读性，要求 PIQ 由本人独立写作、内容和最终文字属于本人；2026–27 first-year 指南另提早期构思/整理，须保留本人作品与声音。有真实性核验和虚假申请后果，非 UCSD 独有规则。</td><td class="src"><span lang="zh">来源 <b>5</b><br>引文 <b>5</b></span><span lang="en"><b>5</b> sources<br><b>5</b> quotes</span></td></tr>
+<tr data-s="explicit-undergraduate-ai"><td class="n">30</td><td class="sch"><a href="NYU/#admissions" title="New York University"><b>NYU</b><span>纽约大学</span></a></td><td class="st"><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></td><td class="sum">NYU 本科允许 AI 作工具，但最终须真实原创，须遵守与在校生相同的相关实践/标准；称审阅中不使用 AI 检测。Wagner MSPP 仅允许拼写/语法辅助，Tisch Film Production MFA 要求披露，均仅限各研究生项目。</td><td class="src"><span lang="zh">来源 <b>6</b><br>引文 <b>8</b></span><span lang="en"><b>6</b> sources<br><b>8</b> quotes</span></td></tr></tbody>
+  </table>
+</section>
+
+<section id="statuses">
+  <div class="sec-head">
+    <h2 lang="zh">证据状态的含义</h2><h2 lang="en">What the statuses mean</h2>
+  </div>
+  <dl class="defs"><dt><span class="schip"><span lang="zh">本科 AI 明文边界</span><span lang="en">Explicit undergraduate rules</span></span></dt><dd><span lang="zh">对本科申请人使用 AI 写明了边界：哪些用途允许、哪些禁止，或违反的后果。效力以来源的性质为准。</span><span lang="en">States in writing where the lines are for undergraduate applicants: which uses are allowed, which are not, or what follows a breach. Its force depends on the kind of source.</span></dd><dt><span class="schip"><span lang="zh">UC 系统共同规定</span><span lang="en">UC system (shared source)</span></span></dt><dd><span lang="zh">依据 UC 系统的共同来源（申请诚信声明与申请指南），不是该校区单独发布的政策。</span><span lang="en">Rests on the UC system&#x27;s shared sources (the Statement of Application Integrity and the application guide), not on a policy issued by the campus.</span></dd><dt><span class="schip"><span lang="zh">本科 AI 官方指导</span><span lang="en">Official undergraduate guidance</span></span></dt><dd><span lang="zh">官方渠道对申请中使用 AI 给出指导或劝告，但没有写成明确的许可或禁止边界。</span><span lang="en">An official channel gives guidance or advice on using AI in the application, without stating firm lines.</span></dd><dt><span class="schip"><span lang="zh">仅本人写作／真实性要求</span><span lang="en">Authenticity requirement only</span></span></dt><dd><span lang="zh">有本人写作或真实性要求，但未核实到针对 AI 的具体边界；不能据此推出任何 AI 用途被允许或禁止。</span><span lang="en">Own-work or authenticity requirements exist, but no AI-specific lines were verified; no AI use can be inferred from them to be allowed or forbidden.</span></dd><dt><span class="schip"><span lang="zh">AI 明文仅见于研究生</span><span lang="en">Graduate programmes only</span></span></dt><dd><span lang="zh">已核实的 AI 明文只适用于研究生或特定项目，不外推到本科申请。</span><span lang="en">The explicit AI rules verified apply only to graduate or specific programmes and are not extended to undergraduate applications.</span></dd></dl>
+</section>
+
+<section id="platforms">
+  <div class="sec-head">
+    <h2 lang="zh">申请平台与 UC 系统</h2><h2 lang="en">Application platforms and the UC system</h2>
+    <span class="en2">admissions/00-Application-Platforms.md</span>
+  </div>
+  <p class="sec-sub" lang="zh">Common App 与 UC 系统的规定适用于通过这些平台提交的申请。它们是共同来源，不计为各校独立发布的规则。</p>
+  <p class="sec-sub" lang="en">Common App and UC system rules apply to applications submitted through those platforms. They are shared sources and are not counted as rules issued by each university.</p>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai; exact acquisition timestamps in <code>research/platforms.json</code>)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Selected verbatim English excerpts with separate Chinese analysis; not a complete reproduction or legal interpretation.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">Common App is an application platform; UC sources concern its shared undergraduate application. These are <strong>not additional universities</strong> and must not be counted as independently issued rules at every member/campus.</span></li><li><span class="k"><span lang="zh">证据说明</span><span lang="en">Evidence note</span></span> <span class="v">All quoted text has been fetched from official public sources and matched against saved text. Common App's static HTML only exposed headings; its official public Gatsby page-data JSON contained the actual policy paragraphs. No login or access-control bypass was used.</span></li></ul></div>
+  <div class="source"><h3 class="src-h2">关键发现</h3>
+<ol><li><strong>Common App 禁止的是冒认实质性 AI 产出为本人原创。</strong> 必须保留 <code>intentionally misrepresenting</code>、<code>one’s own original work</code>、<code>substantive content or output</code> 的条件，不能缩写成“使用任何 AI 就是申请欺诈”。该文件没有逐项授权语法检查、构思、翻译或改写；这些边界仍须查目标院校。[CA1]</li><li><strong>平台后果与大学录取决定不同。</strong> Common App 可暂停、终止账号并向 My Colleges List 通报；大学如何处置录取是另一个层级，不能把平台处分直接等同于必然退学。[CA1]</li><li><strong>Common App 明文提供申诉机会。</strong> 针对平台自身的违规认定，注册用户可以在书面通知后 10 个工作日内提交陈述与证据。这并不保证每所大学都有同样的录取申诉程序，但足以说明不能笼统写“申请审查没有任何陈述或申诉机会”。[CA1-Q2]</li><li><strong>UC 官方材料区分辅助与代写。</strong> 官网招生人员访谈允许谨慎利用 AI 辅助结构、可读性；2025 年招生顾问培训材料承认早期阶段的辅助作用，但要求最后的 PIQ 在声音、实质和反思上属于申请人本人。不能据此理解为可直接提交 AI 改写后的任何内容。[UC1, UC3]</li><li><strong>UC 也有明确标注 2026–27 申请季的指导。</strong> 现场下载的 first-year 申请指南共 84 页，第 67 页将 AI 定位为早期构思/整理思路的工具，而非本人作品与声音的替代。搜索摘要仍可能显示旧版，不应照抄摘要。[UC5]</li><li><strong>UC 有直接点名生成式 AI 的申请诚信声明。</strong> 本轮找到并下载公开官方 <code>Statement of Application Integrity</code>：允许就内容、编辑获得建议，包括用生成式 AI 辅助可读性，但内容和最终文字必须属于本人；UC 可要求核实内容或写作确系本人所作。该正式系统文件比招生访谈更适合作为规则依据。[UC4]</li></ol>
+<h3 class="src-h2">Official sources and selected original text</h3>
+<h4 class="src-h3">[UC5] Presenting yourself on the first-year UC application 2026–27</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publishing unit</span></span> <span class="v">University of California Admissions</span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admission.universityofcalifornia.edu/counselors/_files/documents/presenting-yourself-on-the-uc-application-first-year.pdf" target="_blank" rel="noopener noreferrer">https://admission.universityofcalifornia.edu/counselors/_files/documents/presenting-yourself-on-the-uc-application-first-year.pdf</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2026–27 cycle on cover; exact publication/update date not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">UC first-year application, 2026–27 cycle; physical PDF page 67 of 84</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v">official-application-guidance</span></li></ul>
+<p><strong>[UC5-Q1]</strong></p>
+<blockquote><p>Can be a useful tool for brainstorming or organizing your thoughts in the early stages, but your final PIQ responses should be your own work and voice</p></blockquote>
+<p><strong>[UC5-Q2]</strong></p>
+<blockquote><p>All applicants must agree to UC’s Statement of Application Integrity when submitting their UC application!</p></blockquote>
+<h4 class="src-h3">[UC4] Statement of Application Integrity</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publishing unit</span></span> <span class="v">University of California undergraduate admissions application</span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf" target="_blank" rel="noopener noreferrer">https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">Last updated August 2023</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">UC undergraduate application; shared system rule; public PDF page 1</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v">system-application-policy</span></li></ul>
+<p><strong>[UC4-Q1]</strong></p>
+<blockquote><p>The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own.</p></blockquote>
+<p><strong>[UC4-Q2]</strong></p>
+<blockquote><p>UC conducts regular screenings to verify the integrity of the responses, may request authentication of the content or writing as the student’s, and will take action when it is determined that the integrity of the response is compromised.</p></blockquote>
+<p><strong>[UC4-Q3]</strong></p>
+<blockquote><p>Students found to have falsified application information will be subject to penalties up to and including denial of admission, withdrawal of an admission offer, registration cancellation, expulsion or revocation of a University of California degree.</p></blockquote>
+<h4 class="src-h3">[CA1] Common Application Fraud Policy</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publishing unit</span></span> <span class="v">The Common Application, Inc.</span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://www.commonapp.org/fraud-policy/" target="_blank" rel="noopener noreferrer">https://www.commonapp.org/fraud-policy/</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">August 2023 (Date of Last Update)</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">Common App registered users; platform policy, not an individual university policy</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v">platform-policy</span></li></ul>
+<ul class="kv"><li><span class="k"><span lang="zh">提取所用公开数据</span><span lang="en">Public page-data used for extraction</span></span> <span class="v"><a href="https://www.commonapp.org/page-data/fraud-policy/page-data.json" target="_blank" rel="noopener noreferrer">https://www.commonapp.org/page-data/fraud-policy/page-data.json</a></span></li></ul>
+<p><strong>[CA1-Q1]</strong></p>
+<blockquote><p>Submitting plagiarized essays or other written or oral material, or intentionally misrepresenting as one’s own original work: (1) another person’s thoughts, language, ideas, expressions, or experiences or (2) the substantive content or output of an artificial intelligence platform, technology, or algorithm;</p></blockquote>
+<p><strong>[CA1-Q2]</strong></p>
+<blockquote><p>A Registered User who receives notice that Common App has determined a violation of our Terms of Use occurred shall be provided an opportunity to appeal Common App’s decision within ten (10) business days from the date of Common App’s written notice by submitting a written statement and any relevant supporting documentation refuting the Fraud determination or otherwise explaining the circumstances around the misconduct.</p></blockquote>
+<p><strong>[CA1-Q3]</strong></p>
+<blockquote><p>Common App in its sole discretion may take action as a result of a Fraud determination which may include permanent suspension, temporary suspension, or termination of their Common App user account, and disclosure of the Fraud to the Registered User’s “My Colleges List."</p></blockquote>
+<h4 class="src-h3">[UC1] Shaping your personal narrative: PIQ tips and more from UC admissions experts</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publishing unit</span></span> <span class="v">University of California; interview with UC admissions staff</span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://www.universityofcalifornia.edu/news/shaping-your-personal-narrative-piq-tips-and-more-uc-admissions-experts" target="_blank" rel="noopener noreferrer">https://www.universityofcalifornia.edu/news/shaping-your-personal-narrative-piq-tips-and-more-uc-admissions-experts</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2025-10-23; metadata modified 2025-10-30</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">UC undergraduate application; system-hosted interview, not a campus-specific rule</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v">official-advice</span></li></ul>
+<p><strong>[UC1-Q1]</strong></p>
+<blockquote><p>First, whatever you ultimately submit better be your own creation.</p></blockquote>
+<p><strong>[UC1-Q2]</strong></p>
+<blockquote><p>That said, an AI tool can help you with structure and readability, but use it with caution.</p></blockquote>
+<p><strong>[UC1-Q3]</strong></p>
+<blockquote><p>Your writing needs to reflect your own experiences, in your own words.</p></blockquote>
+<h4 class="src-h3">[UC2] Personal insight questions — Applying as a first year</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publishing unit</span></span> <span class="v">University of California Admissions</span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/personal-insight-questions.html" target="_blank" rel="noopener noreferrer">https://admission.universityofcalifornia.edu/how-to-apply/applying-as-a-first-year/personal-insight-questions.html</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">Not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">UC first-year application PIQs</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v">official-application-instructions</span></li></ul>
+<p><strong>[UC2-Q1]</strong></p>
+<blockquote><p>Your answers should reflect your own ideas and be written by you alone, but others — family, teachers and friends can offer valuable suggestions. Ask advice of whomever you like, but do not plagiarize from sources in print or online and do not use anyone's words, published or unpublished, but your own.</p></blockquote>
+<h4 class="src-h3">[UC3] We just want to talk: Approaching the PIQ conversation with purpose</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publishing unit</span></span> <span class="v">University of California Admissions — 2025 Counselor Conference</span></li><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admission.universityofcalifornia.edu/counselors/_files/documents/2025-counselor-conference-pdfs/ada-pdfs/cc-piq-workshop_ada.pdf" target="_blank" rel="noopener noreferrer">https://admission.universityofcalifornia.edu/counselors/_files/documents/2025-counselor-conference-pdfs/ada-pdfs/cc-piq-workshop_ada.pdf</a></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">2025 conference material (not a confirmed 2026–27 rule update)</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">UC PIQ counselor training; PDF page 29 of 44</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority</span></span> <span class="v">official-counselor-guidance</span></li></ul>
+<p><strong>[UC3-Q1]</strong></p>
+<blockquote><p>If used thoughtfully, AI tools might assist in the early stages of the writing process. But students should ensure that their final PIQ responses are entirely their own in voice, substance, and reflection.</p></blockquote>
+<p><strong>[UC3-Q2]</strong></p>
+<blockquote><p>AI is not a replacement for a student's own words!</p></blockquote>
+<h3 class="src-h2">Research limits / 适用边界</h3>
+<ul><li>不将 2025 年资料的发布日期改成 2026 年。本次是 <strong>2026-09-24 访问到的公开快照</strong>；UC1 访谈的页末还保留 fall 2026/2025 deadline，UC3 为 2025 培训材料；与明确标注 2026–27 申请季的 UC5 分开。</li><li>已取得 UC 官方公开申请诚信声明 PDF（页内标明 2023 年 8 月更新），但未登录申请系统核对当季提交按钮前的最终认证界面。不得把公开 PDF 的访问日期改成它的更新日期，也不能保证其与未来申请季的界面完全一致。</li><li>UC 的三所样本学校可共同受到系统 PIQ 要求约束，但在跨校统计中必须标记 <strong>共同来源</strong>，不可作为三份相互独立的政策证据。</li><li>原文提及 plagiarism detection 不等于公布 AI 检测器名称、准确率或“仅凭分数作决定”的程序，不能自行补推。</li><li>本文件不替代学校或申请平台当季页面；特殊项目、作品集、视频面试和推荐信可能另有要求。</li></ul>
+<details class="fold"><summary><span class="fold-h">Search and retrieval log</span></summary>
+<ul><li>Search: <code>site.commonapp.org fraud policy artificial intelligence substantive content application</code>；官方 HTML 仅抽取到标题，转查同站公开 page-data 获取正文。</li><li>Search: <code>Common App fraud policy official site AI</code>；第三方解释未作为规则依据。</li><li>Search: <code>site.universityofcalifornia.edu admissions artificial intelligence personal insight questions AI</code>；定位系统官网招生访谈。</li><li>Search: <code>"site:admission.universityofcalifornia.edu" "artificial intelligence"</code>；定位 2025 Counselor Conference PDF，并下载实际 PDF 后逐页提取，AI 段落位于物理第 29 页。</li><li>UC first-year PIQ 页面实际读取，保存完整可读文本。</li><li>独立重新下载 first-year UC application PDF，核实 2026–27 封面、84 页总页数与第 67 页 AI 指导；引用现场文件而非搜索旧摘要。</li><li>追加精确短语检索 <code>"Students may receive advice on content and editing"</code>，定位并下载 UC 官方申请系统的 <code>StatementOfIntegrity.pdf</code>，核实 AI 条款和页末 August 2023 更新日期。</li></ul>
+</details></div>
+</section>
+
+<section id="method">
+  <div class="sec-head">
+    <h2 lang="zh">方法与局限</h2><h2 lang="en">Method and limitations</h2>
+  </div>
+  <ul class="method" lang="zh">
+    <li><b>范围。</b>以本科新生申请为主；研究生、转学和特定项目的规定单独标注，不外推到本科。</li>
+    <li><b>证据。</b>只有原文明确写出的许可与后果才记为证据。英文引文与采集时保存的来源逐字比对（仅标准化空白）；中文为整理者的分析，与原文分开标注。</li>
+    <li><b>不作的推断。</b>未检索到或未说明，不代表没有规定，更不代表允许。禁止 AI 代写不等于禁止一切辅助；允许语法检查也不等于允许改写或翻译。</li>
+    <li><b>效力。</b>正式规则、招生官建议与学生博客的效力不同，证据状态据此区分。</li>
+    <li><b>共同来源。</b>Common App 与 UC 系统单独列出；UC 的 3 所校区共用同一系统来源，不计为 3 份独立政策。</li>
+    <li><b>时效。</b>采集于 2026 年 9 月 24 日。Brown 与 Columbia 的本科页面当日无法访问，于 9 月 25 日补充检索取得正文。访问日不是生效日，提交申请前须按当季页面复核。</li>
+  </ul>
+  <ul class="method" lang="en">
+    <li><b>Scope.</b> Chiefly first-year undergraduate applications. Rules for graduate, transfer and specific programmes are labelled as such and not extended to undergraduates.</li>
+    <li><b>Evidence.</b> Only permissions and consequences the source states explicitly count as evidence. English quotations were matched verbatim against the sources saved at collection (whitespace normalised only); the Chinese is the collector's analysis and is marked apart from the source text.</li>
+    <li><b>Inferences not drawn.</b> Nothing found, or nothing said, does not mean there is no rule, still less that a use is allowed. A ban on AI ghost-writing is not a ban on all help; permission to check grammar is not permission to rewrite or translate.</li>
+    <li><b>Force.</b> Formal rules, admissions officers' advice and student blogs carry different weight; the evidence status separates them.</li>
+    <li><b>Shared sources.</b> Common App and the UC system are listed on their own; the 3 UC campuses share one system source and are not counted as 3 independent policies.</li>
+    <li><b>Currency.</b> Collected on 24 September 2026. The undergraduate pages of Brown and Columbia could not be reached that day and were retrieved on 25 September. An access date is not an effective date; check the pages for the current cycle before applying.</li>
+  </ul>
+</section>
+
+<footer>
+  <p lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引英文逐字摘自各校与申请平台官方发布的网页，版权归原发布者所有，为学术研究与评述目的引用；中文分析与证据状态是本项目的判断，不代表任何大学的立场，也不构成申请建议。提交申请前，请以当季官方页面与申请系统中的最终声明为准。发现过期或有误，欢迎提出更正。</p>
+  <p lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> English quotations are reproduced verbatim from the universities' and platforms' own published pages; copyright remains with them and the material is used for academic research and commentary. The Chinese analysis and the evidence statuses are this project's judgment, represent no university's position, and are not application advice. Before applying, rely on the current official pages and the final statements in the application system. Corrections are welcome.</p>
+  <p><a href="./"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+</footer>
+</main>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const zh = document.getElementById("b-zh"), en = document.getElementById("b-en");
+  function set(lang, store) {
+    root.setAttribute("data-lang", lang);
+    zh.setAttribute("aria-pressed", String(lang === "zh"));
+    en.setAttribute("aria-pressed", String(lang === "en"));
+    if (store) { try { localStorage.setItem("guidelines-lang", lang); } catch (e) {} }
+    note();
+  }
+
+  // Filter the table by evidence status; pressing the active status again clears it.
+  const rows = [...document.querySelectorAll("#rows tr")];
+  const stats = [...document.querySelectorAll(".stat")];
+  const noteEl = document.getElementById("filter-note");
+  let current = null;
+  function note() {
+    if (!current) { noteEl.textContent = ""; return; }
+    const shown = rows.filter(r => !r.hidden).length;
+    const label = document.querySelector('.stat[data-s="' + current + '"] span[lang="' + (root.dataset.lang || "zh") + '"]');
+    const isEn = root.dataset.lang === "en";
+    noteEl.textContent = (isEn ? "Showing " + shown + " of " + rows.length + ": " : "显示 " + shown + " / " + rows.length + " 所：") + (label ? label.textContent : "") + " ";
+    const b = document.createElement("button");
+    b.type = "button";
+    b.textContent = isEn ? "Show all" : "显示全部";
+    b.addEventListener("click", () => filter(null));
+    noteEl.appendChild(b);
+  }
+  function filter(s) {
+    current = s;
+    rows.forEach(r => { r.hidden = !!s && r.dataset.s !== s; });
+    stats.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.s === s)));
+    note();
+  }
+  stats.forEach(b => b.addEventListener("click", () => filter(current === b.dataset.s ? null : b.dataset.s)));
+
+  let saved = null;
+  try { saved = localStorage.getItem("guidelines-lang"); } catch (e) {}
+  set(saved === "en" ? "en" : "zh", false);
+  zh.addEventListener("click", () => set("zh", true));
+  en.addEventListener("click", () => set("en", true));
+})();
+</script>

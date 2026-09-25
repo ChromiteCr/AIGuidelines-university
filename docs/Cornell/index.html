@@ -107,6 +107,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -224,6 +227,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -248,7 +284,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -260,6 +296,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>
@@ -311,6 +348,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="chip" title="仅适用于某一学院、项目或系"><span lang="zh">来源层级 · <b>院系或项目级</b></span><span lang="en">Source level · <b>Unit or school</b></span></span>
     <span class="chip"><span lang="zh"><b>7</b> / 12 项有明文规定</span><span lang="en"><b>7</b> of 12 provisions addressed</span></span>
     <span class="chip"><span lang="zh">采集于 <b>2026-08-21</b></span><span lang="en">Accessed <b>2026-08-21</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>本科 AI 明文边界</b></span><span lang="en">Admissions · <b>Explicit undergraduate rules</b></span></a>
   </div>
   <nav class="strip" aria-label="十二项条款 / Twelve provisions"><a class="sc" data-r="1" href="#p-default_rule" title="默认规则：交由教师决定"><em><span lang="zh">默认规则</span><span lang="en">Default rule</span></em><b><span lang="zh">交由教师决定</span><span lang="en">Instructor decides, no default</span></b></a><a class="sc" data-r="2" href="#p-instructor_override" title="课程规则优先：教师可定但有底线"><em><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></em><b><span lang="zh">教师可定但有底线</span><span lang="en">Instructor rules within limits</span></b></a><a class="sc" data-r="0" href="#p-tiered_scale" title="分级许可：未提及"><em><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="1" href="#p-disclosure" title="披露要求：建议披露"><em><span lang="zh">披露要求</span><span lang="en">Disclosure</span></em><b><span lang="zh">建议披露</span><span lang="en">Recommended</span></b></a><a class="sc" data-r="1" href="#p-process_evidence" title="过程留证：建议留证"><em><span lang="zh">过程留证</span><span lang="en">Process evidence</span></em><b><span lang="zh">建议留证</span><span lang="en">Recommended</span></b></a><a class="sc" data-r="2" href="#p-verification_duty" title="核实责任：须自行核实"><em><span lang="zh">核实责任</span><span lang="en">Verification duty</span></em><b><span lang="zh">须自行核实</span><span lang="en">Verification required</span></b></a><a class="sc" data-r="2" href="#p-integrity_framing" title="违规定性：学术不端"><em><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></em><b><span lang="zh">学术不端</span><span lang="en">Academic integrity violation</span></b></a><a class="sc" data-r="0" href="#p-detector_stance" title="检测器证据：未提及"><em><span lang="zh">检测器证据</span><span lang="en">Detector evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-data_privacy" title="数据与隐私：未提及"><em><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="2" href="#p-ip_copyright" title="知识产权：有明确规定"><em><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></em><b><span lang="zh">有明确规定</span><span lang="en">Addressed</span></b></a><a class="sc" data-r="0" href="#p-institutional_tools" title="机构工具：未提及"><em><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="0" href="#p-learning_rationale" title="学习理由：未提及"><em><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a></nav>
   <p class="print-url">ai.policy.nestudy.cn/Cornell</p>
@@ -497,7 +535,47 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="sec-head"><h2><span lang="zh">补充信息</span><span lang="en">Further detail</span></h2></div>
   <div class="extras"><div class="extra"><h3><span lang="zh">要求披露的内容</span><span lang="en">What must be disclosed</span></h3><div class="tags"><span class="chip"><span lang="zh">使用范围与程度</span><span lang="en">Extent of use</span></span><span class="chip"><span lang="zh">原始草稿</span><span lang="en">Original drafts</span></span><span class="chip"><span lang="zh">提示词</span><span lang="en">Prompts</span></span><span class="chip"><span lang="zh">AI 输出内容</span><span lang="en">AI output</span></span></div></div></div>
 </section>
-
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/05-Cornell.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">本科申请 AI 明文边界（效力见来源）</span><span lang="en">Explicit AI boundaries for undergraduate applicants (force as stated in the source)</span></span>
+    <p class="adm-sum">Cornell 本科明确允许 AI 查学校、构思文书题目、检查已完成文书的语法拼写；明确不接受 AI 列提纲、起草/代写、翻译另一语言的文书及生成必需作品集内容。一般撤录政策另行适用。</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Short, verbatim English excerpts from live official webpages; whitespace and layout may be normalized. Chinese analysis is separate. Saved readable source bodies may retain some menus or comments; URL and retrieval metadata are in research/group1.json, not inserted into source text.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">Cornell undergraduate admissions. The official AI FAQ, Receiving Help policy and general revocation policy are considered together. No graduate rule is generalized to undergraduate applicants.</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>explicit-undergraduate-ai</code> — official undergraduate FAQ and application-help policy give specific allowed and unacceptable AI uses.</span></li><li><span class="k"><span lang="zh">校内 AI 政策原文</span><span lang="en">Original campus-AI source file</span></span> <span class="v"><a href="#source">05-Cornell.md</a> (separate scope; not an admissions rule).</span></li><li><span class="k"><span lang="zh">用途说明</span><span lang="en">Use note</span></span> <span class="v">本文件供来源比较与核验，不构成学校新增规定；未说明不代表许可。</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">关键发现（中文）</h3>
+<ul><li>本科 FAQ 明确允许 AI 调研学校、头脑风暴文书题目、检查已经写完文书的语法和拼写。[S1]</li><li>AI 列提纲、起草或代写文书、将另一种语言写成的文书翻译过来、生成必需作品集图像，均被 FAQ 列为不合伦理；正式 Receiving Help 政策进一步以申请回答及作品集作品表述禁止范围。[S1][S2]</li><li>选题建议不等于由别人替你决定题目；Receiving Help 也不接受他人写/重写回答、替选题目或套用网上文书模板。提交申请即确认没有采用不可接受的帮助。[S2]</li><li>一般撤录政策允许因欺诈、虚假陈述、重大遗漏等撤销录取，甚至在到校后；这是一般规则，不是“凡用 AI 就自动撤录”。[S3]</li></ul>
+<h3 class="src-h2">Official sources</h3>
+<h4 class="src-h3">1. [S1] Can prospective students use generative AI to help with their application to Cornell?</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://faq.enrollment.cornell.edu/kb/article/428-can-prospective-students-use-generative-ai-to-help-with-their-application-to-cornell/" target="_blank" rel="noopener noreferrer">https://faq.enrollment.cornell.edu/kb/article/428-can-prospective-students-use-generative-ai-to-help-with-their-application-to-cornell/</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">Cornell Undergraduate Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">policy (official admissions FAQ)</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:36+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S1-Q1]</strong></p>
+<blockquote><p>If you choose to use generative AI in your application process, we expect you to do so ethically. Ethical uses of generative AI include researching colleges, brainstorming essay topics, and reviewing the grammar and spelling of your completed essays. Unethical uses include (but are not limited to) using generative AI to outline, draft, or write your essays; translating an essay written in another language; and creating images for a required portfolio.</p></blockquote>
+<p><strong>中文说明：</strong>FAQ 出版单位明确为 Cornell Undergraduate Admissions，并链接正式 Receiving Help 政策。保存正文时删除了 HTML 中 display:none 的浏览器提示和 preview-mode 通用横幅；不是把真实政策正文删掉，也没有把隐藏模板当作页面尚未发布的证据。</p>
+<h4 class="src-h3">2. [S2] Receiving Help with Your Application</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admissions.cornell.edu/policies/receiving-help-with-your-application" target="_blank" rel="noopener noreferrer">https://admissions.cornell.edu/policies/receiving-help-with-your-application</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">Cornell University Office of Undergraduate Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">policy</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:49+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S2-Q1]</strong></p>
+<blockquote><p>Help that is ethical and acceptable to utilize in your application process includes: Using AI tools to research specific colleges or help you build your college list. Working with your college counselor or a community-based organization staff member to brainstorm essay topics. Asking a friend or family member to read your essays and give feedback or check for grammatical errors.</p></blockquote>
+<p><strong>[S2-Q2]</strong></p>
+<blockquote><p>However, there are unethical – and therefore unacceptable – forms of application assistance as well. These include: Having AI tools outline, draft, or write your application responses, translate your responses from another language, or create works for a required portfolio. Having any person write or rewrite your essays/responses. Having someone else choose your essay topics. Using a template you found online to write your essay.</p></blockquote>
+<p><strong>[S2-Q3]</strong></p>
+<blockquote><p>When you hit “submit” on your Common Application, you’re agreeing that you have not used unacceptable, unethical support resources to complete your application.</p></blockquote>
+<p><strong>中文说明：</strong>正式本科政策页。允许清单里只有查学校明确提到 AI，构思和校对例子以真人为主体；AI 构思与语法检查的明确许可来自 [S1]，不能只凭 [S2] 自行换成 AI。禁止清单则直接点名 AI 列提纲、写作、翻译和作品集。</p>
+<h4 class="src-h3">3. [S3] Admission Revocation Policy</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://admissions.cornell.edu/policies/admission-revocation-policy" target="_blank" rel="noopener noreferrer">https://admissions.cornell.edu/policies/admission-revocation-policy</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">Cornell University Office of Undergraduate Admissions</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate; general admission-revocation wording</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">policy</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:50+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S3-Q1]</strong></p>
+<blockquote><p>Cornell University reserves the right to revoke an offer of admission under certain circumstances, and at any time, including after a student is in attendance at the university. Authority to revoke admission rests with the admitting academic unit. Admission may be revoked for fraud, misrepresentation, material omission of fact, failure to meet a condition of admission (including but not limited to satisfactorily completing any schoolwork in progress at the time an offer of admission is extended and upholding high standards of character in all activities within and outside of the classroom), or any other pre-attendance misconduct.</p></blockquote>
+<p><strong>中文说明：</strong>本科招生网站发布的一般撤录政策；引文保留 “reserves the right”“may” 和适用事由，不承诺某种 AI 使用一定撤录。政策其余正文还列有调查与决策程序，本地保存的是完整正文。</p>
+<h3 class="src-h2">Permitted / prohibited / not stated（按用途）</h3>
+<ul><li><strong>明确允许：</strong>AI 调研学校/建立学校清单、文书题目头脑风暴、检查已完成文书的语法和拼写。[S1][S2]</li><li><strong>明确不接受：</strong>AI 生成提纲、起草或写申请回答；AI 翻译另一语言的回答；AI 生成必需作品集作品（FAQ 特别举图像）。[S1][S2]</li><li><strong>仍由本人负责：</strong>题目最终选择、经历、观点与实际措辞；校对许可不是 AI 实质重写许可。[S2]</li><li><strong>未单独说明：</strong>具体 AI 披露模板、AI 检测流程、可接受语法改动的字数/比例阈值、研究补充材料内的 AI 细则。不能由这些留白推定可使用。</li><li><strong>后果：</strong>一般欺诈/虚假陈述撤录政策适用；没有在已引 AI 清单中宣布所有违规均自动撤录。[S3]</li></ul>
+<h3 class="src-h2">Research limitations</h3>
+<ul><li>本文件不适用 Cornell Tech 或其他研究生项目；未把本科较严格翻译规则推广到全校。</li><li>本科 FAQ 与 Receiving Help 的允许例子细致程度不同；本文合并阅读而非把其中某页未提到的内容视为反向禁止。</li><li>官方页面没有明确发布日期；访问日期不等于生效日。</li><li>web_fetch 对 Cornell 的 Policies 索引抽取不完整，改用普通 requests 读取链接并全文抓取子页面；S2/S3 的 main 标签只有标题，保存时改用完整页面 body 提取。</li><li>额外探查研究生 URL <a href="https://gradschool.cornell.edu/admissions/application-steps/important-application-policies/use-of-generative-ai-in-graduate-admissions-applications" target="_blank" rel="noopener noreferrer">https://gradschool.cornell.edu/admissions/application-steps/important-application-policies/use-of-generative-ai-in-graduate-admissions-applications</a> 返回 403；未确认正文与页面是否实际存在，未作为证据。</li></ul>
+<details class="fold"><summary><span class="fold-h">Search log</span></summary>
+<ul class="kv"><li><span class="k"><span lang="zh">检索日期</span><span lang="en">Research date</span></span> <span class="v">2026-09-24, Asia/Shanghai. Search results were leads only; findings above are based on retrieved official body text.</span></li></ul>
+<ol class="kv"><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.cornell.edu admissions application "AI" essays</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">找到本科 FAQ 并全文核验 [S1]。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.admissions.cornell.edu "Receiving Help" application policy AI</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">第二组定向检索正式政策；从公开 Policies 索引找到 [S2][S3] 并抓取正文。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>Direct public fetch: https://admissions.cornell.edu/policies</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">普通 requests 读取索引，确认 Receiving Help 与 Admission Revocation 两个官方链接。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>Direct public fetch: Cornell Graduate School AI-policy candidate URL</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">补充探查研究生候选页面遭 403，未确认内容，未用于任何政策结论。</span></li></ul></li></ol>
+</details></div>
+</section>
 <section id="source">
   <div class="sec-head"><h2><span lang="zh">官方原文</span><span lang="en">The official text</span></h2><span class="en2">univ/05-Cornell.md</span></div>
   <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span></p>
@@ -526,7 +604,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </main>
 <footer><div class="wrap">
   <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
-  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
 </div></footer>
 
 <script>

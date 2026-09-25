@@ -107,6 +107,9 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
 .chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
 
 /* the school's row of the atlas matrix, one cell per provision */
 .strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
@@ -224,6 +227,39 @@ sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-ra
 sup.evtag a:hover{background:var(--seal-wash)}
 .omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
   font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
 .takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
 .takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
 .takeaways h3{border-top:none;padding-top:0;margin-top:12px}
@@ -248,7 +284,7 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -260,6 +296,7 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="wrap">
     <a class="home" href="../" title="项目主页 / Home">←</a>
     <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
     <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
     <span class="sp"></span>
     <label class="switch"><span class="sr">切换学校 / Switch university</span>
@@ -311,6 +348,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="chip" title="文件同时含校级来源与更窄范围的来源"><span lang="zh">来源层级 · <b>混合来源</b></span><span lang="en">Source level · <b>Mixed</b></span></span>
     <span class="chip"><span lang="zh"><b>11</b> / 12 项有明文规定</span><span lang="en"><b>11</b> of 12 provisions addressed</span></span>
     <span class="chip"><span lang="zh">采集于 <b>2026-08-21</b></span><span lang="en">Accessed <b>2026-08-21</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>本科 AI 明文边界</b></span><span lang="en">Admissions · <b>Explicit undergraduate rules</b></span></a>
   </div>
   <nav class="strip" aria-label="十二项条款 / Twelve provisions"><a class="sc" data-r="3" href="#p-default_rule" title="默认规则：默认禁止"><em><span lang="zh">默认规则</span><span lang="en">Default rule</span></em><b><span lang="zh">默认禁止</span><span lang="en">Prohibited by default</span></b></a><a class="sc" data-r="2" href="#p-instructor_override" title="课程规则优先：课程规则优先"><em><span lang="zh">课程规则优先</span><span lang="en">Instructor override</span></em><b><span lang="zh">课程规则优先</span><span lang="en">Course rule supersedes</span></b></a><a class="sc" data-r="1" href="#p-tiered_scale" title="分级许可：非正式分类"><em><span lang="zh">分级许可</span><span lang="en">Tiered scale</span></em><b><span lang="zh">非正式分类</span><span lang="en">Informal categories</span></b></a><a class="sc" data-r="3" href="#p-disclosure" title="披露要求：强制披露"><em><span lang="zh">披露要求</span><span lang="en">Disclosure</span></em><b><span lang="zh">强制披露</span><span lang="en">Required</span></b></a><a class="sc" data-r="3" href="#p-process_evidence" title="过程留证：强制留证"><em><span lang="zh">过程留证</span><span lang="en">Process evidence</span></em><b><span lang="zh">强制留证</span><span lang="en">Required</span></b></a><a class="sc" data-r="3" href="#p-verification_duty" title="核实责任：学生对成品完全负责"><em><span lang="zh">核实责任</span><span lang="en">Verification duty</span></em><b><span lang="zh">学生对成品完全负责</span><span lang="en">Student fully responsible</span></b></a><a class="sc" data-r="2" href="#p-integrity_framing" title="违规定性：学术不端"><em><span lang="zh">违规定性</span><span lang="en">Integrity framing</span></em><b><span lang="zh">学术不端</span><span lang="en">Academic integrity violation</span></b></a><a class="sc" data-r="0" href="#p-detector_stance" title="检测器证据：未提及"><em><span lang="zh">检测器证据</span><span lang="en">Detector evidence</span></em><b><span lang="zh">未提及</span><span lang="en">Not addressed</span></b></a><a class="sc" data-r="3" href="#p-data_privacy" title="数据与隐私：禁止上传受限数据"><em><span lang="zh">数据与隐私</span><span lang="en">Data &amp; privacy</span></em><b><span lang="zh">禁止上传受限数据</span><span lang="en">Restricted data prohibited</span></b></a><a class="sc" data-r="2" href="#p-ip_copyright" title="知识产权：有明确规定"><em><span lang="zh">知识产权</span><span lang="en">IP &amp; copyright</span></em><b><span lang="zh">有明确规定</span><span lang="en">Addressed</span></b></a><a class="sc" data-r="2" href="#p-institutional_tools" title="机构工具：提供机构版工具"><em><span lang="zh">机构工具</span><span lang="en">Institutional tools</span></em><b><span lang="zh">提供机构版工具</span><span lang="en">Institution-provided tool</span></b></a><a class="sc" data-r="3" href="#p-learning_rationale" title="学习理由：明确以学习目标为据"><em><span lang="zh">学习理由</span><span lang="en">Learning rationale</span></em><b><span lang="zh">明确以学习目标为据</span><span lang="en">Explicit learning-objective rationale</span></b></a></nav>
   <p class="print-url">ai.policy.nestudy.cn/Harvard</p>
@@ -501,7 +539,39 @@ mark.flash{animation:flash 1.8s ease-out}
   <div class="sec-head"><h2><span lang="zh">补充信息</span><span lang="en">Further detail</span></h2></div>
   <div class="extras"><div class="extra"><h3><span lang="zh">要求披露的内容</span><span lang="en">What must be disclosed</span></h3><div class="tags"><span class="chip"><span lang="zh">工具名称</span><span lang="en">Tool name</span></span><span class="chip"><span lang="zh">提示词</span><span lang="en">Prompts</span></span><span class="chip"><span lang="zh">使用范围与程度</span><span lang="en">Extent of use</span></span><span class="chip"><span lang="zh">正式引注</span><span lang="en">Formal citation</span></span></div></div></div>
 </section>
-
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/03-Harvard.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">本科申请 AI 明文边界（效力见来源）</span><span lang="en">Explicit AI boundaries for undergraduate applicants (force as stated in the source)</span></span>
+    <p class="adm-sum">Harvard College 官方 FAQ 明确讨论 AI：引用 Common App 对将 AI 实质内容故意冒认为原创的欺诈条款，并提出本人内容、文风与英语水平要求及哈佛虚假陈述后果；未列 AI 语法、构思或翻译许可。</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Short, verbatim English excerpts from live official webpages; whitespace and layout may be normalized. Chinese analysis is separate. Saved readable source bodies may retain some menus or comments; URL and retrieval metadata are in research/group1.json, not inserted into source text.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">Harvard College undergraduate application essays and application-integrity requirements. Harvard graduate and professional schools are not covered.</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>explicit-undergraduate-ai</code> — Harvard College FAQ explicitly discusses AI-related application fraud by quoting Common App, alongside Harvard’s own authenticity and sanction statements.</span></li><li><span class="k"><span lang="zh">校内 AI 政策原文</span><span lang="en">Original campus-AI source file</span></span> <span class="v"><a href="#source">03-Harvard.md</a> (separate scope; not an admissions rule).</span></li><li><span class="k"><span lang="zh">用途说明</span><span lang="en">Use note</span></span> <span class="v">本文件供来源比较与核验，不构成学校新增规定；未说明不代表许可。</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">关键发现（中文）</h3>
+<ul><li>哈佛本科 FAQ 的 “What help can students receive in writing their essays?” 要求文书体现本人内容、文风和英语能力。[S1]</li><li>FAQ 明确引用 Common App：把 AI 的实质内容或输出故意冒认为本人原创，属于可能的申请欺诈。引用须保留“故意冒认”的限定；不是禁止任何 AI 使用。[S1]</li><li>这里的 AI 欺诈定义来自 Common App，由哈佛在本校 FAQ 中明示引用；哈佛自身另说明利用工具欺诈性生成文书或冒用他人作品违反其 Honor Code，并要求申请准确。不是把平台通则假称为独立创制的哈佛 AI 条款。[S1]</li><li>FAQ 没有明确写出“AI 语法检查、头脑风暴或翻译可以使用”。它列明虚假陈述可能导致拒录、通常撤销录取、通常在已注册后撤销入学并离校，及发现申请虚假陈述后撤销学位。[S1]</li></ul>
+<h3 class="src-h2">Official sources</h3>
+<h4 class="src-h3">1. [S1] Frequently Asked Questions — What help can students receive in writing their essays?</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">官方来源</span><span lang="en">Official source</span></span> <span class="v"><a href="https://college.harvard.edu/resources/faq" target="_blank" rel="noopener noreferrer">https://college.harvard.edu/resources/faq</a></span></li><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Issuing unit</span></span> <span class="v">Harvard College Admissions &amp; Financial Aid</span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">not stated</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">undergraduate</span></li><li><span class="k"><span lang="zh">来源性质</span><span lang="en">Authority kind</span></span> <span class="v">policy</span></li><li><span class="k"><span lang="zh">采集时间</span><span lang="en">Retrieved</span></span> <span class="v">2026-09-24T23:06:36+08:00; full-text (ordinary public HTTP request)</span></li></ul>
+<p><strong>[S1-Q1]</strong></p>
+<blockquote><p>A student's essay should reflect their own content, writing style, and English proficiency.</p></blockquote>
+<p><strong>[S1-Q2]</strong></p>
+<blockquote><p>We are aware that it is possible to use tools or other services to fraudulently create essays or pass off another's work as one’s own. Doing so in the application process violates the Common Application standards as well as the Harvard College Honor Code.</p></blockquote>
+<p><strong>[S1-Q3]</strong></p>
+<blockquote><p>The Common Application identifies the following as a possible form of fraud and violation of its application standards: “submitting plagiarized essays or other written or oral material, or intentionally misrepresenting as one's own original work: (1) another person's thoughts, language, ideas, expressions, or experiences or (2) the substantive content or output of an artificial intelligence platform, technology, or algorithm.”</p></blockquote>
+<p><strong>[S1-Q4]</strong></p>
+<blockquote><p>If we discover a misrepresentation during the admissions process, you will be denied admission. If you have already been admitted, your offer will typically be withdrawn. If you have already registered, your admission will normally be revoked, and we will require you to leave the College. Harvard rescinds degrees if misrepresentations in application materials are discovered.</p></blockquote>
+<p><strong>中文说明：</strong>官方 FAQ 的本段完整正文经普通 requests 从公开 HTML 取得。web_fetch 的可读提取只返回 FAQ 导航且提示大响应截断，因此没有依赖该提取器的空白结果或搜索摘要。四条引文依次保留真实性标准、校方规则、所引用平台定义、以及带 typically / normally 限定的后果。</p>
+<h3 class="src-h2">Permitted / prohibited / not stated（按用途）</h3>
+<ul><li><strong>明确允许的 AI 用途：</strong>该 FAQ 段落未列举。不能据二手解读把语法检查或头脑风暴标为哈佛明文许可。</li><li><strong>禁止 / 欺诈边界：</strong>利用工具欺诈性形成文书、把非本人作品冒作本人作品；其所引用平台条款特指将 AI 实质内容故意冒认为本人原创。文书仍须体现本人内容、文风及英语水平。[S1]</li><li><strong>未单独说明：</strong>AI 构思、提纲、语法/拼写、翻译、轻度润色、科研补充材料中的 AI、AI 披露格式与 AI 检测软件。强调本人英语能力不等同于页面已明确宣布所有机器翻译禁用。</li><li><strong>后果：</strong>所引后果针对申请虚假陈述，并非对一切 AI 使用自动处罚；通常/一般等限定不可省略。[S1]</li></ul>
+<h3 class="src-h2">Research limitations</h3>
+<ul><li>范围仅为 Harvard College 本科 FAQ，不适用于 Harvard 各研究生院或专业学院。</li><li>FAQ 未标注该问题的发布日期或更新日；2026-09-24 是本次访问日。</li><li>全文抓取含整个公开 FAQ 集合；本文件只引用相关问答，没有把其他 FAQ 或隐藏导航当作 AI 规定。</li><li>未登录申请系统；未说明的用途不得解释为许可，也未核验 AI 检测机制。</li></ul>
+<details class="fold"><summary><span class="fold-h">Search log</span></summary>
+<ul class="kv"><li><span class="k"><span lang="zh">检索日期</span><span lang="en">Research date</span></span> <span class="v">2026-09-24, Asia/Shanghai. Search results were leads only; findings above are based on retrieved official body text.</span></li></ul>
+<ol class="kv"><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.college.harvard.edu application "AI" essays</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">第一组本科 AI 文书检索，随后转向官方 FAQ 核验。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>site.college.harvard.edu "artificial intelligence" "application"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">第二组本科 AI/申请检索；寻求本校直接条款。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>Harvard College FAQ "substantive content" artificial intelligence</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">二手页面定位相关问答；直接打开 college.harvard.edu/resources/faq 并普通请求取得完整 HTML。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>Harvard "What help can students receive" "grammar"</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">补查是否有明文 AI 语法许可；未取得此类官方许可依据。</span></li></ul></li><li><span class="k"><span lang="zh">检索</span><span lang="en">Query</span></span> <span class="v"><code>Direct public fetch: https://college.harvard.edu/resources/faq</code></span><ul class="kv"><li><span class="k"><span lang="zh">结果</span><span lang="en">Result</span></span> <span class="v">web_fetch 仅抽取导航且大响应截断；普通 requests 成功取得相关完整问答并保存 [S1]。</span></li></ul></li></ol>
+</details></div>
+</section>
 <section id="source">
   <div class="sec-head"><h2><span lang="zh">官方原文</span><span lang="en">The official text</span></h2><span class="en2">univ/03-Harvard.md</span></div>
   <p class="sec-sub"><span lang="zh">本项目采集的该校官方文本。图谱引用的语句已高亮，句末标签注明对应条款，点击可返回该条款。</span><span lang="en">The official text collected for this university. Sentences the atlas cites are highlighted; the tag after each names the provision it supports and links back to it.</span></p>
@@ -530,7 +600,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </main>
 <footer><div class="wrap">
   <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
-  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
 </div></footer>
 
 <script>

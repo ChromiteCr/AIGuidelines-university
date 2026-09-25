@@ -1,13 +1,13 @@
 # U.S. University AI Guidelines — Thirty-School Source Set
 
-![version](https://img.shields.io/badge/version-A3c1-blue)
+![version](https://img.shields.io/badge/version-A4-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
 ![code](https://img.shields.io/badge/code-MIT-green)
 ![data](https://img.shields.io/badge/data-CC%20BY%204.0-green)
 
-**站点 → <https://ai.policy.nestudy.cn/>** ｜ 主页 · [政策图谱](https://ai.policy.nestudy.cn/atlas.html) · [学生 AI 使用规范](https://ai.policy.nestudy.cn/guidelines.html) · 单校页面如 [/MIT](https://ai.policy.nestudy.cn/MIT)
+**站点 → <https://ai.policy.nestudy.cn/>** ｜ 主页 · [政策图谱](https://ai.policy.nestudy.cn/atlas.html) · [申请环节的 AI 政策](https://ai.policy.nestudy.cn/admissions.html) · [学生 AI 使用规范](https://ai.policy.nestudy.cn/guidelines.html) · 单校页面如 [/MIT](https://ai.policy.nestudy.cn/MIT)
 
 > ### 内容取自官方原文；这是一份会定期更新的快照
 >
@@ -177,7 +177,8 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 |------|------|------|
 | 代码 | `tools/*.py`、`atlas/atlas.template.html` | MIT（见 [LICENSE](LICENSE)） |
 | 数据集与编码体系 | `data/policies.json`、`tools/codebook.py` 的 12 项条款划分、取值集合、强度分级与各校判定 | CC BY 4.0 |
-| 大学官方文本引文 | `univ/*.md` | **版权归各校所有**，本项目无权授予（见 [univ/COPYRIGHT.md](univ/COPYRIGHT.md)） |
+| 大学官方文本引文 | `univ/*.md`、`univ/full/*.md`，以及 `admissions/` 中的英文引文 | **版权归各原发布者所有**，本项目无权授予（见 [univ/COPYRIGHT.md](univ/COPYRIGHT.md)） |
+| 申请环节的分析 | `admissions/` 中的中文分析、证据状态与索引 | CC BY 4.0（同数据集） |
 
 第三类是为学术研究、比较分析与评述目的的非商业引用；每份文件顶部记录其官方 URL、
 发布单位与访问日期。若某校认为使用超出合理范围，请通过 issue 联系，本项目将删减
@@ -229,8 +230,11 @@ python3 tools/build_guidelines.py
 
 - **十二项条款**：每项的取值、支撑它的原文那一句、编码说明，以及这一立场在 30 校中的位置
   （「30 校中 13 所与此相同 · 主流口径……」），并可一键跳到图谱里对照同一格
+- **申请环节的 AI 政策**：该校招生办公室就申请人使用 AI 的表述——证据状态、摘要、官方来源与
+  逐字英文引文、中文分析（来自 `admissions/`，见下一节）
 - **官方原文全文**：图谱引用过的每一句都在原文中**逐句标出**，句末标签对应条款，点击可跳回；
-  跨段落、带粗体、互相重叠的引文都能正确标注（264 条引文全部定位）
+  跨段落、带粗体、互相重叠的引文都能正确标注（264 条引文全部定位）。MIT 的研究版本删去了
+  未被引用的段落，页面改为显示 `univ/full/` 中的完整采集文本，删去的部分以灰色小字标出
 - 中英双语切换、深浅色、手机适配；打印时自动收成一份单校简报（隐藏原文，页脚印出网址）
 
 **网址不区分大小写，常见写法自动跳转。** GitHub Pages 的路径区分大小写，所以站点带一个
@@ -254,9 +258,34 @@ python3 tools/build_guidelines.py
 | 09 | Northwestern | [`/Northwestern`](https://ai.policy.nestudy.cn/Northwestern) | 19 | Dartmouth | [`/Dartmouth`](https://ai.policy.nestudy.cn/Dartmouth) | 29 | UC San Diego | [`/UCSD`](https://ai.policy.nestudy.cn/UCSD) |
 | 10 | UChicago | [`/UChicago`](https://ai.policy.nestudy.cn/UChicago) | 20 | Notre Dame | [`/NotreDame`](https://ai.policy.nestudy.cn/NotreDame) | 30 | NYU | [`/NYU`](https://ai.policy.nestudy.cn/NYU) |
 
-**申请端政策**：把某校的申请端材料存为 `admissions/<与 univ/ 相同的文件名>.md`
-（如 `admissions/02-MIT.md`），重跑 `tools/build_schools.py`，该校页面就会多出「申请端的
-AI 政策」一节，渲染方式与原文区相同。
+图谱中点击校名即进入该校页面；格子详情中的链接直达该校页面的对应条款与原文位置。
+
+## 申请环节的 AI 政策 / Admissions
+
+30 所大学招生办公室与申请平台（Common App、UC 系统）就申请人使用 AI 的公开表述，以本科
+新生申请为主，采集于 2026 年 9 月 24 日。数据在 [admissions/](admissions/README.md)：每校一份
+Markdown（官方来源、逐字英文引文、与原文分开标注的中文分析、允许／禁止／未说明的用途、研究
+局限、检索记录），外加共同来源文件与机器可读索引。
+
+在线版：<https://ai.policy.nestudy.cn/admissions.html>——30 校对照表（可按证据状态筛选）、
+证据状态的定义、Common App 与 UC 系统的原文、方法与局限。各校详情在单校页面的「申请环节」
+一节。
+
+**证据状态描述找到了什么材料，不是宽严等级**：
+
+| 状态 | 校数 |
+|------|------|
+| 本科申请 AI 明文边界 | 16 |
+| UC 系统共同规定（共同来源，不是校区独立政策） | 3 |
+| 本科申请 AI 官方指导／建议 | 5 |
+| 仅本人写作／真实性要求 | 4 |
+| AI 明文仅见于研究生或特定项目 | 2 |
+
+Brown 与 Columbia 的本科页面在 9 月 24 日无法访问，9 月 25 日补充检索取得正文并更新了
+证据状态（Brown → 本科明文边界，Columbia → 仅真实性要求）；引文均与页面逐字核对。
+
+渲染时只做三处调整，文件本身不改：指向未发布的本地快照与检索记录（`sources/`、`research/`）
+的链接只保留文字；只指向这两处的条目不显示；检索记录一节默认折叠。
 
 ## 站点发布 / GitHub Pages
 
@@ -270,11 +299,13 @@ AI 政策」一节，渲染方式与原文区相同。
   | `docs/index.html` 主页 | `home/home.html` | `tools/build_home.py` |
   | `docs/atlas.html` 政策图谱 | `atlas/atlas.template.html` + `data/policies.json` | `tools/build_atlas.py` |
   | `docs/guidelines.html` 学生规范 | `guidelines/guidelines.html` | `tools/build_guidelines.py` |
-  | `docs/<slug>/index.html` 单校页面 ×30 | `schools/school.template.html` + `univ/*.md` + 数据 | `tools/build_schools.py` |
+  | `docs/admissions.html` 申请环节的 AI 政策 | `schools/admissions.template.html` + `admissions/` | `tools/build_admissions.py` |
+  | `docs/<slug>/index.html` 单校页面 ×30 | `schools/school.template.html` + `univ/*.md`（`univ/full/` 如有）+ `admissions/*.md` + 数据 | `tools/build_schools.py` |
   | `docs/404.html` 网址路由 | `tools/schools.py` | `tools/build_schools.py` |
 
   构建脚本共用 `tools/sitelib.py`（文本比对、中文断行处理、断言登记、引文校验、文档外壳）；
-  原文渲染与高亮在 `tools/mdlite.py`。`docs/.nojekyll` 让 Pages 跳过 Jekyll。
+  原文渲染与高亮在 `tools/mdlite.py`，申请环节资料的渲染在 `tools/admissions.py`。
+  `docs/.nojekyll` 让 Pages 跳过 Jekyll。
 - **地址**：<https://ai.policy.nestudy.cn/>（自定义域名，`docs/CNAME` 由 Pages 管理）
   ｜ 备用 <https://chromitecr.github.io/AIGuidelines-university/>
 
@@ -293,13 +324,14 @@ python3 tools/build_atlas.py
 python3 tools/build_guidelines.py
 python3 tools/build_home.py
 python3 tools/build_schools.py
+python3 tools/build_admissions.py
 python3 tools/check_site.py                         # 全站检查，有问题则非零退出
 python3 tools/serve.py                              # 本地预览 http://localhost:8765/MIT
 ```
 
 `check_site.py` 核对每个页面都有文档外壳、HTML 嵌套正确、所有内部链接和页内锚点都指向
-存在的目标，并确认 30 个单校页面都能从主页和 404 路由到达（当前 34 个页面、1533 条链接、
-0 问题）。
+存在的目标，并确认 30 个单校页面都能从主页和 404 路由到达（当前 35 个页面、1726 条链接、
+0 问题）。404 路由也认页面名：`/atlas`、`/admissions`、`/guidelines` 会跳到对应页面。
 
 `serve.py` 按 GitHub Pages 的方式提供 `docs/`：路径**区分大小写**（macOS 磁盘默认不区分，
 直接开服务器会让 `/mit` 绕过路由）、缺失路径返回 `404.html`、不列目录——本地能用的，线上
@@ -309,6 +341,7 @@ python3 tools/serve.py                              # 本地预览 http://localh
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A4 | 2026-09-25 | 申请环节资料上线：`admissions/` 收入 30 校与共同来源（Common App、UC 系统）的申请环节 AI 资料；新增汇总页 `admissions.html`（30 校对照表、按证据状态筛选、状态定义、共同来源原文、方法与局限）；单校页面新增「申请环节的 AI 政策」一节与页首标签；补充检索取得 Brown、Columbia 此前无法访问的本科页面并更新证据状态；图谱表格的校名与格子详情直达单校页面；MIT 原文恢复为完整采集文本，未被引用的段落以灰色小字显示；规范 §6 开头限定为原采集的 30 份校内政策，§6.2 链接申请环节页；404 路由支持 `/atlas`、`/admissions`、`/guidelines` | milestone |
 | A3c1 | 2026-09-25 | 全站文案改为说明性表述：主页与图谱标题改为「美国 30 所大学 AI 使用政策比较研究」「AI 使用政策图谱」，去掉口语化与推断性语句；图谱三组结果改为「一致度最高／最低／未提及最多」并给出一致度定义；「排名序」改为「编号」（编号不代表排名）；图例与方法说明注明强度分级不代表优劣；条款提问句与分组说明改为书面语（codebook 重新生成数据，仅这 17 处文字变化）；规范页标题、导语与附录措辞同步收紧；主页引用的规范断言数改由构建核对 | docs |
 | A3c | 2026-09-24 | 单校独立页面：30 所大学各有 `ai.policy.nestudy.cn/<slug>` 地址，含十二项条款、原文全文与逐句引文标注，图谱与单校页双向深链；`404.html` 路由支持大小写、常见写法与中文名共 224 种；主页新增按学校索引；全站补上 doctype 与 viewport（修复线上手机端缩小显示）；新增 `serve.py` 本地预览与 `check_site.py` 全站检查；预留申请端政策接入位 | feat |
 | A3b | 2026-08-31 | 站点改为三页结构：新增独立主页（`docs/index.html`），图谱移至 `docs/atlas.html`，三页互链；规范正文整体改写为更严谨的表述，去除口语化与修辞性说法；三个构建脚本共用 `tools/sitelib.py`，中文断行处理扩展到图谱 | feat |

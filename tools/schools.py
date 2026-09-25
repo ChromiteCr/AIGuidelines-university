@@ -47,7 +47,7 @@ SCHOOLS = {
 }
 
 # Top-level names already taken by the site; no school alias may shadow them.
-RESERVED = {"index", "atlas", "guidelines", "404", "cname", "home", "docs", "nojekyll"}
+RESERVED = {"index", "atlas", "guidelines", "admissions", "404", "cname", "home", "docs", "nojekyll"}
 
 _STRIP = re.compile(r"[\s\-_.,'’()·–—/]")
 

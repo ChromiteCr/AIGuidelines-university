@@ -92,7 +92,7 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5.4vw,54px);
   font-variant-numeric:tabular-nums}
 .fact span{font-family:var(--sans);font-size:11px;color:var(--ink-3);line-height:1.35}
 
-/* ---- the two doors ---- */
+/* ---- the three doors ---- */
 section{padding-top:clamp(40px,6vw,64px)}
 .sec-head{display:flex;gap:14px;align-items:baseline;margin-bottom:18px;
   padding-bottom:9px;border-bottom:1px solid var(--rule)}
@@ -100,7 +100,9 @@ section{padding-top:clamp(40px,6vw,64px)}
 .sec-head .en2{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--ink-3)}
 
-.doors{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+/* three across, or one column: two-plus-one would leave a ragged row */
+.doors{display:grid;gap:18px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){ .doors{grid-template-columns:minmax(0,1fr)} }
 .door{
   display:flex;flex-direction:column;gap:12px;padding:22px 22px 24px;
   background:var(--surface);border:1px solid var(--rule);border-radius:4px;
@@ -122,6 +124,11 @@ section{padding-top:clamp(40px,6vw,64px)}
 .door:hover .go{gap:10px}
 
 /* miniature of the four levels, so the door shows what is behind it */
+/* evidence statuses, one segment per school count; one neutral fill, since a
+   status says what was found, not how strict a rule is */
+.mini-st{display:flex;gap:2px;margin-top:2px}
+.mini-st span{height:18px;display:flex;align-items:center;justify-content:center;border-radius:1px;
+  background:var(--surface-3);box-shadow:inset 0 0 0 1px var(--rule);font-family:var(--mono);font-size:10px;color:var(--ink-2)}
 .mini-lv{display:flex;gap:4px;margin-top:2px}
 .mini-lv span{font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:2px;flex:none}
 .mini-lv span:nth-child(1){background:var(--l0);color:var(--l0-on)}
@@ -200,13 +207,14 @@ footer p{max-width:var(--measure);margin:0 0 9px}
     <h1 lang="en">AI Use Policies at 30 U.S. Universities: A Comparative Study</h1>
     <p class="lede" lang="zh">
       本研究采集美国 30 所大学公开发布的 AI 使用政策，按 12 项条款逐校编码比较，
-      并据此制定面向国际部高中生的《学生 AI 使用规范》。
+      并据此制定面向国际部高中生的《学生 AI 使用规范》；另整理各校招生办公室对申请人使用 AI 的规定。
       <strong>图谱中的每项编码、规范中的每个数据，均可追溯至官方原文。</strong>
     </p>
     <p class="lede" lang="en">
       This study collects the published AI use policies of 30 U.S. universities, codes each
       against 12 provisions, and on that basis sets out Student AI Use Guidelines for
-      international-division high-school students.
+      international-division high-school students. It also compiles what each admissions office
+      says about applicants using AI.
       <strong>Every coding in the atlas and every figure in the guidelines traces back to official text.</strong>
     </p>
     <div class="facts">
@@ -223,7 +231,7 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 <section>
   <div class="sec-head">
     <h2 lang="zh">研究成果</h2><h2 lang="en">Outputs</h2>
-    <span class="en2">Atlas · Guidelines</span>
+    <span class="en2">Atlas · Admissions · Guidelines</span>
   </div>
 
   <div class="doors">
@@ -262,6 +270,29 @@ footer p{max-width:var(--measure);margin:0 0 9px}
       <span class="go" lang="en">Open the atlas →</span>
     </a>
 
+    <a class="door" href="admissions.html">
+      <span class="kicker" lang="zh">申请环节 · Admissions</span>
+      <span class="kicker" lang="en">Admissions</span>
+      <h3 lang="zh">申请环节的 AI 政策</h3>
+      <h3 lang="en">AI in the Application</h3>
+      <div class="mini-st" aria-hidden="true"><!--__ADM_BAR__--></div>
+      <p lang="zh">
+        各校招生办公室与申请平台（Common App、UC 系统）就申请人使用 AI 的公开表述，附官方链接与逐字原文。
+        30 所中有 16 所对本科申请人写明了 AI 使用边界。
+      </p>
+      <p lang="en">
+        What admissions offices and the application platforms (Common App, the UC system) publish about
+        applicants using AI, with official links and verbatim text. 16 of the 30 state explicit lines for
+        undergraduate applicants.
+      </p>
+      <div class="meta">
+        <span class="chip" lang="zh">30 所 · 以本科为主</span><span class="chip" lang="en">30 · undergraduate first</span>
+        <span class="chip">Common App · UC</span>
+      </div>
+      <span class="go" lang="zh">查看申请政策 →</span>
+      <span class="go" lang="en">Open the admissions page →</span>
+    </a>
+
     <a class="door" href="guidelines.html">
       <span class="kicker" lang="zh">规范草案 · Draft guidelines</span>
       <span class="kicker" lang="en">Draft guidelines</span>
@@ -298,13 +329,13 @@ footer p{max-width:var(--measure);margin:0 0 9px}
   </div>
   <p class="note" lang="zh">
     每所学校设有独立页面，如 <b class="num">ai.policy.nestudy.cn/MIT</b>（不区分大小写，/mit、/johns-hopkins、/麻省理工
-    等写法自动跳转）。页面包含该校 12 项条款的编码与依据原文，以及官方文本全文。
+    等写法自动跳转）。页面包含该校 12 项条款的编码与依据原文、申请环节的 AI 规定，以及官方文本全文。
     色带即该校在图谱中的一行：颜色越深，规定越明确；空白为未提及。
   </p>
   <p class="note" lang="en">
     Each university has its own page, e.g. <b class="num">ai.policy.nestudy.cn/MIT</b> (case-insensitive; /mit,
     /johns-hopkins, /麻省理工 and similar spellings redirect). Each page gives the university's coding on all
-    12 provisions with the supporting text, and the full official source.
+    12 provisions with the supporting text, what its admissions office says about AI, and the full official source.
     The strip is the university's row in the atlas: darker is more explicit; blank is not addressed.
   </p>
   <div class="schools"><!--__SCHOOLS__--></div>

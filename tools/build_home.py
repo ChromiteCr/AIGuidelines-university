@@ -14,7 +14,9 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import html  # noqa: E402
+import re  # noqa: E402
 
+import build_guidelines as bg  # noqa: E402
 import schools as reg  # noqa: E402
 from sitelib import ROOT, assertion_builder, load_data, publish  # noqa: E402
 
@@ -27,15 +29,26 @@ def checks():
     m = d["meta"]
     C = []
     add = assertion_builder(C)
+    grid = f"{m['schools']} × {m['dimensions']}"
 
-    add("总校数", m["schools"], "<b>{n}</b><span lang=\"zh\">所大学，各自独立抽取")
-    add("条款数", m["dimensions"], "<b>{n}</b><span lang=\"zh\">项可比条款")
-    add("格数", m["cells"], "<b>{n}</b><span lang=\"zh\">格逐格对照",
-        "三十所大学 × {n} 项条款的对照矩阵".replace("{n}", str(m["dimensions"])))
-    add("引文核验", m["evidence_matched"], "<b>{n}</b><span lang=\"zh\">条引文经机器逐字核验",
+    add("总校数", m["schools"], "<b>{n}</b><span lang=\"zh\">所大学，逐校独立抽取",
+        "美国 {n} 所大学 AI 使用政策比较研究", "AI Use Policies at {n} U.S. Universities",
+        "采集美国 {n} 所大学", "{n} 校政策基本未涉及")
+    add("条款数", m["dimensions"], "<b>{n}</b><span lang=\"zh\">项比较条款",
+        "按 {n} 项条款逐校编码比较", "codes each against {n} provisions")
+    add("格数", m["cells"], "<b>{n}</b><span lang=\"zh\">个编码单元（" + grid + "）",
+        f"{m['schools']} 所大学 × {m['dimensions']} 项条款的编码矩阵")
+    add("引文核验", m["evidence_matched"], "<b>{n}</b><span lang=\"zh\">条原文引证，逐字核验",
         "当前 {n}/{n} 通过", "Currently {n}/{n} pass")
     add("有明文", m["filled"], "{n} 格有明文", "{n} with a rule")
-    add("沉默格", m["silent"], "{n} 格沉默", "{n} silent")
+    add("未提及格", m["silent"], "{n} 格未提及", "{n} not addressed")
+
+    # The verification section quotes the guidelines' own check counts, which
+    # move whenever a figure is added to or removed from that document.
+    n_assert = len(bg.checks())
+    n_quote = len(re.findall(r"<blockquote>", bg.SRC.read_text(encoding="utf-8")))
+    add("规范断言数", n_assert, "当前 {n} 处断言", "Currently {n} assertions")
+    add("规范引文数", n_quote, "{n} 条引文全部通过", "and {n} quotations pass")
     return C
 
 

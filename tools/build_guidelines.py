@@ -34,13 +34,15 @@ def checks():
     add = assertion_builder(C)
 
     # ---- masthead ---------------------------------------------------------
-    add("总校数", m["schools"], '<b>{n}</b><span lang="zh">所美国大学的官方政策')
-    add("条款数", m["dimensions"], '<b>{n}</b><span lang="zh">项逐条对照的条款')
-    add("引文核验", m["evidence_matched"], '<b>{n}</b><span lang="zh">条经逐字核验的原文依据')
+    add("总校数", m["schools"], '<b>{n}</b><span lang="zh">所美国大学的官方政策',
+        "依据美国 {n} 所大学官方政策制定", "the official policies of {n} U.S. universities")
+    add("条款数", m["dimensions"], '<b>{n}</b><span lang="zh">项比较条款')
+    add("引文核验", m["evidence_matched"], '<b>{n}</b><span lang="zh">条原文引证，逐字核验')
 
     # ---- §0 default rule --------------------------------------------------
     add("默认·一致度", pct("default_rule"),
-        "<b>{n}%</b>", "默认规则 · 一致度 {n}%", "Default rule · {n}% agreement")
+        '<b>{n}%</b><span lang="zh">默认规则的一致度', "默认规则 · 一致度 {n}%",
+        "Default rule · {n}% agreement")
     add("默认·覆盖", dm["default_rule"]["covered"], "{c}所在其官方来源中作出明确表述的学校")
     add("默认禁止", count("default_rule", "prohibited_by_default"),
         "<b>{n}</b> 所默认禁止未经许可的使用", "<b>{n}</b> prohibit unapproved use by default")
@@ -124,9 +126,9 @@ def checks():
         "三十所学校里有{c}所对「过程留证」未作表述", "{e} of the thirty say nothing about keeping process evidence")
 
     # ---- appendix C -------------------------------------------------------
-    add("格数", m["cells"], "{n} 格逐格对照", "{n} cells")
-    add("有明文", m["filled"], "其中 {n} 格查有明文", "{n} cells have an explicit rule")
-    add("沉默格", m["silent"], "{n} 格该来源沉默", "in {n} the source is silent")
+    add("格数", m["cells"], "共 {n} 格", "{n} cells")
+    add("有明文", m["filled"], "其中 {n} 格有明文规定", "{n} cells have an explicit rule")
+    add("未提及格", m["silent"], "{n} 格未提及", "{n} are not addressed by the")
     add("引文总数", m["evidence_matched"], "全部 {n} 条引文", "All {n} quotations")
     return C
 

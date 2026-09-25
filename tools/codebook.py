@@ -11,39 +11,39 @@ Rank measures how explicit and binding the provision is, NOT whether it is good.
 # --- dimension groups -------------------------------------------------------
 
 GROUPS = [
-    ("permission", "许可", "Permission", "谁有权决定能不能用"),
-    ("transparency", "透明", "Transparency", "用了之后要交代什么"),
-    ("accountability", "责任", "Accountability", "出了问题算谁的"),
-    ("boundaries", "边界", "Boundaries", "哪些东西不能碰"),
-    ("rationale", "理由", "Rationale", "凭什么这样规定"),
+    ("permission", "许可", "Permission", "使用许可由谁决定"),
+    ("transparency", "透明", "Transparency", "使用后须说明的内容"),
+    ("accountability", "责任", "Accountability", "错误与违规的责任归属"),
+    ("boundaries", "边界", "Boundaries", "数据、版权与工具的限制"),
+    ("rationale", "理由", "Rationale", "规则的依据"),
 ]
 
 # key, group, zh label, en label, one-line zh question the column answers
 DIMENSIONS = [
     ("default_rule", "permission", "默认规则", "Default rule",
-     "作业没说能不能用 AI 时，按什么算？"),
+     "作业未说明可否使用 AI 时，适用何种规则？"),
     ("instructor_override", "permission", "课程规则优先", "Instructor override",
-     "任课教师的规定能不能盖过校级规定？"),
+     "任课教师的规定是否优先于校级规定？"),
     ("tiered_scale", "permission", "分级许可", "Tiered scale",
-     "有没有一套分档的许可框架，而不是一刀切？"),
+     "是否设有分级的使用许可框架？"),
     ("disclosure", "transparency", "披露要求", "Disclosure",
-     "用了 AI 必须说明吗，还是只是建议？"),
+     "使用 AI 是否须予披露？为强制还是建议？"),
     ("process_evidence", "transparency", "过程留证", "Process evidence",
-     "要不要保留草稿、提示词、编辑历史？"),
+     "是否须保留草稿、提示词或编辑历史？"),
     ("verification_duty", "accountability", "核实责任", "Verification duty",
-     "AI 说错了、编了引注，谁负责？"),
+     "AI 输出有误或虚构引注时，由谁负责？"),
     ("integrity_framing", "accountability", "违规定性", "Integrity framing",
-     "违规使用在纪律体系里被定成什么性质？"),
+     "违规使用在纪律体系中如何定性？"),
     ("detector_stance", "accountability", "检测器证据", "Detector evidence",
-     "AI 检测器的结果能当证据吗？"),
+     "AI 检测工具的结果能否作为证据？"),
     ("data_privacy", "boundaries", "数据与隐私", "Data & privacy",
-     "什么内容不能喂给 AI？"),
+     "哪些内容不得输入 AI 工具？"),
     ("ip_copyright", "boundaries", "知识产权", "IP & copyright",
-     "有没有管版权和他人材料？"),
+     "是否规定版权及他人材料的使用？"),
     ("institutional_tools", "boundaries", "机构工具", "Institutional tools",
-     "学校是否指定或提供了 AI 工具？"),
+     "学校是否指定或提供 AI 工具？"),
     ("learning_rationale", "rationale", "学习理由", "Learning rationale",
-     "规则是否以“不能绕过要学的能力”为依据？"),
+     "规则是否以“不得绕过应习得的能力”为依据？"),
 ]
 
 # key -> [(value, zh, en, rank)]

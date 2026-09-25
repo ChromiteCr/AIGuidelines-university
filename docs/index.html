@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>三十校 AI 政策研究</title>
+<title>美国 30 所大学 AI 使用政策比较研究</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap">
@@ -72,7 +72,8 @@ a{color:var(--seal-ink);text-underline-offset:2px}
 /* ---- top bar ---- */
 .bar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--rule)}
 .bar .wrap{display:flex;align-items:center;gap:14px;height:46px}
-.bar .doc{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.bar .doc{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink-2);white-space:nowrap;
+  min-width:0;overflow:hidden;text-overflow:ellipsis}
 .bar .sp{flex:1}
 .lang{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;flex:none}
 .lang button{font-family:var(--mono);font-size:11px;padding:3px 10px;color:var(--ink-3);
@@ -83,8 +84,9 @@ a{color:var(--seal-ink);text-underline-offset:2px}
 .mast{border-bottom:1px solid var(--rule);
   background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
 .mast .wrap{padding-top:clamp(44px,9vw,88px);padding-bottom:clamp(32px,5vw,52px)}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,6.4vw,62px);
-  line-height:1.06;letter-spacing:-.02em;margin:14px 0 16px;text-wrap:balance}
+/* keep-all: a Chinese title breaks only at its spaces, never inside a word */
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5.4vw,54px);
+  line-height:1.1;letter-spacing:-.02em;margin:14px 0 16px;text-wrap:balance;word-break:keep-all}
 .lede{margin:0;max-width:var(--measure);font-size:clamp(15.5px,1.7vw,18px);color:var(--ink-2)}
 .lede strong{color:var(--ink);font-weight:600}
 
@@ -185,8 +187,8 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 
 <div class="bar">
   <div class="wrap">
-    <span class="doc" lang="zh">三十校 AI 政策研究</span>
-    <span class="doc" lang="en">Thirty-School AI Policy Study</span>
+    <span class="doc" lang="zh">美国 30 所大学 AI 使用政策比较研究</span>
+    <span class="doc" lang="en">AI Use Policies at 30 U.S. Universities</span>
     <span class="sp"></span>
     <div class="lang" role="group" aria-label="语言 / Language">
       <button id="b-zh" aria-pressed="true">中文</button>
@@ -197,25 +199,25 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 
 <header class="mast">
   <div class="wrap">
-    <span class="eyebrow" lang="zh">采集于 2026-08 · 官方文本对照</span>
-    <span class="eyebrow" lang="en">Collected 08/2026 · Official source comparison</span>
-    <h1 lang="zh">他们到底怎么规定的</h1>
-    <h1 lang="en">What the rules actually say</h1>
+    <span class="eyebrow" lang="zh">官方文本比较研究 · 数据采集于 2026 年 8 月</span>
+    <span class="eyebrow" lang="en">Comparative study of official texts · Collected August 2026</span>
+    <h1 lang="zh">美国 30 所大学 AI 使用政策比较研究</h1>
+    <h1 lang="en">AI Use Policies at 30 U.S. Universities: A Comparative Study</h1>
     <p class="lede" lang="zh">
-      本项目采集了三十所美国大学公开发布的 AI 使用政策，拆解为 12 项可比条款逐项对照，并在此基础上起草了一份面向国际部高中生的使用规范。
-      <strong>两份文件都可以逐条追回它所依据的原文。</strong>
+      本研究采集美国 30 所大学公开发布的 AI 使用政策，按 12 项条款逐校编码比较，并据此制定面向国际部高中生的《学生 AI 使用规范》。
+      <strong>图谱中的每项编码、规范中的每个数据，均可追溯至官方原文。</strong>
     </p>
     <p class="lede" lang="en">
-      This project collected the published AI use policies of thirty U.S. universities, broke them
-      into twelve comparable provisions, and drafted a set of guidelines for international-track
-      high-school students on that basis.
-      <strong>Every line in either document can be traced back to the text it rests on.</strong>
+      This study collects the published AI use policies of 30 U.S. universities, codes each
+      against 12 provisions, and on that basis sets out Student AI Use Guidelines for
+      international-division high-school students.
+      <strong>Every coding in the atlas and every figure in the guidelines traces back to official text.</strong>
     </p>
     <div class="facts">
-      <div class="fact"><b>30</b><span lang="zh">所大学，各自独立抽取</span><span lang="en">universities, each read in isolation</span></div>
-      <div class="fact"><b>12</b><span lang="zh">项可比条款</span><span lang="en">comparable provisions</span></div>
-      <div class="fact"><b>360</b><span lang="zh">格逐格对照</span><span lang="en">cells compared</span></div>
-      <div class="fact"><b>234</b><span lang="zh">条引文经机器逐字核验</span><span lang="en">quotations verified verbatim</span></div>
+      <div class="fact"><b>30</b><span lang="zh">所大学，逐校独立抽取</span><span lang="en">universities, each read in isolation</span></div>
+      <div class="fact"><b>12</b><span lang="zh">项比较条款</span><span lang="en">provisions compared</span></div>
+      <div class="fact"><b>360</b><span lang="zh">个编码单元（30 × 12）</span><span lang="en">coded cells (30 × 12)</span></div>
+      <div class="fact"><b>234</b><span lang="zh">条原文引证，逐字核验</span><span lang="en">quotations, each verified verbatim</span></div>
     </div>
   </div>
 </header>
@@ -224,17 +226,16 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 
 <section>
   <div class="sec-head">
-    <h2 lang="zh">两份文件</h2><h2 lang="en">Two documents</h2>
-    <span class="en2" lang="zh">Evidence &amp; rules</span>
-    <span class="en2" lang="en">Evidence &amp; rules</span>
+    <h2 lang="zh">研究成果</h2><h2 lang="en">Outputs</h2>
+    <span class="en2">Atlas · Guidelines</span>
   </div>
 
   <div class="doors">
     <a class="door" href="atlas.html">
-      <span class="kicker" lang="zh">依据 · The evidence</span>
-      <span class="kicker" lang="en">The evidence</span>
-      <h3 lang="zh">三十校 AI 政策图谱</h3>
-      <h3 lang="en">Thirty-School Policy Atlas</h3>
+      <span class="kicker" lang="zh">比较研究 · Comparative study</span>
+      <span class="kicker" lang="en">Comparative study</span>
+      <h3 lang="zh">AI 使用政策图谱</h3>
+      <h3 lang="en">Policy Atlas</h3>
       <div class="mini-grid" aria-hidden="true">
         <i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="0"></i>
         <i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="1"></i>
@@ -247,38 +248,39 @@ footer p{max-width:var(--measure);margin:0 0 9px}
         <i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i>
       </div>
       <p lang="zh">
-        三十所大学 × 12 项条款的对照矩阵。点开任意一格，看到该校原文里的那一句话、发布单位与官方链接。空白的斜纹格代表这份来源对该条款未作表述——那些空白与写满字的地方同样是发现。
+        30 所大学 × 12 项条款的编码矩阵。每格附该校官方原文中的依据语句、发布单位与来源链接；斜纹格表示该来源未就此条款作出表述。另报告各条款的一致度与未提及校数。
       </p>
       <p lang="en">
-        A matrix of thirty universities against twelve provisions. Open any cell to see the
-        sentence it rests on, the issuing unit, and the official link. Hatched cells mark
-        provisions the source does not address — those gaps are findings too.
+        A coding matrix of 30 universities × 12 provisions. Each cell carries the supporting
+        sentence from the university's official text, the issuing unit and the source link;
+        hatched cells mark provisions the source does not address. Agreement and non-coverage
+        are reported for each provision.
       </p>
       <div class="meta">
         <span class="chip">30 × 12</span>
         <span class="chip" lang="zh">234 格有明文</span><span class="chip" lang="en">234 with a rule</span>
-        <span class="chip" lang="zh">126 格沉默</span><span class="chip" lang="en">126 silent</span>
+        <span class="chip" lang="zh">126 格未提及</span><span class="chip" lang="en">126 not addressed</span>
       </div>
       <span class="go" lang="zh">打开图谱 →</span>
       <span class="go" lang="en">Open the atlas →</span>
     </a>
 
     <a class="door" href="guidelines.html">
-      <span class="kicker" lang="zh">规则 · The rules</span>
-      <span class="kicker" lang="en">The rules</span>
+      <span class="kicker" lang="zh">规范草案 · Draft guidelines</span>
+      <span class="kicker" lang="en">Draft guidelines</span>
       <h3 lang="zh">学生 AI 使用规范</h3>
       <h3 lang="en">Student AI Use Guidelines</h3>
       <div class="mini-lv" aria-hidden="true">
         <span>AI-0</span><span>AI-1</span><span>AI-2</span><span>AI-3</span>
       </div>
       <p lang="zh">
-        面向国际部高中生的使用规范，中英双语。核心是四档许可框架与一套固定的披露格式；另设专章处理两件大学政策未涉及的事：英语本身作为被评估的能力，以及大学申请文书。
+        依据上述比较研究制定，面向国际部高中生，中英双语。内容包括四档许可框架与统一的披露格式，并专章处理 30 校政策基本未涉及的两个问题：以英语能力本身为评估对象的作业，以及大学申请文书。
       </p>
       <p lang="en">
-        Guidelines for international-track high-school students, in both languages. Built on a
-        four-level permission framework and a fixed disclosure format, with a chapter on two things
-        university policies do not address: English as the skill being assessed, and college
-        application essays.
+        Derived from the study above, for international-division high-school students, in Chinese
+        and English. It sets out a four-level permission framework and a uniform disclosure format,
+        and treats two matters the thirty policies largely leave aside: assignments that assess
+        English itself, and college application essays.
       </p>
       <div class="meta">
         <span class="chip" lang="zh">7 节 + 3 附录</span><span class="chip" lang="en">7 sections + 3 appendices</span>
@@ -297,13 +299,13 @@ footer p{max-width:var(--measure);margin:0 0 9px}
     <span class="en2">30 pages</span>
   </div>
   <p class="note" lang="zh">
-    每所学校都有自己的地址，例如 <b class="num">ai.policy.nestudy.cn/MIT</b>。页面上是该校的十二项条款，以及它的官方原文——图谱引用过的句子会在原文中逐句标出。网址不区分大小写，常见写法（/mit、/johns-hopkins、/麻省理工）都会自动跳转。每行的小色带就是该校在图谱中的那一行：颜色越深规定越明确，空白处为该来源未作表述。
+    每所学校设有独立页面，如 <b class="num">ai.policy.nestudy.cn/MIT</b>（不区分大小写，/mit、/johns-hopkins、/麻省理工等写法自动跳转）。页面包含该校 12 项条款的编码与依据原文，以及官方文本全文。色带即该校在图谱中的一行：颜色越深，规定越明确；空白为未提及。
   </p>
   <p class="note" lang="en">
-    Every university has its own address — for example <b class="num">ai.policy.nestudy.cn/MIT</b>. Each page gives
-    its twelve provisions and its official text, with every sentence the atlas cites highlighted in place.
-    Addresses ignore case, and common spellings (/mit, /johns-hopkins, /麻省理工) redirect automatically.
-    The small strip on each entry is that university's row of the atlas: darker is more explicit, blank is silent.
+    Each university has its own page, e.g. <b class="num">ai.policy.nestudy.cn/MIT</b> (case-insensitive; /mit,
+    /johns-hopkins, /麻省理工 and similar spellings redirect). Each page gives the university's coding on all
+    12 provisions with the supporting text, and the full official source.
+    The strip is the university's row in the atlas: darker is more explicit; blank is not addressed.
   </p>
   <div class="schools"><a class="sch" href="Stanford/" title="Stanford University"><span class="n">01</span><b>Stanford</b><span class="zh">斯坦福大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
 <a class="sch" href="MIT/" title="Massachusetts Institute of Technology"><span class="n">02</span><b>MIT</b><span class="zh">麻省理工学院</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
@@ -339,7 +341,7 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 
 <section>
   <div class="sec-head">
-    <h2 lang="zh">证据链</h2><h2 lang="en">The chain of evidence</h2>
+    <h2 lang="zh">核验方法</h2><h2 lang="en">Verification</h2>
     <span class="en2">Traceability</span>
   </div>
 
@@ -347,41 +349,42 @@ footer p{max-width:var(--measure);margin:0 0 9px}
     <div class="link">
       <em>01</em>
       <div>
-        <b lang="zh">规范的每条规则指向图谱</b><b lang="en">Each rule points to the atlas</b>
-        <p lang="zh">规范正文中的每一处数字断言，在构建时都会与数据集比对；对不上则构建中止。目前 88 处断言、9 条引文全部通过。</p>
+        <b lang="zh">规范中的数字与数据集比对</b><b lang="en">Figures in the guidelines are checked against the dataset</b>
+        <p lang="zh">规范中的每一处数字断言在构建时与数据集比对，每条引文与其来源文件逐字比对，不一致则构建中止。当前 90 处断言、9 条引文全部通过。</p>
         <p lang="en">Every numeric claim in the guidelines is checked against the dataset at build
-          time, and a mismatch stops the build. Currently 88 assertions and 9 quotations pass.</p>
+          time, and every quotation against its source file; a mismatch stops the build.
+          Currently 90 assertions and 9 quotations pass.</p>
       </div>
     </div>
     <div class="link">
       <em>02</em>
       <div>
-        <b lang="zh">图谱的每一格指向原文</b><b lang="en">Each cell points to a source</b>
-        <p lang="zh">三十份文件由三十个互相隔离的程序分别抽取，每个只被允许读它自己那一份，并被禁止调用关于该校的既有知识；随后由对抗性审计重读同一份文件复核。</p>
-        <p lang="en">The thirty files were read by thirty isolated passes, each permitted to see only
-          its own file and barred from drawing on prior knowledge of that institution, then
-          re-checked by an adversarial audit against the same file.</p>
+        <b lang="zh">逐校隔离抽取，独立审计复核</b><b lang="en">Isolated extraction, independent audit</b>
+        <p lang="zh">30 份来源文件由 30 个相互隔离的程序分别抽取，每个程序只读取对应学校的文件，不得使用关于该校的既有知识；随后由独立审计重读同一文件复核。</p>
+        <p lang="en">The 30 source files were read by 30 isolated passes, each limited to its own
+          university's file and barred from prior knowledge of that institution, then re-checked
+          by an independent audit against the same file.</p>
       </div>
     </div>
     <div class="link">
       <em>03</em>
       <div>
-        <b lang="zh">每条原文经机器逐字比对</b><b lang="en">Each quotation is matched verbatim</b>
-        <p lang="zh">所有引文与其所属文件做精确字符串比对，对不上即降级并公开记录；若某条引文出现在别校文件里，会被直接点名为串源。当前 234/234 通过。</p>
-        <p lang="en">Every quotation is matched exactly against the file it claims to come from; a
-          miss is demoted and logged, and a quotation found in another school's file is named as
-          cross-contamination. Currently 234/234 pass.</p>
+        <b lang="zh">每条引文逐字比对</b><b lang="en">Each quotation is matched verbatim</b>
+        <p lang="zh">所有引文与其所属文件做精确字符串比对；未匹配的编码降为“未提及”并记录，出现在其他学校文件中的引文标记为串源。当前 234/234 通过。</p>
+        <p lang="en">Every quotation is matched exactly against the file it claims to come from; an
+          unmatched coding is demoted to "not addressed" and logged, and a quotation found in another
+          university's file is flagged as cross-contamination. Currently 234/234 pass.</p>
       </div>
     </div>
   </div>
 
   <p class="note" lang="zh">
-    这条链的意义在于：本项目的结论都可以被推翻——只要有人回到原文，指出某一格判错了。方法与已知问题在图谱的「方法与边界」一节中完整列出。
+    因此，任何一项编码都可以对照原文复核，如有误判欢迎指正。完整方法与局限见图谱<a href="atlas.html#sec-method" style="white-space:nowrap">「方法与局限」</a>。
   </p>
   <p class="note" lang="en">
-    The point of the chain is that the conclusions here can be overturned: anyone can return to the
-    source and show that a cell was coded wrongly. The method and its known limits are set out in
-    full under "方法与边界" in the atlas.
+    Any coding can therefore be checked against the source, and corrections are welcome. The full
+    method and its limitations are set out in the atlas under
+    <a href="atlas.html#sec-method">"方法与局限" (Method &amp; limitations)</a>.
   </p>
 </section>
 
@@ -401,7 +404,7 @@ footer p{max-width:var(--measure);margin:0 0 9px}
     对政策的分类与强度分级是本项目的判断，不代表任何一所大学的立场。发现引用有误或与官网有出入，欢迎提出更正。
   </p>
   <p lang="en">
-    The classification and ranking placed on those policies are this project's judgment and
+    The classification and strength grading placed on those policies are this project's judgment and
     represent no institution's position. Corrections are welcome where a citation is wrong or no
     longer matches the official page.
   </p>

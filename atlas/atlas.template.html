@@ -1,4 +1,4 @@
-<title>三十校 AI 政策图谱</title>
+<title>AI 使用政策图谱 · 美国 30 所大学</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Spectral:wght@600;700&display=swap">
@@ -131,15 +131,16 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;pad
 .masthead .wrap{padding-top:clamp(28px,6vw,56px);padding-bottom:clamp(22px,4vw,36px)}
 .mast-top{display:flex;gap:20px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px}
 .mast-top .eyebrow{flex:1 1 auto}
+#accessed{white-space:nowrap}
 .mast-top .xlink{flex:none;color:var(--seal-ink);text-decoration:none;
   border-bottom:1px solid var(--seal);padding-bottom:2px}
 .mast-top .xlink:hover{color:var(--ink);border-color:var(--ink)}
 h1{
   font-family:var(--display);font-weight:700;
   font-size:clamp(31px,5.2vw,54px);line-height:1.08;letter-spacing:-.015em;
-  margin:0 0 14px;text-wrap:balance;
+  margin:0 0 14px;text-wrap:balance;word-break:keep-all;
 }
-h1 .thin{color:var(--ink-3);font-weight:600}
+h1 .thin{display:block;margin-top:.3em;font-size:.5em;line-height:1.2;color:var(--ink-3);font-weight:600;letter-spacing:0}
 .lede{
   margin:0;max-width:62ch;font-size:clamp(15px,1.5vw,17px);
   color:var(--ink-2);line-height:1.62;
@@ -493,16 +494,15 @@ footer .num{color:var(--ink-2)}
   <header class="masthead">
     <div class="wrap">
       <div class="mast-top">
-        <span class="eyebrow">Comparative source atlas · 官方文本对照 · 采集于 <span id="accessed"></span></span>
+        <span class="eyebrow">Policy atlas · 官方文本对照 · 采集于 <span id="accessed"></span></span>
         <a class="eyebrow xlink" href="index.html">← 项目主页</a>
-        <a class="eyebrow xlink" href="guidelines.html">→ 本校《学生 AI 使用规范》</a>
+        <a class="eyebrow xlink" href="guidelines.html">→ 《学生 AI 使用规范》草案</a>
         <span class="eyebrow" id="mast-count"></span>
       </div>
-      <h1>三十校 AI 政策图谱<span class="thin"> ／ 他们到底怎么规定的</span></h1>
+      <h1>AI 使用政策图谱<span class="thin">美国 30 所大学 × 12 项条款</span></h1>
       <p class="lede">
-        美国三十所顶尖大学的官方 AI 使用规则，拆成 <strong>12 项可比条款</strong>逐格对照。
-        每一格都能点开，看到<strong>该校原文里的那一句话</strong>——不是我的转述。
-        空白的斜纹格代表这所学校的这份来源<strong>只字未提</strong>；那些洞，和写满字的地方一样重要。
+        本图谱将美国 30 所大学公开发布的 AI 使用政策按 <strong>12 项条款</strong>逐校编码。
+        每格附<strong>该校官方原文中的依据语句</strong>与来源链接；斜纹格表示该来源未就此条款作出表述。
       </p>
       <div class="stats" id="stats"></div>
     </div>
@@ -512,12 +512,12 @@ footer .num{color:var(--ink-2)}
 
     <section id="sec-read">
       <div class="sec-head">
-        <h2>三条读数</h2>
-        <span class="en">What the data says</span>
+        <h2>主要结果</h2>
+        <span class="en">Key findings</span>
         <span class="rule"></span>
       </div>
       <p class="sec-sub">
-        以下三组全部由矩阵实时算出，不是我写的结论。点任一条跳到矩阵并按该条排序。
+        以下结果由矩阵数据自动计算。点击任一条款，可在下方矩阵中按该条款排序。
       </p>
       <div class="readout" id="readout"></div>
     </section>
@@ -529,9 +529,8 @@ footer .num{color:var(--ink-2)}
         <span class="rule"></span>
       </div>
       <p class="sec-sub">
-        每条按 30 校的表态分布排开。条带越集中，说明这条越接近共识，可以直接写进校规范；
-        越分散，说明连大学之间都还在吵，你的规范就得自己做判断并说明理由。
-        右端的斜纹段是沉默——点任一条可在下方矩阵中按该条排序。
+        各条款在 30 校中的取值分布，右端斜纹段为未提及的学校。
+        一致度 = 主流口径校数 ÷ 有明文规定的校数<span id="binary-note"></span>。
       </p>
       <div class="dimgrid" id="dimgrid"></div>
     </section>
@@ -543,7 +542,8 @@ footer .num{color:var(--ink-2)}
         <span class="rule"></span>
       </div>
       <p class="sec-sub">
-        点任意一格看原文证据与来源链接；点列头按该条严格度排序；点校名看该校完整档案。
+        点击单元格查看原文依据与来源；点击列标题按该条款的规定强度排序；点击校名查看该校概况。
+        颜色深浅表示规定的明确程度与约束力，不代表政策优劣。
       </p>
 
       <div class="controls">
@@ -564,9 +564,9 @@ footer .num{color:var(--ink-2)}
       <div class="legend">
         <div class="lg-group">
           <span class="ctl-label">规定强度</span>
-          <span class="lg-item"><span class="lg-sw" data-rank="3"></span>最强/最明确</span>
-          <span class="lg-item"><span class="lg-sw" data-rank="2"></span>实质性</span>
-          <span class="lg-item"><span class="lg-sw" data-rank="1"></span>软性/弱</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="3"></span>强：明确且具约束力</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="2"></span>中：实质性规定</span>
+          <span class="lg-item"><span class="lg-sw" data-rank="1"></span>弱：建议或一般性表述</span>
           <span class="lg-item"><span class="lg-sw" data-rank="0"></span>该来源未提及</span>
         </div>
         <div class="lg-group">
@@ -581,21 +581,21 @@ footer .num{color:var(--ink-2)}
 
     <section id="sec-method">
       <div class="sec-head">
-        <h2>方法与边界</h2>
-        <span class="en">How this was built</span>
+        <h2>方法与局限</h2>
+        <span class="en">Method &amp; limitations</span>
         <span class="rule"></span>
       </div>
       <p class="sec-sub">
-        这份图谱的可信度全部押在一件事上：每一格都能追回它自己那份文件里的那一句话。所以方法必须摊开。
+        凡有明文规定的单元格，均可追溯至所属来源文件中的原句。以下说明抽取、核验与编码的方法及其局限。
       </p>
       <div class="method" id="method"></div>
     </section>
 
     <footer>
       <p class="disclaim">
-        <b>每一格的证据都逐字取自该校官方发布的网页</b>，附有官方链接与发布单位，并经机器精确比对核验。
-        需要留意的只有时效：本次采集完成于 <span class="num" id="accessed2"></span>，是一份定期更新的快照而非实时镜像，
-        各校此后的修订不会自动跟进——正式采用前请回官网核实当前版本。发现过期或与官网有出入，欢迎提 Pull Request。
+        <b>每格证据均逐字取自该校官方网页</b>，附官方链接与发布单位，并经精确字符串比对核验。
+        本次采集完成于 <span class="num" id="accessed2"></span>，为定期更新的快照，不实时跟进各校此后的修订；
+        正式引用前请以官网当前版本为准。如发现内容过期或与官网不符，欢迎提交 Pull Request。
       </p>
       <p class="disclaim">
         引文版权归各该大学所有；对政策的分类与强度分级是本项目的判断，不代表任何一所大学的立场。
@@ -607,7 +607,7 @@ footer .num{color:var(--ink-2)}
         institutions; the classification placed on it is this project's judgment. Independently
         compiled — not affiliated with, sponsored by, or endorsed by any institution named here.
       </p>
-      <span>数据层 <span class="num">data/policies.json</span>，由 <span class="num">univ/*.md</span> 生成；改数据即改图谱。</span>
+      <span>数据文件 <span class="num">data/policies.json</span>，由 <span class="num">univ/*.md</span> 抽取生成。</span>
     </footer>
   </div>
 </main>
@@ -655,12 +655,12 @@ $("#accessed2").textContent = M.accessed;
 $("#mast-count").textContent = `${M.schools} 校 × ${M.dimensions} 条 = ${M.cells} 格`;
 
 const statDefs = [
-  [M.schools, "所大学，每所独立抽取", 0],
-  [M.dimensions, "项可比条款", 0],
-  [M.filled, `格查有明文（占 ${Math.round(M.filled / M.cells * 100)}%）`, 0],
-  [M.silent, `格该来源沉默（占 ${Math.round(M.silent / M.cells * 100)}%）`, 1],
-  [`${M.evidence_matched}/${M.filled}`, "条引文经机器比对命中其所属原文", 0],
-  [M.problems.length, "项数据问题（全部公开在下方）", M.problems.length ? 1 : 0],
+  [M.schools, "所大学，逐校独立抽取", 0],
+  [M.dimensions, "项比较条款", 0],
+  [M.filled, `格有明文规定（${Math.round(M.filled / M.cells * 100)}%）`, 0],
+  [M.silent, `格未提及（${Math.round(M.silent / M.cells * 100)}%）`, 1],
+  [`${M.evidence_matched}/${M.filled}`, "条引文与所属原文逐字匹配", 0],
+  [M.problems.length, "项构建时记录的数据问题", M.problems.length ? 1 : 0],
 ];
 const statsEl = $("#stats");
 statDefs.forEach(([n, label, accent]) => {
@@ -679,25 +679,25 @@ const gradable = DATA.dimensions.filter(d => !d.binary && d.covered >= QUORUM);
 
 const READOUTS = [
   {
-    tone: "cool", kicker: "Copy these", title: "可以照抄的",
-    say: `过半学校（≥${QUORUM}）都有规定、且口径最一致的条款。共识既在，直接写进校规范，争议成本最低。`,
+    tone: "cool", kicker: "Highest agreement", title: "一致度最高",
+    say: `至少 ${QUORUM} 校有明文规定的条款中，一致度最高的三项。`,
     items: gradable.slice().sort((a, b) => b.agreement - a.agreement || b.covered - a.covered).slice(0, 3),
     stat: d => `${Math.round(d.agreement * 100)}%`,
     sub: d => `${d.top_n}/${d.covered} 校口径为「${d.dist.find(x => x.value === d.top_value).zh}」`,
   },
   {
-    tone: "hot", kicker: "Decide yourself", title: "你得自己判断的",
-    say: "同样过半学校有规定，但连大学之间都没谈拢。这里没有可抄的答案，你的规范必须选一个立场并说明理由。",
+    tone: "hot", kicker: "Lowest agreement", title: "一致度最低",
+    say: `同一范围内一致度最低的三项，即各校口径分歧最大的条款。`,
     items: gradable.slice().sort((a, b) => a.agreement - b.agreement || b.covered - a.covered).slice(0, 3),
     stat: d => `${Math.round(d.agreement * 100)}%`,
-    sub: d => `${d.covered} 校有规定，分成 ${d.dist.filter(x => x.n > 0 && x.value !== "not_addressed").length} 种口径`,
+    sub: d => `${d.covered} 校有规定，分为 ${d.dist.filter(x => x.n > 0 && x.value !== "not_addressed").length} 种口径`,
   },
   {
-    tone: "hot", kicker: "Nobody says", title: "大学集体没说的",
-    say: "沉默率最高的条款。空白不等于不重要——恰恰是高中场景里最需要你补上的部分。",
+    tone: "hot", kicker: "Least addressed", title: "未提及最多",
+    say: "未提及该条款的学校最多的三项。未提及仅指所采集的来源未作表述。",
     items: DATA.dimensions.slice().sort((a, b) => b.silent - a.silent || a.covered - b.covered).slice(0, 3),
     stat: d => `${d.silent}/${DATA.schools.length}`,
-    sub: d => `仅 ${d.covered} 校在这份来源中提到`,
+    sub: d => `${d.covered} 校有明文规定`,
   },
 ];
 
@@ -722,6 +722,8 @@ READOUTS.forEach(r => {
 });
 
 /* ---------- dimension cards ---------- */
+const binaries = DATA.dimensions.filter(d => d.binary).map(d => `「${d.zh}」`);
+if (binaries.length) $("#binary-note").textContent = `；${binaries.join("、")}只区分有无规定，改报覆盖率`;
 const dimgrid = $("#dimgrid");
 DATA.dimensions.forEach(d => {
   const card = el("button", "dimcard");
@@ -752,7 +754,7 @@ DATA.dimensions.forEach(d => {
     (d.binary
       ? `<span>覆盖 <b>${Math.round(d.covered / DATA.schools.length * 100)}%</b></span>`
       : `<span>一致度 <b>${agree}%</b></span>`) +
-    `<span class="${d.silent >= DATA.schools.length / 2 ? "hot" : ""}">沉默 <b>${d.silent}</b> 校</span>`;
+    `<span class="${d.silent >= DATA.schools.length / 2 ? "hot" : ""}">未提及 <b>${d.silent}</b> 校</span>`;
 
   card.append(top, q, bar, foot);
   card.addEventListener("click", () => sortByDim(d.key, true));
@@ -888,13 +890,19 @@ DATA.schools.forEach(s => scopeCounts[s.scope] = (scopeCounts[s.scope] || 0) + 1
     scopeChips.append(c);
   });
 
-const SORTS = [["num", "排名序"], ["strict", "规定最密"], ["covered", "覆盖条款最多"]];
+// The numbering is the order of the univ/ files, not a ranking.
+const SORTS = [
+  ["num", "编号", "按来源文件编号，不代表排名"],
+  ["strict", "强度总分", `${DATA.dimensions.length} 项条款强度（0–3）之和`],
+  ["covered", "有明文条款数", "有明文规定的条款数"],
+];
 const sortChips = $("#sort-chips");
-SORTS.forEach(([k, label]) => {
+SORTS.forEach(([k, label, hint]) => {
   const c = el("button", "chip");
   c.type = "button";
   c.dataset.sort = k;
   c.textContent = label;
+  c.title = hint;
   c.setAttribute("aria-pressed", String(state.sort === k));
   c.addEventListener("click", () => { state.sort = k; state.sortDim = null; syncSortChips(); buildMatrix(); });
   sortChips.append(c);
@@ -973,7 +981,7 @@ function openCell(schoolId, dimKey, btn) {
   v.append(el("b", null, c.zh), el("span", null, c.en));
   body.append(blk(d.zh + " / " + d.en, v));
 
-  if (c.note) body.append(blk("这条到底说了什么", el("p", "note", c.note)));
+  if (c.note) body.append(blk("编码说明 / Coding note", el("p", "note", c.note)));
 
   if (c.evidence) {
     const q = el("blockquote", "ev", c.evidence);
@@ -986,7 +994,7 @@ function openCell(schoolId, dimKey, btn) {
     body.append(blk("原文证据 / Verbatim evidence", [q, meta]));
   } else {
     const p = el("p", "note",
-      "这份来源在这一条上没有任何表述。这不代表该校没有相关规定——只代表本项目采集的这份官方文件对此沉默。规范起草时，沉默处需要你自己做判断并说明依据。");
+      "本项目采集的官方来源未就此条款作出表述；这不代表该校没有相关规定。");
     body.append(blk("原文证据 / Verbatim evidence", p));
   }
 
@@ -1004,13 +1012,13 @@ function openCell(schoolId, dimKey, btn) {
   body.append(sourceBlock(s));
 
   const acts = el("div", "acts");
-  const more = el("button", "chip", "查看 " + s.short + " 的完整档案 →");
+  const more = el("button", "chip", "查看 " + s.short + " 概况 →");
   more.type = "button";
   more.addEventListener("click", () => openSchool(schoolId));
   acts.append(more);
   if (SLUGS && SLUGS[schoolId]) {
     const pg = el("a", "chip pagelink",
-      c.evidence ? "在 /" + SLUGS[schoolId] + " 原文中看这一句 ↗" : "打开 /" + SLUGS[schoolId] + " 独立页面 ↗");
+      c.evidence ? "在 /" + SLUGS[schoolId] + " 原文中定位此句 ↗" : "打开 /" + SLUGS[schoolId] + " 单校页面 ↗");
     pg.href = SLUGS[schoolId] + "/" + (c.evidence ? "#ev-" + dimKey : "#p-" + dimKey);
     acts.append(pg);
   }
@@ -1023,9 +1031,9 @@ function openSchool(schoolId) {
   const s = schoolById[schoolId];
   document.querySelectorAll('.cell-btn[aria-pressed="true"]').forEach(b => b.removeAttribute("aria-pressed"));
 
-  $("#dr-kicker").textContent = `档案 · School profile · No.${String(s.num).padStart(2, "0")}`;
+  $("#dr-kicker").textContent = `学校概况 · School profile · No.${String(s.num).padStart(2, "0")}`;
   $("#dr-title").textContent = s.name;
-  $("#dr-sub").textContent = `${s.covered}/${DATA.dimensions.length} 条有明文规定 · ${DATA.dimensions.length - s.covered} 条沉默`;
+  $("#dr-sub").textContent = `${s.covered}/${DATA.dimensions.length} 项有明文规定 · ${DATA.dimensions.length - s.covered} 项未提及`;
 
   const body = $("#dr-body");
   body.innerHTML = "";
@@ -1035,7 +1043,7 @@ function openSchool(schoolId) {
     const m = el("div", "ev-meta");
     m.append(el("span", "badge ok", "逐字核验通过"), el("span", "badge", s.file));
     if (s.quote.why) m.append(el("span", null, s.quote.why));
-    body.append(blk("最值得引用的一句 / Most quotable line", [q, m]));
+    body.append(blk("原文摘录 / Excerpt", [q, m]));
   }
 
   const grid = el("div", "minigrid");
@@ -1047,7 +1055,7 @@ function openSchool(schoolId) {
     m.addEventListener("click", () => openCell(s.id, c.dim, null));
     grid.append(m);
   });
-  body.append(blk("十二条速览 / All twelve at a glance", grid));
+  body.append(blk("十二项条款 / Twelve provisions", grid));
 
   if (s.tiers.length) {
     const ol = el("ol", "tiers");
@@ -1062,10 +1070,10 @@ function openSchool(schoolId) {
   if (s.takeaways.length) {
     const ul = el("ul", "bullets");
     s.takeaways.forEach(t => ul.append(el("li", null, t)));
-    const note = el("p", "note", "以上为源文件中整理者写下的高中改编建议，非校方原文，不作为任何条款的证据。");
+    const note = el("p", "note", "以上为整理者所写的高中适用要点，非该校原文，不作为任何条款的依据。");
     note.style.color = "var(--ink-3)";
     note.style.fontSize = "11.5px";
-    body.append(blk("可供高中改编的要点 / Adaptation notes", [ul, note]));
+    body.append(blk("整理者注 / Collector's notes", [ul, note]));
   }
 
   body.append(sourceBlock(s));
@@ -1077,7 +1085,7 @@ function openSchool(schoolId) {
   body.append(blk("抽取质量 / Extraction audit", audit));
 
   if (SLUGS && SLUGS[schoolId]) {
-    const pg = el("a", "chip pagelink", "打开独立页面 /" + SLUGS[schoolId] + " ↗");
+    const pg = el("a", "chip pagelink", "打开单校页面 /" + SLUGS[schoolId] + " ↗");
     pg.href = SLUGS[schoolId] + "/";
     body.append(pg);
   }
@@ -1087,18 +1095,18 @@ function openSchool(schoolId) {
 
 /* ---------- method ---------- */
 const methodCards = [
-  ["01", "一个 agent 只读一个文件",
-   `30 份文件由 30 个互相隔离的 agent 分别抽取，每个只被允许读它自己那一份，并被明确禁止调用任何关于该校的既有知识。这是防止“串校”的第一道保险：结构上不可能串。`],
-  ["02", "每一格都必须带原文",
-   `任何非“未提及”的格子都必须附上该文件里的一句逐字原文。随后一个对抗性审计 agent 重读同一份文件，专门找编造的引文、把“建议”写成“强制”的抬级、以及本该沉默却被填上的格子。`],
-  ["03", "引文交给机器精确匹配",
-   `所有引文与其所属文件做精确字符串比对。对不上就把该格降为“未提及”并公开记录；若某条引文出现在别校文件里，会被直接点名为串源。当前 ${M.evidence_matched}/${M.filled} 条通过。`],
-  ["04", "沉默被当成数据，而不是空白",
-   `“未提及”只表示本项目采集的这份官方来源对此沉默，不代表该校没有规定。但沉默率本身是有意义的发现：大学之间集体不说的事，正是你的校规范必须自己想清楚的地方。`],
-  ["05", "来源层级不隐藏",
-   `有些学校能找到的只是院系级或面向教师的材料，约束力不同于校级政策。每所学校的层级都标在校名旁，可单独筛选，不与校级政策混为一谈。`],
+  ["01", "逐校隔离抽取",
+   `${M.schools} 份来源文件由 ${M.schools} 个相互隔离的 agent 分别抽取。每个 agent 只能读取对应学校的文件，且不得使用关于该校的既有知识，以避免不同学校的内容相互混入。`],
+  ["02", "每格须附原文",
+   `凡取值不为“未提及”的单元格，均须附该文件中的一句逐字原文。随后由独立的审计 agent 重读同一文件，核查三类错误：编造的引文、将“建议”误编为“强制”、将未提及的条款误填为有规定。`],
+  ["03", "引文精确匹配",
+   `所有引文与其所属文件做精确字符串比对。未能匹配的单元格降为“未提及”并记录在案；出现在其他学校文件中的引文标记为串源。当前 ${M.evidence_matched}/${M.filled} 条通过。`],
+  ["04", "强度分级",
+   `每格按规定的明确程度与约束力记 0–3 分：3 为明确且具约束力，2 为实质性规定，1 为建议或一般性表述；分数不代表政策优劣。0 为“未提及”，仅表示所采集的官方来源未作表述，不代表该校没有相关规定。`],
+  ["05", "来源层级",
+   `部分学校仅能获得院系级或面向教师的材料，其约束力不同于校级政策。各校来源层级标注于校名旁，可单独筛选。`],
   ["06", "数据与展示分离",
-   `图谱不硬编码任何一条规则，全部读 data/policies.json。改源文件、重跑构建，图谱自动更新；条款口径统一在 tools/codebook.py 一处定义。`],
+   `图谱内容全部读取自 data/policies.json；条款、取值与强度分级统一定义于 tools/codebook.py。来源文件更新后重新构建即可同步。`],
 ];
 const method = $("#method");
 methodCards.forEach(([n, h, p]) => {

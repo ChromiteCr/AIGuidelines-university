@@ -1,6 +1,6 @@
 # U.S. University AI Guidelines — Thirty-School Source Set
 
-![version](https://img.shields.io/badge/version-A3c-blue)
+![version](https://img.shields.io/badge/version-A3c1-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
@@ -160,12 +160,14 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 
 ### 本轮读数
 
-- **可以照抄的**（过半学校有规定且口径最一致）：数据与隐私 72%、课程规则优先 70%、学习理由 60%
-- **得自己判断的**（同样过半有规定但分歧最大）：核实责任 39%、披露要求 43%、默认规则 45%
-- **大学集体没说的**（沉默率最高）：过程留证 20/30、检测器证据 19/30、机构工具 19/30
+一致度 = 主流口径校数 ÷ 有明文规定的校数。一致度排名只统计至少 15 校有明文规定的条款；「知识产权」只区分有无规定，不参与排名。
 
-360 格中 234 格查有明文，126 格该来源沉默。沉默不等于该校无规定，只表示本项目采集的这份
-官方来源对此未着一字——而这些空白正是高中场景里最需要自己补上的部分。
+- **一致度最高**：数据与隐私 72%、课程规则优先 70%、学习理由 60%
+- **一致度最低**：核实责任 39%、披露要求 43%、默认规则 45%
+- **未提及最多**：过程留证 20/30、检测器证据 19/30、机构工具 19/30
+
+360 格中 234 格有明文规定，126 格未提及。「未提及」仅表示本项目采集的官方来源未就该条款
+作出表述，不代表该校没有相关规定。
 
 ## 许可 / Licensing
 
@@ -208,8 +210,8 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 `<blockquote>` 是否仍逐字存在于 `<cite>` 指名的 `univ/` 文件中。对不上就中止构建。
 
 ```
-数字核对   74/74 处断言与 data/policies.json 一致
-引文核对   7/7 条逐字命中其来源文件
+数字核对   90/90 处断言与 data/policies.json 一致
+引文核对   9/9 条逐字命中其来源文件
 ```
 
 构建时还会去掉中文段落里的断行空格（源文件按可读宽度换行，但 CJK 之间的换行会渲染成
@@ -307,6 +309,7 @@ python3 tools/serve.py                              # 本地预览 http://localh
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A3c1 | 2026-09-25 | 全站文案改为说明性表述：主页与图谱标题改为「美国 30 所大学 AI 使用政策比较研究」「AI 使用政策图谱」，去掉口语化与推断性语句；图谱三组结果改为「一致度最高／最低／未提及最多」并给出一致度定义；「排名序」改为「编号」（编号不代表排名）；图例与方法说明注明强度分级不代表优劣；条款提问句与分组说明改为书面语（codebook 重新生成数据，仅这 17 处文字变化）；规范页标题、导语与附录措辞同步收紧；主页引用的规范断言数改由构建核对 | docs |
 | A3c | 2026-09-24 | 单校独立页面：30 所大学各有 `ai.policy.nestudy.cn/<slug>` 地址，含十二项条款、原文全文与逐句引文标注，图谱与单校页双向深链；`404.html` 路由支持大小写、常见写法与中文名共 224 种；主页新增按学校索引；全站补上 doctype 与 viewport（修复线上手机端缩小显示）；新增 `serve.py` 本地预览与 `check_site.py` 全站检查；预留申请端政策接入位 | feat |
 | A3b | 2026-08-31 | 站点改为三页结构：新增独立主页（`docs/index.html`），图谱移至 `docs/atlas.html`，三页互链；规范正文整体改写为更严谨的表述，去除口语化与修辞性说法；三个构建脚本共用 `tools/sitelib.py`，中文断行处理扩展到图谱 | feat |
 | A3a | 2026-08-31 | 定为不指定 AI 工具，相应强化 §4 隐私（无豁免口、不得依赖厂商隐私承诺）；补 §5 违规处理条款（走现有学术诚信通道）；顶栏加分节跳转；断言校验扩至 88 处、引文 9 条，并禁止会退化成部分匹配的弱断言 | feat |

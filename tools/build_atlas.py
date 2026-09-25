@@ -45,6 +45,13 @@ def main():
     # the page is supposed to faithfully display.
     tpl = join_cjk(tpl)
 
+    # The masthead states the sample size and provision count in prose, where
+    # the injected data cannot correct them. Hold those figures to the dataset.
+    m = data["meta"]
+    for phrase in (f"美国 {m['schools']} 所大学", f"{m['dimensions']} 项条款", f"在 {m['schools']} 校中"):
+        if phrase not in tpl:
+            sys.exit(f"构建中止：模板中找不到与数据一致的表述 {phrase!r}")
+
     # </script> inside a string literal would close the block early.
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
     html = tpl.replace(MARKER, payload)

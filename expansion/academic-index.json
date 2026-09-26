@@ -1,0 +1,1386 @@
+{
+  "title": "22 newly researched schools — academic AI guidance only",
+  "school_count": 22,
+  "status_labels": {
+    "faculty-facing-guidance": "教师教学建议（学生AI细则未核实）",
+    "university-wide-policy": "全校政策／诚信规则（具体权限见来源）",
+    "official-student-guidance": "官方学生使用指导",
+    "unit-specific-guidance": "学院／部门／教学单位范围指导",
+    "no-verified-guidance": "未取得可核实的适用指导"
+  },
+  "status_counts": {
+    "official-student-guidance": 12,
+    "unit-specific-guidance": 2,
+    "university-wide-policy": 7,
+    "faculty-facing-guidance": 1
+  },
+  "schools": [
+    {
+      "id": "31",
+      "slug": "UC-Irvine",
+      "university": "University of California, Irvine",
+      "file": "31-UC-Irvine.md",
+      "status": "official-student-guidance",
+      "summary_zh": "UCI 图书馆要求先核对任课教师标准，存疑先问；DTEI 记载本科课程大纲须声明生成式 AI 使用规则。不存在可从工具可用性推导出的跨课程通行许可。[S1-Q1][S2-Q1]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Generative AI and Information Literacy: Academic Integrity and Citation",
+          "url": "https://guides.lib.uci.edu/gen-ai/citing",
+          "final_url": "https://guides.lib.uci.edu/gen-ai/citing",
+          "publisher": "UCI Libraries",
+          "scope": "student coursework",
+          "authority": "official-student-guidance",
+          "page_date": "Guide footer: updated Sep 22, 2026",
+          "accessed_at": "2026-09-26T02:16:23.066591+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/31-UC-Irvine-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Before you use any AI tool, ask yourself: Is using this tool in compliance with the course instructor’s standards? Does using this tool undermine your “honest effort” in this course to receive a grade? If you have any doubts, it is best to ask your instructor, and keep in mind that each course may have different standards of what might be acceptable.",
+              "topic": "Check instructor standards"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "If you are permitted to use an AI tool in your work and you have made the decision to use one, it may be a good idea to acknowledge your use as follows: Which tool(s) did you use? How did you use the tool (for what purpose, in what sections, etc.)? How did you prompt the tool? When did you use the tool?",
+              "topic": "Document AI use when permitted"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "S2",
+          "title": "Syllabus AI Policy Resources",
+          "url": "https://dtei.uci.edu/generative-ai/syllabus",
+          "final_url": "https://dtei.uci.edu/generative-ai/syllabus/",
+          "publisher": "UCI Division of Teaching Excellence and Innovation",
+          "scope": "undergraduate syllabus requirement reported by teaching-support unit; graduate separate",
+          "authority": "official-teaching-guidance",
+          "page_date": "Not stated; graduate rule described effective February 12, 2026",
+          "accessed_at": "2026-09-26T02:16:23.067539+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/31-UC-Irvine-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Recent guidance from the UC Irvine Academic Senate, through the Council on Educational Policy, now requires that all undergraduate course syllabi include a clear statement addressing the use of generative AI tools.",
+              "topic": "Undergraduate syllabi require AI statement"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "仅适用于在校学习或教学情境，不可移作本科申请 AI 规定；引用以课程/单位/大学明示适用范围为准。"
+      ]
+    },
+    {
+      "id": "32",
+      "slug": "Swarthmore",
+      "university": "Swarthmore College",
+      "file": "32-Swarthmore.md",
+      "status": "unit-specific-guidance",
+      "summary_zh": "已核验的 CS21 2023 秋季课程将使用生成式 AI 视为未经授权的外部协作；这只是该门课的规定。校方 Library/ITS 学生指导页面获取为空，无法据此核实全院要求。[X1][S2]",
+      "sources": [
+        {
+          "id": "X1",
+          "title": "Computer Science 21: Introduction to Computer Science (Fall 2023)",
+          "url": "https://www.cs.swarthmore.edu/courses/CS21/F23/",
+          "final_url": "https://www.cs.swarthmore.edu/courses/CS21/F23/",
+          "publisher": "Swarthmore Computer Science course staff",
+          "scope": "course-specific",
+          "authority": "course academic-integrity rule",
+          "page_date": "Fall 2023 course",
+          "accessed_at": "2026-09-26T02:43:59.734923+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/32-Swarthmore-X1.txt",
+          "quotes": [
+            {
+              "id": "X1-Q1",
+              "text": "The use of generative AI (e.g., chatGPT or GitHub CoPilot) is also considered to be unauthorized collaboration with an outside source and is a violation of our academic integrity policy.",
+              "topic": "source-grounded excerpt"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Library and ITS Guidance For Students On Artificial Intelligence",
+          "url": "https://www.swarthmore.edu/teaching-learning-commons/library-and-its-guidance-students-artificial-intelligence",
+          "final_url": "https://www.swarthmore.edu/teaching-learning-commons/library-and-its-guidance-students-artificial-intelligence",
+          "publisher": "Swarthmore Teaching and Learning Commons",
+          "scope": "college student guidance",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:44.293467+00:00",
+          "retrieval": "suspected-block-or-empty",
+          "local_text": null,
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:swarthmore.edu/admissions-aid \"artificial intelligence\" admissions guidance",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:swarthmore.edu/admissions-aid ChatGPT application essays",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:swarthmore.edu/admissions-aid application essay own writing AI",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "学校 ITS 和 Library/ITS 页面原抓取为 HTTP 202、零正文；未据搜索片段升级为已核验政策。",
+        "CS21 页面为 Fall 2023 历史课程，不能推断当季其他课程。"
+      ]
+    },
+    {
+      "id": "33",
+      "slug": "Williams",
+      "university": "Williams College",
+      "file": "33-Williams.md",
+      "status": "official-student-guidance",
+      "summary_zh": "图书馆指导要求用 AI 前核对任课教师规定、作业要求和荣誉准则；课程间许可不同，同时注意工具隐私条款。图书馆指导不等于全院统一许可。[S2]",
+      "sources": [
+        {
+          "id": "S2",
+          "title": "AI Ethics — AI and Information Literacy",
+          "url": "https://libguides.williams.edu/c.php?g=1470913&p=11044275",
+          "final_url": "https://libguides.williams.edu/c.php?g=1470913&p=11044275",
+          "publisher": "Williams College Libraries",
+          "scope": "library guidance for students",
+          "authority": "official-student-guidance",
+          "page_date": "2026-07-26",
+          "accessed_at": "2026-09-26T02:18:44.294216+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/33-Williams-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Before doing so, double check your proposed use against your professor's AI policies, the assignment requirements, and the Honor Code. What may be acceptable use in one class may be in direct violation of another professor's policies.",
+              "topic": "source-grounded excerpt"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "We encourage you to find and read the privacy policies of any tools you plan to use and to be careful about the information that you share with them.",
+              "topic": "source-grounded excerpt"
+            }
+          ],
+          "page_date_kind": "last-updated",
+          "page_date_note": "Visible page footer: Jul 26, 2026 9:35 PM; original publication date not stated."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:williams.edu/admission-aid \"artificial intelligence\" applicant",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:williams.edu/admission-aid ChatGPT essays application",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:williams.edu/admission-aid \"your own\" essay admissions",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "学院 AI ethics 页面 HTTP 403；仅图书馆指南正文已核验。"
+      ]
+    },
+    {
+      "id": "34",
+      "slug": "Pomona",
+      "university": "Pomona College",
+      "file": "34-Pomona.md",
+      "status": "university-wide-policy",
+      "summary_zh": "学生手册明确把未经批准使用 AI 列为学术诚信违规举例；计算机科学系另设四级课程 AI 使用体系，2026 秋试行，不应推广到其他院系。[S1][S2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Academic Honesty",
+          "url": "https://studenthandbook.pomona.edu/academicpolicies/academichonesty",
+          "final_url": "https://studenthandbook.pomona.edu/academicpolicies/academichonesty",
+          "publisher": "Pomona College Student Handbook",
+          "scope": "college-wide student policy",
+          "authority": "policy",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:23.067778+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/34-Pomona-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "In projects and assignments (including homework) prepared independently, students never intentionally represent the ideas or the language of others as their own, examples include but are not limited to plagiarism, failing to use citations, unapproved use of artificial intelligence and resubmitted personal work for another course.",
+              "topic": "source-grounded excerpt"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Computer Science AI Policy Tier System",
+          "url": "https://www.pomona.edu/academics/departments/computer-science/courses-requirements/ai-policy-tier-system",
+          "final_url": "https://www.pomona.edu/academics/departments/computer-science/courses-requirements/ai-policy-tier-system",
+          "publisher": "Pomona Computer Science Department",
+          "scope": "department-specific; pilot Fall 2026",
+          "authority": "department policy/pilot",
+          "page_date": "Fall 2026 pilot (start of program; webpage publication date not stated)",
+          "accessed_at": "2026-09-26T02:16:24.411246+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/34-Pomona-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "This is a program we are piloting in Fall 2026; we plan to revisit it regularly.",
+              "topic": "source-grounded excerpt"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "0. Absolutely no usage allowed 1. See the syllabus for allowed usage 2. Use in any way with required attribution 3. Completely open use",
+              "topic": "source-grounded excerpt"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "Specifically and only for classes in Tier 3, text and images generated by a student using an AI system are treated as the student's own work for the purposes of the College Academic Honesty Policy.",
+              "topic": "source-grounded excerpt"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:pomona.edu/admissions \"generative AI\" application",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:pomona.edu/admissions ChatGPT essay",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:pomona.edu/admissions/apply essay own voice authenticity",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "计算机科学系 tier pilot 仅系内，单个课程 tier 仍依其 syllabus。"
+      ]
+    },
+    {
+      "id": "35",
+      "slug": "Boston-University",
+      "university": "Boston University",
+      "file": "35-Boston-University.md",
+      "status": "official-student-guidance",
+      "summary_zh": "BU 教学指引建议教师明确课程可用与不可用的 AI 场景，AI 文本冒充原创可能构成抄袭；图书馆学生指引建议事先向老师确认课程政策并注明使用方式，引用透明不取代具体课程许可。[S1-Q1][S1-Q2][S2-Q1]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Generative AI Guidelines for Classroom Use",
+          "url": "https://www.bu.edu/aida/guidance/generative-ai-guidelines-for-classroom-use",
+          "final_url": "https://www.bu.edu/aida/guidance/generative-ai-guidelines-for-classroom-use/",
+          "publisher": "BU AI Development Accelerator",
+          "scope": "faculty classroom guidance; impacts enrolled students",
+          "authority": "official-teaching-guidance",
+          "page_date": "Last revised February 2026",
+          "accessed_at": "2026-09-26T02:16:24.704523+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/35-Boston-University-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "State your policy on GenAI use explicitly in the course syllabus.",
+              "topic": "Course syllabus"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Submitting GenAI-generated work as their own original work may constitute plagiarism.",
+              "topic": "Misrepresentation risk"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "S2",
+          "title": "Generative AI Tools for Students: AI Tools for Coursework",
+          "url": "https://library.bu.edu/gen-ai/coursework",
+          "final_url": "https://library.bu.edu/gen-ai/coursework",
+          "publisher": "Boston University Libraries",
+          "scope": "students, course work",
+          "authority": "official-student-guidance",
+          "page_date": "Library guide footer: last updated Sep 25, 2026",
+          "accessed_at": "2026-09-26T02:16:25.119743+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/35-Boston-University-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Ask Early: Clarify your instructor’s policy before starting your assignment.",
+              "topic": "Ask instructor"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Don’t present AI-generated content as your own. Use AI to assist—not replace—your work.",
+              "topic": "Transparency and own work"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "仅适用于在校学习或教学情境，不可移作本科申请 AI 规定；引用以课程/单位/大学明示适用范围为准。"
+      ]
+    },
+    {
+      "id": "36",
+      "slug": "Wellesley",
+      "university": "Wellesley College",
+      "file": "36-Wellesley.md",
+      "status": "official-student-guidance",
+      "summary_zh": "图书馆引用指导要求遵守课程或刊物规定、保留工具使用信息并核实 AI 提供的来源；它不是全校课程授权。[S2]",
+      "sources": [
+        {
+          "id": "S2",
+          "title": "Citing Generative AI — Citing Sources",
+          "url": "https://libguides.wellesley.edu/citation/genai",
+          "final_url": "https://libguides.wellesley.edu/citation/genai",
+          "publisher": "Wellesley College Library Research & Instruction",
+          "scope": "library citation guidance",
+          "authority": "official-student-guidance",
+          "page_date": "2026-05-07",
+          "accessed_at": "2026-09-26T02:20:30.499714+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/36-Wellesley-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Make sure you know and follow the policies for the class or publication you for which you are writing.",
+              "topic": "source-grounded excerpt"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Always check a source yourself",
+              "topic": "source-grounded excerpt"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "Tool name and version (e.g., ChatGPT 4.0)",
+              "topic": "source-grounded excerpt"
+            }
+          ],
+          "page_date_kind": "last-updated",
+          "page_date_note": "Visible page footer: May 7, 2026 2:56 PM; original publication date not stated."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:wellesley.edu/admission-aid \"artificial intelligence\" application",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:wellesley.edu/admission-aid ChatGPT essay",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:wellesley.edu/admission-aid/apply essay your own voice",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "学院 AI and Liberal Arts 页面 HTTP 403；仅图书馆指南已核验。"
+      ]
+    },
+    {
+      "id": "37",
+      "slug": "Barnard",
+      "university": "Barnard College",
+      "file": "37-Barnard.md",
+      "status": "official-student-guidance",
+      "summary_zh": "CEP面向Barnard学生的AI指南要求有疑问时询问任课教师、核实生成信息；ATLIS提示隐私及知识产权风险。两者不是招生文书政策。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Student Guide to Generative AI | Barnard Center for Engaged Pedagogy",
+          "url": "https://cep.barnard.edu/student-guide-generative-ai",
+          "final_url": "https://cep.barnard.edu/student-guide-generative-ai",
+          "publisher": "Barnard Center for Engaged Pedagogy",
+          "scope": "students/coursework",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:16:26.504136+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/37-Barnard-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The Center for Engaged Pedagogy encourages you to talk to your professors and ask what their policies are if ever you are unsure.",
+              "topic": "source-grounded guidance"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Always verify information with credible sources and cultivate the expertise needed to assess AI-generated material critically.",
+              "topic": "AI / integrity / applicant authorship"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Using GenAI at Barnard | Barnard College",
+          "url": "https://atlis.barnard.edu/using-genai-barnard",
+          "final_url": "https://atlis.barnard.edu/using-genai-barnard",
+          "publisher": "Barnard ATLIS",
+          "scope": "Barnard community / tool use",
+          "authority": "campus-technology-advice",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:16:27.108255+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/37-Barnard-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Be mindful about the prompts you are feeding into your bot. AI tools raise issues of privacy and intellectual property .",
+              "topic": "AI / integrity / applicant authorship"
+            }
+          ]
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "Guide updated for academic year 2025–26, not evidence of a 2028 admissions policy."
+      ]
+    },
+    {
+      "id": "38",
+      "slug": "Washington-Seattle",
+      "university": "University of Washington (Seattle)",
+      "file": "38-Washington-Seattle.md",
+      "status": "official-student-guidance",
+      "summary_zh": "UW 学生事务给学生的正式通知提醒：未获教师同意的 AI 使用可能违反学术要求；课程要求看大纲，不明时使用前询问。此处是华盛顿大学西雅图校区体系，不是圣路易斯华盛顿大学。[S1-Q1][S1-Q2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "AI tools and academic integrity",
+          "url": "https://www.washington.edu/studentlife/2023/10/11/ai-tools-and-academic-integrity",
+          "final_url": "https://www.washington.edu/studentlife/2023/10/11/ai-tools-and-academic-integrity/",
+          "publisher": "UW Student Life — Vice President for Student Life",
+          "scope": "UW students and instructors",
+          "authority": "official-student-guidance",
+          "page_date": "October 11, 2023 (URL date)",
+          "accessed_at": "2026-09-26T02:16:27.108382+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/38-Washington-Seattle-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "However, using these technologies without your instructor’s permission may violate academic standards of the University. Under the Student Conduct Code, cheating includes the unauthorized use of assistance, including technology, in completing assignments or exams.",
+              "topic": "Unauthorized AI may breach standard"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Read the syllabus for each course you take so that you understand the particular expectations of each of your instructors. If you are unsure of expectations, ask for clarification before you use specific resources in completing assignments or exams.",
+              "topic": "Check syllabus and ask"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "S2",
+          "title": "Academic misconduct public page describing faculty toolkit",
+          "url": "https://www.washington.edu/cssc/academic-misconduct",
+          "final_url": "https://www.washington.edu/cssc/academic-misconduct/",
+          "publisher": "UW Community Standards & Student Conduct",
+          "scope": "Public academic-misconduct landing page for faculty; restricted toolkit itself not accessed",
+          "authority": "official-public-description-of-faculty-resource",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:27.805786+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/38-Washington-Seattle-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "The toolkit includes information about CSSC, how to report misconduct, tips for preventing academic misconduct, and addressing the use of AI/ChatGPT with students in the classroom.",
+              "topic": "Faculty toolkit AI coverage"
+            }
+          ],
+          "note": "",
+          "retrieval_note": "The full-text snapshot is only the public landing page. The Academic Integrity Toolkit requires UW NetID and was not accessed."
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "仅适用于在校学习或教学情境，不可移作本科申请 AI 规定；引用以课程/单位/大学明示适用范围为准。",
+        "The full-text snapshot is only the public landing page. The Academic Integrity Toolkit requires UW NetID and was not accessed."
+      ]
+    },
+    {
+      "id": "39",
+      "slug": "LSE",
+      "university": "London School of Economics and Political Science",
+      "file": "39-LSE.md",
+      "status": "university-wide-policy",
+      "summary_zh": "LSE 现有学生支持页认为 AI 可辅助学习，要求先查院系规则；2025/26 至 2026/27 的学校评估立场规定院系或课程需在禁用、有限许可、完全许可三种方式中确定授权，非全校一律允许。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Digital Skills Lab／面向在校生的指导",
+          "url": "https://info.lse.ac.uk/current-students/digital-skills-lab/Gen-AI.aspx",
+          "final_url": "https://info.lse.ac.uk/current-students/digital-skills-lab/Gen-AI",
+          "publisher": "London School of Economics and Political Science",
+          "scope": "current-students",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:16:28.672436+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "AI tools can complement and support your learning, helping you to explore ideas, understand complex material, plan your work, or think through difficult concepts.",
+              "topic": "学习辅助"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Before using AI tools in your academic work, always check your department's guidance.",
+              "topic": "先核对院系"
+            }
+          ],
+          "local_text": "sources/39-LSE-S1.txt"
+        },
+        {
+          "id": "S2",
+          "title": "School position on generative AI",
+          "url": "https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/School-position-on-generative-AI",
+          "final_url": "https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/School-position-on-generative-AI",
+          "publisher": "London School of Economics and Political Science",
+          "scope": "school-wide-assessment; implemented by department/course",
+          "authority": "university-assessment-framework",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:16:28.673122+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Position 1: No authorised use of generative AI in assessment.",
+              "topic": "禁止选项"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Position 2: Limited authorised use of generative AI in assessment.",
+              "topic": "有限授权选项"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "Position 3: Full authorised use of generative AI in assessment.",
+              "topic": "完全授权选项"
+            },
+            {
+              "id": "S2-Q4",
+              "text": "Departments and/or course convenors are expected to clearly communicate their position to their students.",
+              "topic": "授课方告知责任"
+            }
+          ],
+          "local_text": "sources/39-LSE-S2.txt"
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "S2 学校评估框架非每门课具体决定；当前文档不能判定具体评估许可。"
+      ]
+    },
+    {
+      "id": "40",
+      "slug": "Claremont-McKenna",
+      "university": "Claremont McKenna College",
+      "file": "40-Claremont-McKenna.md",
+      "status": "faculty-facing-guidance",
+      "summary_zh": "CMC教师端《Generative AI and the Classroom: Tips and Ideas》建议逐课程说明允许范围与披露，并警告检测器不能作为确定证据；学生诚信页仅提供一般诚信指导，尚未核实面向学生的AI专门细则。PDF附录范本不是全校统一AI政策。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Generative AI and the Classroom: Tips and Ideas",
+          "url": "https://www.cmc.edu/sites/default/files/generative_ai_and_the_classroom.pdf",
+          "final_url": "https://www.cmc.edu/sites/default/files/generative_ai_and_the_classroom.pdf",
+          "publisher": "Claremont McKenna College (faculty-facing PDF)",
+          "scope": "faculty/classroom",
+          "authority": "faculty-teaching-advice / sample-syllabus-not-university-policy",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:16:29.685319+00:00",
+          "retrieval": "full-text PDF extraction",
+          "local_text": "sources/40-Claremont-McKenna-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "You should consider addressing AI tools in your course policies.",
+              "topic": "AI / integrity / applicant authorship"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "No AI detector can provide definitive proof.",
+              "topic": "AI / integrity / applicant authorship"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Promoting Academic Integrity at CMC | Claremont McKenna College",
+          "url": "https://www.cmc.edu/student-life/academic-success/academic-integrity",
+          "final_url": "https://www.cmc.edu/student-life/academic-success/academic-integrity",
+          "publisher": "Claremont McKenna College, Academic Success",
+          "scope": "CMC students/faculty/staff",
+          "authority": "official-academic-integrity-guidance",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:16:29.849524+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/40-Claremont-McKenna-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "As valued members of the scholarly community, students, faculty, and staff support an institutional commitment to honest intellectual inquiry",
+              "topic": "source-grounded guidance"
+            }
+          ]
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "Faculty-facing PDF includes sample syllabus wording; no campus-wide generative-AI permission established."
+      ]
+    },
+    {
+      "id": "41",
+      "slug": "Vassar",
+      "university": "Vassar College",
+      "file": "41-Vassar.md",
+      "status": "official-student-guidance",
+      "summary_zh": "据Vassar图书馆指南（页面更新2026-09-02），学术课程中的生成式AI使用由教师／院系具体规定；学生应查看大纲、不明时询问教授，披露获准使用并核验输出。这是该页在校学习范围的说明，不外推招生或未来时期。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Home - Learn About Generative AI - Libraries at Vassar College",
+          "url": "https://library.vassar.edu/gen-ai",
+          "final_url": "https://library.vassar.edu/gen-ai",
+          "publisher": "Vassar College Libraries",
+          "scope": "Vassar academic coursework",
+          "authority": "official-library-student-guidance",
+          "page_date": "2026-09-02",
+          "accessed_at": "2026-09-26T02:16:29.850304+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/41-Vassar-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Vassar College does not have an official policy on generative AI but rather empowers Vassar faculty members and departments to make tailored policies about AI for their courses;",
+              "topic": "AI / integrity / applicant authorship"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Check the syllabus and course page on Moodle to familiarize yourself with the course AI policy.",
+              "topic": "AI / integrity / applicant authorship"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "If you use generative AI, make sure to disclose your use of AI.",
+              "topic": "AI / integrity / applicant authorship"
+            }
+          ],
+          "page_date_kind": "last-updated",
+          "page_date_note": "Visible page footer: Sep 2, 2026 1:40 PM; original publication date not stated."
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "关于没有统一GenAI政策的说法仅引述2026-09-02更新的图书馆课程学习指南，不作为全校所有业务或未来时期的独立政策调查结论。",
+        "课程／院系的具体许可和披露规则需单独查阅；本材料不提供本科招生AI许可。"
+      ]
+    },
+    {
+      "id": "42",
+      "slug": "Carleton",
+      "university": "Carleton College",
+      "file": "42-Carleton.md",
+      "status": "university-wide-policy",
+      "summary_zh": "Carleton College校园手册学术诚信条文要求作业核心智力工作由学生本人完成，外部资源（明确包括生成式AI）的许可依任课教师及每项作业而异，获准使用仍须致谢；校园AI页还有数据安全说明，其雇员限制不直接改写为招生规则。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Policies – AI at Carleton – Carleton College",
+          "url": "https://www.carleton.edu/ai/policies",
+          "final_url": "https://www.carleton.edu/ai/policies/",
+          "publisher": "Carleton College, AI at Carleton",
+          "scope": "Carleton community / academic-policy pointer",
+          "authority": "official-policy-overview (employee data section distinct)",
+          "page_date": "2026-09-01",
+          "accessed_at": "2026-09-26T02:16:30.820110+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/42-Carleton-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The full policy is in the Campus Handbook",
+              "topic": "source-grounded guidance"
+            }
+          ],
+          "page_date_kind": "last-updated",
+          "page_date_note": "Visible page footer: 1 September 2026; original publication date not stated."
+        },
+        {
+          "id": "S2",
+          "title": "Academic Regulations & Procedures – Campus Handbook – Carleton College",
+          "url": "https://www.carleton.edu/handbook/academics/policy/329/academic-integrity",
+          "final_url": "https://www.carleton.edu/handbook/academics/policy/329/academic-integrity/",
+          "publisher": "Carleton College Campus Handbook",
+          "scope": "coursework by enrolled students",
+          "authority": "university-wide-academic-integrity-policy",
+          "page_date": "2026-05-21",
+          "accessed_at": "2026-09-26T02:16:31.026991+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/42-Carleton-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "the core intellectual substance of the assignment is carried out by the student themselves.",
+              "topic": "source-grounded guidance"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Students should follow the guidance provided by their instructor regarding what outside resources",
+              "topic": "source-grounded guidance"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "all permitted collaboration or use of external resources must still be acknowledged.",
+              "topic": "source-grounded guidance"
+            }
+          ],
+          "page_date_kind": "last-updated",
+          "page_date_note": "Visible page footer: 21 May 2026; original publication date not stated."
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "Employee data-security section is distinct from student academic integrity; neither speaks to admissions."
+      ]
+    },
+    {
+      "id": "43",
+      "slug": "Georgia-Tech",
+      "university": "Georgia Institute of Technology",
+      "file": "43-Georgia-Tech.md",
+      "status": "university-wide-policy",
+      "summary_zh": "佐治亚理工 2026 年 6 月起的临时行政 AI 政策覆盖教学与科研情境；政策称任课教师应向学生明确说明课程/作业中的可用与禁用边界，学生遵循相应规则。学校提供工具并非自动批准某项作业使用。[S1-Q1][S1-Q2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Interim - Artificial Intelligence (AI) in Academic & Research Contexts",
+          "url": "https://policylibrary.gatech.edu/artificial-intelligence-ai-academic-research-contexts",
+          "final_url": "https://policylibrary.gatech.edu/artificial-intelligence-ai-academic-research-contexts",
+          "publisher": "Georgia Tech Policy Library, Office of Provost / Research",
+          "scope": "institute-wide academic and research; not undergraduate admissions",
+          "authority": "interim administrative policy",
+          "page_date": "Effective June 2026; review December 2026",
+          "accessed_at": "2026-09-26T02:16:31.349053+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/43-Georgia-Tech-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Instructors should provide students with clear guidance about permissible and impermissible uses of AI in their courses and assignments.",
+              "topic": "Course and assignment expectations"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Students, Faculty, Researchers, Affiliates, and Staff: Follow course, project, and unit rules established under this policy, apply the Guidance on the Use of AI in Academic and Research Contexts where applicable,",
+              "topic": "Follow rules"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "仅适用于在校学习或教学情境，不可移作本科申请 AI 规定；引用以课程/单位/大学明示适用范围为准。"
+      ]
+    },
+    {
+      "id": "44",
+      "slug": "NUS",
+      "university": "National University of Singapore",
+      "file": "44-NUS.md",
+      "status": "university-wide-policy",
+      "summary_zh": "NUS 2026年教学政策规定无监考任务默认可在充分声明后使用AI，并禁止把AI检测器判定直接作为纪律证据；学生指南要求按课程目标与教师要求判断许可，声明使用并核查输出。此条不适用于申请文书。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Policy for Use of AI in Teaching and Learning",
+          "publisher": "NUS Centre for Teaching, Learning and Technology",
+          "scope": "university / teaching and assessment",
+          "authority": "university-wide-policy",
+          "page_date": "Current version 15 Sept 2026 (printed in PDF body)",
+          "url": "https://ctlt.nus.edu.sg/wp-content/uploads/2026/04/Policy-for-Use-of-AI-in-Teaching-and-Learning.pdf",
+          "final_url": "https://ctlt.nus.edu.sg/wp-content/uploads/2026/09/NUS-AI-Teaching-Learning-Policy_15-Sept-2026.pdf",
+          "accessed_at": "2026-09-26T02:16:31.545092+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/44-NUS-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Conversely, the default assumption for any unsupervised (e.g., “take-home”) assessment task is that the use of AI tools is permitted so long as the use is duly acknowledged.",
+              "topic": "unsupervised assessment default"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "The verdicts of current AI tools purporting to determine whether an analysed input has been generated by AI are not admissible as evidence in a disciplinary process to charge a student with academic dishonesty or as justification to penalize student work.",
+              "topic": "AI detector verdicts"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Given the above, representing an AI’s output as your own work , without any acknowledgement that you have used such a tool , is plagiarism .",
+              "topic": "unacknowledged output"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "AI Tools: Guidelines on Use in Academic Works",
+          "publisher": "NUS Libraries / University Policy Workgroup for AI in Teaching and Learning",
+          "scope": "student academic work",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated",
+          "url": "https://libguides.nus.edu.sg/new2nus/acadintegrity",
+          "final_url": "https://libguides.nus.edu.sg/new2nus/acadintegrity",
+          "accessed_at": "2026-09-26T02:16:33.438034+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/44-NUS-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Whether or not using an AI tool in a particular way is allowable depends on the learning purposes of the course and the targeted outcomes of the assignment.",
+              "topic": "course discretion"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "If you completed any work with the aid of an AI tool, assuming a setting in which the instructor gave permission for such tools to be used, you should always acknowledge the use.",
+              "topic": "disclosure"
+            },
+            {
+              "id": "S2-Q3",
+              "text": "You should thus always assume that the AI’s output is incorrect until you have separately checked it against reliable sources (citing those sources properly) or have gone through the workings yourself.",
+              "topic": "verification"
+            }
+          ]
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "2026-09-15教学政策中的无监考评估默认许可仅适用于教学与评估，不适用于招生文书；监督评估和不同任务的要求分别核对。",
+        "S2为图书馆学生指引，不把对学习用途的建议扩写为所有使用场景的许可；保留S1现行政策版本日期与各来源时间。"
+      ]
+    },
+    {
+      "id": "45",
+      "slug": "HKU",
+      "university": "University of Hong Kong",
+      "file": "45-HKU.md",
+      "status": "official-student-guidance",
+      "summary_zh": "HKU 2023年公布参议会通过教学用GenAI政策，要求教师说明课程作业中的声明与引用方式。政策全文需HKU登录，公开新闻稿不能替代条款全文；教学资源示例也不是全校统一禁令。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "HKU introduces new policy to fully integrate GenAI in Teaching and Learning",
+          "publisher": "HKU Lead / HKU communications",
+          "scope": "university / teaching and learning",
+          "authority": "official-policy-announcement",
+          "page_date": "Aug 2023",
+          "url": "https://lead.hku.hk/en/article/2023/08/hku-introduces-new-policy-to-fully-integrate-genai-in-teaching-and-learning",
+          "final_url": "https://lead.hku.hk/en/article/2023/08/hku-introduces-new-policy-to-fully-integrate-genai-in-teaching-and-learning",
+          "accessed_at": "2026-09-26T02:16:33.475031+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/45-HKU-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "In June, the University Senate endorsed a comprehensive policy for using GenAI in teaching and learning. This incorporation of GenAI will establish it as the fifth literacy for HKU students, alongside the current four literacies of oral, written, visual, and digital communication, under the HKU communication-intensive course (CiC) initiative.",
+              "topic": "Senate endorsement"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "To address the challenges posed by GenAI on student work assessments, teachers are to clearly communicate expectations and provide guidance on proper declaration and citation of GenAI tools used in coursework tasks and assignments.",
+              "topic": "assessment declaration"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "AI Literacy: HKU GenAI Policy",
+          "publisher": "HKU Libraries",
+          "scope": "university / student/staff resource directory",
+          "authority": "official-resource-directory",
+          "page_date": "Not stated",
+          "url": "https://libguides.lib.hku.hk/AI-literacy",
+          "final_url": "https://libguides.lib.hku.hk/AI-literacy",
+          "accessed_at": "2026-09-26T02:16:33.475334+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/45-HKU-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "You may log in with your HKU email account to see the details in the policy document:",
+              "topic": "policy document access"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "Teaching and Learning / Core Principles",
+          "publisher": "HKU TALIC AI in Education",
+          "scope": "teaching resource; not binding student rule",
+          "authority": "official-faculty-guidance",
+          "page_date": "Not stated",
+          "url": "https://aied.talic.hku.hk/teaching-and-learning/",
+          "final_url": "https://aied.talic.hku.hk/teaching-and-learning/",
+          "accessed_at": "2026-09-26T02:18:44.294271+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/45-HKU-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "Teachers can establish guidelines and policies that require students to disclose the use of generative AI in their work.",
+              "topic": "possible local disclosure expectations"
+            }
+          ]
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "只读取2023年公开公告及资源页；HKU完整教学GenAI政策需账号登录，本次未读取该受限政策全文。",
+        "TALIC原则和示例为教学建议，不是全校学生或本科申请的统一许可／禁令。"
+      ]
+    },
+    {
+      "id": "46",
+      "slug": "Oxford",
+      "university": "University of Oxford",
+      "file": "46-Oxford.md",
+      "status": "official-student-guidance",
+      "summary_zh": "Oxford AI Competency Centre 面向学生说明生成式 AI 可辅助学习；必须按课程／评估要求核对与披露，不得将 AI 工作冒作本人完成。",
+      "sources": [
+        {
+          "id": "X1",
+          "title": "AI Competency Centre / Getting started with AI for students",
+          "url": "https://oerc.ox.ac.uk/ai-centre/ai-guides/getting-started-with-ai-for-students",
+          "final_url": "https://oerc.ox.ac.uk/ai-centre/ai-guides/getting-started-with-ai-for-students",
+          "publisher": "University of Oxford",
+          "scope": "university-students",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:44:32.270443+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "X1-Q1",
+              "text": "Students must understand and follow the guidance on safe and responsible use of GenAI tools",
+              "topic": "校方安全使用指引入口"
+            },
+            {
+              "id": "X1-Q2",
+              "text": "Each course and assessment may have different requirements. Always check the specific guidelines provided by your tutors, supervisors, department or faculty, and in your course handbook.",
+              "topic": "逐课核验"
+            },
+            {
+              "id": "X1-Q3",
+              "text": "Never present AI work as your own",
+              "topic": "不得冒称原创"
+            },
+            {
+              "id": "X1-Q4",
+              "text": "You remain fully responsible for any work submitted, including any errors or inaccuracies from AI assistance.",
+              "topic": "本人负责"
+            }
+          ],
+          "local_text": "sources/46-Oxford-X1.txt"
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "已存 Oxford 大学新闻源 S1 仅 Cloudflare 403；治理政策页面 X2 亦 403，未据此写政策细节。",
+        "AI Competency Centre 指导不是具体课程的许可。"
+      ],
+      "quote_normalization_note": "引文核验只折叠网页换行、HTML超链接分段和其他连续空白，不改写词语或标点；因此匹配指空白标准化后的逐字匹配，而非原始HTML或文本文件逐字节相同。"
+    },
+    {
+      "id": "47",
+      "slug": "Boston-College",
+      "university": "Boston College",
+      "file": "47-Boston-College.md",
+      "status": "university-wide-policy",
+      "summary_zh": "Boston College 本科课程诚信政策把未经许可/未记录的 AI 作业列为违规情形；AI 完成作业核心要求且缺教师明确许可及完整归属/引用，属于其所述抄袭范围。AI@BC 指引再提醒遵守具体课程要求；两者不能被理解为只要标注就可使用。[S2-Q1][S2-Q2][S1-Q1]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "AI @ BC: Guidelines",
+          "url": "https://www.bc.edu/bc-web/sites/generative-ai/Guidelines.html",
+          "final_url": "https://www.bc.edu/bc-web/sites/generative-ai/Guidelines.html",
+          "publisher": "Boston College AI @ BC",
+          "scope": "college community, course-specific instructor authority",
+          "authority": "official-university-guidance",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:34.419670+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/47-Boston-College-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "faculty should offer, and students should defer to, guidelines about appropriate use of AI in coursework, or when such use is prohibited.",
+              "topic": "Course rules"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "S2",
+          "title": "Academic Integrity (Undergraduate)",
+          "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/policies-procedures/academic-integrity.html",
+          "final_url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/policies-procedures/academic-integrity.html",
+          "publisher": "Boston College University Catalog",
+          "scope": "undergraduate academic conduct",
+          "authority": "undergraduate academic-integrity policy",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:35.028867+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/47-Boston-College-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "work generated through unsanctioned and/or undocumented artificial intelligence (A.I.) assistance.",
+              "topic": "AI misconduct"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "This includes using the assistance of artificial intelligence (A.I.) text generators to perform central requirements of an assignment (i.e. reading, synthesizing, interpreting, writing, coding, programming, etc.) without both the explicit permission of the instructor and complete attribution and citation of A.I. assisted components.",
+              "topic": "Core requirements, permission and attribution"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "仅适用于在校学习或教学情境，不可移作本科申请 AI 规定；引用以课程/单位/大学明示适用范围为准。"
+      ]
+    },
+    {
+      "id": "48",
+      "slug": "Cambridge",
+      "university": "University of Cambridge",
+      "file": "48-Cambridge.md",
+      "status": "university-wide-policy",
+      "summary_zh": "Cambridge 教育质量与政策办公室的学术不端指导允许适当使用 AI 作个人学习、研究和形成性任务；除非评估说明明确另有规定，将未披露／未注明 AI 生成来源的内容作为自己作品提交总结性评估，构成学术不端。",
+      "sources": [
+        {
+          "id": "X3",
+          "title": "Education Quality and Policy Office / Artificial Intelligence (AI)",
+          "url": "https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai",
+          "final_url": "https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai",
+          "publisher": "University of Cambridge",
+          "scope": "university-students-and-assessment",
+          "authority": "official-academic-integrity-guidance",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:45:58.228183+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "X3-Q1",
+              "text": "Students are permitted to make appropriate use of artificial intelligence tools to support their personal study, research and formative work.",
+              "topic": "个人学习许可"
+            },
+            {
+              "id": "X3-Q2",
+              "text": "A student using any unacknowledged content generated by artificial intelligence within a summative assessment as though it is their own work constitutes academic misconduct, unless explicitly stated otherwise in the assessment brief.",
+              "topic": "总结性评估不端"
+            },
+            {
+              "id": "X3-Q3",
+              "text": "If you have any concerns regarding the potential use of artificial intelligence, please discuss this with your supervisor or lecturer",
+              "topic": "询问导师"
+            }
+          ],
+          "local_text": "sources/48-Cambridge-X3.txt"
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "原先 blendedlearning.cam.ac.uk 两个页面连接超时，改用政策办公室已读官方正文。",
+        "学术评估规则不得直接移用于本科招生；招生须看单独页面。"
+      ]
+    },
+    {
+      "id": "49",
+      "slug": "Waseda",
+      "university": "Waseda University",
+      "file": "49-Waseda.md",
+      "status": "official-student-guidance",
+      "summary_zh": "早稻田2023年校方公开声明提醒学生关注生成式AI的虚构信息、隐私和抄袭风险，直接提交未经修改的AI生成论文可能构成作弊；这不是本科申请规定。Waseda Weekly访谈仅供背景参考。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "About the Use of Generative Artificial Intelligence (ChatGPT, etc.)",
+          "publisher": "Waseda University / Senior Executive Vice President (Academic Affairs/Provost)",
+          "scope": "university-wide addressed to students, faculty and staff",
+          "authority": "institutional-statement",
+          "page_date": "21 Apr 2023",
+          "url": "https://www.waseda.jp/top/en/news/77786",
+          "final_url": "https://www.waseda.jp/top/en/news/77786",
+          "accessed_at": "2026-09-26T02:16:35.512766+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/49-Waseda-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Of course, if you submit a thesis created by the generative AI as it is, it will be punished as a fraudulent act similar to cheating.",
+              "topic": "attribution misconduct"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Fourth, careless use of generative AI may lead to the leakage of confidential information within the univ ersity or company, and questions that include your name, etc. may lead to the leakage of personal information.",
+              "topic": "privacy"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "AI and the Future of Humanity",
+          "publisher": "Waseda Weekly",
+          "scope": "student-facing interview / not university-wide rule",
+          "authority": "official-feature",
+          "page_date": "2023-06-21",
+          "url": "https://www.waseda.jp/inst/weekly/features/specialissue-ai?lng=en",
+          "final_url": "https://www.waseda.jp/inst/weekly/features/specialissue-ai/?lng=en",
+          "accessed_at": "2026-09-26T02:20:30.500454+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/49-Waseda-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "If you just ask a question and get an answer, it may be possible to do it with generative AI.",
+              "topic": "critical thinking"
+            }
+          ],
+          "page_date_kind": "visible-publication-date",
+          "page_date_note": "Visible page publication Wed.21 Jun.2023; interview information as of May 8, 2023.",
+          "quotation_language_note": "Official-page English rendering/translation of a Japanese interview; original Japanese quotation not independently verified."
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "S1为2023-04-21校方声明；S2为独立的2023年Waseda Weekly访谈，不是政策。",
+        "S2所引英文是官网英语呈现／翻译，并非已核实的日文原句；发表于2023-06-21，访谈信息截至2023-05-08。",
+        "不得将课程论文的原样提交警示扩写为任何AI使用的全面禁令，或当作本科招生要求；未来课程规则需复核。"
+      ]
+    },
+    {
+      "id": "50",
+      "slug": "HKUST",
+      "university": "Hong Kong University of Science and Technology",
+      "file": "50-HKUST.md",
+      "status": "official-student-guidance",
+      "summary_zh": "HKUST ITSO面向校内成员的指南鼓励审慎使用AI、核实输出、适当标注并保护敏感资料；图书馆关于核查引文的页面是信息素养资料，不是招生许可。课程具体要求仍需单独核查。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Generative AI Usage Guidelines",
+          "publisher": "HKUST Information Technology Services Office",
+          "scope": "HKUST members / general tool use",
+          "authority": "institutional-usage-guidelines",
+          "page_date": "Not stated",
+          "url": "https://itso.hkust.edu.hk/services/general-it-services/generative-ai-tools/guidelines",
+          "final_url": "https://itso.hkust.edu.hk/services/general-it-services/generative-ai-tools/guidelines",
+          "accessed_at": "2026-09-26T02:16:35.513595+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/50-HKUST-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Always verify and fact-check AI-generated outputs carefully, as generative AI may produce inaccurate or fabricated information (\"hallucinations\").",
+              "topic": "verification"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "When appropriate, acknowledge or label AI-generated content to maintain transparency and uphold academic integrity.",
+              "topic": "acknowledgement"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Avoid inputting confidential, sensitive, or personal data into generative AI tools.",
+              "topic": "privacy"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "AI Literacy",
+          "publisher": "HKUST Library",
+          "scope": "library information-literacy resource; not independent academic policy",
+          "authority": "official-library-resource",
+          "page_date": "Not stated",
+          "url": "https://libguides.hkust.edu.hk/ai-literacy",
+          "final_url": "https://libguides.hkust.edu.hk/ai-literacy",
+          "accessed_at": "2026-09-26T02:16:35.968812+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/50-HKUST-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "If the references (citations) are real, check that they support the claim",
+              "topic": "citation check"
+            }
+          ]
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "ITSO指南面向校内成员的一般工具使用，不自动确定某门课程、作业或本科文书的使用权限。",
+        "图书馆信息素养建议不等于独立学术纪律政策；课程具体规则需另查。"
+      ]
+    },
+    {
+      "id": "51",
+      "slug": "Imperial",
+      "university": "Imperial College London",
+      "file": "51-Imperial.md",
+      "status": "official-student-guidance",
+      "summary_zh": "Imperial 学生图书馆官方指导要求核对院系的生成式 AI 使用／披露规则、事实核验；未经明确许可用 AI 创作受评作品可能作为代写类违规处理；使用时在受评作品中按院系／课程规定说明。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Library Services / Generative AI guidance",
+          "url": "https://www.imperial.ac.uk/admin-services/library/learning-support/generative-ai-guidance",
+          "final_url": "https://www.imperial.ac.uk/admin-services/library/learning-support/generative-ai-guidance/",
+          "publisher": "Imperial College London",
+          "scope": "all-students-academic-work",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:16:36.500027+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Review your department’s current policy on using and disclosing generative AI in academic work.",
+              "topic": "院系规则"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Unless explicitly authorised, using AI to create assessed work may be treated as an offence such as contract cheating under Imperial’s Plagiarism, Academic Integrity & Exam Offences regulations.",
+              "topic": "评估风险"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "You should include a statement to acknowledge your use of generative AI tools for all assessed work, in accordance with guidelines from your department or course team.",
+              "topic": "披露要求"
+            },
+            {
+              "id": "S1-Q4",
+              "text": "Guard against AI “hallucinations” by fact-checking every statement before use.",
+              "topic": "核验事实"
+            }
+          ],
+          "local_text": "sources/51-Imperial-S1.txt"
+        },
+        {
+          "id": "S2",
+          "title": "Generative AI and Study Guidance Hub",
+          "url": "https://www.imperial.ac.uk/students/academic-support/ai-and-study-guidance-hub",
+          "final_url": "https://www.imperial.ac.uk/students/academic-support/ai-and-study-guidance-hub/",
+          "publisher": "Imperial College London",
+          "scope": "all-current-students",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:16:37.058731+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Welcome to the Generative AI and Study Guidance Hub, a resource for Imperial's student community about the use of generative artificial intelligence (genAI) at the university.",
+              "topic": "学生用途"
+            }
+          ],
+          "local_text": "sources/51-Imperial-S2.txt"
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "Library 原文还有声明具体字段、课程扩展要求；这里只引用短句，完整上下文见保存正文。",
+        "面向在校生与受评作业，不适用入学申请。"
+      ],
+      "quote_normalization_note": "引文核验只折叠网页换行、HTML超链接分段和其他连续空白，不改写词语或标点；因此匹配指空白标准化后的逐字匹配，而非原始HTML或文本文件逐字节相同。"
+    },
+    {
+      "id": "52",
+      "slug": "Toronto",
+      "university": "University of Toronto",
+      "file": "52-Toronto.md",
+      "status": "unit-specific-guidance",
+      "summary_zh": "多伦多大学密西沙加校区学生诚信页表述课程未获教师明确许可时不应使用GenAI，违规可能涉及学术不端；其适用对象是在校课程，不自动成为申请规定。大学AI门户仅为三校区资源索引。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Generative AI and Academic Integrity",
+          "publisher": "University of Toronto Mississauga Academic Integrity",
+          "scope": "UTM campus / student courses; reports University stance",
+          "authority": "official-student-guidance",
+          "page_date": "Not stated",
+          "url": "https://www.utm.utoronto.ca/academic-integrity/students/generative-ai",
+          "final_url": "https://www.utm.utoronto.ca/academic-integrity/students/generative-ai",
+          "accessed_at": "2026-09-26T02:16:37.546250+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/52-Toronto-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "The University of Toronto takes the stance that students are not allowed to use generative AI in a course unless the instructor explicitly permits it.",
+              "topic": "permission"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Use of generative AI tools when not permitted is considered an academic offence and can result in an allegation of academic misconduct being raised by your instructor.",
+              "topic": "academic consequences"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Do not input any private, confidential or identifying information into generative AI.",
+              "topic": "privacy"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "AI Task Force and guidelines",
+          "publisher": "University of Toronto AI portal",
+          "scope": "university-wide resource index (links not full text of policies)",
+          "authority": "official-resource-index",
+          "page_date": "Not stated",
+          "url": "https://ai.utoronto.ca/guidelines",
+          "final_url": "https://ai.utoronto.ca/guidelines/",
+          "accessed_at": "2026-09-26T02:16:42.372640+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/52-Toronto-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "We will be collecting and sharing the guidelines and protocols as they become available. Additional resources will be posted to this page as they emerge regarding GenAI usage by faculty, students, researchers, and staff across our three campuses.",
+              "topic": "scope"
+            }
+          ]
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "主要学生AI诚信材料来自UTM密西沙加校区的课程指导；不推广为所有校区、项目或申请材料的统一规则。",
+        "大学AI门户只是资源目录，链接所指政策未因目录存在而被视为全文核实。"
+      ]
+    }
+  ],
+  "important_limit": "Original 01–30 remain in root Markdown and are not silently reclassified/researched by this new structured subset."
+}

@@ -18,6 +18,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import expansion  # noqa: E402
 import schools  # noqa: E402
 from sitelib import join_cjk, wrap_document  # noqa: E402
 
@@ -28,6 +29,7 @@ OUT = ROOT / "docs" / "atlas.html"
 
 MARKER = "/*__DATA__*/null"
 SLUG_MARKER = "/*__SLUGS__*/null"
+ADDED_MARKER = "/*__ADDED__*/null"
 
 
 def main():
@@ -48,7 +50,10 @@ def main():
     # The masthead states the sample size and provision count in prose, where
     # the injected data cannot correct them. Hold those figures to the dataset.
     m = data["meta"]
-    for phrase in (f"美国 {m['schools']} 所大学", f"{m['dimensions']} 项条款", f"在 {m['schools']} 校中"):
+    added = expansion.load()["by_id"]
+    n_added = len(added)
+    for phrase in (f"美国 {m['schools']} 所大学", f"{m['dimensions']} 项条款", f"在 {m['schools']} 校中",
+                   f"另列补充的 {n_added} 所", f"表中另列补充的 {n_added} 所大学"):
         if phrase not in tpl:
             sys.exit(f"构建中止：模板中找不到与数据一致的表述 {phrase!r}")
 
@@ -58,9 +63,15 @@ def main():
 
     # School page addresses, from the one registry that owns them.
     slugs = {sid: schools.slug(sid) for sid in schools.SCHOOLS}
-    if SLUG_MARKER not in html:
-        sys.exit(f"marker {SLUG_MARKER!r} not found in {TPL}")
-    html = html.replace(SLUG_MARKER, json.dumps(slugs, ensure_ascii=False, separators=(",", ":")))
+    # The added universities get a row each, but no codes.
+    rows = [{"id": sid, "num": int(sid[:2]), "short": schools.SHORT[sid], "name": schools.SCHOOLS[sid][1],
+             "zh": schools.SCHOOLS[sid][2], "slug": schools.slug(sid),
+             "ctry": schools.COUNTRY.get(sid, ("", ""))[1]} for sid in sorted(added)]
+    for marker in (SLUG_MARKER, ADDED_MARKER):
+        if marker not in html:
+            sys.exit(f"marker {marker!r} not found in {TPL}")
+    html = (html.replace(SLUG_MARKER, json.dumps(slugs, ensure_ascii=False, separators=(",", ":")))
+                .replace(ADDED_MARKER, json.dumps(rows, ensure_ascii=False, separators=(",", ":"))))
 
     # Read the payload back out and confirm it still parses to the same object.
     check = re.search(r"const DATA = (\{.*?\});\n", html, re.S)

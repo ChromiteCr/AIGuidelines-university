@@ -1,5 +1,5 @@
-<title>申请环节的 AI 政策 · 美国 30 所大学</title>
-<meta name="description" content="美国 30 所大学招生办公室与申请平台就申请人使用 AI 的公开表述：证据状态、摘要、官方链接与逐字原文。">
+<title>申请环节的 AI 政策 · 52 所大学</title>
+<meta name="description" content="52 所大学招生办公室与申请平台（Common App、UC 系统、UCAS）就申请人使用 AI 的公开表述：证据状态、摘要、官方链接与逐字原文。">
 __CANONICAL__
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,6 +124,9 @@ section{padding-top:clamp(36px,5vw,56px);scroll-margin-top:60px}
 .adm-table .sch a{text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
 .adm-table .sch b{font-family:var(--display);font-size:16px;font-weight:600;line-height:1.25}
 .adm-table .sch span{font-size:11.5px;color:var(--ink-3)}
+.adm-table .sch .ctry{align-self:flex-start;margin-top:4px;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;
+  padding:0 6px;border:1px solid var(--rule);border-radius:2px;line-height:1.7}
+.adm-table .sch .ctry span{font-size:inherit}
 .adm-table .sch a:hover b{color:var(--seal-ink);text-decoration:underline;text-underline-offset:3px}
 .adm-table .st{width:170px}
 .schip{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:2px;
@@ -191,7 +194,7 @@ footer p{max-width:46rem;margin:0 0 8px}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,#platforms,.filter-note{display:none !important}
+  .bar,#platforms,#ucas,.filter-note{display:none !important}
   .adm-table tr[hidden]{display:table-row}
   .adm-table tr{break-inside:avoid}
 }
@@ -214,18 +217,18 @@ footer p{max-width:46rem;margin:0 0 8px}
 
 <header class="mast">
   <div class="wrap">
-    <span class="eyebrow" lang="zh">申请环节 · 采集于 2026 年 9 月 24 日 · 补充检索 9 月 25 日</span>
-    <span class="eyebrow" lang="en">Admissions · Collected 24 September 2026 · Supplemented 25 September</span>
-    <h1 lang="zh">申请环节的 AI 政策<span class="thin">美国 30 所大学 · 以本科新生申请为主</span></h1>
-    <h1 lang="en">AI in the Application<span class="thin">30 U.S. universities · first-year undergraduate applicants</span></h1>
+    <span class="eyebrow" lang="zh">申请环节 · 采集于 2026 年 9 月 24–26 日</span>
+    <span class="eyebrow" lang="en">Admissions · Collected 24–26 September 2026</span>
+    <h1 lang="zh">申请环节的 AI 政策<span class="thin">52 所大学 · 以本科新生申请为主</span></h1>
+    <h1 lang="en">AI in the Application<span class="thin">52 universities · first-year undergraduate applicants</span></h1>
     <p class="lede" lang="zh">
-      本页汇总美国 30 所大学招生办公室与申请平台就申请人使用 AI 的公开表述。每所学校附官方链接与逐字原文；
-      「证据状态」描述找到了什么材料，不是宽严等级。
+      本页汇总 52 所大学招生办公室与申请平台（Common App、UC 系统、UCAS）就申请人使用 AI 的公开表述。
+      每所学校附官方链接与逐字原文；「证据状态」描述找到了什么材料，不是宽严等级。
     </p>
     <p class="lede" lang="en">
-      What the admissions offices of 30 U.S. universities, and the application platforms, publish about applicants
-      using AI. Each university's entry carries official links and verbatim text; the evidence status describes what
-      material was found, not how strict the rules are.
+      What the admissions offices of 52 universities, and the application platforms (Common App, the UC system,
+      UCAS), publish about applicants using AI. Each university's entry carries official links and verbatim text;
+      the evidence status describes what material was found, not how strict the rules are.
     </p>
     <div class="stats" style="--n:__NSTATS__" role="group" aria-label="按证据状态筛选 / Filter by evidence status"><!--__STATS__--></div>
   </div>
@@ -235,7 +238,7 @@ footer p{max-width:46rem;margin:0 0 8px}
 
 <section id="schools">
   <div class="sec-head">
-    <h2 lang="zh">30 所大学</h2><h2 lang="en">By university</h2>
+    <h2 lang="zh">52 所大学</h2><h2 lang="en">By university</h2>
     <span class="en2">admissions/*.md</span>
   </div>
   <p class="sec-sub" lang="zh">点击校名查看该校的来源、逐字原文与整理者分析。摘要为整理者所写，以各校页面中的原文为准。</p>
@@ -262,7 +265,7 @@ footer p{max-width:46rem;margin:0 0 8px}
 
 <section id="platforms">
   <div class="sec-head">
-    <h2 lang="zh">申请平台与 UC 系统</h2><h2 lang="en">Application platforms and the UC system</h2>
+    <h2 lang="zh">Common App 与 UC 系统</h2><h2 lang="en">Common App and the UC system</h2>
     <span class="en2">admissions/00-Application-Platforms.md</span>
   </div>
   <p class="sec-sub" lang="zh">Common App 与 UC 系统的规定适用于通过这些平台提交的申请。它们是共同来源，不计为各校独立发布的规则。</p>
@@ -271,25 +274,38 @@ footer p{max-width:46rem;margin:0 0 8px}
   <div class="source"><!--__PLATFORMS__--></div>
 </section>
 
+<section id="ucas">
+  <div class="sec-head">
+    <h2 lang="zh">UCAS（英国）</h2><h2 lang="en">UCAS (UK)</h2>
+    <span class="en2">admissions/00-UCAS-AI-Guidance.md</span>
+  </div>
+  <p class="sec-sub" lang="zh">英国本科申请经 UCAS 提交，本项目涉及的 4 所英国大学均在其列。UCAS 的指导、申请声明与相似度检查适用于经其提交的申请；它是共同来源，不计为各校独立发布的规则，各校规定见其单校页面。</p>
+  <p class="sec-sub" lang="en">Undergraduate applications to UK universities go through UCAS, including the 4 UK universities covered here. Its guidance, applicant declaration and similarity checks apply to applications made through it; it is a shared source, not counted as a rule issued by each university, whose own rules are on its page.</p>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><!--__UCAS_ABOUT__--></div>
+  <div class="source"><!--__UCAS__--></div>
+</section>
+
 <section id="method">
   <div class="sec-head">
     <h2 lang="zh">方法与局限</h2><h2 lang="en">Method and limitations</h2>
   </div>
   <ul class="method" lang="zh">
     <li><b>范围。</b>以本科新生申请为主；研究生、转学和特定项目的规定单独标注，不外推到本科。</li>
+    <li><b>学校。</b>编号 01–30 为美国 30 所大学；31–52 依据 College Fair 的学校名单补充，包括美国文理学院，以及英国、加拿大、新加坡、日本和中国香港的大学。各校适用同一套证据状态。</li>
     <li><b>证据。</b>只有原文明确写出的许可与后果才记为证据。英文引文与采集时保存的来源逐字比对（仅标准化空白）；中文为整理者的分析，与原文分开标注。</li>
     <li><b>不作的推断。</b>未检索到或未说明，不代表没有规定，更不代表允许。禁止 AI 代写不等于禁止一切辅助；允许语法检查也不等于允许改写或翻译。</li>
     <li><b>效力。</b>正式规则、招生官建议与学生博客的效力不同，证据状态据此区分。</li>
-    <li><b>共同来源。</b>Common App 与 UC 系统单独列出；UC 的 3 所校区共用同一系统来源，不计为 3 份独立政策。</li>
-    <li><b>时效。</b>采集于 2026 年 9 月 24 日。Brown 与 Columbia 的本科页面当日无法访问，于 9 月 25 日补充检索取得正文。访问日不是生效日，提交申请前须按当季页面复核。</li>
+    <li><b>共同来源。</b>Common App、UC 系统与 UCAS 单独列出；UC 的 4 所校区共用同一系统来源，不计为 4 份独立政策；UCAS 的指导也不计为英国各校的政策。</li>
+    <li><b>时效。</b>01–30 采集于 2026 年 9 月 24 日，其中 Brown 与 Columbia 的本科页面当日无法访问，于 9 月 25 日补充检索取得正文；31–52 与 UCAS 采集于 9 月 26 日。访问日不是生效日，提交申请前须按当季页面复核。</li>
   </ul>
   <ul class="method" lang="en">
     <li><b>Scope.</b> Chiefly first-year undergraduate applications. Rules for graduate, transfer and specific programmes are labelled as such and not extended to undergraduates.</li>
+    <li><b>Universities.</b> Nos. 01–30 are the 30 U.S. universities; 31–52 were added from the College Fair's list, including U.S. liberal arts colleges and universities in the UK, Canada, Singapore, Japan and Hong Kong. The same evidence statuses apply to all.</li>
     <li><b>Evidence.</b> Only permissions and consequences the source states explicitly count as evidence. English quotations were matched verbatim against the sources saved at collection (whitespace normalised only); the Chinese is the collector's analysis and is marked apart from the source text.</li>
     <li><b>Inferences not drawn.</b> Nothing found, or nothing said, does not mean there is no rule, still less that a use is allowed. A ban on AI ghost-writing is not a ban on all help; permission to check grammar is not permission to rewrite or translate.</li>
     <li><b>Force.</b> Formal rules, admissions officers' advice and student blogs carry different weight; the evidence status separates them.</li>
-    <li><b>Shared sources.</b> Common App and the UC system are listed on their own; the 3 UC campuses share one system source and are not counted as 3 independent policies.</li>
-    <li><b>Currency.</b> Collected on 24 September 2026. The undergraduate pages of Brown and Columbia could not be reached that day and were retrieved on 25 September. An access date is not an effective date; check the pages for the current cycle before applying.</li>
+    <li><b>Shared sources.</b> Common App, the UC system and UCAS are listed on their own; the 4 UC campuses share one system source and are not counted as 4 independent policies, and UCAS guidance is not counted as the policy of any UK university.</li>
+    <li><b>Currency.</b> Nos. 01–30 were collected on 24 September 2026; the undergraduate pages of Brown and Columbia could not be reached that day and were retrieved on 25 September. Nos. 31–52 and UCAS were collected on 26 September. An access date is not an effective date; check the pages for the current cycle before applying.</li>
   </ul>
 </section>
 

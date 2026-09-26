@@ -98,6 +98,8 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .fullname{margin:0;font-family:var(--sans);font-size:clamp(14px,1.6vw,16.5px);color:var(--ink-2);
   display:flex;gap:4px 14px;flex-wrap:wrap}
 .fullname .zh{color:var(--ink-3)}
+.fullname .ctry{align-self:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-3);
+  padding:0 7px;border:1px solid var(--rule);border-radius:2px;line-height:1.7}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
@@ -279,7 +281,8 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all,
+  #campus .about,#campus .source{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}

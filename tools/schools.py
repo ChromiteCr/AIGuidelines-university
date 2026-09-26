@@ -44,10 +44,57 @@ SCHOOLS = {
     "28-USC":             ("USC",          "University of Southern California",            "南加州大学",             ["南加大", "南加州"]),
     "29-UC-San-Diego":    ("UCSD",         "University of California San Diego",           "加州大学圣地亚哥分校",   ["圣地亚哥"]),
     "30-NYU":             ("NYU",          "New York University",                          "纽约大学",               ["纽大"]),
+    # Added for the College Fair (expansion/): campus guidance excerpts, not coded.
+    "31-UC-Irvine":       ("UCI",          "University of California, Irvine",             "加州大学欧文分校",       ["irvine", "欧文", "加州大学欧文"]),
+    "32-Swarthmore":      ("Swarthmore",   "Swarthmore College",                           "斯沃斯莫尔学院",         []),
+    "33-Williams":        ("Williams",     "Williams College",                             "威廉姆斯学院",           ["威廉斯学院", "威廉斯"]),
+    "34-Pomona":          ("Pomona",       "Pomona College",                               "波莫纳学院",             []),
+    "35-Boston-University": ("BU",         "Boston University",                            "波士顿大学",             ["bostonu"]),
+    "36-Wellesley":       ("Wellesley",    "Wellesley College",                            "韦尔斯利学院",           ["卫斯理学院", "卫斯理"]),
+    "37-Barnard":         ("Barnard",      "Barnard College",                              "巴纳德学院",             []),
+    "38-Washington-Seattle": ("UW",        "University of Washington",                     "华盛顿大学（西雅图）",   ["uwseattle", "washingtonseattle", "华盛顿大学", "华大西雅图", "华盛顿大学西雅图"]),
+    "39-LSE":             ("LSE",          "London School of Economics and Political Science", "伦敦政治经济学院",   ["londonschoolofeconomics", "伦敦政经"]),
+    "40-Claremont-McKenna": ("CMC",        "Claremont McKenna College",                    "克莱蒙特·麦肯纳学院",    []),
+    "41-Vassar":          ("Vassar",       "Vassar College",                               "瓦萨学院",               []),
+    "42-Carleton":        ("Carleton",     "Carleton College",                             "卡尔顿学院",             []),
+    "43-Georgia-Tech":    ("GeorgiaTech",  "Georgia Institute of Technology",              "佐治亚理工学院",         ["gatech", "gt", "佐治亚理工", "乔治亚理工"]),
+    "44-NUS":             ("NUS",          "National University of Singapore",             "新加坡国立大学",         ["新加坡国立"]),
+    "45-HKU":             ("HKU",          "The University of Hong Kong",                  "香港大学",               ["港大"]),
+    "46-Oxford":          ("Oxford",       "University of Oxford",                         "牛津大学",               []),
+    "47-Boston-College":  ("BC",           "Boston College",                               "波士顿学院",             []),
+    "48-Cambridge":       ("Cambridge",    "University of Cambridge",                      "剑桥大学",               []),
+    "49-Waseda":          ("Waseda",       "Waseda University",                            "早稻田大学",             ["早大"]),
+    "50-HKUST":           ("HKUST",        "The Hong Kong University of Science and Technology", "香港科技大学",     ["ust", "港科大"]),
+    "51-Imperial":        ("Imperial",     "Imperial College London",                      "帝国理工学院",           ["icl", "imperialcollege", "帝国理工", "帝国理工大学"]),
+    "52-Toronto":         ("Toronto",      "University of Toronto",                        "多伦多大学",             ["uoft", "utoronto", "多大"]),
 }
 
+# Display names for the schools outside the atlas dataset; data/policies.json
+# supplies the rest.
+SHORT = {
+    "31-UC-Irvine": "UC Irvine", "32-Swarthmore": "Swarthmore", "33-Williams": "Williams",
+    "34-Pomona": "Pomona", "35-Boston-University": "Boston University", "36-Wellesley": "Wellesley",
+    "37-Barnard": "Barnard", "38-Washington-Seattle": "UW Seattle", "39-LSE": "LSE",
+    "40-Claremont-McKenna": "Claremont McKenna", "41-Vassar": "Vassar", "42-Carleton": "Carleton",
+    "43-Georgia-Tech": "Georgia Tech", "44-NUS": "NUS", "45-HKU": "HKU", "46-Oxford": "Oxford",
+    "47-Boston-College": "Boston College", "48-Cambridge": "Cambridge", "49-Waseda": "Waseda",
+    "50-HKUST": "HKUST", "51-Imperial": "Imperial", "52-Toronto": "Toronto",
+}
+
+# Universities outside the United States: (Chinese, English), shown beside the name.
+COUNTRY = {
+    "39-LSE": ("英国", "UK"), "46-Oxford": ("英国", "UK"), "48-Cambridge": ("英国", "UK"),
+    "51-Imperial": ("英国", "UK"), "44-NUS": ("新加坡", "Singapore"),
+    "45-HKU": ("中国香港", "Hong Kong"), "50-HKUST": ("中国香港", "Hong Kong"),
+    "49-Waseda": ("日本", "Japan"), "52-Toronto": ("加拿大", "Canada"),
+}
+
+# Derived short forms that would name two schools at once — /boston could be
+# Boston University or Boston College — are left to the 404 page's list.
+AMBIGUOUS = {"boston", "波士顿", "washington", "香港"}
+
 # Top-level names already taken by the site; no school alias may shadow them.
-RESERVED = {"index", "atlas", "guidelines", "admissions", "404", "cname", "home", "docs", "nojekyll"}
+RESERVED = {"index", "atlas", "guidelines", "admissions", "versions", "404", "cname", "home", "docs", "nojekyll"}
 
 _STRIP = re.compile(r"[\s\-_.,'’()·–—/]")
 
@@ -73,7 +120,7 @@ def aliases(school_id, short_name=""):
     keys.add(re.sub(r"^(University of |The )", "", en))
     keys.add(re.sub(r" (University|College)$", "", en))
     keys.add(re.sub(r"(大学|学院)$", "", zh))
-    return {normalize(k) for k in keys if k and normalize(k)}
+    return {normalize(k) for k in keys if k and normalize(k)} - {normalize(a) for a in AMBIGUOUS}
 
 
 def alias_table(short_names):

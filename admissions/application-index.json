@@ -1,22 +1,24 @@
 {
-  "title": "Thirty-school application/admissions AI source set",
-  "assembled_at": "2026-09-24T16:09:54.229810+00:00",
+  "title": "52-school application/admissions AI source set — College Fair expansion",
+  "assembled_at": "2026-09-26T02:56:19.726382+00:00",
   "primary_scope": "Undergraduate applicants; graduate supplements explicitly scoped",
-  "school_count": 30,
+  "school_count": 52,
   "status_labels": {
     "explicit-undergraduate-ai": "本科申请 AI 明文边界（效力见来源）",
     "undergraduate-advice-ai": "本科申请 AI 官方指导/建议",
     "authenticity-only": "本科本人写作/真实性要求（未证实细化 AI 边界）",
     "graduate-only-ai": "AI 明文仅核实于研究生/特定项目",
     "no-verified-guidance": "未取得可核实的适用指导",
-    "uc-system-ai-guidance": "UC 系统本科 AI 规则/指导（共同来源）"
+    "uc-system-ai-guidance": "UC 系统本科 AI 规则/指导（共同来源）",
+    "ucas-system-ai-guidance": "UCAS 本科平台 AI 指导（共同来源；校方要求另查）"
   },
   "status_counts": {
-    "graduate-only-ai": 2,
-    "authenticity-only": 4,
-    "explicit-undergraduate-ai": 16,
+    "graduate-only-ai": 3,
+    "authenticity-only": 7,
+    "explicit-undergraduate-ai": 24,
+    "no-verified-guidance": 9,
     "undergraduate-advice-ai": 5,
-    "uc-system-ai-guidance": 3
+    "uc-system-ai-guidance": 4
   },
   "schools": [
     {
@@ -3511,6 +3513,1337 @@
       ],
       "evidence_status_note": "NYU 本科允许 AI 作工具，但最终须真实原创，须遵守与在校生相同的相关实践/标准；称审阅中不使用 AI 检测。Wagner MSPP 仅允许拼写/语法辅助，Tisch Film Production MFA 要求披露，均仅限各研究生项目。",
       "computer_use_recheck": "2026-09-24–25 Asia/Shanghai; same originally blocked URLs opened in visible Safari"
+    },
+    {
+      "id": "31",
+      "slug": "UC-Irvine",
+      "university": "University of California, Irvine",
+      "file": "31-UC-Irvine.md",
+      "status": "uc-system-ai-guidance",
+      "summary_zh": "UC 本科申请统一诚信声明允许包括生成式 AI 可读性辅助在内的内容/编辑建议，但 PIQ 的经历、思想和最终文字须由本人完成；UCI 招生主管 2023 年访谈建议用 AI 帮助构思故事而不是让 AI 凭空写故事。访谈不是更新版 UCI 2026 校园强制规则。[UC1-Q1][S1-Q1][S1-Q2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "UCI Podcast: Admissions and AI",
+          "url": "https://news.uci.edu/2023/11/01/uci-podcast-admissions-and-ai",
+          "final_url": "https://news.uci.edu/2023/11/01/uci-podcast-admissions-and-ai/",
+          "publisher": "UCI News; interview with executive director of Undergraduate Admissions",
+          "scope": "undergraduate applicant interview",
+          "authority": "official-admissions-advice, not formal policy",
+          "page_date": "November 1, 2023",
+          "accessed_at": "2026-09-26T02:18:45.514006+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/31-UC-Irvine-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "From our perspective, we just want to be sure that students are using it as a tool to help them craft their response. Not a way to just generate something out of whole cloth.",
+              "topic": "AI as tool, not whole-cloth generation"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "But be sure you rewrite it in your own words.",
+              "topic": "Applicant own wording"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "S2",
+          "title": "First-Year Students",
+          "url": "https://admissions.uci.edu/apply/first-year-students/index.php",
+          "final_url": "https://admissions.uci.edu/apply/first-year-students/index.php",
+          "publisher": "UCI Office of Undergraduate Admissions",
+          "scope": "first-year admissions context; no verified AI provision in retrieved body",
+          "authority": "official-admissions-information",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:45.660912+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/31-UC-Irvine-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "We consider all information provided in your application, including your answers to the personal insight questions.",
+              "topic": "PIQ admission context"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "UC1",
+          "title": "Statement of Application Integrity",
+          "url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+          "final_url": "https://apply.universityofcalifornia.edu/docs/StatementOfIntegrity.pdf",
+          "publisher": "University of California undergraduate application system",
+          "scope": "UC system-wide undergraduate application, not UCI campus-authored",
+          "authority": "system-application-policy",
+          "page_date": "Last updated August 2023 (printed in PDF)",
+          "accessed_at": "2026-09-24T15:10:13.275383+00:00",
+          "retrieval": "full-text; reused original PDF-to-text snapshot",
+          "local_text": "sources/platform-uc-S4.txt",
+          "quotes": [
+            {
+              "id": "UC1-Q1",
+              "text": "The personal insight responses should reflect the student’s own ideas and experiences, be independently written by the student and reflect the student’s personal writing style. Students may receive advice on content and editing, including the use of generative artificial intelligence software to assist with readability, but content and final written text must be their own.",
+              "topic": "Independently written PIQ; AI readability assistance; own final text"
+            }
+          ],
+          "note": "Shared system source acquired 2026-09-24; original time recorded by application/16-UC-Berkeley.md; not a new September 26 retrieval. PDF: application/sources/platform-uc-S4.pdf."
+        }
+      ],
+      "search_log": [
+        {
+          "query": "Earlier same-day research: UCI admissions AI personal insight questions",
+          "result": "Read UCI News interview actual text (S1); campus first-year page S2 checked; separate UC system integrity PDF verified from original shared September 24 snapshot (UC1)."
+        }
+      ],
+      "limitations": [
+        "UC 统一声明的 PDF 标记 2023 年更新；访谈发表于 2023-11-01，不代表未来申请周期新增许可。UCI 本科页面只介绍申请要求；未据此推出校园另有或没有单独 AI 限制。"
+      ]
+    },
+    {
+      "id": "32",
+      "slug": "Swarthmore",
+      "university": "Swarthmore College",
+      "file": "32-Swarthmore.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "招生办公室有 AI 使用指导专页，但原网页返回 202 且正文为空；搜索索引片段不足以核定允许与禁止事项，因此未核实可引用的招生 AI 规则。[S1]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Admissions Guidance on Usage of Artificial Intelligence",
+          "url": "https://www.swarthmore.edu/admissions-aid/admissions-guidance-usage-artificial-intelligence",
+          "final_url": "https://www.swarthmore.edu/admissions-aid/admissions-guidance-usage-artificial-intelligence",
+          "publisher": "Swarthmore Admissions & Aid",
+          "scope": "undergraduate admissions",
+          "authority": "blocked official page",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:42.373726+00:00",
+          "retrieval": "suspected-block-or-empty",
+          "local_text": null,
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:swarthmore.edu/admissions-aid \"artificial intelligence\" admissions guidance",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. Earlier web_search identified official AI guidance URL (body blocked)."
+        },
+        {
+          "query": "site:swarthmore.edu/admissions-aid ChatGPT application essays",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:swarthmore.edu/admissions-aid application essay own writing AI",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "官方招生 AI 指导页 HTTP 202、空正文；搜索摘要只作发现线索，不作规则证据。"
+      ]
+    },
+    {
+      "id": "33",
+      "slug": "Williams",
+      "university": "Williams College",
+      "file": "33-Williams.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "两处招生页面遭 403 拒绝，未核实本科申请 AI 专项规范。不能把图书馆课程指导转作招生规则。[S1][S2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First-Year Applicants",
+          "url": "https://www.williams.edu/admission-aid/how-to-apply/first-year",
+          "final_url": "https://www.williams.edu/admission-aid/how-to-apply/first-year",
+          "publisher": "Williams College Admission & Aid",
+          "scope": "undergraduate admissions",
+          "authority": "blocked official page",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:46.245839+00:00",
+          "retrieval": "blocked-or-http-error",
+          "local_text": null,
+          "quotes": []
+        },
+        {
+          "id": "S2",
+          "title": "Additional Applicant Information",
+          "url": "https://www.williams.edu/admission-aid/how-to-apply/additional-applicant-information",
+          "final_url": "https://www.williams.edu/admission-aid/how-to-apply/additional-applicant-information",
+          "publisher": "Williams College Admission & Aid",
+          "scope": "undergraduate admissions",
+          "authority": "blocked official page",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:46.247206+00:00",
+          "retrieval": "blocked-or-http-error",
+          "local_text": null,
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:williams.edu/admission-aid \"artificial intelligence\" applicant",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:williams.edu/admission-aid ChatGPT essays application",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:williams.edu/admission-aid \"your own\" essay admissions",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "Williams 两处招生页 HTTP 403，官方 AI 规则未核验；索引检索不可证明没有规则。"
+      ]
+    },
+    {
+      "id": "34",
+      "slug": "Pomona",
+      "university": "Pomona College",
+      "file": "34-Pomona.md",
+      "status": "authenticity-only",
+      "summary_zh": "招生页面鼓励真实呈现自己，文书看重个人声音；已读取的两处本科页面未出现 AI 专项允许/禁止或披露规范，故只能归类为真实性建议。[S1][S2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Applying to Pomona",
+          "url": "https://www.pomona.edu/admissions/apply",
+          "final_url": "https://www.pomona.edu/admissions/apply",
+          "publisher": "Pomona College Admissions",
+          "scope": "undergraduate admissions",
+          "authority": "official-admissions-advice",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:47.029311+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/34-Pomona-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "We encourage you to use your application to present yourself authentically by sharing with us what activities mean the most to you, what goals motivate you and what ideas get you excited.",
+              "topic": "source-grounded excerpt"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "We look not just for strong writing, but for individual voice, passion and thoughtfulness.",
+              "topic": "source-grounded excerpt"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Paths to Apply",
+          "url": "https://www.pomona.edu/admissions/paths-apply",
+          "final_url": "https://www.pomona.edu/admissions/paths-apply",
+          "publisher": "Pomona College Admissions",
+          "scope": "undergraduate admissions",
+          "authority": "official-application-instructions",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:47.031488+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/34-Pomona-S2.txt",
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:pomona.edu/admissions \"generative AI\" application",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:pomona.edu/admissions ChatGPT essay",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:pomona.edu/admissions/apply essay own voice authenticity",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "两处已读取的招生网页不含 AI 专项规则；不能据此证明其他页面或将来申请季没有规则。",
+        "其中页面出现 Fall 2026 prompts，不代表未来录取周期。"
+      ]
+    },
+    {
+      "id": "35",
+      "slug": "Boston-University",
+      "university": "Boston University",
+      "file": "35-Boston-University.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "BU 招生页明确把 AI 作为辅助原创想法的工具，不能用它完整写出申请文书；同时强调申请人要遵守学术诚实标准。与在校课程规范分开。[S1-Q1][S1-Q2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "How to apply — Statement on Generative AI",
+          "url": "https://www.bu.edu/admissions/apply",
+          "final_url": "https://www.bu.edu/admissions/apply/",
+          "publisher": "Boston University Board of Admissions",
+          "scope": "first-year and undergraduate applicants",
+          "authority": "official-admissions-guidance",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:42.796953+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/35-Boston-University-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "If you opt to use these tools at any point while writing your essays, they should only be used to support your original ideas rather than to write your essays in their entirety.",
+              "topic": "AI supports original ideas but not whole essay"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "When representing the words or ideas of another in their original work, students should properly credit the source.",
+              "topic": "Credit others"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "招生页面没有逐项规定翻译、语法润色、透露使用记录、检测器或统一处分；不得补推。"
+      ]
+    },
+    {
+      "id": "36",
+      "slug": "Wellesley",
+      "university": "Wellesley College",
+      "file": "36-Wellesley.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "两处学院招生页面被访问验证阻断；Common App 学校资料仅确认需提交个人与学校专属文书，不能据此推断 AI 许可或禁止。[S1][S2][S3]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First-Year Applicants",
+          "url": "https://www.wellesley.edu/admission-aid/apply/first-year-applicants",
+          "final_url": "https://www.wellesley.edu/admission-aid/apply/first-year-applicants",
+          "publisher": "Wellesley College Admission & Aid",
+          "scope": "undergraduate admissions",
+          "authority": "blocked official page",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:47.578153+00:00",
+          "retrieval": "blocked-or-http-error",
+          "local_text": "sources/36-Wellesley-S1.txt",
+          "quotes": []
+        },
+        {
+          "id": "S2",
+          "title": "Application Advice",
+          "url": "https://www.wellesley.edu/admission-aid/apply/application-advice",
+          "final_url": "https://www.wellesley.edu/admission-aid/apply/application-advice",
+          "publisher": "Wellesley College Admission & Aid",
+          "scope": "undergraduate admissions",
+          "authority": "blocked official page",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:18:47.650081+00:00",
+          "retrieval": "blocked-or-http-error",
+          "local_text": "sources/36-Wellesley-S2.txt",
+          "quotes": []
+        },
+        {
+          "id": "S3",
+          "title": "Wellesley College on Common App",
+          "url": "https://www.commonapp.org/explore/wellesley-college",
+          "final_url": "https://www.commonapp.org/explore/wellesley-college/",
+          "publisher": "Common Application / Wellesley listing",
+          "scope": "undergraduate admissions platform listing",
+          "authority": "official-platform-listing",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:20:33.013314+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/36-Wellesley-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "Students will complete a personal essay and a Wellesley-specific essay.",
+              "topic": "source-grounded excerpt"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:wellesley.edu/admission-aid \"artificial intelligence\" application",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:wellesley.edu/admission-aid ChatGPT essay",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        },
+        {
+          "query": "site:wellesley.edu/admission-aid/apply essay your own voice",
+          "result": "Google HTML status 200, no parseable result titles; search inconclusive. No verified AI rule from this search."
+        }
+      ],
+      "limitations": [
+        "Wellesley 两处招生网页 HTTP 403；Common App listing 非学院 AI 政策。"
+      ]
+    },
+    {
+      "id": "37",
+      "slug": "Barnard",
+      "university": "Barnard College",
+      "file": "37-Barnard.md",
+      "status": "authenticity-only",
+      "summary_zh": "Barnard本科招生审阅理念强调申请者自身经历、观点与写作呈现；所核验招生页未出现AI/ChatGPT专门准则。不能从课程学生指南推出申请使用权限。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Application Review Philosophy: First-Year Applicants | Barnard College",
+          "url": "https://barnard.edu/admissions/application-review-philosophy",
+          "final_url": "https://barnard.edu/admissions/application-review-philosophy",
+          "publisher": "Barnard College Admissions",
+          "scope": "first-year applicants",
+          "authority": "official-admissions-advice",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:18:47.651165+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/37-Barnard-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "We review each applicant in the context of their school, community, and individual story.",
+              "topic": "source-grounded guidance"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "An effective essay should explore a specific idea about your personal or intellectual life",
+              "topic": "source-grounded guidance"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:barnard.edu/admissions \"AI\" \"essay\" application",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        },
+        {
+          "query": "site:barnard.edu/admissions application essay authentic own voice",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        },
+        {
+          "query": "site:barnard.edu/admissions ChatGPT generative artificial intelligence",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        }
+      ],
+      "limitations": [
+        "No verified undergraduate admission-specific AI boundary in the checked official source(s); targeted search backend returned quota/irrelevant results. Do not infer permission or prohibition."
+      ]
+    },
+    {
+      "id": "38",
+      "slug": "Washington-Seattle",
+      "university": "University of Washington (Seattle)",
+      "file": "38-Washington-Seattle.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "UW 本科招生写作页明确要求申请中的全部文字（含 essay/personal statement）为本人原创；即使请 AI 工具审阅，也必须以负责任、合乎伦理的方式进行，最后仍为本人原创。[S1-Q1]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First-year writing section",
+          "url": "https://admit.washington.edu/apply/first-year/how-to-apply/writing-section",
+          "final_url": "https://admit.washington.edu/apply/first-year/how-to-apply/writing-section/",
+          "publisher": "University of Washington Office of Admissions",
+          "scope": "first-year Common App writing",
+          "authority": "official-admissions-guidance",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:43.053164+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/38-Washington-Seattle-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "All writing in the application, including your essay/personal statement, must be your own original work. If you choose to have a parent, counselor, tutor, friend or AI tool review your writing, it must be done responsibly and ethically — again, it must be your own original work.",
+              "topic": "Originality even if AI reviews"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "UW 原文用“review your writing”并未列出具体允许的 AI 改写程度，也未载明 AI 披露格式、检测或后果。"
+      ]
+    },
+    {
+      "id": "39",
+      "slug": "LSE",
+      "university": "London School of Economics and Political Science",
+      "file": "39-LSE.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "LSE本科招生不鼓励AI创作个人陈述，并明确保留对与旧文书显著相似或用AI创作的陈述拒绝申请的权利；同页又列初步构思、与教师核验的荐读、本人原文校对为建设性用途。应结合两段阅读，不等于一切AI辅助都被禁止。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Undergraduate Admissions / Personal statement",
+          "url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Completing-the-UCAS-form/Personal-Statement",
+          "final_url": "https://www.lse.ac.uk/study-at-lse/Undergraduate/Prospective-Students/How-to-Apply/Completing-the-UCAS-form/Personal-Statement",
+          "publisher": "London School of Economics and Political Science",
+          "scope": "undergraduate-UCAS-personal-statement",
+          "authority": "official-undergraduate-admissions-advice",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:18:47.673425+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "We do not encourage applicants to use generative Artificial Intelligence tools to create their personal statement as they do not produce high-quality personal statements and may lead to rejection.",
+              "topic": "不鼓励 AI 代写"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "generate initial ideas.",
+              "topic": "初步构思"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "suggest reading materials or references for you to explore (to be cross-checked with teachers for relevance).",
+              "topic": "荐读需核对"
+            },
+            {
+              "id": "S1-Q4",
+              "text": "proofread original writing.",
+              "topic": "校对本人文字"
+            },
+            {
+              "id": "S1-Q5",
+              "text": "We reserve the right to reject your application where it has been found that a statement has significant similarities to a previous submission or has been created with the use of Artificial Intelligence (using tools such as ChatGPT).",
+              "topic": "explicit reserved right to reject AI-created submitted statements or significant similarity"
+            }
+          ],
+          "local_text": "sources/39-LSE-S1.txt"
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "LSE 招生页面未提供每一种 AI 用途的披露模板或检测规则；不得把学生评估许可转为招生许可。"
+      ]
+    },
+    {
+      "id": "40",
+      "slug": "Claremont-McKenna",
+      "university": "Claremont McKenna College",
+      "file": "40-Claremont-McKenna.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "CMC本科新生申请说明的Essay Support and Artificial Intelligence明确：AI若使用仅限语法、标点、拼写等基础校对；文书须申请人自己写，不可由他人撰写、改写、深度编辑或根本改变想法。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Application Instructions for First-Year Applicants | Claremont McKenna College",
+          "url": "https://www.cmc.edu/admission/first-year-application-instructions",
+          "final_url": "https://www.cmc.edu/admission/first-year-application-instructions",
+          "publisher": "Claremont McKenna College Office of Admission",
+          "scope": "first-year applicants / application essays",
+          "authority": "official-undergraduate-application-instructions",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:18:48.136970+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/40-Claremont-McKenna-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "If you choose to use AI, it should be limited to basic proofreading, such as correcting grammar, punctuation, and spelling errors.",
+              "topic": "AI / integrity / applicant authorship"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "However, it is not acceptable for anyone else to write, rewrite, or heavily edit your essay, or fundamentally change your ideas.",
+              "topic": "source-grounded guidance"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "In short, your essays should be written by you.",
+              "topic": "source-grounded guidance"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:cmc.edu/admission/first-year-application-instructions \"AI\" essay",
+          "result": "Official first-year application instructions saved; AI paragraph verified in full visible source."
+        }
+      ],
+      "limitations": [
+        "AI段落在2026-09-26取得的招生页面中核实，但该页面混有不同申请周期信息，AI段落本身未标明生效日期；实际申请时须复核当季规定，不据此保证2028年AI规则不变。"
+      ]
+    },
+    {
+      "id": "41",
+      "slug": "Vassar",
+      "university": "Vassar College",
+      "file": "41-Vassar.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "已核验Vassar官方本科申请入口及评估因素；提及作文体现申请者个人优势，但没有发现能核验的招生AI专门用法规则。不可据此断言允许。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "How to Apply ← Applying to Vassar ← Admission ← Vassar College",
+          "url": "https://www.vassar.edu/admission/apply/how-to-apply",
+          "final_url": "https://www.vassar.edu/admission/apply/how-to-apply",
+          "publisher": "Vassar College Office of Admission",
+          "scope": "first-year/transfer application",
+          "authority": "official-undergraduate-admissions-information",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:18:48.138761+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/41-Vassar-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Personal strengths, motivation, and potential as evidenced in essays, recommendations, and community involvement",
+              "topic": "source-grounded guidance"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:vassar.edu/admission \"AI\" essay",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        },
+        {
+          "query": "site:vassar.edu/admission essay authentic own voice",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        },
+        {
+          "query": "site:vassar.edu/admission ChatGPT generative artificial intelligence",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        }
+      ],
+      "limitations": [
+        "No verified undergraduate admission-specific AI boundary in the checked official source(s); targeted search backend returned quota/irrelevant results. Do not infer permission or prohibition."
+      ]
+    },
+    {
+      "id": "42",
+      "slug": "Carleton",
+      "university": "Carleton College",
+      "file": "42-Carleton.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "已核验美国Carleton College本科招生审阅标准，描述学业和个人素质评估；所核验招生页不含AI作文政策，校园手册课程学术诚信条款不能自动外推。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Criteria for Admission",
+          "url": "https://www.carleton.edu/admissions/apply/steps/criteria",
+          "final_url": "https://www.carleton.edu/admissions/apply/steps/criteria/",
+          "publisher": "Carleton College Admissions",
+          "scope": "first-year admissions criteria",
+          "authority": "official-undergraduate-admissions-information",
+          "page_date": "Not stated (do not equate access date to publication date)",
+          "accessed_at": "2026-09-26T02:20:30.500560+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/42-Carleton-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "When we read your application, we want to learn about your academic achievements and personal strengths.",
+              "topic": "source-grounded guidance"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:carleton.edu/admissions \"AI\" essay",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        },
+        {
+          "query": "site:carleton.edu/admissions essay tips own voice",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        },
+        {
+          "query": "site:carleton.edu/admissions ChatGPT generative artificial intelligence",
+          "result": "Tavily quota 432; Google returned no extractable hits, Bing RSS returned irrelevant/off-domain hits; official admissions page saved and checked, AI-specific rule not verified. Search failure is not evidence of no rule."
+        }
+      ],
+      "limitations": [
+        "No verified undergraduate admission-specific AI boundary in the checked official source(s); targeted search backend returned quota/irrelevant results. Do not infer permission or prohibition."
+      ]
+    },
+    {
+      "id": "43",
+      "slug": "Georgia-Tech",
+      "university": "Georgia Institute of Technology",
+      "file": "43-Georgia-Tech.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "本科招生 Statement on AI 明确可用于构思、编辑、精炼自己的想法，但最终提交须为本人作品且不得复制粘贴非本人创作内容。2026–27 起学校取消自己的补充短文，但仍需 Common App personal essay；不能把旧题目当当季要求。[S1-Q1][S1-Q2][S2-Q1]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "First-year application review — Statement on AI",
+          "url": "https://admission.gatech.edu/first-year/application-review",
+          "final_url": "https://admission.gatech.edu/first-year/application-review",
+          "publisher": "Georgia Tech Office of Undergraduate Admission",
+          "scope": "undergraduate first-year application",
+          "authority": "official-admissions-guidance",
+          "page_date": "Not stated",
+          "accessed_at": "2026-09-26T02:16:43.567153+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/43-Georgia-Tech-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "AI tools can be powerful and valuable in the application process when used thoughtfully. We believe there is a place for them in helping you generate ideas, but your ultimate submission should be your own.",
+              "topic": "Helpful brainstorming, final authorship"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "As with all other sources, you should not copy and paste content you did not create directly into your application.",
+              "topic": "No copying"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Use it to brainstorm, edit, and refine your ideas.",
+              "topic": "Suggested process"
+            }
+          ],
+          "note": ""
+        },
+        {
+          "id": "S2",
+          "title": "Georgia Tech Simplifies First-Year Admission Application by Removing Supplemental Essay",
+          "url": "https://news.em.gatech.edu/2026/07/29/admission-supplemental-essay",
+          "final_url": "https://news.em.gatech.edu/2026/07/29/admission-supplemental-essay/",
+          "publisher": "Georgia Tech Enrollment Management News",
+          "scope": "2026–27 first-year admissions process, not AI rule",
+          "authority": "official-admissions-news",
+          "page_date": "July 29, 2026",
+          "accessed_at": "2026-09-26T02:16:45.802726+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/43-Georgia-Tech-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Georgia Tech’s first-year application for undergraduate admission will no longer require the Georgia Tech short-answer question beginning in the 2026-27 application cycle. Students will still be required to complete the Common App personal essay.",
+              "topic": "2026–27 no institutional supplemental essay"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "招生声明未逐项规定 AI 生成文字的最小编辑量、披露格式、查重检测或惩戒；补充文书变更以 2026-07-29 的 2026–27 新闻为准，之后年度须再核验。"
+      ]
+    },
+    {
+      "id": "44",
+      "slug": "NUS",
+      "university": "National University of Singapore",
+      "file": "44-NUS.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "NUS本科招生网页要求填写经历与简答，申请指南要求信息真实；检索范围内尚未核实本科申请文书的AI专项规则。在校生无监考作业默认许可不适用于申请材料。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Aptitude-Based Admissions",
+          "publisher": "NUS Office of Admissions",
+          "scope": "undergraduate admissions",
+          "authority": "official-admissions-instructions",
+          "page_date": "Not stated",
+          "url": "https://nus.edu.sg/oam/admissions/aptitude-based-admissions",
+          "final_url": "https://nus.edu.sg/oam/admissions/aptitude-based-admissions",
+          "accessed_at": "2026-09-26T02:20:30.500607+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/44-NUS-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Besides providing grades, all applicants for all degree programmes will now be required to list up to four achievements, co-curricular activities, or non-academic activities (e.g. volunteering work, competitive sports) and answer short response questions.",
+              "topic": "short responses"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Application Guide / Local Qualifications",
+          "publisher": "NUS Office of Admissions",
+          "scope": "undergraduate local qualifications application",
+          "authority": "official-application-guide",
+          "page_date": "Updated as of December 2025",
+          "url": "https://www.nus.edu.sg/oam/docs/default-source/application-guide/local-qualifications-application-guide.pdf?sfvrsn=f0e37e57_8",
+          "final_url": "https://www.nus.edu.sg/oam/docs/default-source/application-guide/local-qualifications-application-guide.pdf?sfvrsn=f0e37e57_8",
+          "accessed_at": "2026-09-26T02:20:30.826661+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/44-NUS-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "This section requires your declaration that all the information provided in your application is correct.",
+              "topic": "accuracy declaration"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:nus.edu.sg/oam \"generative AI\" \"short response\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:nus.edu.sg/oam \"ChatGPT\" \"application\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:nus.edu.sg/oam \"AI\" \"aptitude-based admissions\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        }
+      ],
+      "limitations": [
+        "No verified public undergraduate AI-specific rule in reviewed admissions bodies; not permission."
+      ]
+    },
+    {
+      "id": "45",
+      "slug": "HKU",
+      "university": "University of Hong Kong",
+      "file": "45-HKU.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "HKU国际资格本科申请页将个人陈述列为审阅材料；已查公开招生页未核实个人陈述中AI使用的专项规则。教学用GenAI政策不等同招生许可。",
+      "sources": [
+        {
+          "id": "X1",
+          "title": "International Qualifications",
+          "publisher": "HKU Undergraduate Admissions",
+          "scope": "undergraduate international qualifications",
+          "authority": "official-admissions-instructions",
+          "page_date": "2027 intake dates visible; page publication date not stated",
+          "url": "https://admissions.hku.hk/apply/international-qualifications",
+          "final_url": "https://admissions.hku.hk/apply/international-qualifications",
+          "accessed_at": "2026-09-26T02:47:02.819527+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/45-HKU-X1.txt",
+          "quotes": [
+            {
+              "id": "X1-Q1",
+              "text": "Admissions decisions to the University's undergraduate degree programmes are made based on academic performance as well as other factors, including interview performance, personal statement, references, other documents submitted to the University, etc. Satisfying the minimum requirements does not guarantee admissions.",
+              "topic": "holistic review"
+            }
+          ]
+        },
+        {
+          "id": "S1",
+          "title": "HKU Undergraduate Admissions",
+          "publisher": "HKU Undergraduate Admissions",
+          "scope": "undergraduate admissions landing page",
+          "authority": "official-admissions-landing",
+          "page_date": "Not stated",
+          "url": "https://admissions.hku.hk/",
+          "final_url": "https://admissions.hku.hk/",
+          "accessed_at": "2026-09-26T02:20:31.707448+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/45-HKU-S1.txt",
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:admissions.hku.hk \"generative AI\" \"personal statement\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:admissions.hku.hk \"ChatGPT\" \"application\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:admissions.hku.hk \"authentic\" \"personal statement\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        }
+      ],
+      "limitations": [
+        "No verified public undergraduate AI-specific rule in reviewed admissions bodies; not permission."
+      ]
+    },
+    {
+      "id": "46",
+      "slug": "Oxford",
+      "university": "University of Oxford",
+      "file": "46-Oxford.md",
+      "status": "graduate-only-ai",
+      "summary_zh": "找到 Oxford 官方问答对「AI 创建申请材料」的答复，但明确只链接研究生申请指导；本科 UCAS 页面检索链接出现反爬阻断，因此没有核实 Oxford 本科 AI 专项限制。",
+      "sources": [
+        {
+          "id": "X2",
+          "title": "Oxford Support / Can I use AI to create my application documents?",
+          "url": "https://uni-of-oxford.custhelp.com/app/answers/detail/a_id/1820/~/can-i-use-ai-to-create-my-application-documents%3F",
+          "final_url": "https://uni-of-oxford.custhelp.com/app/answers/detail/a_id/1820/~/can-i-use-ai-to-create-my-application-documents%3F",
+          "publisher": "University of Oxford",
+          "scope": "graduate-only",
+          "authority": "graduate-admissions-FAQ",
+          "page_date": "Updated 2026-09-10 (page displayed)",
+          "accessed_at": "2026-09-26T02:46:00.822996+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "X2-Q1",
+              "text": "Guidance on the appropriate use of AI in graduate applications is available in our Application Guide.",
+              "topic": "仅研究生"
+            }
+          ],
+          "local_text": "sources/46-Oxford-X2.txt"
+        },
+        {
+          "id": "S1",
+          "title": "Oxford / UCAS application",
+          "url": "https://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/ucas-application",
+          "final_url": "https://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/ucas-application",
+          "publisher": "University of Oxford",
+          "scope": "undergraduate",
+          "authority": "blocked-official-undergraduate-page",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:20:32.461257+00:00",
+          "retrieval": "blocked",
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:ox.ac.uk/admissions/undergraduate \"AI\" \"personal statement\"",
+          "result": "DDG returned advertisements only, not a verified Oxford undergraduate result."
+        },
+        {
+          "query": "site:ox.ac.uk/admissions/undergraduate \"artificial intelligence\" application",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "site:ox.ac.uk \"undergraduate\" \"ChatGPT\" admissions essay",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "site:ox.ac.uk/admissions/undergraduate personal statement original work authenticity",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "Oxford undergraduate admissions AI personal statement generative AI",
+          "result": "Public search yielded Oxford official FAQ; opened body and verified it explicitly covers graduate applications, not undergraduate."
+        }
+      ],
+      "limitations": [
+        "Oxford 本科官方主站两次正常 GET 呈挑战页，无法核验内容；无 Oxford 本科 AI 明文证据。",
+        "现有 FAQ 来源 scope 为 graduate-only，即使导航包含 Undergraduate Admissions 也不能当本科规则。"
+      ]
+    },
+    {
+      "id": "47",
+      "slug": "Boston-College",
+      "university": "Boston College",
+      "file": "47-Boston-College.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "BC 本科招生直接说明 AI（如 ChatGPT）仅可作为辅助指南，申请陈述与短答内容须由本人创作、不得直接复制 AI 或其他来源的内容。[S1-Q1][S1-Q2]",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Apply — Note on Use of Artificial Intelligence",
+          "url": "https://www.bc.edu/bc-web/admission/apply.html",
+          "final_url": "https://www.bc.edu/bc-web/admission/apply.html",
+          "publisher": "Boston College Office of Undergraduate Admission",
+          "scope": "undergraduate personal statements, supplements, free responses",
+          "authority": "official-admissions-guidance",
+          "page_date": "2026–27 supplemental questions on same page; AI note itself undated",
+          "accessed_at": "2026-09-26T02:16:47.126932+00:00",
+          "retrieval": "full-text",
+          "local_text": "sources/47-Boston-College-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "the content must be their own.",
+              "topic": "Own authorship"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "Generative artificial intelligence tools like ChatGPT may also serve as a resource, but must only be used as a guide; content must never be directly copied from AI or other sources.",
+              "topic": "AI guide only; no copying"
+            }
+          ],
+          "note": ""
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "2026–27 招生题目出现在同页；申请 AI 段落未标独立生效日、没有定义所有工具协助程度或 AI 检测与处分。"
+      ]
+    },
+    {
+      "id": "48",
+      "slug": "Cambridge",
+      "university": "University of Cambridge",
+      "file": "48-Cambridge.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "Cambridge 本科招生页面允许将 AI 用作个人陈述构思或研究辅助，但警示虚构个人成就可按申请欺诈处理、质量低可能削弱申请；面试期间任何使用 AI 均明确禁止。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Undergraduate Study / AI and undergraduate applications",
+          "url": "https://www.undergraduate.study.cam.ac.uk/apply/ai-and-undergraduate-applications",
+          "final_url": "https://www.undergraduate.study.cam.ac.uk/apply/ai-and-undergraduate-applications",
+          "publisher": "University of Cambridge",
+          "scope": "undergraduate-applications-personal-statement-and-interview",
+          "authority": "official-undergraduate-admissions-guidance",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:18:48.486705+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "You may therefore wish to use AI tools as prompts for ideas or to assist in research when preparing your personal statement, but you should note that an over-reliance on AI carries risks:",
+              "topic": "构思/研究辅助"
+            },
+            {
+              "id": "S1-Q2",
+              "text": "If these are about your personal achievements, they will be treated like any other application fraud.",
+              "topic": "虚构成绩风险"
+            },
+            {
+              "id": "S1-Q3",
+              "text": "Any use of AI tools during an interview hinders this approach and is therefore prohibited.",
+              "topic": "面试禁止"
+            },
+            {
+              "id": "S1-Q4",
+              "text": "It may produce poor quality output, weakening your chance of success.",
+              "topic": "质量风险"
+            }
+          ],
+          "local_text": "sources/48-Cambridge-S1.txt"
+        }
+      ],
+      "search_log": [],
+      "limitations": [
+        "该招生页引用 Russell Group 评估原则，只作为背景；具体面试／文书条款来自 Cambridge 本科招生正文，不混同在校生考试规则。"
+      ]
+    },
+    {
+      "id": "49",
+      "slug": "Waseda",
+      "university": "Waseda University",
+      "file": "49-Waseda.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "早稻田英语本科招生页指出材料要求依学院与学历背景而异并要求查各项目申请指南；2026 FSE指南、2027 SILS作文PDF此次返回403，不能据此推断AI规则，更不能将某个项目扩大为全校。",
+      "sources": [
+        {
+          "id": "X1",
+          "title": "English-based Undergraduate Programs",
+          "publisher": "Waseda University Admissions Center",
+          "scope": "undergraduate English-taught degree programmes",
+          "authority": "official-admissions-instructions",
+          "page_date": "2026 September entry information visible; publication date not stated",
+          "url": "https://www.waseda.jp/inst/admission/en/undergraduate/english/",
+          "final_url": "https://www.waseda.jp/inst/admission/en/undergraduate/english/",
+          "accessed_at": "2026-09-26T02:47:01.869370+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/49-Waseda-X1.txt",
+          "quotes": [
+            {
+              "id": "X1-Q1",
+              "text": "Required documents are different depending on the school an applicant will apply to and his/her educational background.",
+              "topic": "school-dependent requirements"
+            },
+            {
+              "id": "X1-Q2",
+              "text": "2. Check the Requirements and Schedules from the Application Guide",
+              "topic": "consult program guide"
+            }
+          ]
+        },
+        {
+          "id": "S1",
+          "title": "Application Guide for September 2026 Entry, FSE",
+          "publisher": "Waseda Faculty of Science and Engineering",
+          "scope": "programme-specific undergraduate admission (FSE)",
+          "authority": "official-application-guide",
+          "page_date": "2026 entry",
+          "url": "https://www.waseda.jp/fsci/assets/uploads/2025/10/Application-Guide-for-September-2026-Entry_FSE.pdf",
+          "final_url": "https://www.waseda.jp/fsci/assets/uploads/2025/10/Application-Guide-for-September-2026-Entry_FSE.pdf",
+          "accessed_at": "2026-09-26T02:18:48.690449+00:00",
+          "retrieval": "blocked-or-http-error",
+          "local_text": null,
+          "quotes": []
+        },
+        {
+          "id": "S2",
+          "title": "Essay Question Apr 2027",
+          "publisher": "Waseda School of International Liberal Studies",
+          "scope": "programme-specific essay document (SILS)",
+          "authority": "official-application-document",
+          "page_date": "2027 entry",
+          "url": "https://www.waseda.jp/fire/sils/assets/uploads/2026/08/Essay-Question_Apr2027.pdf",
+          "final_url": "https://www.waseda.jp/fire/sils/assets/uploads/2026/08/Essay-Question_Apr2027.pdf",
+          "accessed_at": "2026-09-26T02:20:32.551748+00:00",
+          "retrieval": "blocked-or-http-error",
+          "local_text": null,
+          "quotes": []
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:waseda.jp \"生成AI\" \"志望理由書\" 入試",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:waseda.jp \"ChatGPT\" \"出願\" 学部",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:waseda.jp/inst/admission \"generative AI\" \"essay\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        }
+      ],
+      "limitations": [
+        "No verified public undergraduate AI-specific rule in reviewed admissions bodies; not permission.",
+        "FSE 2026申请指南和SILS 2027作文PDF均返回HTTP 403验证页面，未取得可读PDF正文、未引述其中规则；两份均为学院／项目范围，不能推断全校没有申请AI规则。"
+      ]
+    },
+    {
+      "id": "50",
+      "slug": "HKUST",
+      "university": "Hong Kong University of Science and Technology",
+      "file": "50-HKUST.md",
+      "status": "no-verified-guidance",
+      "summary_zh": "HKUST本科直录指南要求提交个人陈述，国际资格页面列明材料；未核实本科申请文书AI专项规则。校内成员ITSO使用指南不是本科招生指导。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Direct Entry Application Guide",
+          "publisher": "HKUST Undergraduate Recruitment and Admissions Office",
+          "scope": "undergraduate direct entry application",
+          "authority": "official-application-guide",
+          "page_date": "Not stated",
+          "url": "https://join.hkust.edu.hk/oas/de_guide.pdf",
+          "final_url": "https://join.hkust.edu.hk/oas/de_guide.pdf",
+          "accessed_at": "2026-09-26T02:18:49.137997+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/50-HKUST-S1.txt",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Please note that your application will be put on hold until we receive your personal statement.",
+              "topic": "statement required"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "title": "Application Procedures: International Qualifications",
+          "publisher": "HKUST Undergraduate Recruitment and Admissions Office",
+          "scope": "undergraduate international qualifications",
+          "authority": "official-admissions-instructions",
+          "page_date": "Not stated",
+          "url": "https://join.hkust.edu.hk/admissions/international-qualifications/application-procedures",
+          "final_url": "https://join.hkust.edu.hk/admissions/international-qualifications/application-procedures",
+          "accessed_at": "2026-09-26T02:18:49.176255+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/50-HKUST-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "You are required to include identity documents, a personal statement, high school transcripts for the past three years, proof of English language proficiency,",
+              "topic": "statement and documents"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:join.hkust.edu.hk \"generative AI\" \"personal statement\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:join.hkust.edu.hk \"ChatGPT\" \"application\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:join.hkust.edu.hk \"original\" \"personal statement\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        }
+      ],
+      "limitations": [
+        "No verified public undergraduate AI-specific rule in reviewed admissions bodies; not permission."
+      ]
+    },
+    {
+      "id": "51",
+      "slug": "Imperial",
+      "university": "Imperial College London",
+      "file": "51-Imperial.md",
+      "status": "authenticity-only",
+      "summary_zh": "Imperial 中央本科个人陈述页要求呈现本人的动机、勿抄他人，并说明 UCAS 相似度检测；没有核实该本科页的 AI 专项限制。唯一已读取 AI 招生建议来自 Imperial Business School 的项目招生博客，不能外推本科。",
+      "sources": [
+        {
+          "id": "S2",
+          "title": "Study / Undergraduate / Personal statement",
+          "url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/personal-statement",
+          "final_url": "https://www.imperial.ac.uk/study/apply/undergraduate/process/personal-statement/",
+          "publisher": "Imperial College London",
+          "scope": "undergraduate-personal-statement",
+          "authority": "official-undergraduate-admissions-advice",
+          "page_date": "Not stated or not verified",
+          "accessed_at": "2026-09-26T02:20:32.950920+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Your personal statement should be about you so don't focus on what your friends are writing.",
+              "topic": "本人表达"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "Also avoid the temptation to copy anyone else's.",
+              "topic": "勿抄袭"
+            }
+          ],
+          "local_text": "sources/51-Imperial-S2.txt"
+        },
+        {
+          "id": "S1",
+          "title": "Imperial Business School / AI in admissions",
+          "url": "https://www.imperial.ac.uk/business-school/blogs/admissions/ai-admissions-how-use-it-responsibly-your-application",
+          "final_url": "https://www.imperial.ac.uk/business-school/blogs/admissions/ai-admissions-how-use-it-responsibly-your-application/",
+          "publisher": "Imperial Business School",
+          "scope": "business-school-applications; degree-level-unspecified",
+          "authority": "school-specific-admissions-blog",
+          "page_date": "2025-12-03 (page displayed)",
+          "accessed_at": "2026-09-26T02:18:49.683636+00:00",
+          "retrieval": "full-text",
+          "quotes": [
+            {
+              "id": "S1-Q1",
+              "text": "Use AI thoughtfully but sparingly: it’s fine to brainstorm or check structure, but write your own sentences.",
+              "topic": "院系博客建议"
+            }
+          ],
+          "local_text": "sources/51-Imperial-S1.txt"
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:imperial.ac.uk/study/apply/undergraduate \"AI\" \"personal statement\"",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "site:imperial.ac.uk/study/apply/undergraduate \"ChatGPT\" application",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "site:imperial.ac.uk \"undergraduate\" \"generative AI\" admissions",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "site:imperial.ac.uk/study/apply/undergraduate personal statement original own",
+          "result": "No usable results (HTTP 202); independently read existing official snapshots or tried direct official URLs"
+        },
+        {
+          "query": "Imperial College undergraduate applications use AI personal statement guidance",
+          "result": "Public search yielded official undergraduate personal-statement page plus third-party or UCAS leads; read official page, no AI-specific subsection verified."
+        }
+      ],
+      "limitations": [
+        "Imperial Business School 博客未明言适用于中央本科招生，含项目特有视频申请要求，保守限定为商学院招生建议（该博客未明确列出适用学位级别）；不能声称所有 Imperial 本科或研究生也适用。",
+        "本科个人陈述官方页面没有出现 AI/ChatGPT 专项段落。"
+      ]
+    },
+    {
+      "id": "52",
+      "slug": "Toronto",
+      "university": "University of Toronto",
+      "file": "52-Toronto.md",
+      "status": "explicit-undergraduate-ai",
+      "summary_zh": "多伦多大学Daniels学院本科BAVS/BAAS补充申请明确禁止用生成式AI制作图文，违反可致自动拒录；该页面也规定把AI生成内容当本人作品者失去录取资格。St. George计算机科学页面要求申请者基于本人经历和想法写作，但其文字不是同样的显式AI禁令。两者均不能外推至全校所有本科项目。",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Supplemental Applications",
+          "publisher": "University of Toronto Future Students",
+          "scope": "university undergraduate admissions overview; programme rules vary",
+          "authority": "official-admissions-index",
+          "page_date": "Not stated",
+          "url": "https://future.utoronto.ca/supplemental-applications",
+          "final_url": "https://future.utoronto.ca/supplemental-applications",
+          "accessed_at": "2026-09-26T02:18:49.946001+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/52-Toronto-S1.txt",
+          "quotes": []
+        },
+        {
+          "id": "S2",
+          "title": "Supplementary Applications",
+          "publisher": "University of Toronto John H. Daniels Faculty of Architecture, Landscape, and Design",
+          "scope": "undergraduate / Daniels BAVS and BAAS supplements",
+          "authority": "programme-admissions-restriction",
+          "page_date": "2026–27 deadline visible; publication date not stated",
+          "url": "https://www.daniels.utoronto.ca/admissions/undergraduate/supplementary-applications",
+          "final_url": "https://www.daniels.utoronto.ca/admissions/undergraduate/supplementary-applications",
+          "accessed_at": "2026-09-26T02:18:50.543571+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/52-Toronto-S2.txt",
+          "quotes": [
+            {
+              "id": "S2-Q1",
+              "text": "Students and applicants found to have used generative AI (e.g., ChatGPT) to create content that is presented as their own will be disqualified from eligibility for admission.",
+              "topic": "admission consequence"
+            },
+            {
+              "id": "S2-Q2",
+              "text": "The use of generative Artificial Intelligence software to produce images or text is not permitted in your application and will result in automatic refusal.",
+              "topic": "prohibition in BAVS/BAAS"
+            }
+          ]
+        },
+        {
+          "id": "S3",
+          "title": "Computer Science Supplemental Application",
+          "publisher": "University of Toronto St. George Department of Computer Science",
+          "scope": "undergraduate / St. George CS supplemental application",
+          "authority": "programme-admissions-advice",
+          "page_date": "Not stated",
+          "url": "https://web.cs.toronto.edu/undergraduate/how-to-apply/supplemental",
+          "final_url": "https://web.cs.toronto.edu/undergraduate/how-to-apply/supplemental",
+          "accessed_at": "2026-09-26T02:18:51.549857+00:00",
+          "retrieval": "full-visible-text",
+          "local_text": "sources/52-Toronto-S3.txt",
+          "quotes": [
+            {
+              "id": "S3-Q1",
+              "text": "As with all academic work, it’s essential that you write your own answers based on your own experiences and ideas.",
+              "topic": "own experience and ideas"
+            }
+          ]
+        }
+      ],
+      "search_log": [
+        {
+          "query": "site:future.utoronto.ca \"generative AI\" \"supplemental\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:daniels.utoronto.ca \"generative AI\" \"application\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        },
+        {
+          "query": "site:web.cs.toronto.edu \"AI\" \"supplemental application\"",
+          "result": "Google HTTP 200 but rendered related-query/navigation links only; no reliable official result extractable from returned HTML. Separately reviewed saved official undergraduate bodies; no verified AI-specific rule from this search alone.",
+          "candidate_links": []
+        }
+      ],
+      "limitations": [
+        "Daniels restriction is faculty/programme-specific, not university-wide."
+      ]
     }
   ],
   "platform_sources": [
@@ -3668,8 +5001,169 @@
           "topic": "No substitution of authorship"
         }
       ]
+    },
+    {
+      "url": "https://www.ucas.com/applying/applying-to-university/writing-your-personal-statement/a-guide-to-using-ai-and-chatgpt-with-your-personal-statement",
+      "final_url": "https://www.ucas.com/applying/applying-to-university/writing-your-personal-statement/a-guide-to-using-ai-and-chatgpt-with-your-personal-statement",
+      "accessed_at": "2026-09-26T02:18:51.975021+00:00",
+      "local_text": "sources/00-UCAS-S1.txt",
+      "local_raw": "sources/00-UCAS-S1.html",
+      "raw_sha256": "1d5cdda678e228e085fd2e817d0b5a35778cee74c1a4e9d9b291a796d43326b7",
+      "text_sha256": "729e9587d1bdeeaeb8cb2bfbc01950ec6dea53bf89c7b6d0feee3b9bb0aced0c",
+      "id": "UCAS-S1",
+      "title": "A guide to using AI and ChatGPT with your personal statement",
+      "publisher": "UCAS",
+      "scope": "UCAS personal statement applicants; general advice, subject to institution-specific rules",
+      "authority": "official-platform-advice",
+      "page_date": null,
+      "page_date_note": "No explicit publication/effective date identified; access date is not publication date.",
+      "retrieval": "full-text",
+      "quotes": [
+        {
+          "id": "UCAS-S1-Q1",
+          "text": "You could use ChatGPT as a tool to help inspire, clarify and articulate your own ideas, rather than asking it to write your entire personal statement for you.",
+          "topic": "limited support, not outsourced authorship"
+        },
+        {
+          "id": "UCAS-S1-Q2",
+          "text": "ChatGPT can be used to check your personal statement draft for readability. It may suggest ways to rephrase sentences to make them more concise, while maintaining their meaning.",
+          "topic": "readability"
+        },
+        {
+          "id": "UCAS-S1-Q3",
+          "text": "It can create a first draft of a paragraph from a few bullet points from your notes, or summarise your first draft if you're over the character count.",
+          "topic": "Copilot example must be read with final-text prohibition"
+        },
+        {
+          "id": "UCAS-S1-Q4",
+          "text": "Copy and paste from AI tools and use as final text.",
+          "topic": "item under Don’t heading, not permission"
+        },
+        {
+          "id": "UCAS-S1-Q5",
+          "text": "We'd advise researching what individual universities and colleges recommend you include in your personal statement, and whether they have specific guidance around using AI tools like ChatGPT.",
+          "topic": "institution-specific guidance"
+        }
+      ],
+      "notes": "Q4 is the object of the page’s Don’t heading. The full source contains brainstorming and structure suggestions, and an explicitly described Copilot paragraph-drafting example; none removes the final authorship/declaration requirement.",
+      "source_id_in_snapshot": "S1",
+      "parent_live_recheck_at": "2026-09-26T02:43:37.741Z"
+    },
+    {
+      "url": "https://www.ucas.com/node/866",
+      "final_url": "https://www.ucas.com/about-us/policies/ucas-data-privacy-portal/ucas-undergraduate-declaration",
+      "accessed_at": "2026-09-26T02:44:26.130674+00:00",
+      "local_text": "sources/00-UCAS-S6.txt",
+      "local_raw": "sources/00-UCAS-S6.html",
+      "raw_sha256": "715b8176359580c93bb493929455db12ef6b9b8a39587b4f78151a3768ef56c9",
+      "text_sha256": "196aa22bffdf261ea050bb7dd2e51ac315728b76fb53481b3359b97276137dce",
+      "id": "UCAS-S6",
+      "title": "UCAS Undergraduate declaration",
+      "publisher": "UCAS",
+      "scope": "Applicants submitting a UCAS Undergraduate application",
+      "authority": "application-declaration",
+      "page_date": null,
+      "page_date_note": "No explicit publication/effective date identified; access date is not publication date.",
+      "retrieval": "full-text",
+      "quotes": [
+        {
+          "id": "UCAS-S6-Q1",
+          "text": "Your personal statement must be completed by you and we do undertake checks to verify that it is your own work.",
+          "topic": "authorship"
+        },
+        {
+          "id": "UCAS-S6-Q2",
+          "text": "If your personal statement includes material that we reasonably consider may have been copied from or provided by another source, including but not limited to friends, writing service providers or artificial intelligence software, we may notify your current school, college or other UCAS registered centre (provided that, where legally required, we have your permission to share such information) and the universities and colleges to which you have applied, whose decision it will be to take what action they consider appropriate.",
+          "topic": "notification; universities decide action"
+        },
+        {
+          "id": "UCAS-S6-Q3",
+          "text": "If we cancel your application you have the right to appeal.",
+          "topic": "platform cancellation appeal"
+        },
+        {
+          "id": "UCAS-S6-Q4",
+          "text": "The appeal process relates only to applicants whose application has been cancelled by us.",
+          "topic": "not university-decision appeal"
+        }
+      ],
+      "notes": "Read publicly without entering the application system or accepting the declaration.",
+      "source_id_in_snapshot": "S6"
+    },
+    {
+      "url": "https://www.ucas.com/media/146941/download",
+      "final_url": "https://www.ucas.com/media/146941/download",
+      "accessed_at": "2026-09-26T02:44:15.179950+00:00",
+      "local_text": "sources/00-UCAS-S4.txt",
+      "local_raw": "sources/00-UCAS-S4.pdf",
+      "raw_sha256": "91deb168cea38fbdc562a6f856b09d115a11b28b9b9a2f913459d2a3cb45fc2a",
+      "text_sha256": "c0eee20cde70d353517eadaa382c6998548b8a13180a2a41c880710a438bddec",
+      "id": "UCAS-S4",
+      "title": "Fraud and Verification — guidance for applicants",
+      "publisher": "UCAS",
+      "scope": "UCAS application verification and cancellation appeals",
+      "authority": "official-platform-procedure",
+      "page_date": null,
+      "page_date_note": "No explicit publication/effective date identified; access date is not publication date.",
+      "retrieval": "full-text",
+      "quotes": [
+        {
+          "id": "UCAS-S4-Q1",
+          "text": "We may cancel applications if false, missing, and/or misleading information is provided.",
+          "topic": "possible cancellation, not mandatory penalty for every AI use"
+        },
+        {
+          "id": "UCAS-S4-Q2",
+          "text": "If you decide to submit an appeal, you must do this within 28 days from the date your application was cancelled. We will notify you of our decision in writing within 28 days.",
+          "topic": "appeal timing; page 2"
+        }
+      ],
+      "notes": "Three-page PDF; no visible publication/effective date identified. A later appeal may be considered with delay per the full paragraph.",
+      "source_id_in_snapshot": "S4"
+    },
+    {
+      "url": "https://www.ucas.com/media/147176/download",
+      "final_url": "https://www.ucas.com/media/147176/download",
+      "accessed_at": "2026-09-26T02:44:16.250307+00:00",
+      "local_text": "sources/00-UCAS-S5.txt",
+      "local_raw": "sources/00-UCAS-S5.pdf",
+      "raw_sha256": "e7344770f1fe52c63f096d8cd8b75e30921ac6fcdb0a8d95caacfc2dbefe4221",
+      "text_sha256": "10bdc5b01eb70b78fdd2307c9a102c35064b348b3a3b5c359ab4a5482891187b",
+      "id": "UCAS-S5",
+      "title": "Similarity Guidance for Applicants",
+      "publisher": "UCAS",
+      "scope": "UCAS Undergraduate and UCAS Conservatoire personal-statement similarity checks",
+      "authority": "official-platform-procedure",
+      "page_date": null,
+      "page_date_note": "No explicit publication/effective date identified; access date is not publication date.",
+      "retrieval": "full-text",
+      "quotes": [
+        {
+          "id": "UCAS-S5-Q1",
+          "text": "Each personal statement is compared against a library of personal statements previously submitted to UCAS, and a library of sample statements collected from websites and other sources.",
+          "topic": "text similarity, not AI authorship classification"
+        },
+        {
+          "id": "UCAS-S5-Q2",
+          "text": "Any statements showing a level of similarity of greater than 30% are reviewed by members of the UCAS Veriﬁcation Team.",
+          "topic": "human review threshold, not safe allowance"
+        },
+        {
+          "id": "UCAS-S5-Q3",
+          "text": "The chosen universities and colleges decide on the signiﬁcance of the results and what action, if any, to take.",
+          "topic": "institutional decision"
+        },
+        {
+          "id": "UCAS-S5-Q4",
+          "text": "The report highlights similarities to other data already available to us, and we do not expect any grounds for an appeal against this.",
+          "topic": "under Can I appeal against a similarity report?"
+        }
+      ],
+      "notes": "Five-page PDF. Page 5 explicitly addresses the 2026-cycle change to three answers and says similarity reporting continues. PDF extraction ligatures retained in verbatim quotes.",
+      "source_id_in_snapshot": "S5"
     }
   ],
-  "important_limit": "Evidence status labels are research classifications, not AI permission rankings; shared UC sources are not independent campus policies.",
+  "important_limit": "Evidence status labels describe verified scope, not AI permission rankings. UC/UCAS shared sources are not independent campus policies. No guarantee for 2028 entry.",
+  "research_period": "Original 30 schools: 2026-09-24 plus recorded browser rechecks; 22-school expansion: 2026-09-26. Per-source dates are authoritative.",
   "supplemented_at": "2026-09-25"
 }

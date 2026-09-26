@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cambridge · AI 使用政策</title>
+<meta name="description" content="University of Cambridge（剑桥大学）AI 使用规定：校内 AI 规范的原文摘录与申请环节的规定。">
+<link rel="canonical" href="https://ai.policy.nestudy.cn/Cambridge/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+/* ============================================================================
+   TOKENS — same family as the home, atlas and guidelines pages. The rank ramp
+   (--r3 … --r1, hatch for silence) is the atlas matrix's, so a provision reads
+   the same colour here as in its cell there.
+   ========================================================================= */
+:root{
+  --paper:#E7E9EF; --surface:#FBFBFD; --surface-2:#F1F3F7; --surface-3:#E7EAF1;
+  --ink:#131A2B; --ink-2:#414B61; --ink-3:#79839A;
+  --rule:#D2D6E0; --rule-soft:#E3E6ED;
+  --seal:#8A2B34; --seal-ink:#8A2B34; --seal-wash:rgba(138,43,52,.08);
+  --mark:rgba(138,43,52,.10); --mark-edge:rgba(138,43,52,.55); --mark-hot:rgba(138,43,52,.26);
+  --r3:#1B2440; --r3-on:#EDEFF6;
+  --r2:#68738D; --r2-on:#FBFCFE;
+  --r1:#C2C8D6; --r1-on:#2B3348;
+  --r0-on:#8E97AC; --hatch:#C8CDD9;
+  --focus:#3C5BD6;
+  --display:"Spectral","Noto Serif SC",Georgia,serif;
+  --serif:"Spectral","Noto Serif SC",Georgia,serif;
+  --sans:"IBM Plex Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --pad:clamp(16px,5vw,44px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+    --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+    --rule:#28303F; --rule-soft:#1E2532;
+    --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+    --mark:rgba(221,136,144,.15); --mark-edge:rgba(233,163,170,.6); --mark-hot:rgba(221,136,144,.34);
+    --r3:#CBD4E9; --r3-on:#111726;
+    --r2:#6D7994; --r2-on:#F4F6FB;
+    --r1:#333C51; --r1-on:#C2CADB;
+    --r0-on:#646E87; --hatch:#38425A;
+    --focus:#7D95F0;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+  --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+  --rule:#28303F; --rule-soft:#1E2532;
+  --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+  --mark:rgba(221,136,144,.15); --mark-edge:rgba(233,163,170,.6); --mark-hot:rgba(221,136,144,.34);
+  --r3:#CBD4E9; --r3-on:#111726;
+  --r2:#6D7994; --r2-on:#F4F6FB;
+  --r1:#333C51; --r1-on:#C2CADB;
+  --r0-on:#646E87; --hatch:#38425A;
+  --focus:#7D95F0;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+button,select{font:inherit;color:inherit}
+a{color:var(--seal-ink);text-underline-offset:2px}
+
+:root:not([data-lang="en"]) [lang="en"],
+:root[data-lang="en"] [lang="zh"]{display:none !important}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* ---- top bar ------------------------------------------------------------ */
+.bar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--rule)}
+.bar .wrap{display:flex;align-items:center;gap:10px;height:48px}
+.bar a.home{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-decoration:none;
+  padding:2px 8px;border:1px solid var(--rule);border-radius:2px;flex:none;line-height:1.4}
+.bar a.home:hover{color:var(--ink);border-color:var(--ink-3)}
+.bar a.nav{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);text-decoration:none;
+  padding:3px 6px;border-radius:2px;white-space:nowrap}
+.bar a.nav:hover{color:var(--ink);background:var(--surface-2)}
+.bar .sp{flex:1}
+.switch select{font-family:var(--sans);font-size:12.5px;max-width:230px;padding:4px 8px;
+  background:var(--surface-2);border:1px solid var(--rule);border-radius:2px;color:var(--ink)}
+.lang{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;flex:none}
+.lang button{background:var(--surface-2);border:none;cursor:pointer;font-family:var(--mono);
+  font-size:11px;padding:3px 10px;color:var(--ink-3);letter-spacing:.05em}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:620px){ .bar a.nav{display:none} .switch select{max-width:150px} }
+
+/* ---- masthead ----------------------------------------------------------- */
+.mast{border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
+.mast .wrap{padding-top:clamp(30px,6vw,60px);padding-bottom:clamp(26px,4vw,40px)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
+  line-height:1.02;letter-spacing:-.02em;margin:12px 0 8px}
+.fullname{margin:0;font-family:var(--sans);font-size:clamp(14px,1.6vw,16.5px);color:var(--ink-2);
+  display:flex;gap:4px 14px;flex-wrap:wrap}
+.fullname .zh{color:var(--ink-3)}
+.fullname .ctry{align-self:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-3);
+  padding:0 7px;border:1px solid var(--rule);border-radius:2px;line-height:1.7}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
+  background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
+.chip b{font-family:var(--mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+a.chip{text-decoration:none;color:var(--ink-2)}
+a.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.adm-chip b{font-family:var(--sans);font-weight:600}
+
+/* the school's row of the atlas matrix, one cell per provision */
+.strip{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.sc{display:flex;flex-direction:column;gap:3px;padding:8px 9px 9px;text-decoration:none;min-height:62px;
+  transition:filter .14s}
+.sc em{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;opacity:.78}
+.sc b{font-family:var(--sans);font-size:12px;font-weight:500;line-height:1.3}
+.sc[data-r="3"]{background:var(--r3);color:var(--r3-on)}
+.sc[data-r="2"]{background:var(--r2);color:var(--r2-on)}
+.sc[data-r="1"]{background:var(--r1);color:var(--r1-on)}
+.sc[data-r="0"]{background:repeating-linear-gradient(-45deg,var(--surface) 0 4px,var(--hatch) 4px 5px);color:var(--r0-on)}
+.sc[data-r="0"] b{font-weight:400}
+.sc:hover{filter:brightness(1.08) saturate(1.1)}
+@media (max-width:760px){ .strip{grid-template-columns:repeat(3,minmax(0,1fr))} }
+@media (max-width:420px){ .strip{grid-template-columns:repeat(2,minmax(0,1fr))} }
+.print-url{display:none}
+
+/* ---- sections ----------------------------------------------------------- */
+section{padding-top:clamp(36px,5vw,56px);scroll-margin-top:60px}
+.sec-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:16px;
+  padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.3vw,25px);margin:0}
+.sec-head .en2{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3)}
+.sec-sub{margin:0 0 18px;font-family:var(--sans);font-size:13.5px;color:var(--ink-2);max-width:64ch}
+
+/* pull quote */
+.pull{margin:0;padding:4px 0 4px 20px;border-left:3px solid var(--seal);max-width:44rem}
+.pull p{margin:0 0 8px;font-family:var(--display);font-style:italic;font-size:clamp(18px,2.1vw,23px);
+  line-height:1.5;color:var(--ink)}
+.pull a{font-family:var(--sans);font-size:12.5px;text-decoration:none}
+
+/* ---- provisions --------------------------------------------------------- */
+.group{margin-top:26px}
+.group:first-of-type{margin-top:0}
+.group-h{display:flex;gap:10px;align-items:baseline;margin:0 0 10px}
+.group-h b{font-family:var(--display);font-size:17px;font-weight:600}
+.group-h span{font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+.cards{display:flex;flex-direction:column;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.card{background:var(--surface);display:grid;grid-template-columns:210px minmax(0,1fr);gap:20px;
+  padding:16px 18px 18px;scroll-margin-top:64px}
+.card:target{box-shadow:inset 3px 0 0 var(--seal)}
+.card-l h3{margin:0;font-family:var(--display);font-size:17px;font-weight:600;line-height:1.3}
+.card-l .en{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--ink-3);margin-top:2px}
+.card-l p{margin:8px 0 0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+.card-r{display:flex;flex-direction:column;gap:10px;min-width:0}
+.verdict{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.vchip{font-family:var(--sans);font-size:13px;font-weight:600;padding:4px 11px;border-radius:2px}
+.vchip[data-r="3"]{background:var(--r3);color:var(--r3-on)}
+.vchip[data-r="2"]{background:var(--r2);color:var(--r2-on)}
+.vchip[data-r="1"]{background:var(--r1);color:var(--r1-on)}
+.vchip[data-r="0"]{background:repeating-linear-gradient(-45deg,var(--surface) 0 4px,var(--hatch) 4px 5px);
+  color:var(--r0-on);font-weight:500;box-shadow:inset 0 0 0 1px var(--rule)}
+.tag-main{font-family:var(--mono);font-size:10px;letter-spacing:.06em;padding:2px 7px;border-radius:2px;
+  color:var(--seal-ink);box-shadow:inset 0 0 0 1px var(--seal)}
+.ctx{font-family:var(--sans);font-size:12px;color:var(--ink-3);line-height:1.5}
+.ctx b{font-family:var(--mono);font-weight:500;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.ev{margin:0;padding:10px 14px;background:var(--surface-2);border:1px solid var(--rule-soft);
+  border-left:2px solid var(--mark-edge);border-radius:2px;font-family:var(--serif);font-style:italic;
+  font-size:15px;line-height:1.6;color:var(--ink)}
+.ev span{display:block}
+.ev span + span{margin-top:6px}
+.note{margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+.note .k{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--ink-3);margin-right:6px}
+.links{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--sans);font-size:12.5px}
+.links a{text-decoration:none}
+.links a:hover{text-decoration:underline}
+.card.silent .card-r{color:var(--ink-3)}
+.silent-note{margin:0;font-family:var(--sans);font-size:12.5px;line-height:1.6;color:var(--ink-3)}
+@media (max-width:700px){ .card{grid-template-columns:1fr;gap:12px} }
+
+.extras{display:grid;gap:1px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.extra{background:var(--surface);padding:14px 16px}
+.extra h3{margin:0 0 8px;font-family:var(--display);font-size:16px;font-weight:600}
+.extra ol{margin:0;padding-left:20px;font-family:var(--sans);font-size:13px;line-height:1.6;color:var(--ink-2)}
+.extra .tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ---- source text -------------------------------------------------------- */
+.about{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:14px 16px 16px;
+  margin-bottom:26px}
+.about h3{margin:0 0 10px;font-family:var(--display);font-size:16px;font-weight:600}
+ul.kv{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;
+  font-family:var(--sans);font-size:13px;line-height:1.55;color:var(--ink-2)}
+ul.kv li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:12px}
+ul.kv .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--ink-3);padding-top:2px}
+ul.kv .v{min-width:0;overflow-wrap:anywhere}
+@media (max-width:560px){ ul.kv li{grid-template-columns:1fr;gap:0} }
+
+.source{max-width:44rem}
+.source p,.source li{font-size:16px;line-height:1.75}
+.source p{margin:0 0 14px}
+.source h3,.source h4,.source h5,.source h6{font-family:var(--display);font-weight:600;line-height:1.3;
+  margin:30px 0 10px}
+.source h3{font-size:21px;padding-top:14px;border-top:1px solid var(--rule)}
+.source h4{font-size:18px}
+.source h5,.source h6{font-size:16px}
+.source ul,.source ol{padding-left:22px;margin:0 0 14px}
+.source li{margin:0 0 6px}
+.source ul.kv{padding:12px 14px;margin:0 0 14px;background:var(--surface);border:1px solid var(--rule-soft);
+  border-radius:2px}
+.source ul.kv li{margin:0;font-size:13px}
+.source blockquote{margin:0 0 14px;padding:2px 0 2px 16px;border-left:2px solid var(--rule);color:var(--ink-2)}
+.source hr{border:none;border-top:1px dashed var(--rule);margin:18px 0}
+.source a{overflow-wrap:anywhere}
+mark{background:var(--mark);color:inherit;border-bottom:1.5px solid var(--mark-edge);padding:0 1px;
+  transition:background .3s}
+mark.hot{background:var(--mark-hot)}
+.ev-anchor{scroll-margin-top:90px}
+sup.evtag{font-family:var(--sans);font-size:10px;font-weight:600;line-height:1;margin-left:2px;white-space:nowrap}
+sup.evtag a{text-decoration:none;color:var(--seal-ink);padding:1px 4px;border-radius:2px;
+  box-shadow:inset 0 0 0 1px var(--mark-edge)}
+sup.evtag a:hover{background:var(--seal-wash)}
+.omit{margin:0 0 14px;padding:8px 12px;border:1px dashed var(--rule);border-radius:2px;
+  font-family:var(--sans);font-size:12.5px;color:var(--ink-3)}
+/* the rest of a trimmed source: collected, but not cited by this project */
+.uncited{margin:0 0 14px;padding:2px 0 2px 14px;border-left:1px dashed var(--rule);color:var(--ink-3)}
+.uncited::before{content:"未引用部分";display:block;margin-bottom:4px;font-family:var(--mono);
+  font-size:9.5px;letter-spacing:.1em;color:var(--ink-3);opacity:.8}
+:root[data-lang="en"] .uncited::before{content:"Not cited"}
+.source .uncited p,.source .uncited li{font-size:13.5px;line-height:1.65}
+.source .uncited h3{font-size:16px;border-top:none;padding-top:0;margin-top:18px}
+.source .uncited h4,.source .uncited h5,.source .uncited h6{font-size:14.5px;margin-top:14px}
+.source .uncited blockquote{color:var(--ink-3)}
+.source .uncited a{color:inherit}
+
+/* ---- admissions ---------------------------------------------------------- */
+.adm-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;align-items:baseline;
+  padding:14px 16px;margin-bottom:18px;background:var(--surface);border:1px solid var(--rule);
+  border-left:3px solid var(--ink);border-radius:3px}
+.adm-k{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--ink-3)}
+.adm-status{font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink)}
+.adm-sum{grid-column:1 / -1;margin:4px 0 0;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2)}
+.adm-all{grid-column:1 / -1;font-family:var(--sans);font-size:12.5px;text-decoration:none}
+.adm-all:hover{text-decoration:underline}
+@media (max-width:560px){ .adm-head{grid-template-columns:1fr} }
+.source.adm h3{font-size:19px}
+.source.adm p,.source.adm li{font-size:15px}
+.source.adm blockquote{font-family:var(--serif);color:var(--ink);border-left-color:var(--mark-edge)}
+code{font-family:var(--mono);font-size:.82em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+ul.kv ul.kv{grid-column:1 / -1;margin:4px 0 0}
+details.fold{margin:30px 0 0;padding-top:14px;border-top:1px solid var(--rule)}
+details.fold > summary{cursor:pointer;font-family:var(--display);font-size:17px;font-weight:600;color:var(--ink-2)}
+details.fold > summary:hover{color:var(--ink)}
+details.fold[open] > summary{margin-bottom:12px}
+details.fold p,details.fold li{font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+
+.takeaways{margin-top:34px;padding:4px 18px 8px;border:1px dashed var(--ink-3);border-radius:3px}
+.takeaways .tk-label{margin:14px 0 0;font-family:var(--sans);font-size:12.5px;color:var(--ink-3);line-height:1.6}
+.takeaways h3{border-top:none;padding-top:0;margin-top:12px}
+
+/* ---- pager / footer ----------------------------------------------------- */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(40px,6vw,64px)}
+.pager a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;background:var(--surface);
+  border:1px solid var(--rule);border-radius:3px;text-decoration:none;color:var(--ink)}
+.pager a:hover{border-color:var(--ink-3)}
+.pager a.next{text-align:right;grid-column:2}
+.pager span{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.pager b{font-family:var(--display);font-size:16px;font-weight:600}
+footer{margin-top:clamp(36px,5vw,56px);padding:22px 0 52px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:12px;color:var(--ink-3);line-height:1.65}
+footer p{max-width:44rem;margin:0 0 8px}
+
+@keyframes flash{from{background:var(--mark-hot)}to{background:var(--mark)}}
+mark.flash{animation:flash 1.8s ease-out}
+@media (prefers-reduced-motion:reduce){ *{animation:none !important;transition:none !important} }
+
+/* ---- print: a school brief -------------------------------------------- */
+@media print{
+  :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
+  body{font-size:10.5pt;background:#fff}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all,
+  #campus .about,#campus .source{display:none !important}
+  .mast{background:none}
+  .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
+  .card{break-inside:avoid}
+  section{padding-top:18px}
+}
+</style>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="home" href="../" title="项目主页 / Home">←</a>
+    <a class="nav" href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
+    <a class="nav" href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
+    <span class="sp"></span>
+    <label class="switch"><span class="sr">切换学校 / Switch university</span>
+      <select id="switch">
+        <option value="Stanford">01 · Stanford · 斯坦福大学</option>
+        <option value="MIT">02 · MIT · 麻省理工学院</option>
+        <option value="Harvard">03 · Harvard · 哈佛大学</option>
+        <option value="Yale">04 · Yale · 耶鲁大学</option>
+        <option value="Cornell">05 · Cornell · 康奈尔大学</option>
+        <option value="Penn">06 · Penn · 宾夕法尼亚大学</option>
+        <option value="Columbia">07 · Columbia · 哥伦比亚大学</option>
+        <option value="Duke">08 · Duke · 杜克大学</option>
+        <option value="Northwestern">09 · Northwestern · 西北大学</option>
+        <option value="UChicago">10 · UChicago · 芝加哥大学</option>
+        <option value="Princeton">11 · Princeton · 普林斯顿大学</option>
+        <option value="Caltech">12 · Caltech · 加州理工学院</option>
+        <option value="JHU">13 · Johns Hopkins · 约翰斯·霍普金斯大学</option>
+        <option value="Brown">14 · Brown · 布朗大学</option>
+        <option value="Vanderbilt">15 · Vanderbilt · 范德堡大学</option>
+        <option value="Berkeley">16 · UC Berkeley · 加州大学伯克利分校</option>
+        <option value="UCLA">17 · UCLA · 加州大学洛杉矶分校</option>
+        <option value="Rice">18 · Rice · 莱斯大学</option>
+        <option value="Dartmouth">19 · Dartmouth · 达特茅斯学院</option>
+        <option value="NotreDame">20 · Notre Dame · 圣母大学</option>
+        <option value="CMU">21 · Carnegie Mellon · 卡内基梅隆大学</option>
+        <option value="UMich">22 · Michigan · 密歇根大学</option>
+        <option value="Georgetown">23 · Georgetown · 乔治城大学</option>
+        <option value="Emory">24 · Emory · 埃默里大学</option>
+        <option value="UNC">25 · UNC Chapel Hill · 北卡罗来纳大学教堂山分校</option>
+        <option value="WashU">26 · WashU · 圣路易斯华盛顿大学</option>
+        <option value="UVA">27 · UVA · 弗吉尼亚大学</option>
+        <option value="USC">28 · USC · 南加州大学</option>
+        <option value="UCSD">29 · UC San Diego · 加州大学圣地亚哥分校</option>
+        <option value="NYU">30 · NYU · 纽约大学</option>
+        <option value="UCI">31 · UC Irvine · 加州大学欧文分校</option>
+        <option value="Swarthmore">32 · Swarthmore · 斯沃斯莫尔学院</option>
+        <option value="Williams">33 · Williams · 威廉姆斯学院</option>
+        <option value="Pomona">34 · Pomona · 波莫纳学院</option>
+        <option value="BU">35 · Boston University · 波士顿大学</option>
+        <option value="Wellesley">36 · Wellesley · 韦尔斯利学院</option>
+        <option value="Barnard">37 · Barnard · 巴纳德学院</option>
+        <option value="UW">38 · UW Seattle · 华盛顿大学（西雅图）</option>
+        <option value="LSE">39 · LSE · 伦敦政治经济学院</option>
+        <option value="CMC">40 · Claremont McKenna · 克莱蒙特·麦肯纳学院</option>
+        <option value="Vassar">41 · Vassar · 瓦萨学院</option>
+        <option value="Carleton">42 · Carleton · 卡尔顿学院</option>
+        <option value="GeorgiaTech">43 · Georgia Tech · 佐治亚理工学院</option>
+        <option value="NUS">44 · NUS · 新加坡国立大学</option>
+        <option value="HKU">45 · HKU · 香港大学</option>
+        <option value="Oxford">46 · Oxford · 牛津大学</option>
+        <option value="BC">47 · Boston College · 波士顿学院</option>
+        <option value="Cambridge" selected>48 · Cambridge · 剑桥大学</option>
+        <option value="Waseda">49 · Waseda · 早稻田大学</option>
+        <option value="HKUST">50 · HKUST · 香港科技大学</option>
+        <option value="Imperial">51 · Imperial · 帝国理工学院</option>
+        <option value="Toronto">52 · Toronto · 多伦多大学</option>
+      </select>
+    </label>
+    <div class="lang" role="group" aria-label="语言 / Language">
+      <button id="b-zh" aria-pressed="true">中文</button>
+      <button id="b-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="mast"><div class="wrap">
+  <span lang="zh" class="eyebrow">No.48 / 52 · 52 所大学 AI 使用政策比较研究</span><span lang="en" class="eyebrow">No.48 of 52 · AI Use Policies at 52 Universities</span>
+  <h1>Cambridge</h1>
+  <p class="fullname"><span>University of Cambridge</span><span class="zh">剑桥大学</span><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></p>
+  <div class="chips">
+    <a class="chip adm-chip" href="#campus"><span lang="zh">校内规范 · <b>全校政策／诚信规则</b></span><span lang="en">Campus guidance · <b>University-wide policy</b></span></a>
+    <span class="chip"><span lang="zh">未按 12 项条款编码</span><span lang="en">Not coded against the 12 provisions</span></span>
+    <span class="chip"><span lang="zh">采集于 <b>2026-09-26</b></span><span lang="en">Accessed <b>2026-09-26</b></span></span>
+    <a class="chip adm-chip" href="#admissions"><span lang="zh">申请环节 · <b>本科 AI 明文边界</b></span><span lang="en">Admissions · <b>Explicit undergraduate rules</b></span></a>
+  </div>
+  <p class="print-url">ai.policy.nestudy.cn/Cambridge</p>
+</div></header>
+<main class="wrap">
+<section id="campus">
+  <div class="sec-head"><h2><span lang="zh">校内 AI 规范</span><span lang="en">Campus AI guidance</span></h2><span class="en2">expansion/48-Cambridge.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校就课程、作业与学术诚信中使用 AI 发布的官方指导，英文为逐字摘录，中文为整理者的分析。证据状态描述找到的是哪一类来源，不是宽严等级。本校属补充的 22 所之一：只收录原文摘录，未按 12 项条款编码；政策图谱中列有本校，但标为未编码，不计入图谱与规范的统计。</span><span lang="en">Official guidance from this university on using AI in courses, coursework and academic integrity: the English is excerpted verbatim, the Chinese is the collector's analysis. The evidence status describes the kind of source found, not how strict it is. This is one of the 22 universities added to the original 30: only excerpts were collected, so it is not coded against the twelve provisions. The atlas lists it as not coded, and it is not counted in the atlas's figures or the guidelines.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">全校政策／诚信规则（具体权限见来源）</span><span lang="en">University-wide policy or integrity rules (specific permissions as stated in the source)</span></span>
+    <p class="adm-sum">Cambridge 教育质量与政策办公室的学术不端指导允许适当使用 AI 作个人学习、研究和形成性任务；除非评估说明明确另有规定，将未披露／未注明 AI 生成来源的内容作为自己作品提交总结性评估，构成学术不端。</p>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>university-wide-policy</code></span></li><li><span class="k"><span lang="zh">采集说明</span><span lang="en">Research acquisition</span></span> <span class="v">source-specific ISO dates below (not publication dates).</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">在校学生学习及评估；不是招生申请规则。</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">中文结论 / Findings</h3>
+<ul><li>[X3-Q1] 学习、研究、形成性工作可适当使用 AI，但不能直接推导总结性评估可用。</li><li>[X3-Q2] 未披露 AI 生成内容并冒作本人在总结性评估中提交，除任务说明另有规定外属学术不端。披露不自动授权作业中已被禁止的使用。</li><li>[X3-Q3] 具体疑问询问指导教师或讲师。</li></ul>
+<h3 class="src-h2">Official sources and short original excerpts</h3>
+<h4 class="src-h3">[X3] Education Quality and Policy Office / Artificial Intelligence (AI)</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">University of Cambridge</span></li><li><span class="k"><span lang="zh">官方链接</span><span lang="en">Official URL</span></span> <span class="v"><a href="https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai" target="_blank" rel="noopener noreferrer">https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai</a></span></li><li><span class="k"><span lang="zh">最终页面地址</span><span lang="en">Final URL</span></span> <span class="v"><a href="https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai" target="_blank" rel="noopener noreferrer">https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai</a></span></li><li><span class="k"><span lang="zh">范围／性质</span><span lang="en">Scope / authority</span></span> <span class="v"><code>university-students-and-assessment</code> / <code>official-academic-integrity-guidance</code></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">Not stated or not verified; accessed: 2026-09-26T02:45:58.228183+00:00</span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; saved text: sources/48-Cambridge-X3.txt</span></li></ul>
+<p><strong>[X3-Q1] 个人学习许可</strong></p>
+<blockquote><p>Students are permitted to make appropriate use of artificial intelligence tools to support their personal study, research and formative work.</p></blockquote>
+<p><strong>[X3-Q2] 总结性评估不端</strong></p>
+<blockquote><p>A student using any unacknowledged content generated by artificial intelligence within a summative assessment as though it is their own work constitutes academic misconduct, unless explicitly stated otherwise in the assessment brief.</p></blockquote>
+<p><strong>[X3-Q3] 询问导师</strong></p>
+<blockquote><p>If you have any concerns regarding the potential use of artificial intelligence, please discuss this with your supervisor or lecturer</p></blockquote>
+<h3 class="src-h2">Limitations</h3>
+<ul><li>原先 blendedlearning.cam.ac.uk 两个页面连接超时，改用政策办公室已读官方正文。</li><li>学术评估规则不得直接移用于本科招生；招生须看单独页面。</li></ul>
+<h3 class="src-h2">High-school adaptation (researcher recommendation; not university policy)</h3>
+<ul><li>每项课程、项目或评估先查教师书面规则；文书由申请人真实反思并亲自核对事实。</li><li>明确区分可用于构思或校对、可提交的内容与不可在面试／评估使用的工具；勿将大学在校作业规则照搬入高中或本科申请。</li></ul></div>
+</section>
+<section id="admissions">
+  <div class="sec-head"><h2><span lang="zh">申请环节的 AI 政策</span><span lang="en">AI in the application</span></h2><span class="en2">admissions/48-Cambridge.md</span></div>
+  <p class="sec-sub"><span lang="zh">该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。</span><span lang="en">What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.</span></p>
+  <div class="adm-head">
+    <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
+    <span class="adm-status"><span lang="zh">本科申请 AI 明文边界（效力见来源）</span><span lang="en">Explicit AI boundaries for undergraduate applicants (force as stated in the source)</span></span>
+    <p class="adm-sum">Cambridge 本科招生页面允许将 AI 用作个人陈述构思或研究辅助，但警示虚构个人成就可按申请欺诈处理、质量低可能削弱申请；面试期间任何使用 AI 均明确禁止。</p>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">52 所大学对照 →</span><span lang="en">All 52 compared →</span></a>
+  </div>
+  <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>explicit-undergraduate-ai</code></span></li><li><span class="k"><span lang="zh">采集说明</span><span lang="en">Research acquisition</span></span> <span class="v">source-specific ISO dates below (not publication dates).</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope</span></span> <span class="v">本科招生与个人陈述；研究生和在校生作业规则单独区分。</span></li></ul></div>
+  <div class="source adm"><h3 class="src-h2">中文结论 / Findings</h3>
+<ul><li>[S1-Q1] AI 可用于个人陈述准备的构思和研究辅助；页面不是准许直接提交整篇生成文书的承诺。</li><li>[S1-Q2][S1-Q4] 对个人成就的虚假生成主张按申请造假看待；低质量输出也会削弱竞争力。</li><li>[S1-Q3] 无论线上线下面试，期间使用 AI 均被禁止。</li></ul>
+<h3 class="src-h2">Official sources and short original excerpts</h3>
+<h4 class="src-h3">[S1] Undergraduate Study / AI and undergraduate applications</h4>
+<ul class="kv"><li><span class="k"><span lang="zh">发布单位</span><span lang="en">Publisher</span></span> <span class="v">University of Cambridge</span></li><li><span class="k"><span lang="zh">官方链接</span><span lang="en">Official URL</span></span> <span class="v"><a href="https://www.undergraduate.study.cam.ac.uk/apply/ai-and-undergraduate-applications" target="_blank" rel="noopener noreferrer">https://www.undergraduate.study.cam.ac.uk/apply/ai-and-undergraduate-applications</a></span></li><li><span class="k"><span lang="zh">最终页面地址</span><span lang="en">Final URL</span></span> <span class="v"><a href="https://www.undergraduate.study.cam.ac.uk/apply/ai-and-undergraduate-applications" target="_blank" rel="noopener noreferrer">https://www.undergraduate.study.cam.ac.uk/apply/ai-and-undergraduate-applications</a></span></li><li><span class="k"><span lang="zh">范围／性质</span><span lang="en">Scope / authority</span></span> <span class="v"><code>undergraduate-applications-personal-statement-and-interview</code> / <code>official-undergraduate-admissions-guidance</code></span></li><li><span class="k"><span lang="zh">页面日期</span><span lang="en">Page date</span></span> <span class="v">Not stated or not verified; accessed: 2026-09-26T02:18:48.486705+00:00</span></li><li><span class="k"><span lang="zh">采集方式</span><span lang="en">Retrieval</span></span> <span class="v"><code>full-text</code>; saved text: sources/48-Cambridge-S1.txt</span></li></ul>
+<p><strong>[S1-Q1] 构思/研究辅助</strong></p>
+<blockquote><p>You may therefore wish to use AI tools as prompts for ideas or to assist in research when preparing your personal statement, but you should note that an over-reliance on AI carries risks:</p></blockquote>
+<p><strong>[S1-Q2] 虚构成绩风险</strong></p>
+<blockquote><p>If these are about your personal achievements, they will be treated like any other application fraud.</p></blockquote>
+<p><strong>[S1-Q3] 面试禁止</strong></p>
+<blockquote><p>Any use of AI tools during an interview hinders this approach and is therefore prohibited.</p></blockquote>
+<p><strong>[S1-Q4] 质量风险</strong></p>
+<blockquote><p>It may produce poor quality output, weakening your chance of success.</p></blockquote>
+<h3 class="src-h2">Limitations</h3>
+<ul><li>该招生页引用 Russell Group 评估原则，只作为背景；具体面试／文书条款来自 Cambridge 本科招生正文，不混同在校生考试规则。</li></ul>
+<h3 class="src-h2">High-school adaptation (researcher recommendation; not university policy)</h3>
+<ul><li>每项课程、项目或评估先查教师书面规则；文书由申请人真实反思并亲自核对事实。</li><li>明确区分可用于构思或校对、可提交的内容与不可在面试／评估使用的工具；勿将大学在校作业规则照搬入高中或本科申请。</li></ul>
+<h3 class="src-h2">Shared system boundary</h3>
+<p>另见<a href="../admissions.html#ucas">UCAS平台AI指导</a>。该文是共享平台材料，不能当作本校独立政策，也不能覆盖校方更具体的要求。</p></div>
+</section>
+<nav class="pager"><a class="prev" href="../BC/"><span>← No.47</span><b>Boston College</b></a><a class="next" href="../Waseda/"><span>No.49 →</span><b>Waseda</b></a></nav>
+</main>
+<footer><div class="wrap">
+  <p><span lang="zh"><strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。证据状态与中文分析是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。</span><span lang="en"><strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The evidence statuses and the Chinese analysis are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.</span></p>
+  <p class="nav-links"><a href="../"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="../atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="../admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="../guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+</div></footer>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const zh = document.getElementById("b-zh"), en = document.getElementById("b-en");
+  function set(lang, store) {
+    root.setAttribute("data-lang", lang);
+    zh.setAttribute("aria-pressed", String(lang === "zh"));
+    en.setAttribute("aria-pressed", String(lang === "en"));
+    if (store) { try { localStorage.setItem("guidelines-lang", lang); } catch (e) {} }
+  }
+  let saved = null;
+  try { saved = localStorage.getItem("guidelines-lang"); } catch (e) {}
+  set(saved === "en" ? "en" : "zh", false);
+  zh.addEventListener("click", () => set("zh", true));
+  en.addEventListener("click", () => set("en", true));
+
+  document.getElementById("switch").addEventListener("change", function () {
+    location.href = "../" + this.value + "/";
+  });
+
+  // Jumping to a quotation in the source text: light up every fragment of it.
+  function flash() {
+    const m = /^#ev-(.+)$/.exec(location.hash);
+    if (!m) return;
+    document.querySelectorAll('mark[data-ev~="' + m[1] + '"]').forEach(function (el) {
+      el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+    });
+  }
+  addEventListener("hashchange", flash);
+  flash();
+
+  // Hovering a provision's tag in the text highlights all of that quotation.
+  document.querySelectorAll("sup.evtag a[data-ev]").forEach(function (a) {
+    const marks = document.querySelectorAll('mark[data-ev~="' + a.dataset.ev + '"]');
+    a.addEventListener("mouseenter", () => marks.forEach(el => el.classList.add("hot")));
+    a.addEventListener("mouseleave", () => marks.forEach(el => el.classList.remove("hot")));
+  });
+})();
+</script>

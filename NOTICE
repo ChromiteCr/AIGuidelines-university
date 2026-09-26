@@ -31,6 +31,8 @@ LICENSE file. Free to use, modify, and redistribute.
     tools/codebook.py   （作为编码体系而非代码时）
     admissions/application-index.json、admissions/application-summary.csv
     admissions/*.md 中的中文分析与证据状态（引文除外）
+    expansion/academic-index.json
+    expansion/*.md 中的中文分析与证据状态（引文除外）
 
 以下内容是本项目的原创学术贡献，按 Creative Commons Attribution 4.0
 International (CC BY 4.0) 发布 —— https://creativecommons.org/licenses/by/4.0/
@@ -40,20 +42,20 @@ International (CC BY 4.0) 发布 —— https://creativecommons.org/licenses/by/
   - 每所学校在每项条款上的取值判定
   - 来源层级（校级／院系级／面向教师／混合）的标注
   - 由此计算的分布、一致度与沉默率
-  - 申请环节资料的证据状态分类、中文摘要与分析
+  - 申请环节资料与补充 22 所校内规范的证据状态分类、中文摘要与分析
 
 使用时请注明出处。
 
 CAVEAT: data/policies.json 的 `evidence`、`quote` 与 `takeaways` 字段包含
-第 3 节所述的原文引文（每条至多约 320 字符）；admissions/ 的索引与 Markdown
-文件同样内嵌英文原文引文。这些字符串的版权状态见第 3 节，不因被收入本数据集
+第 3 节所述的原文引文（每条至多约 320 字符）；admissions/ 与 expansion/ 的索引和
+Markdown 文件同样内嵌英文原文引文。这些字符串的版权状态见第 3 节，不因被收入本数据集
 而改变。
 
 The classification itself is this project's original scholarly contribution and
 is released under CC BY 4.0; please attribute. Note that the `evidence`,
 `quote`, and `takeaways` fields embed short verbatim quotations whose status is
 governed by section 3 below — inclusion here does not change that status. The
-same holds for the English quotations embedded in admissions/.
+same holds for the English quotations embedded in admissions/ and expansion/.
 
 
 -----------------------------------------------------------------------------
@@ -61,10 +63,11 @@ same holds for the English quotations embedded in admissions/.
 -----------------------------------------------------------------------------
 
     univ/*.md、univ/full/*.md
+    expansion/*.md 与 expansion/academic-index.json 中的英文引文
     admissions/*.md 与 admissions/application-index.json 中的英文引文
 
-这些文件包含美国三十所大学及两个申请平台（Common App、UC 系统）官方网页的
-**逐字引文与摘录**。版权归各原发布者所有，本项目不拥有、也无权向任何人授予对
+这些文件包含五十二所大学（美国三十所及 College Fair 补充的二十二所）与三个申请平台
+（Common App、UC 系统、UCAS）官方网页的**逐字引文与摘录**。版权归各原发布者所有，本项目不拥有、也无权向任何人授予对
 这些文字的权利。
 
 收录方式与目的：
@@ -74,7 +77,8 @@ same holds for the English quotations embedded in admissions/.
     与访问日期。
   - 范围：摘录相关政策段落，去除导航与站点框架，保留原始措辞。
   - 时点：univ/ 为 2026 年 8 月 21 日至 29 日的快照，admissions/ 为 2026 年
-    9 月 24 日至 25 日的快照；见第 5 节关于更新与更正。
+    9 月 24 日至 26 日的快照，expansion/ 为 2026 年 9 月 26 日的快照；见第 5 节关于
+    更新与更正。
   - univ/full/ 保存删减前的完整采集文本（目前仅 MIT），站点以灰色小字显示其中
     未被引用的部分；univ/ 下的同名文件是研究所依据的版本。
 
@@ -84,8 +88,9 @@ same holds for the English quotations embedded in admissions/.
 若某校认为本项目对其材料的使用超出合理范围，请通过仓库 issue 联系，本项目将
 删减或改为仅保留链接。
 
-These files contain verbatim excerpts from the official web pages of thirty
-U.S. universities and two application platforms (Common App, the UC system).
+These files contain verbatim excerpts from the official web pages of fifty-two
+universities (thirty U.S. universities and twenty-two added for the College Fair)
+and three application platforms (Common App, the UC system, UCAS).
 Copyright remains with the respective publishers. This
 project neither owns these texts nor can grant anyone any rights in them.
 
@@ -113,7 +118,8 @@ Open Font License 1.1.
 -----------------------------------------------------------------------------
 
 本仓库收录的是各校官方发布的政策原文，但它是一份**快照**，不是实时镜像。校内政策
-采集完成于 2026 年 8 月 21 日至 29 日，申请环节资料采集于 2026 年 9 月 24 日至 25 日；
+采集完成于 2026 年 8 月 21 日至 29 日，申请环节资料采集于 2026 年 9 月 24 日至 26 日，
+补充的 22 所大学的校内规范采集于 2026 年 9 月 26 日；
 此后各校若修订政策，本仓库不会自动跟进。
 
 本项目会定期复核并更新。若你发现某条已经过期、与官网有出入，或某校发布了新的政策
@@ -125,8 +131,9 @@ Open Font License 1.1.
 强度分级是本项目的判断，不代表任何一所大学的立场。
 
 This repository reproduces institutions' own published policy text, but it is a
-snapshot rather than a live mirror: collected 21–29 August 2026, and it does not
-track later revisions. It is refreshed periodically, and corrections are welcome
+snapshot rather than a live mirror: campus policies collected 21–29 August 2026,
+admissions material 24–26 September 2026, and the 22 added universities' campus
+guidance 26 September 2026; it does not track later revisions. It is refreshed periodically, and corrections are welcome
 — open a Pull Request with the official link and access date (see
 CONTRIBUTING.md). For any formal use, verify against the official page and
 archive the version you rely on. Independently compiled; the quotations are

@@ -103,6 +103,8 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(38px,7vw,68px);
 .fullname{margin:0;font-family:var(--sans);font-size:clamp(14px,1.6vw,16.5px);color:var(--ink-2);
   display:flex;gap:4px 14px;flex-wrap:wrap}
 .fullname .zh{color:var(--ink-3)}
+.fullname .ctry{align-self:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-3);
+  padding:0 7px;border:1px solid var(--rule);border-radius:2px;line-height:1.7}
 .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
 .chip{font-family:var(--sans);font-size:12px;padding:3px 9px;border-radius:2px;
   background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap}
@@ -284,7 +286,8 @@ mark.flash{animation:flash 1.8s ease-out}
 @media print{
   :root{--paper:#fff;--surface:#fff;--surface-2:#f4f4f6}
   body{font-size:10.5pt;background:#fff}
-  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all{display:none !important}
+  .bar,.pager,#source,.links,footer .nav-links,#admissions .about,#admissions .source,.adm-all,
+  #campus .about,#campus .source{display:none !important}
   .mast{background:none}
   .print-url{display:block;margin:10px 0 0;font-family:var(--mono);font-size:9pt;color:#555}
   .card{break-inside:avoid}
@@ -331,6 +334,28 @@ mark.flash{animation:flash 1.8s ease-out}
         <option value="USC">28 · USC · 南加州大学</option>
         <option value="UCSD">29 · UC San Diego · 加州大学圣地亚哥分校</option>
         <option value="NYU">30 · NYU · 纽约大学</option>
+        <option value="UCI">31 · UC Irvine · 加州大学欧文分校</option>
+        <option value="Swarthmore">32 · Swarthmore · 斯沃斯莫尔学院</option>
+        <option value="Williams">33 · Williams · 威廉姆斯学院</option>
+        <option value="Pomona">34 · Pomona · 波莫纳学院</option>
+        <option value="BU">35 · Boston University · 波士顿大学</option>
+        <option value="Wellesley">36 · Wellesley · 韦尔斯利学院</option>
+        <option value="Barnard">37 · Barnard · 巴纳德学院</option>
+        <option value="UW">38 · UW Seattle · 华盛顿大学（西雅图）</option>
+        <option value="LSE">39 · LSE · 伦敦政治经济学院</option>
+        <option value="CMC">40 · Claremont McKenna · 克莱蒙特·麦肯纳学院</option>
+        <option value="Vassar">41 · Vassar · 瓦萨学院</option>
+        <option value="Carleton">42 · Carleton · 卡尔顿学院</option>
+        <option value="GeorgiaTech">43 · Georgia Tech · 佐治亚理工学院</option>
+        <option value="NUS">44 · NUS · 新加坡国立大学</option>
+        <option value="HKU">45 · HKU · 香港大学</option>
+        <option value="Oxford">46 · Oxford · 牛津大学</option>
+        <option value="BC">47 · Boston College · 波士顿学院</option>
+        <option value="Cambridge">48 · Cambridge · 剑桥大学</option>
+        <option value="Waseda">49 · Waseda · 早稻田大学</option>
+        <option value="HKUST">50 · HKUST · 香港科技大学</option>
+        <option value="Imperial">51 · Imperial · 帝国理工学院</option>
+        <option value="Toronto">52 · Toronto · 多伦多大学</option>
       </select>
     </label>
     <div class="lang" role="group" aria-label="语言 / Language">
@@ -341,7 +366,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </div>
 
 <header class="mast"><div class="wrap">
-  <span lang="zh" class="eyebrow">No.19 / 30 · 美国 30 所大学 AI 使用政策比较研究</span><span lang="en" class="eyebrow">No.19 of 30 · AI Use Policies at 30 U.S. Universities</span>
+  <span lang="zh" class="eyebrow">No.19 / 52 · 52 所大学 AI 使用政策比较研究</span><span lang="en" class="eyebrow">No.19 of 52 · AI Use Policies at 52 Universities</span>
   <h1>Dartmouth</h1>
   <p class="fullname"><span>Dartmouth College</span><span class="zh">达特茅斯学院</span></p>
   <div class="chips">
@@ -362,7 +387,7 @@ mark.flash{animation:flash 1.8s ease-out}
 </section>
 <section id="provisions">
   <div class="sec-head"><h2><span lang="zh">十二项条款</span><span lang="en">The twelve provisions</span></h2><span class="en2">5 / 12</span></div>
-  <p class="sec-sub"><span lang="zh">每项附该校原文中的依据语句，以及 30 校中持同一立场的校数。颜色越深，规定越明确、越具约束力（不代表优劣）；斜纹表示该来源未作表述。</span><span lang="en">Each provision gives the supporting sentence and how many of the 30 take the same position. Darker means more explicit and binding (not better); hatching means the source does not address it.</span></p>
+  <p class="sec-sub"><span lang="zh">每项附该校原文中的依据语句，以及图谱 30 校中持同一立场的校数。颜色越深，规定越明确、越具约束力（不代表优劣）；斜纹表示该来源未作表述。</span><span lang="en">Each provision gives the supporting sentence and how many of the 30 universities in the atlas take the same position. Darker means more explicit and binding (not better); hatching means the source does not address it.</span></p>
   <div class="group">
   <div class="group-h"><b><span lang="zh">许可</span><span lang="en">Permission</span></b><span><span lang="zh">使用许可由谁决定</span><span lang="en">who decides whether AI may be used</span></span></div>
   <div class="cards"><article class="card" id="p-default_rule">
@@ -540,7 +565,7 @@ mark.flash{animation:flash 1.8s ease-out}
     <span class="adm-k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span>
     <span class="adm-status"><span lang="zh">本科申请 AI 官方指导/建议</span><span lang="en">Official AI guidance or advice for undergraduate applicants</span></span>
     <p class="adm-sum">官方历史播客中，招生负责人认可用AI帮助组织思路，反对外包个人表达；当时“没有政策”不能推出2026年仍无政策。现行文书页强调本人真实声音，未给AI逐项许可或处罚清单。[S1][S2]</p>
-    <a class="adm-all" href="../admissions.html"><span lang="zh">30 所大学对照 →</span><span lang="en">All thirty compared →</span></a>
+    <a class="adm-all" href="../admissions.html"><span lang="zh">52 所大学对照 →</span><span lang="en">All 52 compared →</span></a>
   </div>
   <div class="about"><h3><span lang="zh">来源信息</span><span lang="en">Source information</span></h3><ul class="kv"><li><span class="k"><span lang="zh">访问日期</span><span lang="en">Accessed</span></span> <span class="v">2026-09-24 (Asia/Shanghai)</span></li><li><span class="k"><span lang="zh">格式说明</span><span lang="en">Format note</span></span> <span class="v">Official pages were live-fetched using ordinary requests GET. Readable UTF-8 text is preserved locally; navigation/scripts were removed where tagged, and layout/whitespace may differ. Short English excerpts retain the source wording and were checked after whitespace normalization.</span></li><li><span class="k"><span lang="zh">适用范围</span><span lang="en">Scope note</span></span> <span class="v">本科申请文书与准备阶段；AI证据为历史招生负责人访谈，不是已核验的现行规章。</span></li><li><span class="k"><span lang="zh">证据状态</span><span lang="en">Evidence status</span></span> <span class="v"><code>undergraduate-advice-ai</code> — 各来源分别标明政策/申请认证或官方建议，不以搜索空白推断许可。</span></li><li><span class="k"><span lang="zh">原研究参考</span><span lang="en">Original reference</span></span> <span class="v"><a href="#source">../19-Dartmouth.md</a>（原在校AI使用资料，不代替申请规则）</span></li></ul></div>
   <div class="source adm"><h3 class="src-h2">中文要点</h3>

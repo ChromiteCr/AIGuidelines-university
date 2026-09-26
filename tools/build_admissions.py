@@ -4,7 +4,7 @@
 The overview of application-stage AI guidance: one row per university with its
 evidence status, the collector's summary and a link to the full record on that
 university's page (built by build_schools.py), then the shared platform sources
-(Common App, the UC system) and the method.
+(Common App, the UC system, UCAS) and the method.
 
 Counts and statuses come from admissions/application-index.json; the few figures
 the page states in prose are checked against it, as on the other pages.
@@ -36,6 +36,10 @@ STATUS_DEF = {
         "依据 UC 系统的共同来源（申请诚信声明与申请指南），不是该校区单独发布的政策。",
         "Rests on the UC system's shared sources (the Statement of Application Integrity and the application guide), "
         "not on a policy issued by the campus."),
+    "ucas-system-ai-guidance": (
+        "依据 UCAS 的共同来源，不是该校单独发布的政策；该校自己的规定须另行核查。",
+        "Rests on UCAS's shared sources, not on a policy issued by the university; its own rules must be checked "
+        "separately."),
     "undergraduate-advice-ai": (
         "官方渠道对申请中使用 AI 给出指导或劝告，但没有写成明确的许可或禁止边界。",
         "An official channel gives guidance or advice on using AI in the application, without stating firm lines."),
@@ -60,7 +64,10 @@ def kv_label(key):
 def main():
     d = adm.load()
     schools = sorted(d["by_id"].items(), key=lambda kv: kv[0])
-    short = {s["id"]: s["short"] for s in load_data()[0]["schools"]}   # the names the atlas uses
+    # the names the atlas uses, and for the added universities the registry's
+    short = {**{s["id"]: s["short"] for s in load_data()[0]["schools"]}, **reg.SHORT}
+    n_coded = load_data()[0]["meta"]["schools"]
+    n_uk = sum(1 for sid in d["by_id"] if reg.COUNTRY.get(sid, ("", ""))[1] == "UK")
     counts = {st: sum(1 for _, s in schools if s["status"] == st) for st in adm.STATUS_ORDER}
     present = [st for st in adm.STATUS_ORDER if counts[st]]
     uc = counts["uc-system-ai-guidance"]
@@ -69,9 +76,13 @@ def main():
     tpl = TPL.read_text(encoding="utf-8")
     checks = []
     add = assertion_builder(checks)
-    add("学校数", len(schools), "美国 {n} 所大学", "{n} U.S. universities", "<h2 lang=\"zh\">{n} 所大学</h2>")
+    add("学校数", len(schools), "<title>申请环节的 AI 政策 · {n} 所大学</title>", "{n} 所大学 · 以本科新生申请为主",
+        "{n} universities · first-year undergraduate applicants", "本页汇总 {n} 所大学招生办公室",
+        "What the admissions offices of {n} universities", "<h2 lang=\"zh\">{n} 所大学</h2>")
+    add("编码校数", n_coded, "为美国 {n} 所大学", "are the {n} U.S. universities")
     add("UC 校区数", uc, "UC 的 {n} 所校区共用同一系统来源", "不计为 {n} 份独立政策",
         "the {n} UC campuses share one system source", "not counted as {n} independent policies")
+    add("英国校数", n_uk, "本项目涉及的 {n} 所英国大学", "including the {n} UK universities covered here")
     hay = flat(tpl)
     bad = [(lab, val, needle) for lab, val, needle in checks if needle not in hay]
     print(f"申请汇总 数字核对   {len(checks) - len(bad)}/{len(checks)} 处断言与 application-index.json 一致")
@@ -94,13 +105,18 @@ def main():
         slug = reg.slug(sid)
         _, en_name, zh_name, _ = reg.SCHOOLS[sid]
         zh, en = adm.status_short(s["status"])
+        ctry = ""
+        if sid in reg.COUNTRY:
+            cz, ce = reg.COUNTRY[sid]
+            ctry = f'<span class="ctry">{bi(E(cz), E(ce))}</span>'
+
         n_src = sum(1 for x in s["sources"] if x.get("retrieval") != "blocked")
         n_q = sum(len(x.get("quotes") or []) for x in s["sources"])
         rows.append(
             f'<tr data-s="{s["status"]}">'
             f'<td class="n">{num}</td>'
             f'<td class="sch"><a href="{slug}/#admissions" title="{E(en_name)}"><b>{E(short[sid])}</b>'
-            f'<span>{E(zh_name)}</span></a></td>'
+            f'<span>{E(zh_name)}</span>{ctry}</a></td>'
             f'<td class="st"><span class="schip">{bi(E(zh), E(en))}</span></td>'
             f'<td class="sum">{E(s["summary_zh"])}</td>'
             f'<td class="src">{bi(f"来源 <b>{n_src}</b><br>引文 <b>{n_q}</b>", f"<b>{n_src}</b> sources<br><b>{n_q}</b> quotes")}</td>'
@@ -115,6 +131,7 @@ def main():
 
     # ---- shared platform sources -------------------------------------------------------
     p_front, p_body = adm.render(adm.PLATFORMS, "", None, kv_label)
+    u_front, u_body = adm.render(adm.UCAS, "", None, kv_label)
 
     cname_file = ROOT / "docs" / "CNAME"
     cname = cname_file.read_text(encoding="utf-8").strip() if cname_file.exists() else ""
@@ -128,7 +145,9 @@ def main():
             .replace("<!--__ROWS__-->", "\n".join(rows))
             .replace("<!--__DEFS__-->", "".join(defs))
             .replace("<!--__PLATFORMS_ABOUT__-->", p_front)
-            .replace("<!--__PLATFORMS__-->", p_body))
+            .replace("<!--__PLATFORMS__-->", p_body)
+            .replace("<!--__UCAS_ABOUT__-->", u_front)
+            .replace("<!--__UCAS__-->", u_body))
 
     bal = Balance()
     bal.feed(page)

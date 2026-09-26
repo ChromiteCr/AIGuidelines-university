@@ -19,6 +19,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+import admissions as adm  # noqa: E402
 from sitelib import ROOT, assertion_builder, cn, load_data, publish  # noqa: E402
 
 SRC = ROOT / "guidelines" / "guidelines.html"
@@ -130,6 +131,10 @@ def checks():
     add("有明文", m["filled"], "其中 {n} 格有明文规定", "{n} cells have an explicit rule")
     add("未提及格", m["silent"], "{n} 格未提及", "{n} are not addressed by the")
     add("引文总数", m["evidence_matched"], "全部 {n} 条引文", "All {n} quotations")
+
+    # ---- §6.2 points to the admissions overview; not part of the atlas data
+    add("申请环节校数", len(adm.load()["by_id"]),
+        "本项目整理的 {n} 所大学申请环节规定", "The admissions rules this project compiled for {n} universities")
     return C
 
 

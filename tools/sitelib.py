@@ -170,3 +170,43 @@ def publish(src_html, dst, checks, label=""):
     dst.write_text(out, encoding="utf-8")
     print(f"{tag}wrote {dst.relative_to(ROOT)}  ({len(out.encode('utf-8')) / 1024:.0f} KB, "
           f"去掉 {len(src_html) - len(joined)} 处中文断行空格)")
+
+
+# ---------------------------------------------------------------------------
+# The version record. README.md keeps it as a table under "## 版本记录", newest
+# first, with the current version also on the badge under the title. The
+# versions page and the home page both read it from there, so it is written
+# once; the checks below make a stale badge or a mis-ordered row a build error.
+README = ROOT / "README.md"
+_VERSION = re.compile(r"^A\d+(?:[a-z]\d*)?$")
+_BADGE = re.compile(r"img\.shields\.io/badge/version-([A-Za-z0-9]+)-")
+
+
+def version_log():
+    """[{"v", "date", "text", "type"}, …] newest first, validated."""
+    text = README.read_text(encoding="utf-8")
+    m = re.search(r"^## 版本记录\s*\n(.*?)(?=^## |\Z)", text, re.M | re.S)
+    if not m:
+        raise SystemExit("README.md 缺少「## 版本记录」一节")
+    rows = []
+    for line in m.group(1).splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) != 4 or cells[0] in ("版本", "") or set(cells[0]) <= set("-:"):
+            continue
+        v, date, desc, kind = cells
+        if not _VERSION.match(v):
+            raise SystemExit(f"版本记录：版本号格式不对 {v!r}")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+            raise SystemExit(f"版本记录：{v} 的日期格式不对 {date!r}")
+        rows.append({"v": v, "date": date, "text": desc, "type": kind})
+    if not rows:
+        raise SystemExit("版本记录表是空的")
+    for a, b in zip(rows, rows[1:]):
+        if a["date"] < b["date"]:
+            raise SystemExit(f"版本记录没有按由新到旧排列：{a['v']}（{a['date']}）在 {b['v']}（{b['date']}）之前")
+    if len({r["v"] for r in rows}) != len(rows):
+        raise SystemExit("版本记录中有重复的版本号")
+    badge = _BADGE.search(text)
+    if not badge or badge.group(1) != rows[0]["v"]:
+        raise SystemExit(f"README 的 version 徽章（{badge.group(1) if badge else '缺失'}）与最新版本 {rows[0]['v']} 不一致")
+    return rows

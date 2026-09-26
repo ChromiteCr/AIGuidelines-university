@@ -23,6 +23,10 @@ useful contribution you can make.
 记录），并同步 `admissions/application-index.json` 中该校的 `status` 与 `summary_zh`。旧的
 记录保留为历史，不要覆盖。
 
+**⑤ 补充的 22 所（31–52）校内规范过期或有误** — 改 `expansion/NN-School.md`，并同步
+`expansion/academic-index.json` 中该校的 `status`、`summary_zh` 与引文。这 22 所只收录摘录、
+未按 12 项条款编码；若要把某校纳入编码，需先补齐其政策的相关全文，再按 `univ/` 的流程抽取与审计。
+
 ## 硬性要求 / Non-negotiables
 
 1. **逐字。** 引文必须是官方页面上的原文，一个字符都不能改——不改标点、不改大小写、
@@ -39,8 +43,9 @@ python3 tools/build_data.py <raw-extraction.json>   # 校验引文、重算分�
 python3 tools/build_atlas.py                        # 重新生成图谱
 python3 tools/build_guidelines.py                   # 学生规范（数字断言校验）
 python3 tools/build_home.py                         # 主页
-python3 tools/build_schools.py                      # 30 个单校页面 + 网址路由
+python3 tools/build_schools.py                      # 52 个单校页面 + 网址路由
 python3 tools/build_admissions.py                   # 申请环节汇总页
+python3 tools/build_versions.py                     # 版本与进展页
 python3 tools/check_site.py                         # 全站链接与结构检查
 ```
 
@@ -61,7 +66,7 @@ problems          0
 - 转载某校政策全文（版权与合理使用的比例问题，见 [NOTICE](NOTICE)）
 - 加入非官方来源：新闻报道、二手总结、第三方解读
 - 把"建议"写成"强制"之类的抬级；本项目的取值严格区分 must / should
-- 扩充学校名单（30 所的边界见 README 中的说明）
+- 扩充学校名单（52 所的边界见 README 中的说明：原 30 所加 College Fair 名单补充的 22 所）
 
 ## 权属 / Rights
 

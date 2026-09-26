@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>版本与进展 · 52 所大学 AI 使用政策比较研究</title>
+<meta name="description" content="本项目各版本的日期与更新内容，按研究阶段排列，以及当前的研究规模。">
+<link rel="canonical" href="https://ai.policy.nestudy.cn/versions.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+
+<style>
+/* ============================================================================
+   TOKENS — same family as the other pages.
+   ========================================================================= */
+:root{
+  --paper:#E7E9EF; --surface:#FBFBFD; --surface-2:#F1F3F7; --surface-3:#E7EAF1;
+  --ink:#131A2B; --ink-2:#414B61; --ink-3:#79839A;
+  --rule:#D2D6E0; --rule-soft:#E3E6ED;
+  --seal:#8A2B34; --seal-ink:#8A2B34; --seal-wash:rgba(138,43,52,.08);
+  --focus:#3C5BD6;
+  --display:"Spectral","Noto Serif SC",Georgia,serif;
+  --serif:"Spectral","Noto Serif SC",Georgia,serif;
+  --sans:"IBM Plex Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --pad:clamp(16px,5vw,44px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+    --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+    --rule:#28303F; --rule-soft:#1E2532;
+    --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+    --focus:#7D95F0;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B0F17; --surface:#141926; --surface-2:#1A2030; --surface-3:#212839;
+  --ink:#E5E9F2; --ink-2:#AEB7CA; --ink-3:#727C95;
+  --rule:#28303F; --rule-soft:#1E2532;
+  --seal:#DD8890; --seal-ink:#E9A3AA; --seal-wash:rgba(221,136,144,.12);
+  --focus:#7D95F0;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0}
+a{color:var(--seal-ink);text-underline-offset:2px}
+
+:root:not([data-lang="en"]) [lang="en"],
+:root[data-lang="en"] [lang="zh"]{display:none !important}
+
+.wrap{max-width:980px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ---- top bar ------------------------------------------------------------ */
+.bar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--rule)}
+.bar .wrap{display:flex;align-items:center;gap:10px;height:48px}
+.bar a.home{font-family:var(--mono);font-size:13px;color:var(--ink-3);text-decoration:none;
+  padding:2px 8px;border:1px solid var(--rule);border-radius:2px;flex:none;line-height:1.4}
+.bar a.home:hover{color:var(--ink);border-color:var(--ink-3)}
+.bar a.nav{font-family:var(--sans);font-size:12.5px;color:var(--ink-2);text-decoration:none;
+  padding:3px 6px;border-radius:2px;white-space:nowrap}
+.bar a.nav:hover{color:var(--ink);background:var(--surface-2)}
+.bar .doc{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--ink);white-space:nowrap;
+  min-width:0;overflow:hidden;text-overflow:ellipsis}
+.bar .sp{flex:1}
+.lang{display:flex;border:1px solid var(--rule);border-radius:2px;overflow:hidden;flex:none}
+.lang button{background:var(--surface-2);font-family:var(--mono);font-size:11px;padding:3px 10px;
+  color:var(--ink-3);letter-spacing:.05em}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+@media (max-width:620px){ .bar a.nav{display:none} }
+
+/* ---- masthead ----------------------------------------------------------- */
+.mast{border-bottom:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--surface) 0%,var(--paper) 100%)}
+.mast .wrap{padding-top:clamp(34px,7vw,72px);padding-bottom:clamp(26px,4vw,40px)}
+/* keep-all: a Chinese title breaks only at its spaces, never inside a word */
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5.2vw,52px);line-height:1.1;
+  letter-spacing:-.02em;margin:12px 0 14px;text-wrap:balance;word-break:keep-all}
+.lede{margin:0;max-width:40rem;font-size:clamp(15.5px,1.7vw,17.5px);color:var(--ink-2)}
+
+/* the research as it stands; the fact boxes wrap two by two on phones */
+.facts{display:flex;flex-wrap:wrap;margin-top:clamp(24px,4vw,34px);gap:1px;
+  border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--rule)}
+.fact{flex:1 1 130px;background:var(--surface);padding:11px 14px 13px}
+.fact b{display:block;font-family:var(--mono);font-size:22px;font-weight:500;line-height:1.2;
+  font-variant-numeric:tabular-nums}
+.fact span{font-family:var(--sans);font-size:11px;color:var(--ink-3);line-height:1.35}
+
+/* ---- sections ----------------------------------------------------------- */
+section{padding-top:clamp(36px,5vw,56px);scroll-margin-top:60px}
+.sec-head{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;margin-bottom:14px;
+  padding-bottom:9px;border-bottom:1px solid var(--rule)}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.3vw,25px);margin:0}
+.sec-head .en2{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.sec-sub{margin:0 0 18px;font-family:var(--sans);font-size:13.5px;color:var(--ink-2);max-width:66ch}
+
+/* ---- stages: the phases in order, oldest first -------------------------- */
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.stage{background:var(--surface);display:flex}
+.stage a{display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;text-decoration:none;color:inherit;
+  width:100%;transition:background .14s}
+.stage a:hover{background:var(--surface-2)}
+.stage .code{font-family:var(--mono);font-size:22px;font-weight:500;line-height:1.1;color:var(--ink)}
+.stage .when{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em}
+.stage .title{font-family:var(--sans);font-size:13.5px;font-weight:600;line-height:1.45;color:var(--ink);margin-top:4px}
+.stage .count{margin-top:auto;padding-top:8px;font-family:var(--sans);font-size:11.5px;color:var(--ink-3)}
+.stage.now{box-shadow:inset 0 3px 0 var(--seal)}
+.stage.now .code{color:var(--seal-ink)}
+@media (max-width:760px){
+  .stages{grid-template-columns:minmax(0,1fr)}
+  .stage a{display:grid;grid-template-columns:52px minmax(0,1fr);gap:2px 12px;align-items:baseline}
+  .stage .code{grid-row:1 / span 3}
+  .stage .title{margin-top:0}
+  .stage .count{padding-top:2px}
+  .stage.now{box-shadow:inset 3px 0 0 var(--seal)}
+}
+
+/* ---- changelog, one block per stage ------------------------------------- */
+.phase{margin-top:26px;scroll-margin-top:64px}
+.phase:first-of-type{margin-top:6px}
+.phase-h{display:flex;gap:6px 14px;align-items:baseline;flex-wrap:wrap;margin:0 0 10px}
+.phase-h b{font-family:var(--mono);font-size:15px;font-weight:500}
+.phase-h span{font-family:var(--display);font-size:18px;font-weight:600}
+.phase-h i{font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.log{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--rule);border-radius:3px}
+.entry{display:grid;grid-template-columns:70px 96px minmax(0,1fr);gap:4px 16px;padding:13px 16px 14px;
+  border-bottom:1px solid var(--rule-soft);align-items:baseline}
+.entry:last-child{border-bottom:none}
+.entry .v{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--ink)}
+.entry .d{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.entry .t{grid-column:3;grid-row:1;justify-self:start;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  padding:1px 7px;border-radius:2px;box-shadow:inset 0 0 0 1px var(--rule);color:var(--ink-2)}
+.entry .t[data-k="milestone"]{box-shadow:inset 0 0 0 1px var(--seal);color:var(--seal-ink)}
+.entry p{grid-column:3;margin:2px 0 0;font-family:var(--sans);font-size:13.5px;line-height:1.7;color:var(--ink-2)}
+.entry code{font-family:var(--mono);font-size:.84em;padding:0 3px;border-radius:2px;background:var(--surface-2);
+  color:var(--ink-2);overflow-wrap:anywhere}
+@media (max-width:620px){
+  .entry{grid-template-columns:auto minmax(0,1fr);gap:2px 10px}
+  .entry .d{grid-column:2;grid-row:1}
+  .entry .t{grid-column:1 / -1;grid-row:2;margin-top:4px}
+  .entry p{grid-column:1 / -1}
+}
+
+.scheme{margin:0;padding-left:20px;font-family:var(--sans);font-size:14px;line-height:1.7;color:var(--ink-2);max-width:66ch}
+.scheme li{margin-bottom:6px}
+.scheme b{font-family:var(--mono);font-weight:500;color:var(--ink)}
+
+footer{margin-top:clamp(40px,6vw,64px);padding:22px 0 52px;border-top:1px solid var(--rule);
+  font-family:var(--sans);font-size:12px;color:var(--ink-3);line-height:1.65}
+footer p{max-width:46rem;margin:0 0 8px}
+@media (prefers-reduced-motion:reduce){ *{transition-duration:.001ms !important} }
+</style>
+
+<div class="bar">
+  <div class="wrap">
+    <a class="home" href="./" title="项目主页 / Home">←</a>
+    <span class="doc" lang="zh">版本与进展</span>
+    <span class="doc" lang="en">Versions and progress</span>
+    <a class="nav" href="atlas.html"><span lang="zh">政策图谱</span><span lang="en">Atlas</span></a>
+    <a class="nav" href="admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a>
+    <a class="nav" href="guidelines.html"><span lang="zh">学生规范</span><span lang="en">Guidelines</span></a>
+    <span class="sp"></span>
+    <div class="lang" role="group" aria-label="语言 / Language">
+      <button id="b-zh" aria-pressed="true">中文</button>
+      <button id="b-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</div>
+
+<header class="mast">
+  <div class="wrap">
+    <span class="eyebrow" lang="zh">版本与进展 · 当前版本 A5 · 2026-09-26</span>
+    <span class="eyebrow" lang="en">Versions and progress · Current version A5 · 2026-09-26</span>
+    <h1 lang="zh">版本与研究进展</h1>
+    <h1 lang="en">Versions and Research Progress</h1>
+    <p class="lede" lang="zh">
+      本项目分阶段推进：大版本对应研究的一个阶段，中版本是阶段内完成的一个功能或模块，小版本是修正与文字调整。下面按阶段列出每一版的日期与更新内容。
+    </p>
+    <p class="lede" lang="en">
+      The project advances in stages: a major version is a stage of the research, a minor version a feature or
+      module completed within it, and a patch a correction or wording change. Every version is listed below with
+      its date and what changed, grouped by stage.
+    </p>
+    <div class="facts"><div class="fact"><b>52</b><span lang="zh">所大学</span><span lang="en">universities</span></div><div class="fact"><b>30</b><span lang="zh">所按 12 项条款逐校编码</span><span lang="en">coded against 12 provisions</span></div><div class="fact"><b>360</b><span lang="zh">个编码单元（30 × 12）</span><span lang="en">coded cells (30 × 12)</span></div><div class="fact"><b>234</b><span lang="zh">条原文引证，逐字核验</span><span lang="en">quotations, verified verbatim</span></div><div class="fact"><b>52</b><span lang="zh">份申请环节档案</span><span lang="en">admissions records</span></div><div class="fact"><b>14</b><span lang="zh">个版本</span><span lang="en">versions</span></div></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section id="stages">
+  <div class="sec-head">
+    <h2 lang="zh">研究阶段</h2><h2 lang="en">Stages</h2>
+    <span class="en2">A1 → A5</span>
+  </div>
+  <ol class="stages" style="--n:5"><li class="stage"><a href="#A1"><span class="code">A1</span><span class="when">2026-08-29</span><span class="title">三十校官方 AI 政策源文本采集完成</span><span class="count"><span lang="zh">1 个版本</span><span lang="en">1 version</span></span></a></li><li class="stage"><a href="#A2"><span class="code">A2</span><span class="when">2026-08-30</span><span class="title">政策图谱</span><span class="count"><span lang="zh">6 个版本</span><span lang="en">6 versions</span></span></a></li><li class="stage"><a href="#A3"><span class="code">A3</span><span class="when">2026-08-31 – 2026-09-25</span><span class="title">《学生 AI 使用规范》初稿</span><span class="count"><span lang="zh">5 个版本</span><span lang="en">5 versions</span></span></a></li><li class="stage"><a href="#A4"><span class="code">A4</span><span class="when">2026-09-25</span><span class="title">申请环节资料上线</span><span class="count"><span lang="zh">1 个版本</span><span lang="en">1 version</span></span></a></li><li class="stage now"><a href="#A5"><span class="code">A5</span><span class="when">2026-09-26</span><span class="title">College Fair 扩充至 52 所</span><span class="count"><span lang="zh">1 个版本</span><span lang="en">1 version</span></span></a></li></ol>
+</section>
+
+<section id="log">
+  <div class="sec-head">
+    <h2 lang="zh">更新记录</h2><h2 lang="en">Changelog</h2>
+    <span class="en2">14 versions</span>
+  </div>
+  <p class="sec-sub" lang="zh">由新到旧。类型分为里程碑、新功能、修复与文档。</p>
+  <p class="sec-sub" lang="en">Newest first. Types are milestone, feature, fix and documentation. The notes are kept in Chinese.</p>
+  <div class="phase" id="A5"><h3 class="phase-h"><b>A5</b><span>College Fair 扩充至 52 所</span><i>2026-09-26</i></h3><ol class="log"><li class="entry"><span class="v">A5</span><span class="d">2026-09-26</span><span class="t" data-k="milestone"><span lang="zh">里程碑</span><span lang="en">Milestone</span></span><p>College Fair 扩充至 52 所：依据 College Fair 的学校名单新增 22 所（含美国文理学院，以及英国、加拿大、新加坡、日本和中国香港的大学），<code>expansion/</code> 收入其校内 AI 规范原文摘录与索引，<code>admissions/</code> 扩至 52 校并新增 UCAS 共同来源（保留 Brown、Columbia 的补充检索）；22 所各有单校页面（校内规范摘录与申请环节，注明未编码）；主页学校索引与图谱表格 52 所合列，未编码的 22 所不计入统计；申请汇总页改为 52 所并新增 UCAS 一节；站点标题改为「52 所大学 AI 使用政策比较研究」；新增「版本与进展」页面；404 路由扩至 384 种写法；规范 §6.2 的校数改由构建核对</p></li></ol></div>
+<div class="phase" id="A4"><h3 class="phase-h"><b>A4</b><span>申请环节资料上线</span><i>2026-09-25</i></h3><ol class="log"><li class="entry"><span class="v">A4</span><span class="d">2026-09-25</span><span class="t" data-k="milestone"><span lang="zh">里程碑</span><span lang="en">Milestone</span></span><p>申请环节资料上线：<code>admissions/</code> 收入 30 校与共同来源（Common App、UC 系统）的申请环节 AI 资料；新增汇总页 <code>admissions.html</code>（30 校对照表、按证据状态筛选、状态定义、共同来源原文、方法与局限）；单校页面新增「申请环节的 AI 政策」一节与页首标签；补充检索取得 Brown、Columbia 此前无法访问的本科页面并更新证据状态；图谱表格的校名与格子详情直达单校页面；MIT 原文恢复为完整采集文本，未被引用的段落以灰色小字显示；规范 §6 开头限定为原采集的 30 份校内政策，§6.2 链接申请环节页；404 路由支持 <code>/atlas</code>、<code>/admissions</code>、<code>/guidelines</code></p></li></ol></div>
+<div class="phase" id="A3"><h3 class="phase-h"><b>A3</b><span>《学生 AI 使用规范》初稿</span><i>2026-08-31</i></h3><ol class="log"><li class="entry"><span class="v">A3c1</span><span class="d">2026-09-25</span><span class="t" data-k="docs"><span lang="zh">文档</span><span lang="en">Docs</span></span><p>全站文案改为说明性表述：主页与图谱标题改为「美国 30 所大学 AI 使用政策比较研究」「AI 使用政策图谱」，去掉口语化与推断性语句；图谱三组结果改为「一致度最高／最低／未提及最多」并给出一致度定义；「排名序」改为「编号」（编号不代表排名）；图例与方法说明注明强度分级不代表优劣；条款提问句与分组说明改为书面语（codebook 重新生成数据，仅这 17 处文字变化）；规范页标题、导语与附录措辞同步收紧；主页引用的规范断言数改由构建核对</p></li><li class="entry"><span class="v">A3c</span><span class="d">2026-09-24</span><span class="t" data-k="feat"><span lang="zh">新功能</span><span lang="en">Feature</span></span><p>单校独立页面：30 所大学各有 <code>ai.policy.nestudy.cn/&lt;slug&gt;</code> 地址，含十二项条款、原文全文与逐句引文标注，图谱与单校页双向深链；<code>404.html</code> 路由支持大小写、常见写法与中文名共 224 种；主页新增按学校索引；全站补上 doctype 与 viewport（修复线上手机端缩小显示）；新增 <code>serve.py</code> 本地预览与 <code>check_site.py</code> 全站检查；预留申请端政策接入位</p></li><li class="entry"><span class="v">A3b</span><span class="d">2026-08-31</span><span class="t" data-k="feat"><span lang="zh">新功能</span><span lang="en">Feature</span></span><p>站点改为三页结构：新增独立主页（<code>docs/index.html</code>），图谱移至 <code>docs/atlas.html</code>，三页互链；规范正文整体改写为更严谨的表述，去除口语化与修辞性说法；三个构建脚本共用 <code>tools/sitelib.py</code>，中文断行处理扩展到图谱</p></li><li class="entry"><span class="v">A3a</span><span class="d">2026-08-31</span><span class="t" data-k="feat"><span lang="zh">新功能</span><span lang="en">Feature</span></span><p>定为不指定 AI 工具，相应强化 §4 隐私（无豁免口、不得依赖厂商隐私承诺）；补 §5 违规处理条款（走现有学术诚信通道）；顶栏加分节跳转；断言校验扩至 88 处、引文 9 条，并禁止会退化成部分匹配的弱断言</p></li><li class="entry"><span class="v">A3</span><span class="d">2026-08-31</span><span class="t" data-k="milestone"><span lang="zh">里程碑</span><span lang="en">Milestone</span></span><p>《学生 AI 使用规范》初稿：四档许可框架、默认规则与标级、披露三件套、责任三条、认定与申诉、国际部专章（英语能力／申请文书）、一页速查与 12 条灰区判例；中英双语可切换；构建时对 74 处数字断言与 7 条引文做机器校验</p></li></ol></div>
+<div class="phase" id="A2"><h3 class="phase-h"><b>A2</b><span>政策图谱</span><i>2026-08-30</i></h3><ol class="log"><li class="entry"><span class="v">A2c1</span><span class="d">2026-08-30</span><span class="t" data-k="docs"><span lang="zh">文档</span><span lang="en">Docs</span></span><p>补充自定义域名说明：<code>docs/CNAME</code> 由 Pages 管理、不可删除，构建脚本不会覆盖它</p></li><li class="entry"><span class="v">A2c</span><span class="d">2026-08-30</span><span class="t" data-k="feat"><span lang="zh">新功能</span><span lang="en">Feature</span></span><p>上线 GitHub Pages：构建产物改输出到 <code>docs/</code>，加 <code>.nojekyll</code>；补齐四枚固定徽章与在线地址</p></li><li class="entry"><span class="v">A2b1</span><span class="d">2026-08-30</span><span class="t" data-k="docs"><span lang="zh">文档</span><span lang="en">Docs</span></span><p>重写免责措辞：改为「内容取自官方原文、这是定期更新的快照」，并把 PR 邀请落成 CONTRIBUTING.md（更正流程、逐字要求、提交前校验）</p></li><li class="entry"><span class="v">A2b</span><span class="d">2026-08-30</span><span class="t" data-k="feat"><span lang="zh">新功能</span><span lang="en">Feature</span></span><p>发布合规基础设施：三层许可拆分（代码 MIT／数据集 CC BY 4.0／引文归各校）、NOTICE、univ/COPYRIGHT.md、首页非官方声明、.gitignore；源文件扫描范围收窄到编号文件</p></li><li class="entry"><span class="v">A2a1</span><span class="d">2026-08-30</span><span class="t" data-k="fix"><span lang="zh">修复</span><span lang="en">Fix</span></span><p>修复排序列表头半透明导致滚动内容透出重叠的问题：粘性表头的高亮改为叠加在不透明底色之上</p></li><li class="entry"><span class="v">A2</span><span class="d">2026-08-30</span><span class="t" data-k="milestone"><span lang="zh">里程碑</span><span lang="en">Milestone</span></span><p>政策图谱：12 项条款 × 30 校对照矩阵、逐格原文证据与机器核验、共识/分歧/沉默三条读数、数据与展示分离的构建管线</p></li></ol></div>
+<div class="phase" id="A1"><h3 class="phase-h"><b>A1</b><span>三十校官方 AI 政策源文本采集完成</span><i>2026-08-29</i></h3><ol class="log"><li class="entry"><span class="v">A1</span><span class="d">2026-08-29</span><span class="t" data-k="milestone"><span lang="zh">里程碑</span><span lang="en">Milestone</span></span><p>三十校官方 AI 政策源文本采集完成，含官方 URL、访问日期与范围说明</p></li></ol></div>
+</section>
+
+<section id="scheme">
+  <div class="sec-head">
+    <h2 lang="zh">版本号的含义</h2><h2 lang="en">Reading a version number</h2>
+  </div>
+  <ul class="scheme" lang="zh">
+    <li><b>A</b> 为项目代号；其后的数字是研究阶段，完成一个阶段加一，如 <b>A4 → A5</b>。</li>
+    <li>阶段内完成一个可独立说明的功能或模块，加小写字母，从 a 起，如 <b>A3 → A3a</b>。</li>
+    <li>修正、样式微调与文字修改，加末位数字，从 1 起，如 <b>A3c → A3c1</b>。</li>
+  </ul>
+  <ul class="scheme" lang="en">
+    <li><b>A</b> is the project code; the number after it is the stage of the research, raised by one when a stage is complete, e.g. <b>A4 → A5</b>.</li>
+    <li>A feature or module completed within a stage adds a lower-case letter, from a, e.g. <b>A3 → A3a</b>.</li>
+    <li>A fix, style adjustment or wording change adds a final digit, from 1, e.g. <b>A3c → A3c1</b>.</li>
+  </ul>
+</section>
+
+<footer>
+  <p lang="zh">本页由构建脚本从仓库 README 的版本记录表生成，与仓库保持一致。</p>
+  <p lang="en">Generated from the version table in the repository's README, so the two always agree.</p>
+  <p><a href="./"><span lang="zh">主页</span><span lang="en">Home</span></a> · <a href="atlas.html"><span lang="zh">政策图谱</span><span lang="en">Policy atlas</span></a> · <a href="admissions.html"><span lang="zh">申请环节</span><span lang="en">Admissions</span></a> · <a href="guidelines.html"><span lang="zh">学生规范</span><span lang="en">Student guidelines</span></a></p>
+</footer>
+</main>
+
+<script>
+(function () {
+  const root = document.documentElement;
+  const zh = document.getElementById("b-zh"), en = document.getElementById("b-en");
+  function set(lang, store) {
+    root.setAttribute("data-lang", lang);
+    zh.setAttribute("aria-pressed", String(lang === "zh"));
+    en.setAttribute("aria-pressed", String(lang === "en"));
+    if (store) { try { localStorage.setItem("guidelines-lang", lang); } catch (e) {} }
+  }
+  let saved = null;
+  try { saved = localStorage.getItem("guidelines-lang"); } catch (e) {}
+  set(saved === "en" ? "en" : "zh", false);
+  zh.addEventListener("click", () => set("zh", true));
+  en.addEventListener("click", () => set("en", true));
+})();
+</script>

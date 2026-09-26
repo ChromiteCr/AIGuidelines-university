@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """One page per university:  docs/<slug>/index.html  →  ai.policy.nestudy.cn/<slug>
 
-Each page is that university's AI rules on their own: its twelve provisions as
-coded in the atlas, each with the sentence it rests on and where that position
-sits among the thirty; what its admissions office says about applicants using
-AI (from admissions/, see tools/admissions.py); and the full official text
-collected for it — with every cited sentence highlighted in place and tagged
-with the provision it supports.
+Each page is that university's AI rules on their own. For the thirty coded in
+the atlas: its twelve provisions, each with the sentence it rests on and where
+that position sits among the thirty; what its admissions office says about
+applicants using AI (from admissions/, see tools/admissions.py); and the full
+official text collected for it — with every cited sentence highlighted in place
+and tagged with the provision it supports.
+
+The 22 universities added for the College Fair (expansion/, see
+tools/expansion.py) are not coded. Their pages carry the campus-guidance
+excerpts and the admissions record instead, and say that they are not in the
+atlas.
 
 Where univ/full/<file> exists, the page shows that complete text instead of the
 research copy in univ/, with the parts the research copy leaves out set in small
@@ -14,7 +19,7 @@ grey type (currently MIT only; see unresearched()).
 
 Also writes docs/404.html, which GitHub Pages serves for any missing path. It
 redirects recognised variants (/mit, /Mit, /johns-hopkins, /麻省理工, /02) to
-the canonical page, and otherwise lists all thirty.
+the canonical page, and otherwise lists every university.
 
 Checks, all fatal:
   - every cited sentence is found in its source file and gets an anchor and a tag
@@ -35,6 +40,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import admissions as adm  # noqa: E402
+import expansion as exp  # noqa: E402
 import mdlite  # noqa: E402
 import schools as reg  # noqa: E402
 from sitelib import ROOT, load_data, wrap_document  # noqa: E402
@@ -150,6 +156,65 @@ class Balance(html.parser.HTMLParser):
 
 
 # ---------------------------------------------------------------------------
+def kv_label(key):
+    return bi(E(KV_ZH.get(key, key)), E(key))
+
+
+def eyebrow(num, ctx):
+    n = ctx["n_all"]
+    return bi(f"No.{num:02d} / {n} · {n} 所大学 AI 使用政策比较研究",
+              f"No.{num:02d} of {n} · AI Use Policies at {n} Universities", cls="eyebrow")
+
+
+def admissions_section(sid, ctx):
+    """(masthead chip, section) for one university's admissions record, or ("", "")."""
+    entry = ctx["adm"]["by_id"].get(sid)
+    adm_file = ADMISSIONS / f"{sid}.md"
+    if not (entry and adm_file.exists()):
+        return "", ""
+    sz, se = adm.status_short(entry["status"])
+    chip = (f'<a class="chip adm-chip" href="#admissions">'
+            f'{bi(f"申请环节 · <b>{E(sz)}</b>", f"Admissions · <b>{E(se)}</b>")}</a>')
+    afront_html, abody_html = adm.render(adm_file, "../", sid, kv_label)
+    full_zh = ctx["adm"]["status_labels"][entry["status"]]
+    full_en = adm.STATUS_TEXT[entry["status"]][2]
+    n = len(ctx["adm"]["by_id"])
+    section = f'''<section id="admissions">
+  <div class="sec-head"><h2>{bi("申请环节的 AI 政策", "AI in the application")}</h2><span class="en2">admissions/{E(adm_file.name)}</span></div>
+  <p class="sec-sub">{bi("该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。", "What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.")}</p>
+  <div class="adm-head">
+    <span class="adm-k">{bi("证据状态", "Evidence status")}</span>
+    <span class="adm-status">{bi(E(full_zh), E(full_en))}</span>
+    <p class="adm-sum">{E(entry["summary_zh"])}</p>
+    <a class="adm-all" href="../admissions.html">{bi(f"{n} 所大学对照 →", f"All {n} compared →")}</a>
+  </div>
+  <div class="about"><h3>{bi("来源信息", "Source information")}</h3>{afront_html}</div>
+  <div class="source adm">{abody_html}</div>
+</section>'''
+    return chip, section
+
+
+def pager(sid, ctx):
+    order, info = ctx["order"], ctx["info"]
+    k = order.index(sid)
+    out = []
+    if k > 0:
+        p = info[order[k - 1]]
+        out.append(f'<a class="prev" href="../{reg.slug(p["id"])}/"><span>← No.{p["num"]:02d}</span><b>{E(p["short"])}</b></a>')
+    if k < len(order) - 1:
+        n = info[order[k + 1]]
+        out.append(f'<a class="next" href="../{reg.slug(n["id"])}/"><span>No.{n["num"]:02d} →</span><b>{E(n["short"])}</b></a>')
+    return f'<nav class="pager">{"".join(out)}</nav>'
+
+
+def switch(sid, ctx):
+    """The university menu in the top bar, every university in number order."""
+    return "\n".join(
+        f'        <option value="{reg.slug(i)}"{" selected" if i == sid else ""}>'
+        f'{ctx["info"][i]["num"]:02d} · {E(ctx["info"][i]["short"])} · {E(reg.SCHOOLS[i][2])}</option>'
+        for i in ctx["order"])
+
+
 def school_page(s, ctx):
     d, dm = ctx["data"], ctx["dm"]
     sid, slug = s["id"], reg.slug(s["id"])
@@ -202,9 +267,6 @@ def school_page(s, ctx):
         return (f'<sup class="evtag"><a href="#p-{label}" data-ev="{label}" '
                 f'title="{E(x["zh"])} / {E(x["en"])}">{bi(E(x["zh"]), E(x["en"]))}</a></sup>')
 
-    def kv_label(key):
-        return bi(E(KV_ZH.get(key, key)), E(key))
-
     def omission(n, further):
         if further:
             return f'<p class="omit">{bi(f"本节另有 {n} 词未被本项目引用，已略去。", f"{n} further words omitted — not cited by this project.")}</p>'
@@ -245,15 +307,9 @@ def school_page(s, ctx):
             f'<a class="sc" data-r="{c["rank"]}" href="#p-{c["dim"]}" title="{E(x["zh"])}：{E(c["zh"])}">'
             f'<em>{bi(E(x["zh"]), E(x["en"]))}</em><b>{bi(E(c["zh"]), E(c["en"]))}</b></a>')
     cname = ctx["cname"]
-    entry = ctx["adm"]["by_id"].get(sid)
-    adm_file = ADMISSIONS / Path(s["file"]).name
-    adm_chip = ""
-    if entry and adm_file.exists():
-        sz, se = adm.status_short(entry["status"])
-        adm_chip = (f'<a class="chip adm-chip" href="#admissions">'
-                    f'{bi(f"申请环节 · <b>{E(sz)}</b>", f"Admissions · <b>{E(se)}</b>")}</a>')
+    adm_chip, admissions = admissions_section(sid, ctx)
     mast = f'''<header class="mast"><div class="wrap">
-  {bi(f"No.{s['num']:02d} / {total} · 美国 {total} 所大学 AI 使用政策比较研究", f"No.{s['num']:02d} of {total} · AI Use Policies at {total} U.S. Universities", cls="eyebrow")}
+  {eyebrow(s["num"], ctx)}
   <h1>{E(s["short"])}</h1>
   <p class="fullname"><span>{E(en_name)}</span><span class="zh">{E(zh_name)}</span></p>
   <div class="chips">
@@ -326,7 +382,7 @@ def school_page(s, ctx):
 </div>''')
     provisions = f'''<section id="provisions">
   <div class="sec-head"><h2>{bi("十二项条款", "The twelve provisions")}</h2><span class="en2">{covered} / 12</span></div>
-  <p class="sec-sub">{bi(f"每项附该校原文中的依据语句，以及 {total} 校中持同一立场的校数。颜色越深，规定越明确、越具约束力（不代表优劣）；斜纹表示该来源未作表述。", f"Each provision gives the supporting sentence and how many of the {total} take the same position. Darker means more explicit and binding (not better); hatching means the source does not address it.")}</p>
+  <p class="sec-sub">{bi(f"每项附该校原文中的依据语句，以及图谱 {total} 校中持同一立场的校数。颜色越深，规定越明确、越具约束力（不代表优劣）；斜纹表示该来源未作表述。", f"Each provision gives the supporting sentence and how many of the {total} universities in the atlas take the same position. Darker means more explicit and binding (not better); hatching means the source does not address it.")}</p>
   {"".join(groups)}
 </section>'''
 
@@ -358,24 +414,6 @@ def school_page(s, ctx):
         unit = f"{E(src['unit'])}<br>" if src.get("unit") else ""
         rows.append(f'<li><span class="k">{bi("官方来源", "Official source")}</span><span class="v">{unit}'
                     f'<a href="{E(src["url"], quote=True)}" target="_blank" rel="noopener noreferrer">{E(src["url"])}</a></span></li>')
-    admissions = ""
-    if adm_chip:
-        afront_html, abody_html = adm.render(adm_file, "../", sid, kv_label)
-        full_zh = ctx["adm"]["status_labels"][entry["status"]]
-        full_en = adm.STATUS_TEXT[entry["status"]][2]
-        admissions = f'''<section id="admissions">
-  <div class="sec-head"><h2>{bi("申请环节的 AI 政策", "AI in the application")}</h2><span class="en2">admissions/{E(adm_file.name)}</span></div>
-  <p class="sec-sub">{bi("该校招生办公室就申请人使用 AI 的公开表述，以本科新生申请为主。英文为逐字原文，中文为整理者的分析。证据状态描述找到了什么材料，不是宽严等级；未说明不代表允许。", "What this university's admissions office says about applicants using AI, chiefly for first-year undergraduate applications. English passages are verbatim; the Chinese is the collector's analysis. The evidence status describes what material was found, not how strict the rules are; silence does not mean permission.")}</p>
-  <div class="adm-head">
-    <span class="adm-k">{bi("证据状态", "Evidence status")}</span>
-    <span class="adm-status">{bi(E(full_zh), E(full_en))}</span>
-    <p class="adm-sum">{E(entry["summary_zh"])}</p>
-    <a class="adm-all" href="../admissions.html">{bi("30 所大学对照 →", "All thirty compared →")}</a>
-  </div>
-  <div class="about"><h3>{bi("来源信息", "Source information")}</h3>{afront_html}</div>
-  <div class="source adm">{abody_html}</div>
-</section>'''
-
     uncited_note = ""
     if dim_words:
         uncited_note = bi(f"灰色小字为其余原文（约 {dim_words:,} 词），未被本项目引用，仅供参考。",
@@ -391,48 +429,96 @@ def school_page(s, ctx):
   <div class="source">{body_html}</div>
 </section>'''
 
-    # ---- pager + footer -----------------------------------------------------
-    order = ctx["order"]
-    k = order.index(sid)
-    pager = []
-    if k > 0:
-        p = ctx["by_id"][order[k - 1]]
-        pager.append(f'<a class="prev" href="../{reg.slug(p["id"])}/"><span>← No.{p["num"]:02d}</span><b>{E(p["short"])}</b></a>')
-    if k < len(order) - 1:
-        n = ctx["by_id"][order[k + 1]]
-        pager.append(f'<a class="next" href="../{reg.slug(n["id"])}/"><span>No.{n["num"]:02d} →</span><b>{E(n["short"])}</b></a>')
+    main = (f'{mast}\n<main class="wrap">\n{quote}\n{provisions}\n{details}\n{admissions}\n{source}\n'
+            f'{pager(sid, ctx)}\n</main>\n{footer(CODED_JUDGMENT)}')
+    page = assemble(sid, ctx, f"{en_name}（{zh_name}）AI 使用政策：12 项条款的编码、依据原文与官方文本全文。", main)
+    for c in s["cells"]:
+        if f'id="p-{c["dim"]}"' not in page:
+            raise SystemExit(f"{sid}: 缺少条款锚点 p-{c['dim']}")
+    return slug, page, len(spans), page.count("<mark")
 
-    footer = f'''<footer><div class="wrap">
-  <p>{bi("<strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。对政策的分类与强度分级是本项目的判断，不代表该校立场。采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。",
-                 "<strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. The classification and strength grading are this project’s judgment, not the university’s position. Later revisions are not tracked automatically — verify against the official page before relying on it.")}</p>
+
+CODED_JUDGMENT = ("对政策的分类与强度分级是本项目的判断，不代表该校立场。",
+                  "The classification and strength grading are this project’s judgment, not the university’s position.")
+ADDED_JUDGMENT = ("证据状态与中文分析是本项目的判断，不代表该校立场。",
+                  "The evidence statuses and the Chinese analysis are this project’s judgment, not the university’s position.")
+
+
+def footer(judgment):
+    zh, en = judgment
+    return f'''<footer><div class="wrap">
+  <p>{bi(f"<strong>内容取自官方原文；这是一份会定期更新的快照。</strong>所引文字逐字摘自该校官方发布的网页，版权归该校所有，为学术研究与评述目的引用。{zh}采集之后该校若修订政策，本页不会自动跟进，正式采用前请回官网核实当前版本。",
+                 f"<strong>Official source text, kept as a periodically refreshed snapshot.</strong> Quotations are reproduced verbatim from the university’s own published pages; copyright remains with it and the material is used for academic research and commentary. {en} Later revisions are not tracked automatically — verify against the official page before relying on it.")}</p>
   <p class="nav-links"><a href="../">{bi("主页", "Home")}</a> · <a href="../atlas.html">{bi("政策图谱", "Policy atlas")}</a> · <a href="../admissions.html">{bi("申请环节", "Admissions")}</a> · <a href="../guidelines.html">{bi("学生规范", "Student guidelines")}</a></p>
 </div></footer>'''
 
-    main = (f'{mast}\n<main class="wrap">\n{quote}\n{provisions}\n{details}\n{admissions}\n{source}\n'
-            f'<nav class="pager">{"".join(pager)}</nav>\n</main>\n{footer}')
 
-    # ---- assemble -----------------------------------------------------------
-    switch = "\n".join(
-        f'        <option value="{reg.slug(x["id"])}"{" selected" if x["id"] == sid else ""}>'
-        f'{x["num"]:02d} · {E(x["short"])} · {E(reg.SCHOOLS[x["id"]][2])}</option>'
-        for x in (ctx["by_id"][i] for i in order))
+def assemble(sid, ctx, desc, main):
+    """The finished page, checked for nesting."""
+    slug, cname = reg.slug(sid), ctx["cname"]
     canonical = f'<link rel="canonical" href="https://{cname}/{slug}/">' if cname else ""
     page = (ctx["tpl"]
-            .replace("__TITLE__", E(f"{s['short']} · AI 使用政策"))
-            .replace("__DESC__", E(f"{en_name}（{zh_name}）AI 使用政策：12 项条款的编码、依据原文与官方文本全文。"))
+            .replace("__TITLE__", E(f"{ctx['info'][sid]['short']} · AI 使用政策"))
+            .replace("__DESC__", E(desc))
             .replace("__CANONICAL__", canonical)
-            .replace("<!--__SWITCH__-->", switch)
+            .replace("<!--__SWITCH__-->", switch(sid, ctx))
             .replace("<!--__MAIN__-->", main))
-
     bal = Balance()
     bal.feed(page)
     bal.close()
     if bal.errors or bal.stack:
         raise SystemExit(f"{sid}: HTML 嵌套错误 {bal.errors[:3]} 未闭合 {bal.stack[-3:]}")
-    for c in s["cells"]:
-        if f'id="p-{c["dim"]}"' not in page:
-            raise SystemExit(f"{sid}: 缺少条款锚点 p-{c['dim']}")
-    return slug, page, len(spans), page.count("<mark")
+    return page
+
+
+def added_page(sid, ctx):
+    """A university added for the College Fair: campus excerpts and admissions, no coding."""
+    x, entry = ctx["info"][sid], ctx["exp"]["by_id"][sid]
+    slug, cname = reg.slug(sid), ctx["cname"]
+    _, en_name, zh_name, _ = reg.SCHOOLS[sid]
+    front_html, body_html = exp.render(sid, "../", kv_label)
+    accessed = max(src["accessed_at"] for src in entry["sources"] if src.get("accessed_at"))[:10]
+    sz, se = exp.status_short(entry["status"])
+    full_zh = ctx["exp"]["status_labels"][entry["status"]]
+    full_en = exp.STATUS_TEXT[entry["status"]][2]
+    n_coded = ctx["data"]["meta"]["schools"]
+    n_added = len(ctx["exp"]["by_id"])
+    adm_chip, admissions = admissions_section(sid, ctx)
+    ctry = ""
+    if sid in reg.COUNTRY:
+        cz, ce = reg.COUNTRY[sid]
+        ctry = f'<span class="ctry">{bi(E(cz), E(ce))}</span>'
+
+    mast = f'''<header class="mast"><div class="wrap">
+  {eyebrow(x["num"], ctx)}
+  <h1>{E(x["short"])}</h1>
+  <p class="fullname"><span>{E(en_name)}</span><span class="zh">{E(zh_name)}</span>{ctry}</p>
+  <div class="chips">
+    <a class="chip adm-chip" href="#campus">{bi(f"校内规范 · <b>{E(sz)}</b>", f"Campus guidance · <b>{E(se)}</b>")}</a>
+    <span class="chip">{bi("未按 12 项条款编码", "Not coded against the 12 provisions")}</span>
+    <span class="chip">{bi(f"采集于 <b>{E(accessed)}</b>", f"Accessed <b>{E(accessed)}</b>")}</span>
+    {adm_chip}
+  </div>
+  <p class="print-url">{E(cname or "")}/{slug}</p>
+</div></header>'''
+
+    campus = f'''<section id="campus">
+  <div class="sec-head"><h2>{bi("校内 AI 规范", "Campus AI guidance")}</h2><span class="en2">expansion/{E(sid)}.md</span></div>
+  <p class="sec-sub">{bi(f"该校就课程、作业与学术诚信中使用 AI 发布的官方指导，英文为逐字摘录，中文为整理者的分析。证据状态描述找到的是哪一类来源，不是宽严等级。本校属补充的 {n_added} 所之一：只收录原文摘录，未按 12 项条款编码；政策图谱中列有本校，但标为未编码，不计入图谱与规范的统计。",
+                          f"Official guidance from this university on using AI in courses, coursework and academic integrity: the English is excerpted verbatim, the Chinese is the collector's analysis. The evidence status describes the kind of source found, not how strict it is. This is one of the {n_added} universities added to the original {n_coded}: only excerpts were collected, so it is not coded against the twelve provisions. The atlas lists it as not coded, and it is not counted in the atlas's figures or the guidelines.")}</p>
+  <div class="adm-head">
+    <span class="adm-k">{bi("证据状态", "Evidence status")}</span>
+    <span class="adm-status">{bi(E(full_zh), E(full_en))}</span>
+    <p class="adm-sum">{E(entry["summary_zh"])}</p>
+  </div>
+  <div class="about"><h3>{bi("来源信息", "Source information")}</h3>{front_html}</div>
+  <div class="source adm">{body_html}</div>
+</section>'''
+
+    main = (f'{mast}\n<main class="wrap">\n{campus}\n{admissions}\n'
+            f'{pager(sid, ctx)}\n</main>\n{footer(ADDED_JUDGMENT)}')
+    page = assemble(sid, ctx, f"{en_name}（{zh_name}）AI 使用规定：校内 AI 规范的原文摘录与申请环节的规定。", main)
+    return slug, page
 
 
 # ---------------------------------------------------------------------------
@@ -451,7 +537,8 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex San
 .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;color:var(--ink-3)}
 h1{font-family:"Spectral","Noto Sans SC",serif;font-size:clamp(28px,5vw,44px);margin:8px 0 10px;line-height:1.15}
 p{margin:0 0 16px;color:var(--ink-2);max-width:60ch}
-.grid{display:grid;gap:1px;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--rule);
+/* 4 and 2 columns both divide 52, so the last row is never ragged */
+.grid{display:grid;gap:1px;grid-template-columns:repeat(4,minmax(0,1fr));background:var(--rule);
   border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:22px 0}
 .grid a{background:var(--surface);padding:10px 12px;text-decoration:none;color:var(--ink);
   display:grid;grid-template-columns:22px minmax(0,1fr);gap:1px 8px;align-items:baseline;align-content:start}
@@ -459,8 +546,7 @@ p{margin:0 0 16px;color:var(--ink-2);max-width:60ch}
 .grid i{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3)}
 .grid span{grid-column:2;font-size:12px;color:var(--ink-3)}
 a{color:var(--seal-ink)}
-@media (max-width:860px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:520px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <main class="wrap">
   <p class="eyebrow">404</p>
@@ -474,7 +560,7 @@ a{color:var(--seal-ink)}
 var ALIASES = __ALIASES__;
 var SCHOOLS = __SCHOOLS__;
 // the site's own pages, typed without .html or in another case: /atlas, /Admissions
-var PAGES = {"atlas": "atlas.html", "admissions": "admissions.html", "guidelines": "guidelines.html", "index": "", "home": ""};
+var PAGES = {"atlas": "atlas.html", "admissions": "admissions.html", "guidelines": "guidelines.html", "versions": "versions.html", "index": "", "home": ""};
 (function () {
   var parts = location.pathname.split("/").filter(Boolean);
   var gh = /\\.github\\.io$/.test(location.hostname);
@@ -511,7 +597,8 @@ var PAGES = {"atlas": "atlas.html", "admissions": "admissions.html", "guidelines
   document.getElementById("links").innerHTML =
     '<a href="' + root + '">主页 Home</a> · <a href="' + root + 'atlas.html">政策图谱 Atlas</a> · ' +
     '<a href="' + root + 'admissions.html">申请环节 Admissions</a> · ' +
-    '<a href="' + root + 'guidelines.html">学生规范 Guidelines</a>';
+    '<a href="' + root + 'guidelines.html">学生规范 Guidelines</a> · ' +
+    '<a href="' + root + 'versions.html">版本 Versions</a>';
 })();
 </script>
 '''
@@ -520,24 +607,36 @@ var PAGES = {"atlas": "atlas.html", "admissions": "admissions.html", "guidelines
 def main():
     d, dm, _, _ = load_data()
     by_id = {s["id"]: s for s in d["schools"]}
-    order = [s["id"] for s in sorted(d["schools"], key=lambda s: s["num"])]
-    unknown = set(by_id) ^ set(reg.SCHOOLS)
+    added = exp.load()
+    # every registered school is either coded (the atlas dataset) or added (expansion/), never both
+    if set(by_id) & set(added["by_id"]):
+        raise SystemExit(f"既在数据集又在 expansion/ 中：{sorted(set(by_id) & set(added['by_id']))}")
+    unknown = (set(by_id) | set(added["by_id"])) ^ set(reg.SCHOOLS)
     if unknown:
-        raise SystemExit(f"schools.py 与数据集的学校不一致：{sorted(unknown)}")
+        raise SystemExit(f"schools.py 与数据集、expansion/ 的学校不一致：{sorted(unknown)}")
+    if set(reg.SHORT) ^ set(added["by_id"]):
+        raise SystemExit(f"schools.SHORT 与 expansion/ 的学校不一致：{sorted(set(reg.SHORT) ^ set(added['by_id']))}")
+
+    info = {sid: {"id": sid, "num": s["num"], "short": s["short"]} for sid, s in by_id.items()}
+    info.update({sid: {"id": sid, "num": int(sid[:2]), "short": reg.SHORT[sid]} for sid in added["by_id"]})
+    order = sorted(info, key=lambda i: info[i]["num"])
+    coded = [i for i in order if i in by_id]
+    extra = [i for i in order if i not in by_id]
 
     cname_file = DOCS / "CNAME"
     ctx = {
-        "data": d, "dm": dm, "by_id": by_id, "order": order,
+        "data": d, "dm": dm, "by_id": by_id, "order": order, "info": info, "n_all": len(order),
         "tpl": TPL.read_text(encoding="utf-8"),
         "cname": cname_file.read_text(encoding="utf-8").strip() if cname_file.exists() else "",
         "adm": adm.load(),
+        "exp": added,
     }
     # every admissions file is indexed, and every indexed school has its file
-    files = {p.name[:-3] for p in ADMISSIONS.glob("[0-9][0-9]-*.md")} - {"00-Application-Platforms"}
+    files = {p.name[:-3] for p in ADMISSIONS.glob("[0-9][0-9]-*.md") if not p.name.startswith("00-")}
     if files ^ set(ctx["adm"]["by_id"]):
         raise SystemExit(f"admissions/ 的文件与 application-index.json 不一致：{sorted(files ^ set(ctx['adm']['by_id']))}")
 
-    table = reg.alias_table({s["id"]: s["short"] for s in d["schools"]})
+    table = reg.alias_table({i: info[i]["short"] for i in order})
     existing = {p.name.lower() for p in DOCS.iterdir()} - {reg.slug(i).lower() for i in reg.SCHOOLS}
     clash = sorted(k for k in table if k in {re.sub(r"\.html$", "", e) for e in existing})
     if clash:
@@ -545,21 +644,24 @@ def main():
 
     n_spans = n_marks = n_adm = 0
     for sid in order:
-        slug, page, spans, marks = school_page(by_id[sid], ctx)
+        if sid in by_id:
+            slug, page, spans, marks = school_page(by_id[sid], ctx)
+            n_spans += spans
+            n_marks += marks
+        else:
+            slug, page = added_page(sid, ctx)
         n_adm += 'id="admissions"' in page
         out = DOCS / slug / "index.html"
         out.parent.mkdir(exist_ok=True)
         out.write_text(wrap_document(page), encoding="utf-8")
-        n_spans += spans
-        n_marks += marks
 
-    listing = [[reg.slug(i), f"{by_id[i]['num']:02d}", by_id[i]["short"], reg.SCHOOLS[i][2]] for i in order]
+    listing = [[reg.slug(i), f"{info[i]['num']:02d}", info[i]["short"], reg.SCHOOLS[i][2]] for i in order]
     (DOCS / "404.html").write_text(wrap_document(
         NOT_FOUND.replace("__ALIASES__", json.dumps(table, ensure_ascii=False, sort_keys=True))
                  .replace("__SCHOOLS__", json.dumps(listing, ensure_ascii=False))),
         encoding="utf-8")
 
-    print(f"单校页面   {len(order)} 个 → docs/<slug>/index.html")
+    print(f"单校页面   {len(order)} 个 → docs/<slug>/index.html（编码 {len(coded)} 所，补充 {len(extra)} 所）")
     print(f"原文标注   {n_spans} 条引文全部在原文中定位并标出（{n_marks} 个高亮片段）")
     print(f"网址别名   {len(table)} 个写法 → {len(order)} 个页面，无冲突 → docs/404.html")
     print(f"申请环节   {n_adm} 个页面含申请环节一节（admissions/）")

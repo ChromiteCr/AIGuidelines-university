@@ -15,6 +15,7 @@ substring of the univ/ file its <cite> names.
 Usage:  python3 tools/build_guidelines.py
 """
 
+import re
 import sys
 from pathlib import Path
 
@@ -135,6 +136,13 @@ def checks():
     # ---- §6.2 points to the admissions overview; not part of the atlas data
     add("申请环节校数", len(adm.load()["by_id"]),
         "本项目整理的 {n} 所大学申请环节规定", "The admissions rules this project compiled for {n} universities")
+    # §6.2 also cites Common App's appeal window; hold it to the platform's own text
+    ca = re.search(r"within \w+ \((\d+)\) business days from the date of Common App’s written notice",
+                   adm.PLATFORMS.read_text(encoding="utf-8"))
+    if not ca:
+        raise SystemExit("admissions/00-Application-Platforms.md 中找不到 Common App 的申诉期限原文（CA1-Q2）")
+    add("Common App 陈述期限", int(ca.group(1)),
+        "Common App 在书面通知后 {n} 个工作日内接受陈述", "within {n} business days of its written notice")
     return C
 
 

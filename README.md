@@ -1,6 +1,6 @@
 # University AI Guidelines — 52-School College Fair Source Set
 
-![version](https://img.shields.io/badge/version-A5-blue)
+![version](https://img.shields.io/badge/version-A5a1-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
@@ -254,7 +254,7 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 `<blockquote>` 是否仍逐字存在于 `<cite>` 指名的 `univ/` 文件中。对不上就中止构建。
 
 ```
-数字核对   92/92 处断言与 data/policies.json 一致
+数字核对   94/94 处断言与 data/policies.json 一致
 引文核对   9/9 条逐字命中其来源文件
 ```
 
@@ -420,6 +420,7 @@ python3 tools/serve.py                              # 本地预览 http://localh
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A5a1 | 2026-09-26 | 改正规范 §6.2 对申请审查的表述：原文称申请人「通常不会获得陈述机会」，与 Common App 的申诉条款不符；改为申请审查由申请平台和招生院校各自规定、不适用 §5 的程序，部分平台设有书面告知和陈述机制（如 Common App 在书面通知后 10 个工作日内接受陈述），但不等于每所大学都提供同样的复核；该期限改由构建与 `admissions/00-Application-Platforms.md` 中的原文核对（规范断言 94 处） | fix |
 | A5 | 2026-09-26 | College Fair 扩充至 52 所：依据 College Fair 的学校名单新增 22 所（含美国文理学院，以及英国、加拿大、新加坡、日本和中国香港的大学），`expansion/` 收入其校内 AI 规范原文摘录与索引，`admissions/` 扩至 52 校并新增 UCAS 共同来源（保留 Brown、Columbia 的补充检索）；22 所各有单校页面（校内规范摘录与申请环节，注明未编码）；主页学校索引与图谱表格 52 所合列，未编码的 22 所不计入统计；申请汇总页改为 52 所并新增 UCAS 一节；站点标题改为「52 所大学 AI 使用政策比较研究」；新增「版本与进展」页面；404 路由扩至 384 种写法；规范 §6.2 的校数改由构建核对 | milestone |
 | A4 | 2026-09-25 | 申请环节资料上线：`admissions/` 收入 30 校与共同来源（Common App、UC 系统）的申请环节 AI 资料；新增汇总页 `admissions.html`（30 校对照表、按证据状态筛选、状态定义、共同来源原文、方法与局限）；单校页面新增「申请环节的 AI 政策」一节与页首标签；补充检索取得 Brown、Columbia 此前无法访问的本科页面并更新证据状态；图谱表格的校名与格子详情直达单校页面；MIT 原文恢复为完整采集文本，未被引用的段落以灰色小字显示；规范 §6 开头限定为原采集的 30 份校内政策，§6.2 链接申请环节页；404 路由支持 `/atlas`、`/admissions`、`/guidelines` | milestone |
 | A3c1 | 2026-09-25 | 全站文案改为说明性表述：主页与图谱标题改为「美国 30 所大学 AI 使用政策比较研究」「AI 使用政策图谱」，去掉口语化与推断性语句；图谱三组结果改为「一致度最高／最低／未提及最多」并给出一致度定义；「排名序」改为「编号」（编号不代表排名）；图例与方法说明注明强度分级不代表优劣；条款提问句与分组说明改为书面语（codebook 重新生成数据，仅这 17 处文字变化）；规范页标题、导语与附录措辞同步收紧；主页引用的规范断言数改由构建核对 | docs |

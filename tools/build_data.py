@@ -25,6 +25,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import codebook as cb  # noqa: E402
+import schools as reg  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 UNIV = ROOT / "univ"
@@ -87,7 +88,7 @@ SOURCE_NAME = re.compile(r"^\d{2}-[A-Za-z][A-Za-z-]*\.md$")
 
 
 def load_files():
-    """The 30 numbered source files and nothing else. COPYRIGHT.md is prose,
+    """The numbered source files and nothing else. COPYRIGHT.md is prose,
     and trim proposals (02-MIT.trimmed.md) are near-duplicates of a real
     source — either one swept in here would produce phantom
     cross-contamination hits against the file it was derived from."""
@@ -105,7 +106,6 @@ def main():
     raw = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     schools_raw = raw.get("schools") or raw.get("result", {}).get("schools") or raw
     files = load_files()
-    dim_order = cb.dim_index()
 
     problems = []
     schools = []
@@ -228,8 +228,53 @@ def main():
         })
 
     schools.sort(key=lambda s: s["num"])
+    dimensions, counts = aggregate(schools)
 
-    # --- aggregates ---------------------------------------------------------
+    data = {
+        "meta": {
+            **counts,
+            "problems": problems,
+            "accessed": accessed(files),
+        },
+        "groups": [{"key": k, "zh": zh, "en": en, "hint": h} for k, zh, en, h in cb.GROUPS],
+        "dimensions": dimensions,
+        "values": {k: [{"value": v, "zh": zh, "en": en, "rank": r,
+                        "short": cb.short_label(k, v)} for v, zh, en, r in vs]
+                   for k, vs in cb.VALUES.items()},
+        "disclose_items": {k: {"zh": v[0], "en": v[1]} for k, v in cb.DISCLOSE_ITEMS.items()},
+        "scopes": {k: {"zh": v[0], "en": v[1], "hint": v[2]} for k, v in cb.SCOPE.items()},
+        "verdicts": {k: {"zh": v[0], "en": v[1]} for k, v in cb.VERDICT.items()},
+        "schools": schools,
+    }
+
+    OUT.parent.mkdir(exist_ok=True)
+    OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    total_cells, filled = counts["cells"], counts["filled"]
+    print(f"schools           {len(schools)}")
+    print(f"cells             {total_cells}  filled {filled}  silent {total_cells - filled}")
+    print(f"evidence verbatim {counts['evidence_verbatim']}/{filled}   "
+          f"matched-after-normalising {counts['evidence_matched']}/{filled}")
+    print(f"problems          {len(problems)}")
+    for p in problems:
+        print("  ! " + p)
+    print(f"\nwrote {OUT.relative_to(ROOT)}")
+
+
+def accessed(files):
+    """The span of the files' access dates, e.g. "2026-08-21 – 2026-09-26"."""
+    dates = sorted(set(re.findall(r"^- Accessed:\s*(\d{4}-\d{2}-\d{2})", "\n".join(files.values()), re.M)))
+    if not dates:
+        return ""
+    return dates[0] if dates[0] == dates[-1] else f"{dates[0]} – {dates[-1]}"
+
+
+def aggregate(schools):
+    """Per-dimension distributions and the headline counts, for any set of schools.
+
+    build_data aggregates all of them; sitelib.load_data(core=True) re-aggregates
+    the original thirty, which the guidelines are written against."""
+    dim_order = cb.dim_index()
     dimensions = []
     for key, group, zh, en, question in cb.DIMENSIONS:
         dist = {}
@@ -264,40 +309,10 @@ def main():
     verbatim = sum(1 for s in schools for c in s["cells"] if c["match"] == "verbatim")
     matched = sum(1 for s in schools for c in s["cells"]
                   if c["match"] in ("verbatim", "whitespace", "punctuation", "loose"))
-
-    data = {
-        "meta": {
-            "schools": len(schools),
-            "dimensions": len(cb.DIMENSIONS),
-            "cells": total_cells,
-            "filled": filled,
-            "silent": total_cells - filled,
-            "evidence_verbatim": verbatim,
-            "evidence_matched": matched,
-            "problems": problems,
-            "accessed": "2026-08-29",
-        },
-        "groups": [{"key": k, "zh": zh, "en": en, "hint": h} for k, zh, en, h in cb.GROUPS],
-        "dimensions": dimensions,
-        "values": {k: [{"value": v, "zh": zh, "en": en, "rank": r,
-                        "short": cb.short_label(k, v)} for v, zh, en, r in vs]
-                   for k, vs in cb.VALUES.items()},
-        "disclose_items": {k: {"zh": v[0], "en": v[1]} for k, v in cb.DISCLOSE_ITEMS.items()},
-        "scopes": {k: {"zh": v[0], "en": v[1], "hint": v[2]} for k, v in cb.SCOPE.items()},
-        "verdicts": {k: {"zh": v[0], "en": v[1]} for k, v in cb.VERDICT.items()},
-        "schools": schools,
-    }
-
-    OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
-
-    print(f"schools           {len(schools)}")
-    print(f"cells             {total_cells}  filled {filled}  silent {total_cells - filled}")
-    print(f"evidence verbatim {verbatim}/{filled}   matched-after-normalising {matched}/{filled}")
-    print(f"problems          {len(problems)}")
-    for p in problems:
-        print("  ! " + p)
-    print(f"\nwrote {OUT.relative_to(ROOT)}")
+    counts = {"schools": len(schools), "dimensions": len(cb.DIMENSIONS), "cells": total_cells,
+              "filled": filled, "silent": total_cells - filled,
+              "evidence_verbatim": verbatim, "evidence_matched": matched}
+    return dimensions, counts
 
 
 def cb_demote(key):
@@ -321,7 +336,8 @@ SHORT = {
 
 
 def short_name(slug):
-    return SHORT.get(slug, slug.split("-", 1)[1].replace("-", " "))
+    # the universities added after the first thirty take their names from the registry
+    return SHORT.get(slug) or reg.SHORT.get(slug) or slug.split("-", 1)[1].replace("-", " ")
 
 
 if __name__ == "__main__":

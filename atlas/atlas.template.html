@@ -350,14 +350,8 @@ td.cell{border-bottom:1px solid var(--rule-soft);border-left:1px solid var(--rul
 .cell-btn[aria-pressed="true"]{box-shadow:inset 0 0 0 2px var(--seal);z-index:1}
 .cell-btn .warn{position:absolute;top:2px;right:3px;font-size:8px;color:var(--seal)}
 
-/* the universities added without coding: one cell across the twelve columns */
-table.matrix td.nc{border-bottom:1px solid var(--rule-soft);border-left:1px solid var(--rule-soft);height:34px;padding:0 12px;
-  background:var(--surface-2);font-size:11px;color:var(--ink-3);white-space:nowrap}
-td.nc a{color:inherit;text-underline-offset:2px}
-td.nc a:hover{color:var(--seal-ink)}
-.rh-scope[data-s="none"]{background:transparent;box-shadow:none}
+/* a university outside the U.S. carries its country beside the name */
 .rh-ctry{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--ink-3);flex:none}
-.lg-sw.nc{background:var(--surface-2)}
 
 tr.dim-row{opacity:.24;transition:opacity .16s}
 .col-dim{opacity:.3}
@@ -512,12 +506,11 @@ footer .num{color:var(--ink-2)}
         <a class="eyebrow xlink" href="guidelines.html">→ 《学生 AI 使用规范》草案</a>
         <span class="eyebrow" id="mast-count"></span>
       </div>
-      <h1>AI 使用政策图谱<span class="thin">美国 30 所大学 × 12 项条款 · 另列补充的 22 所</span></h1>
+      <h1>AI 使用政策图谱<span class="thin">52 所大学 × 12 项条款</span></h1>
       <p class="lede">
-        本图谱将美国 30 所大学公开发布的 AI 使用政策按 <strong>12 项条款</strong>逐校编码。
+        本图谱将 52 所大学公开发布的 AI 使用政策按 <strong>12 项条款</strong>逐校编码。
         每格附<strong>该校官方原文中的依据语句</strong>与来源链接；斜纹格表示该来源未就此条款作出表述。
-        表中另列补充的 22 所大学（编号 31–52），它们只收录了校内规范的原文摘录，未按条款编码，
-        以灰色整行标出，不计入任何统计；详情见各校页面。
+        编号 01–30 为美国 30 所大学，31–52 依据 College Fair 的学校名单补充。
       </p>
       <div class="stats" id="stats"></div>
     </div>
@@ -544,7 +537,7 @@ footer .num{color:var(--ink-2)}
         <span class="rule"></span>
       </div>
       <p class="sec-sub">
-        各条款在 30 校中的取值分布，右端斜纹段为未提及的学校。
+        各条款在 52 校中的取值分布，右端斜纹段为未提及的学校。
         一致度 = 主流口径校数 ÷ 有明文规定的校数<span id="binary-note"></span>。
       </p>
       <div class="dimgrid" id="dimgrid"></div>
@@ -558,7 +551,7 @@ footer .num{color:var(--ink-2)}
       </div>
       <p class="sec-sub">
         点击单元格查看原文依据与来源；点击列标题按该条款的规定强度排序；点击校名打开该校页面。
-        颜色深浅表示规定的明确程度与约束力，不代表政策优劣。编号 31–52 为补充的学校，未编码，排序时列在最后。
+        颜色深浅表示规定的明确程度与约束力，不代表政策优劣。
       </p>
 
       <div class="controls">
@@ -583,7 +576,6 @@ footer .num{color:var(--ink-2)}
           <span class="lg-item"><span class="lg-sw" data-rank="2"></span>中：实质性规定</span>
           <span class="lg-item"><span class="lg-sw" data-rank="1"></span>弱：建议或一般性表述</span>
           <span class="lg-item"><span class="lg-sw" data-rank="0"></span>该来源未提及</span>
-          <span class="lg-item"><span class="lg-sw nc"></span>未编码（补充的学校）</span>
         </div>
         <div class="lg-group">
           <span class="ctl-label">来源层级</span>
@@ -610,7 +602,7 @@ footer .num{color:var(--ink-2)}
     <footer>
       <p class="disclaim">
         <b>每格证据均逐字取自该校官方网页</b>，附官方链接与发布单位，并经精确字符串比对核验。
-        本次采集完成于 <span class="num" id="accessed2"></span>，为定期更新的快照，不实时跟进各校此后的修订；
+        采集时间为 <span class="num" id="accessed2"></span>，为定期更新的快照，不实时跟进各校此后的修订；
         正式引用前请以官网当前版本为准。如发现内容过期或与官网不符，欢迎提交 Pull Request。
       </p>
       <p class="disclaim">
@@ -645,9 +637,8 @@ footer .num{color:var(--ink-2)}
 const DATA = /*__DATA__*/null;
 // school id -> page address, from tools/schools.py (e.g. "02-MIT" -> "MIT" → ai.policy.nestudy.cn/MIT)
 const SLUGS = /*__SLUGS__*/null;
-// the universities added for the College Fair: listed in the matrix, not coded (tools/expansion.py)
-const ADDED = /*__ADDED__*/null;
-const addedById = Object.fromEntries(ADDED.map(a => [a.id, a]));
+// school id -> country or region, for universities outside the U.S. (e.g. "46-Oxford" -> "UK")
+const CTRY = /*__CTRY__*/null;
 
 /* ---------- helpers ---------- */
 const $ = (s, r) => (r || document).querySelector(s);
@@ -692,7 +683,7 @@ statDefs.forEach(([n, label, accent]) => {
 // Two exclusions from the agreement rankings. A dimension with only one
 // possible non-silent value cannot disagree with itself. And a high agreement
 // score computed over a handful of schools is not consensus, it is a small
-// sample — so a majority of the 30 must actually have spoken.
+// sample — so a majority of the universities must actually have spoken.
 const QUORUM = Math.ceil(DATA.schools.length / 2);
 const gradable = DATA.dimensions.filter(d => !d.binary && d.covered >= QUORUM);
 
@@ -809,7 +800,7 @@ function buildMatrix() {
 
   const heads = el("tr", "heads");
   const corner = el("th", "corner");
-  corner.innerHTML = `<span class="eyebrow">学校 / ${DATA.schools.length + ADDED.length}</span>`;
+  corner.innerHTML = `<span class="eyebrow">学校 / ${DATA.schools.length}</span>`;
   heads.append(corner);
   DATA.dimensions.forEach(d => {
     const th = el("th", "colhead");
@@ -825,7 +816,6 @@ function buildMatrix() {
 
   const tbody = el("tbody");
   visibleSchools().forEach(s => {
-    if (addedById[s.id]) { tbody.append(addedRow(s)); return; }
     const tr = el("tr");
     tr.dataset.id = s.id;
 
@@ -837,7 +827,9 @@ function buildMatrix() {
     dot.dataset.s = s.scope;
     dot.title = `${s.scope_zh} — ${DATA.scopes[s.scope].hint}`;
     link.append(el("span", "rh-n", String(s.num).padStart(2, "0")), el("span", "rh-name", s.short),
-                el("span", "rh-go", "↗"), dot);
+                el("span", "rh-go", "↗"));
+    if (CTRY[s.id]) link.append(el("span", "rh-ctry", CTRY[s.id]));
+    link.append(dot);
     rh.append(link);
     tr.append(rh);
 
@@ -861,50 +853,21 @@ function buildMatrix() {
   applyDimHighlight();
 }
 
-// An added university: its row head, then one cell across the twelve columns.
-function addedRow(a) {
-  const tr = el("tr", "added");
-  tr.dataset.id = a.id;
-  const rh = el("th", "rowhead");
-  const link = el("a", "rh-in");
-  link.href = a.slug + "/";
-  link.title = `打开 ${a.short} 的页面：校内规范原文摘录与申请环节`;
-  const dot = el("span", "rh-scope");
-  dot.dataset.s = "none";
-  link.append(el("span", "rh-n", String(a.num).padStart(2, "0")), el("span", "rh-name", a.short),
-              el("span", "rh-go", "↗"));
-  if (a.ctry) link.append(el("span", "rh-ctry", a.ctry));
-  link.append(dot);
-  rh.append(link);
-  const td = el("td", "nc");
-  td.colSpan = DATA.dimensions.length;
-  const go = el("a", null, "打开该校页面");
-  go.href = a.slug + "/";
-  td.append("未编码 · 只收录校内规范的原文摘录与申请环节资料 · ", go);
-  tr.append(rh, td);
-  return tr;
-}
-
-// Coded universities are sorted as chosen; the added ones, which have no codes
-// to sort by, follow in number order — or join them when sorting by number.
-// A source-level filter applies to coded universities only, so it hides them.
 function visibleSchools() {
   let list = DATA.schools.slice();
-  let added = state.scope ? [] : ADDED.slice();
   if (state.scope) list = list.filter(s => s.scope === state.scope);
   if (state.query) {
     const q = state.query.toLowerCase();
     list = list.filter(s => (s.short + " " + s.name + " " + s.id).toLowerCase().includes(q));
-    added = added.filter(a => (a.short + " " + a.name + " " + a.zh + " " + a.id).toLowerCase().includes(q));
   }
-  if (state.sort === "num") return list.concat(added).sort((a, b) => a.num - b.num);
-  if (state.sort === "strict") list.sort((a, b) => b.strictness - a.strictness || a.num - b.num);
+  if (state.sort === "num") list.sort((a, b) => a.num - b.num);
+  else if (state.sort === "strict") list.sort((a, b) => b.strictness - a.strictness || a.num - b.num);
   else if (state.sort === "covered") list.sort((a, b) => b.covered - a.covered || a.num - b.num);
   else if (state.sort === "dim" && state.sortDim) {
     const i = DATA.dimensions.findIndex(d => d.key === state.sortDim);
     list.sort((a, b) => b.cells[i].rank - a.cells[i].rank || a.num - b.num);
   }
-  return list.concat(added.sort((a, b) => a.num - b.num));
+  return list;
 }
 
 function applyDimHighlight() {
@@ -929,7 +892,7 @@ DATA.schools.forEach(s => scopeCounts[s.scope] = (scopeCounts[s.scope] || 0) + 1
     const c = el("button", "chip");
     c.type = "button";
     c.dataset.scope = k;
-    c.innerHTML = `${label}<span class="n">${k ? scopeCounts[k] : DATA.schools.length + ADDED.length}</span>`;
+    c.innerHTML = `${label}<span class="n">${k ? scopeCounts[k] : DATA.schools.length}</span>`;
     if (k) c.title = DATA.scopes[k].hint;
     c.setAttribute("aria-pressed", String((state.scope || "") === k));
     c.addEventListener("click", () => {
@@ -1184,7 +1147,6 @@ function openFromHash() {
   const [slug, dim] = h.split("/");
   const id = Object.keys(SLUGS).find(k => SLUGS[k].toLowerCase() === slug.toLowerCase());
   if (!id) return;
-  if (!schoolById[id]) { location.href = SLUGS[id] + "/"; return; }   // an added university: its page
   if (dim && dimByKey[dim]) {
     const btn = document.querySelector(`tr[data-id="${id}"] .cell-btn[data-dim="${dim}"]`);
     if (btn) btn.scrollIntoView({ block: "center", inline: "center" });

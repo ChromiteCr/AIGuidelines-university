@@ -176,9 +176,7 @@ section{padding-top:clamp(40px,6vw,64px)}
   color:var(--ink-3);padding:0 6px;border:1px solid var(--rule);border-radius:2px;line-height:1.7}
 @media (max-width:860px){ .schools > div{grid-template-columns:repeat(3,minmax(0,1fr))} }
 @media (max-width:520px){ .schools > div{grid-template-columns:repeat(2,minmax(0,1fr))} }
-.sch .nc{grid-column:2;margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-3)}
-.sch .tags{grid-column:2;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-.sch .tags .nc,.sch .tags .ctry{margin-top:6px}
+.sch .tags{grid-column:2;display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:6px}
 
 /* ---- evidence chain ---- */
 .chain{display:flex;flex-direction:column;gap:1px;background:var(--rule);
@@ -217,28 +215,26 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 
 <header class="mast">
   <div class="wrap">
-    <span class="eyebrow" lang="zh">官方文本比较研究 · 数据采集于 2026 年 8–9 月 · <a class="ver" href="versions.html">版本 A5a1</a></span>
-    <span class="eyebrow" lang="en">Comparative study of official texts · Collected August–September 2026 · <a class="ver" href="versions.html">Version A5a1</a></span>
+    <span class="eyebrow" lang="zh">官方文本比较研究 · 数据采集于 2026 年 8–9 月 · <a class="ver" href="versions.html">版本 A5b</a></span>
+    <span class="eyebrow" lang="en">Comparative study of official texts · Collected August–September 2026 · <a class="ver" href="versions.html">Version A5b</a></span>
     <h1 lang="zh">52 所大学 AI 使用政策比较研究</h1>
     <h1 lang="en">AI Use Policies at 52 Universities: A Comparative Study</h1>
     <p class="lede" lang="zh">
-      本研究采集 52 所大学公开发布的 AI 使用规定。其中美国 30 所大学的校内政策按 12 项条款逐校编码比较，并据此制定面向国际部高中生的《学生 AI 使用规范》；其余 22 所收录校内规范的原文摘录。
-      52 所均整理了招生办公室对申请人使用 AI 的规定。
+      本研究采集 52 所大学公开发布的 AI 使用政策，按 12 项条款逐校编码比较，并以其中美国 30 所的比较结果为依据，制定面向国际部高中生的《学生 AI 使用规范》；另整理 52 所大学招生办公室对申请人使用 AI 的规定。
       <strong>图谱中的每项编码、规范中的每个数据，均可追溯至官方原文。</strong>
     </p>
     <p class="lede" lang="en">
-      This study collects the published AI rules of 52 universities. The campus policies of 30 U.S.
-      universities are coded against 12 provisions and compared, and on that basis it sets out Student
-      AI Use Guidelines for international-division high-school students; for the other 22, excerpts
-      of their campus guidance are collected. For all 52, it compiles what the admissions office says
-      about applicants using AI.
+      This study collects the published AI use policies of 52 universities, codes each against 12
+      provisions, and on the comparison of the 30 U.S. universities among them sets out Student AI Use
+      Guidelines for international-division high-school students. It also compiles what the admissions
+      offices of all 52 say about applicants using AI.
       <strong>Every coding in the atlas and every figure in the guidelines traces back to official text.</strong>
     </p>
     <div class="facts">
-      <div class="fact"><b>52</b><span lang="zh">所大学的校内规范与申请规定</span><span lang="en">universities: campus rules and admissions</span></div>
-      <div class="fact"><b>30</b><span lang="zh">所按 12 项条款逐校编码</span><span lang="en">coded one by one against 12 provisions</span></div>
-      <div class="fact"><b>360</b><span lang="zh">个编码单元（30 × 12）</span><span lang="en">coded cells (30 × 12)</span></div>
-      <div class="fact"><b>234</b><span lang="zh">条原文引证，逐字核验</span><span lang="en">quotations, each verified verbatim</span></div>
+      <div class="fact"><b>52</b><span lang="zh">所大学，逐校独立抽取</span><span lang="en">universities, each read in isolation</span></div>
+      <div class="fact"><b>12</b><span lang="zh">项比较条款</span><span lang="en">provisions compared</span></div>
+      <div class="fact"><b>624</b><span lang="zh">个编码单元（52 × 12）</span><span lang="en">coded cells (52 × 12)</span></div>
+      <div class="fact"><b>388</b><span lang="zh">条原文引证，逐字核验</span><span lang="en">quotations, each verified verbatim</span></div>
     </div>
   </div>
 </header>
@@ -269,18 +265,18 @@ footer p{max-width:var(--measure);margin:0 0 9px}
         <i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i>
       </div>
       <p lang="zh">
-        美国 30 所大学 × 12 项条款的编码矩阵。每格附该校官方原文中的依据语句、发布单位与来源链接；斜纹格表示该来源未就此条款作出表述。另报告各条款的一致度与未提及校数。表中另列补充的 22 所，未编码。
+        52 所大学 × 12 项条款的编码矩阵。每格附该校官方原文中的依据语句、发布单位与来源链接；斜纹格表示该来源未就此条款作出表述。另报告各条款的一致度与未提及校数。
       </p>
       <p lang="en">
-        A coding matrix of 30 U.S. universities × 12 provisions. Each cell carries the supporting
+        A coding matrix of 52 universities × 12 provisions. Each cell carries the supporting
         sentence from the university's official text, the issuing unit and the source link;
         hatched cells mark provisions the source does not address. Agreement and non-coverage
-        are reported for each provision. The 22 added universities are listed too, not coded.
+        are reported for each provision.
       </p>
       <div class="meta">
-        <span class="chip">30 × 12</span>
-        <span class="chip" lang="zh">234 格有明文</span><span class="chip" lang="en">234 with a rule</span>
-        <span class="chip" lang="zh">126 格未提及</span><span class="chip" lang="en">126 not addressed</span>
+        <span class="chip">52 × 12</span>
+        <span class="chip" lang="zh">388 格有明文</span><span class="chip" lang="en">388 with a rule</span>
+        <span class="chip" lang="zh">236 格未提及</span><span class="chip" lang="en">236 not addressed</span>
       </div>
       <span class="go" lang="zh">打开图谱 →</span>
       <span class="go" lang="en">Open the atlas →</span>
@@ -318,10 +314,10 @@ footer p{max-width:var(--measure);margin:0 0 9px}
         <span>AI-0</span><span>AI-1</span><span>AI-2</span><span>AI-3</span>
       </div>
       <p lang="zh">
-        依据上述比较研究制定，面向国际部高中生，中英双语。内容包括四档许可框架与统一的披露格式，并专章处理 30 校政策基本未涉及的两个问题：以英语能力本身为评估对象的作业，以及大学申请文书。
+        依据图谱中美国 30 所大学的比较结果制定，面向国际部高中生，中英双语。内容包括四档许可框架与统一的披露格式，并专章处理 30 校政策基本未涉及的两个问题：以英语能力本身为评估对象的作业，以及大学申请文书。
       </p>
       <p lang="en">
-        Derived from the study above, for international-division high-school students, in Chinese
+        Derived from the atlas's comparison of the 30 U.S. universities, for international-division high-school students, in Chinese
         and English. It sets out a four-level permission framework and a uniform disclosure format,
         and treats two matters the thirty policies largely leave aside: assignments that assess
         English itself, and college application essays.
@@ -343,21 +339,16 @@ footer p{max-width:var(--measure);margin:0 0 9px}
     <span class="en2">52 pages</span>
   </div>
   <p class="note" lang="zh">
-    每所学校设有独立页面，如 <b class="num">ai.policy.nestudy.cn/MIT</b>（不区分大小写，/mit、/johns-hopkins、/麻省理工等写法自动跳转）。编号只是资料编号，不代表排名。色带即该校在图谱中的一行：颜色越深，规定越明确；空白为未提及。
-  </p>
-  <p class="note" lang="zh">
-    标「未编码」的 22 所（31–52）依据 College Fair 的学校名单补充，包括美国文理学院，以及英国、加拿大、新加坡、日本和中国香港的大学。这 22 所只收录校内规范的原文摘录，未按 12 项条款编码，不计入图谱与规范的统计。
+    每所学校设有独立页面，如 <b class="num">ai.policy.nestudy.cn/MIT</b>（不区分大小写，/mit、/johns-hopkins、/麻省理工等写法自动跳转），包含该校 12 项条款的编码与依据原文、申请环节的 AI 规定，以及采集的官方文本。色带即该校在图谱中的一行：颜色越深，规定越明确；空白为未提及。编号只是资料编号，不代表排名：
+    01–30 为美国 30 所大学，31–52 依据 College Fair 的学校名单补充，包括美国文理学院，以及英国、加拿大、新加坡、日本和中国香港的大学。
   </p>
   <p class="note" lang="en">
     Each university has its own page, e.g. <b class="num">ai.policy.nestudy.cn/MIT</b> (case-insensitive; /mit,
-    /johns-hopkins, /麻省理工 and similar spellings redirect). Numbers identify files; they are not a ranking. The
-    strip is the university's row in the atlas: darker is more explicit; blank is not addressed.
-  </p>
-  <p class="note" lang="en">
-    The 22 marked "not coded" (31–52) were added from the College Fair's list of universities, including U.S.
-    liberal arts colleges and universities in the UK, Canada, Singapore, Japan and Hong Kong. For these 22 only
-    excerpts of campus guidance were collected; they are not coded against the 12 provisions and are not counted
-    in the atlas or the guidelines.
+    /johns-hopkins, /麻省理工 and similar spellings redirect), with its coding on all 12 provisions and the text it
+    rests on, what its admissions office says about AI, and the official text collected. The strip is the
+    university's row in the atlas: darker is more explicit; blank is not addressed. Numbers identify files, not a
+    ranking: 01–30 are the 30 U.S. universities; 31–52 were added from the College Fair's list, including U.S.
+    liberal arts colleges and universities in the UK, Canada, Singapore, Japan and Hong Kong.
   </p>
   <div class="schools"><div><a class="sch" href="Stanford/" title="Stanford University"><span class="n">01</span><b>Stanford</b><span class="zh">斯坦福大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
 <a class="sch" href="MIT/" title="Massachusetts Institute of Technology"><span class="n">02</span><b>MIT</b><span class="zh">麻省理工学院</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
@@ -389,28 +380,28 @@ footer p{max-width:var(--measure);margin:0 0 9px}
 <a class="sch" href="USC/" title="University of Southern California"><span class="n">28</span><b>USC</b><span class="zh">南加州大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="3"></i><i data-r="3"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
 <a class="sch" href="UCSD/" title="University of California San Diego"><span class="n">29</span><b>UC San Diego</b><span class="zh">加州大学圣地亚哥分校</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
 <a class="sch" href="NYU/" title="New York University"><span class="n">30</span><b>NYU</b><span class="zh">纽约大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i></span></a>
-<a class="sch" href="UCI/" title="University of California, Irvine"><span class="n">31</span><b>UC Irvine</b><span class="zh">加州大学欧文分校</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Swarthmore/" title="Swarthmore College"><span class="n">32</span><b>Swarthmore</b><span class="zh">斯沃斯莫尔学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Williams/" title="Williams College"><span class="n">33</span><b>Williams</b><span class="zh">威廉姆斯学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Pomona/" title="Pomona College"><span class="n">34</span><b>Pomona</b><span class="zh">波莫纳学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="BU/" title="Boston University"><span class="n">35</span><b>Boston University</b><span class="zh">波士顿大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Wellesley/" title="Wellesley College"><span class="n">36</span><b>Wellesley</b><span class="zh">韦尔斯利学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Barnard/" title="Barnard College"><span class="n">37</span><b>Barnard</b><span class="zh">巴纳德学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="UW/" title="University of Washington"><span class="n">38</span><b>UW Seattle</b><span class="zh">华盛顿大学（西雅图）</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="LSE/" title="London School of Economics and Political Science"><span class="n">39</span><b>LSE</b><span class="zh">伦敦政治经济学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
-<a class="sch" href="CMC/" title="Claremont McKenna College"><span class="n">40</span><b>Claremont McKenna</b><span class="zh">克莱蒙特·麦肯纳学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Vassar/" title="Vassar College"><span class="n">41</span><b>Vassar</b><span class="zh">瓦萨学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Carleton/" title="Carleton College"><span class="n">42</span><b>Carleton</b><span class="zh">卡尔顿学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="GeorgiaTech/" title="Georgia Institute of Technology"><span class="n">43</span><b>Georgia Tech</b><span class="zh">佐治亚理工学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="NUS/" title="National University of Singapore"><span class="n">44</span><b>NUS</b><span class="zh">新加坡国立大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">新加坡</span><span lang="en">Singapore</span></span></span></a>
-<a class="sch" href="HKU/" title="The University of Hong Kong"><span class="n">45</span><b>HKU</b><span class="zh">香港大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">中国香港</span><span lang="en">Hong Kong</span></span></span></a>
-<a class="sch" href="Oxford/" title="University of Oxford"><span class="n">46</span><b>Oxford</b><span class="zh">牛津大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
-<a class="sch" href="BC/" title="Boston College"><span class="n">47</span><b>Boston College</b><span class="zh">波士顿学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span></span></a>
-<a class="sch" href="Cambridge/" title="University of Cambridge"><span class="n">48</span><b>Cambridge</b><span class="zh">剑桥大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
-<a class="sch" href="Waseda/" title="Waseda University"><span class="n">49</span><b>Waseda</b><span class="zh">早稻田大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">日本</span><span lang="en">Japan</span></span></span></a>
-<a class="sch" href="HKUST/" title="The Hong Kong University of Science and Technology"><span class="n">50</span><b>HKUST</b><span class="zh">香港科技大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">中国香港</span><span lang="en">Hong Kong</span></span></span></a>
-<a class="sch" href="Imperial/" title="Imperial College London"><span class="n">51</span><b>Imperial</b><span class="zh">帝国理工学院</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
-<a class="sch" href="Toronto/" title="University of Toronto"><span class="n">52</span><b>Toronto</b><span class="zh">多伦多大学</span><span class="tags"><span class="nc"><span lang="zh">未编码</span><span lang="en">NOT CODED</span></span><span class="ctry"><span lang="zh">加拿大</span><span lang="en">Canada</span></span></span></a></div></div>
+<a class="sch" href="UCI/" title="University of California, Irvine"><span class="n">31</span><b>UC Irvine</b><span class="zh">加州大学欧文分校</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Swarthmore/" title="Swarthmore College"><span class="n">32</span><b>Swarthmore</b><span class="zh">斯沃斯莫尔学院</span><span class="fp"><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Williams/" title="Williams College"><span class="n">33</span><b>Williams</b><span class="zh">威廉姆斯学院</span><span class="fp"><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Pomona/" title="Pomona College"><span class="n">34</span><b>Pomona</b><span class="zh">波莫纳学院</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="3"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="BU/" title="Boston University"><span class="n">35</span><b>Boston University</b><span class="zh">波士顿大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="3"></i><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Wellesley/" title="Wellesley College"><span class="n">36</span><b>Wellesley</b><span class="zh">韦尔斯利学院</span><span class="fp"><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Barnard/" title="Barnard College"><span class="n">37</span><b>Barnard</b><span class="zh">巴纳德学院</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="UW/" title="University of Washington"><span class="n">38</span><b>UW Seattle</b><span class="zh">华盛顿大学（西雅图）</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i></span></a>
+<a class="sch" href="LSE/" title="London School of Economics and Political Science"><span class="n">39</span><b>LSE</b><span class="zh">伦敦政治经济学院</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i></span><span class="tags"><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
+<a class="sch" href="CMC/" title="Claremont McKenna College"><span class="n">40</span><b>Claremont McKenna</b><span class="zh">克莱蒙特·麦肯纳学院</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i></span></a>
+<a class="sch" href="Vassar/" title="Vassar College"><span class="n">41</span><b>Vassar</b><span class="zh">瓦萨学院</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="Carleton/" title="Carleton College"><span class="n">42</span><b>Carleton</b><span class="zh">卡尔顿学院</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span></a>
+<a class="sch" href="GeorgiaTech/" title="Georgia Institute of Technology"><span class="n">43</span><b>Georgia Tech</b><span class="zh">佐治亚理工学院</span><span class="fp"><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i></span></a>
+<a class="sch" href="NUS/" title="National University of Singapore"><span class="n">44</span><b>NUS</b><span class="zh">新加坡国立大学</span><span class="fp"><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i><i data-r="3"></i><i data-r="1"></i><i data-r="3"></i><i data-r="3"></i><i data-r="3"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="3"></i></span><span class="tags"><span class="ctry"><span lang="zh">新加坡</span><span lang="en">Singapore</span></span></span></a>
+<a class="sch" href="HKU/" title="The University of Hong Kong"><span class="n">45</span><b>HKU</b><span class="zh">香港大学</span><span class="fp"><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="1"></i></span><span class="tags"><span class="ctry"><span lang="zh">中国香港</span><span lang="en">Hong Kong</span></span></span></a>
+<a class="sch" href="Oxford/" title="University of Oxford"><span class="n">46</span><b>Oxford</b><span class="zh">牛津大学</span><span class="fp"><i data-r="1"></i><i data-r="2"></i><i data-r="1"></i><i data-r="3"></i><i data-r="1"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="3"></i></span><span class="tags"><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
+<a class="sch" href="BC/" title="Boston College"><span class="n">47</span><b>Boston College</b><span class="zh">波士顿学院</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="1"></i><i data-r="3"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="2"></i><i data-r="1"></i></span></a>
+<a class="sch" href="Cambridge/" title="University of Cambridge"><span class="n">48</span><b>Cambridge</b><span class="zh">剑桥大学</span><span class="fp"><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i></span><span class="tags"><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
+<a class="sch" href="Waseda/" title="Waseda University"><span class="n">49</span><b>Waseda</b><span class="zh">早稻田大学</span><span class="fp"><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span><span class="tags"><span class="ctry"><span lang="zh">日本</span><span lang="en">Japan</span></span></span></a>
+<a class="sch" href="HKUST/" title="The Hong Kong University of Science and Technology"><span class="n">50</span><b>HKUST</b><span class="zh">香港科技大学</span><span class="fp"><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="1"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="2"></i><i data-r="0"></i></span><span class="tags"><span class="ctry"><span lang="zh">中国香港</span><span lang="en">Hong Kong</span></span></span></a>
+<a class="sch" href="Imperial/" title="Imperial College London"><span class="n">51</span><b>Imperial</b><span class="zh">帝国理工学院</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="1"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="0"></i><i data-r="0"></i><i data-r="2"></i><i data-r="3"></i></span><span class="tags"><span class="ctry"><span lang="zh">英国</span><span lang="en">UK</span></span></span></a>
+<a class="sch" href="Toronto/" title="University of Toronto"><span class="n">52</span><b>Toronto</b><span class="zh">多伦多大学</span><span class="fp"><i data-r="3"></i><i data-r="2"></i><i data-r="0"></i><i data-r="1"></i><i data-r="1"></i><i data-r="2"></i><i data-r="2"></i><i data-r="0"></i><i data-r="3"></i><i data-r="0"></i><i data-r="0"></i><i data-r="3"></i></span><span class="tags"><span class="ctry"><span lang="zh">加拿大</span><span lang="en">Canada</span></span></span></a></div></div>
 </section>
 
 <section>
@@ -424,18 +415,18 @@ footer p{max-width:var(--measure);margin:0 0 9px}
       <em>01</em>
       <div>
         <b lang="zh">规范中的数字与数据集比对</b><b lang="en">Figures in the guidelines are checked against the dataset</b>
-        <p lang="zh">规范中的每一处数字断言在构建时与数据集比对，每条引文与其来源文件逐字比对，不一致则构建中止。当前 94 处断言、9 条引文全部通过。</p>
+        <p lang="zh">规范中的每一处数字断言在构建时与数据集比对，每条引文与其来源文件逐字比对，不一致则构建中止。当前 98 处断言、9 条引文全部通过。</p>
         <p lang="en">Every numeric claim in the guidelines is checked against the dataset at build
           time, and every quotation against its source file; a mismatch stops the build.
-          Currently 94 assertions and 9 quotations pass.</p>
+          Currently 98 assertions and 9 quotations pass.</p>
       </div>
     </div>
     <div class="link">
       <em>02</em>
       <div>
         <b lang="zh">逐校隔离抽取，独立审计复核</b><b lang="en">Isolated extraction, independent audit</b>
-        <p lang="zh">30 份来源文件由 30 个相互隔离的程序分别抽取，每个程序只读取对应学校的文件，不得使用关于该校的既有知识；随后由独立审计重读同一文件复核。</p>
-        <p lang="en">The 30 source files were read by 30 isolated passes, each limited to its own
+        <p lang="zh">52 份来源文件由 52 个相互隔离的程序分别抽取，每个程序只读取对应学校的文件，不得使用关于该校的既有知识；随后由独立审计重读同一文件复核。</p>
+        <p lang="en">The 52 source files were read by 52 isolated passes, each limited to its own
           university's file and barred from prior knowledge of that institution, then re-checked
           by an independent audit against the same file.</p>
       </div>
@@ -444,10 +435,10 @@ footer p{max-width:var(--measure);margin:0 0 9px}
       <em>03</em>
       <div>
         <b lang="zh">每条引文逐字比对</b><b lang="en">Each quotation is matched verbatim</b>
-        <p lang="zh">所有引文与其所属文件做精确字符串比对；未匹配的编码降为“未提及”并记录，出现在其他学校文件中的引文标记为串源。当前 234/234 通过。</p>
+        <p lang="zh">所有引文与其所属文件做精确字符串比对；未匹配的编码降为“未提及”并记录，出现在其他学校文件中的引文标记为串源。当前 388/388 通过。</p>
         <p lang="en">Every quotation is matched exactly against the file it claims to come from; an
           unmatched coding is demoted to "not addressed" and logged, and a quotation found in another
-          university's file is flagged as cross-contamination. Currently 234/234 pass.</p>
+          university's file is flagged as cross-contamination. Currently 388/388 pass.</p>
       </div>
     </div>
   </div>
@@ -466,14 +457,14 @@ footer p{max-width:var(--measure);margin:0 0 9px}
   <p lang="zh">
     <strong>内容取自官方原文；这是一份会定期更新的快照。</strong>
     所引文字逐字摘自各校官方发布的网页，版权归各该大学所有，为学术研究与评述目的引用。
-    30 所大学的校内政策采集于 2026 年 8 月 21–29 日，申请环节资料与补充的 22 所采集于 2026 年 9 月 24–26 日，不代表各校现行政策——政策会变，正式采用前请回官网核实。本项目由个人整理编排，非各校发布，与其无隶属、赞助或背书关系。
+    01–30 的校内政策采集于 2026 年 8 月 21–29 日，31–52 的校内政策与全部申请环节资料采集于 2026 年 9 月 24–26 日，不代表各校现行政策——政策会变，正式采用前请回官网核实。本项目由个人整理编排，非各校发布，与其无隶属、赞助或背书关系。
   </p>
   <p lang="en">
     <strong>Official source text, kept as a periodically refreshed snapshot.</strong>
     Quotations are reproduced verbatim from institutions' own published pages; copyright remains
     with them and the material is used for academic research and commentary. The campus policies of
-    the 30 universities were collected 21–29 August 2026; the admissions material and the 22 added
-    universities, 24–26 September 2026 — not a statement of current policy. Independently compiled; not affiliated with, sponsored
+    Nos. 01–30 were collected 21–29 August 2026; those of Nos. 31–52 and all the admissions material,
+    24–26 September 2026 — not a statement of current policy. Independently compiled; not affiliated with, sponsored
     by, or endorsed by any institution named here.
   </p>
   <p lang="zh">
@@ -485,7 +476,7 @@ footer p{max-width:var(--measure);margin:0 0 9px}
     longer matches the official page.
   </p>
   <p><a href="versions.html"><span lang="zh">版本与进展</span><span lang="en">Versions and progress</span></a>
-    · <span lang="zh">当前版本</span><span lang="en">current version</span> A5a1</p>
+    · <span lang="zh">当前版本</span><span lang="en">current version</span> A5b</p>
 </footer>
 </main>
 

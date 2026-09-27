@@ -14,7 +14,6 @@ themselves are left as they are:
   - links into the local research folders (sources/, research/) keep their text
     but lose the link, because those folders are not published;
   - metadata rows that do nothing but point into those folders are dropped;
-    (expansion/ files go through the same renderer; see expansion.py)
   - search-record sections are folded into a closed <details>.
 """
 
@@ -71,7 +70,7 @@ KV_ZH = {
     "Browser note": "浏览器说明", "Earlier retrieval record": "早先采集记录",
     "Query / action": "检索／操作", "Query": "检索", "Result": "结果",
     "Research date": "检索日期", "Search": "检索",
-    # expansion/ and the 2026-09-26 admissions files
+    # the 2026-09-26 admissions files
     "Status": "证据状态", "Format": "格式说明", "Research snapshot": "检索日期",
     "Research acquisition": "采集说明", "Research record": "采集记录", "Research review": "复核日期",
     "Acquired": "采集时间", "Source date": "来源日期", "Publication date": "发布日期",
@@ -113,7 +112,7 @@ def status_short(status):
     return zh, en
 
 
-def resolver(prefix, own=None, from_campus=False):
+def resolver(prefix, own=None):
     """Map a link target in an admissions file to a site address, or None.
 
     prefix is the path from the current page to the site root ("../" on a school
@@ -124,13 +123,10 @@ def resolver(prefix, own=None, from_campus=False):
     def resolve(url):
         if url.startswith(("http://", "https://")):
             return url
-        m = re.fullmatch(r"(\.\./|application/)?(\d\d-[A-Za-z-]+)\.md(#.*)?", url)
+        m = re.fullmatch(r"(\.\./)?(\d\d-[A-Za-z-]+)\.md(#.*)?", url)
         if not m:
             return None                      # sources/…, research/…: not published
-        sid = m.group(2)
-        # From an admissions file "../NN-X.md" is the campus file; from a campus
-        # file (expansion/, collected beside application/) the plain name is.
-        campus = m.group(1) == "../" if not from_campus else m.group(1) is None
+        sid, campus = m.group(2), bool(m.group(1))
         if sid.startswith("00-"):
             anchor = "ucas" if "UCAS" in sid else "platforms"
             return f"{prefix}admissions.html#{anchor}"
@@ -172,14 +168,14 @@ def _fold(text, level):
     return None
 
 
-def render(path, prefix, own=None, kv_label=None, from_campus=False):
-    """(front-matter html, body html) for one admissions (or expansion/) file."""
+def render(path, prefix, own=None, kv_label=None):
+    """(front-matter html, body html) for one admissions file."""
     raw = path.read_text(encoding="utf-8")
     _, front, rest = mdlite.split_front(mdlite.parse(raw))
     kept = _prune([{"t": "list", "items": front}]) if front else []
     front = kept[0]["items"] if kept else []
     r = mdlite.Renderer(raw, [], lambda lab: "", lambda lab: f"adm-{lab}", kv_label, None,
-                        resolve=resolver(prefix, own, from_campus), kv_re=mdlite.KV_WIDE, fold=_fold)
+                        resolve=resolver(prefix, own), kv_re=mdlite.KV_WIDE, fold=_fold)
     return r.render_all(front, _prune(rest), "")
 
 

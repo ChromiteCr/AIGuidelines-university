@@ -28,8 +28,12 @@ DST = ROOT / "docs" / "guidelines.html"
 
 
 def checks():
-    """(label, value, phrase) — phrase must appear verbatim in the document."""
-    d, dm, count, disclose = load_data()
+    """(label, value, phrase) — phrase must appear verbatim in the document.
+
+    The figures are those of the original thirty universities the guidelines
+    were written against (sitelib.load_data(core=True)), not of every university
+    the atlas now codes."""
+    d, dm, count, disclose = load_data(core=True)
     m = d["meta"]
     pct = lambda k: round(dm[k]["agreement"] * 100)
     C = []
@@ -132,6 +136,8 @@ def checks():
     add("有明文", m["filled"], "其中 {n} 格有明文规定", "{n} cells have an explicit rule")
     add("未提及格", m["silent"], "{n} 格未提及", "{n} are not addressed by the")
     add("引文总数", m["evidence_matched"], "全部 {n} 条引文", "All {n} quotations")
+    add("规范依据校数", m["schools"], "本规范中的数字均以上述 {n} 所为准", "the figures in this document refer to the {e} above")
+    add("图谱校数", load_data()[0]["meta"]["schools"], "扩充至 {n} 所大学", "extended to {n} universities under the same coding rules")
 
     # ---- §6.2 points to the admissions overview; not part of the atlas data
     add("申请环节校数", len(adm.load()["by_id"]),

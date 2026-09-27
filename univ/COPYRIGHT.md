@@ -7,7 +7,8 @@
 这些文字的权利——仓库根目录的 MIT LICENSE **不适用于**本目录。收录目的为学术研究、
 比较分析与评述，非商业用途。
 
-**时效**：本次采集完成于 2026 年 8 月 21 日至 29 日，是一份快照而非实时镜像。各校此后
+**时效**：01–30 采集于 2026 年 8 月 21 日至 29 日；31–52 取自 2026 年 9 月 26 日保存的官方页面副本，
+相关段落逐字照录。这是一份快照而非实时镜像。各校此后
 若修订政策，本目录不会自动跟进。本项目会定期复核更新——发现过期或与官网有出入，欢迎
 提 Pull Request，附上官方链接与访问日期即可（见 [CONTRIBUTING.md](../CONTRIBUTING.md)）。
 正式引用前请回官网核实当前版本。
@@ -28,7 +29,8 @@ the top of each file.
 respective universities; the MIT LICENSE at the repository root does **not**
 apply here. Reproduced for non-commercial academic research and commentary.
 
-**Currency:** collected 21–29 August 2026 — a snapshot, not a live mirror. It is
+**Currency:** Nos. 01–30 were collected 21–29 August 2026; Nos. 31–52 are copied verbatim from
+official pages saved on 26 September 2026 — a snapshot, not a live mirror. It is
 refreshed periodically; if you find something out of date or at odds with the
 official page, open a Pull Request with the official link and access date (see
 [CONTRIBUTING.md](../CONTRIBUTING.md)). Verify against the official page before

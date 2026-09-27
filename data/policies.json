@@ -1,14 +1,14 @@
 {
  "meta": {
-  "schools": 30,
+  "schools": 52,
   "dimensions": 12,
-  "cells": 360,
-  "filled": 234,
-  "silent": 126,
-  "evidence_verbatim": 234,
-  "evidence_matched": 234,
+  "cells": 624,
+  "filled": 388,
+  "silent": 236,
+  "evidence_verbatim": 388,
+  "evidence_matched": 388,
   "problems": [],
-  "accessed": "2026-08-29"
+  "accessed": "2026-08-21 – 2026-09-26"
  },
  "groups": [
   {
@@ -57,7 +57,7 @@
      "en": "Prohibited by default",
      "rank": 3,
      "short": "默认禁止",
-     "n": 13,
+     "n": 19,
      "schools": [
       "03-Harvard",
       "07-Columbia",
@@ -71,7 +71,13 @@
       "26-WashU",
       "28-USC",
       "29-UC-San-Diego",
-      "30-NYU"
+      "30-NYU",
+      "34-Pomona",
+      "37-Barnard",
+      "38-Washington-Seattle",
+      "47-Boston-College",
+      "51-Imperial",
+      "52-Toronto"
      ]
     },
     {
@@ -80,13 +86,15 @@
      "en": "Treated as outside help",
      "rank": 3,
      "short": "等同求助",
-     "n": 5,
+     "n": 7,
      "schools": [
       "01-Stanford",
       "09-Northwestern",
       "10-UChicago",
       "14-Brown",
-      "17-UCLA"
+      "17-UCLA",
+      "32-Swarthmore",
+      "42-Carleton"
      ]
     },
     {
@@ -95,11 +103,13 @@
      "en": "Conditional use allowed",
      "rank": 2,
      "short": "有条件",
-     "n": 3,
+     "n": 5,
      "schools": [
       "06-Penn",
       "12-Caltech",
-      "15-Vanderbilt"
+      "15-Vanderbilt",
+      "44-NUS",
+      "48-Cambridge"
      ]
     },
     {
@@ -108,7 +118,7 @@
      "en": "Instructor decides, no default",
      "rank": 1,
      "short": "教师定",
-     "n": 8,
+     "n": 14,
      "schools": [
       "02-MIT",
       "04-Yale",
@@ -117,7 +127,13 @@
       "21-Carnegie-Mellon",
       "22-Michigan",
       "25-UNC-Chapel-Hill",
-      "27-UVA"
+      "27-UVA",
+      "31-UC-Irvine",
+      "35-Boston-University",
+      "39-LSE",
+      "40-Claremont-McKenna",
+      "41-Vassar",
+      "46-Oxford"
      ]
     },
     {
@@ -126,18 +142,24 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 1,
+     "n": 7,
      "schools": [
-      "11-Princeton"
+      "11-Princeton",
+      "33-Williams",
+      "36-Wellesley",
+      "43-Georgia-Tech",
+      "45-HKU",
+      "49-Waseda",
+      "50-HKUST"
      ]
     }
    ],
-   "covered": 29,
-   "silent": 1,
-   "silence_rate": 0.033,
+   "covered": 45,
+   "silent": 7,
+   "silence_rate": 0.135,
    "top_value": "prohibited_by_default",
-   "top_n": 13,
-   "agreement": 0.448
+   "top_n": 19,
+   "agreement": 0.422
   },
   {
    "key": "instructor_override",
@@ -153,7 +175,7 @@
      "en": "Course rule supersedes",
      "rank": 2,
      "short": "课程优先",
-     "n": 8,
+     "n": 12,
      "schools": [
       "01-Stanford",
       "03-Harvard",
@@ -162,7 +184,11 @@
       "18-Rice",
       "21-Carnegie-Mellon",
       "28-USC",
-      "30-NYU"
+      "30-NYU",
+      "36-Wellesley",
+      "41-Vassar",
+      "48-Cambridge",
+      "52-Toronto"
      ]
     },
     {
@@ -171,7 +197,7 @@
      "en": "Instructor rules within limits",
      "rank": 2,
      "short": "有底线",
-     "n": 19,
+     "n": 33,
      "schools": [
       "02-MIT",
       "04-Yale",
@@ -191,7 +217,21 @@
       "25-UNC-Chapel-Hill",
       "26-WashU",
       "27-UVA",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "31-UC-Irvine",
+      "33-Williams",
+      "34-Pomona",
+      "35-Boston-University",
+      "37-Barnard",
+      "38-Washington-Seattle",
+      "39-LSE",
+      "40-Claremont-McKenna",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "44-NUS",
+      "46-Oxford",
+      "47-Boston-College",
+      "51-Imperial"
      ]
     },
     {
@@ -200,20 +240,24 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 3,
+     "n": 7,
      "schools": [
       "06-Penn",
       "11-Princeton",
-      "23-Georgetown"
+      "23-Georgetown",
+      "32-Swarthmore",
+      "45-HKU",
+      "49-Waseda",
+      "50-HKUST"
      ]
     }
    ],
-   "covered": 27,
-   "silent": 3,
-   "silence_rate": 0.1,
+   "covered": 45,
+   "silent": 7,
+   "silence_rate": 0.135,
    "top_value": "course_rule_within_limits",
-   "top_n": 19,
-   "agreement": 0.704
+   "top_n": 33,
+   "agreement": 0.733
   },
   {
    "key": "tiered_scale",
@@ -229,11 +273,13 @@
      "en": "Explicit named scale",
      "rank": 3,
      "short": "明确分级",
-     "n": 3,
+     "n": 5,
      "schools": [
       "13-Johns-Hopkins",
       "14-Brown",
-      "25-UNC-Chapel-Hill"
+      "25-UNC-Chapel-Hill",
+      "34-Pomona",
+      "39-LSE"
      ]
     },
     {
@@ -242,7 +288,7 @@
      "en": "Informal categories",
      "rank": 1,
      "short": "粗分类",
-     "n": 10,
+     "n": 15,
      "schools": [
       "01-Stanford",
       "02-MIT",
@@ -253,7 +299,12 @@
       "15-Vanderbilt",
       "17-UCLA",
       "20-Notre-Dame",
-      "27-UVA"
+      "27-UVA",
+      "35-Boston-University",
+      "40-Claremont-McKenna",
+      "44-NUS",
+      "46-Oxford",
+      "51-Imperial"
      ]
     },
     {
@@ -262,7 +313,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 17,
+     "n": 32,
      "schools": [
       "04-Yale",
       "05-Cornell",
@@ -280,16 +331,31 @@
       "26-WashU",
       "28-USC",
       "29-UC-San-Diego",
-      "30-NYU"
+      "30-NYU",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "33-Williams",
+      "36-Wellesley",
+      "37-Barnard",
+      "38-Washington-Seattle",
+      "41-Vassar",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "45-HKU",
+      "47-Boston-College",
+      "48-Cambridge",
+      "49-Waseda",
+      "50-HKUST",
+      "52-Toronto"
      ]
     }
    ],
-   "covered": 13,
-   "silent": 17,
-   "silence_rate": 0.567,
+   "covered": 20,
+   "silent": 32,
+   "silence_rate": 0.615,
    "top_value": "informal_categories",
-   "top_n": 10,
-   "agreement": 0.769
+   "top_n": 15,
+   "agreement": 0.75
   },
   {
    "key": "disclosure",
@@ -305,7 +371,7 @@
      "en": "Required",
      "rank": 3,
      "short": "强制",
-     "n": 12,
+     "n": 20,
      "schools": [
       "03-Harvard",
       "06-Penn",
@@ -318,7 +384,15 @@
       "25-UNC-Chapel-Hill",
       "26-WashU",
       "28-USC",
-      "30-NYU"
+      "30-NYU",
+      "35-Boston-University",
+      "37-Barnard",
+      "41-Vassar",
+      "42-Carleton",
+      "44-NUS",
+      "46-Oxford",
+      "47-Boston-College",
+      "48-Cambridge"
      ]
     },
     {
@@ -338,14 +412,19 @@
      "en": "Recommended",
      "rank": 1,
      "short": "建议",
-     "n": 6,
+     "n": 11,
      "schools": [
       "05-Cornell",
       "07-Columbia",
       "12-Caltech",
       "20-Notre-Dame",
       "24-Emory",
-      "27-UVA"
+      "27-UVA",
+      "31-UC-Irvine",
+      "36-Wellesley",
+      "43-Georgia-Tech",
+      "50-HKUST",
+      "51-Imperial"
      ]
     },
     {
@@ -354,7 +433,7 @@
      "en": "Course dependent",
      "rank": 1,
      "short": "依课程",
-     "n": 9,
+     "n": 14,
      "schools": [
       "02-MIT",
       "04-Yale",
@@ -364,7 +443,12 @@
       "16-UC-Berkeley",
       "21-Carnegie-Mellon",
       "22-Michigan",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "34-Pomona",
+      "38-Washington-Seattle",
+      "40-Claremont-McKenna",
+      "45-HKU",
+      "52-Toronto"
      ]
     },
     {
@@ -373,19 +457,23 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 2,
+     "n": 6,
      "schools": [
       "10-UChicago",
-      "18-Rice"
+      "18-Rice",
+      "32-Swarthmore",
+      "33-Williams",
+      "39-LSE",
+      "49-Waseda"
      ]
     }
    ],
-   "covered": 28,
-   "silent": 2,
-   "silence_rate": 0.067,
+   "covered": 46,
+   "silent": 6,
+   "silence_rate": 0.115,
    "top_value": "required",
-   "top_n": 12,
-   "agreement": 0.429
+   "top_n": 20,
+   "agreement": 0.435
   },
   {
    "key": "process_evidence",
@@ -412,7 +500,7 @@
      "en": "Recommended",
      "rank": 1,
      "short": "建议留证",
-     "n": 9,
+     "n": 18,
      "schools": [
       "02-MIT",
       "05-Cornell",
@@ -422,7 +510,16 @@
       "21-Carnegie-Mellon",
       "24-Emory",
       "27-UVA",
-      "30-NYU"
+      "30-NYU",
+      "33-Williams",
+      "35-Boston-University",
+      "36-Wellesley",
+      "38-Washington-Seattle",
+      "40-Claremont-McKenna",
+      "44-NUS",
+      "46-Oxford",
+      "51-Imperial",
+      "52-Toronto"
      ]
     },
     {
@@ -431,7 +528,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 20,
+     "n": 33,
      "schools": [
       "01-Stanford",
       "04-Yale",
@@ -452,16 +549,29 @@
       "25-UNC-Chapel-Hill",
       "26-WashU",
       "28-USC",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "34-Pomona",
+      "37-Barnard",
+      "39-LSE",
+      "41-Vassar",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "45-HKU",
+      "47-Boston-College",
+      "48-Cambridge",
+      "49-Waseda",
+      "50-HKUST"
      ]
     }
    ],
-   "covered": 10,
-   "silent": 20,
-   "silence_rate": 0.667,
+   "covered": 19,
+   "silent": 33,
+   "silence_rate": 0.635,
    "top_value": "recommended",
-   "top_n": 9,
-   "agreement": 0.9
+   "top_n": 18,
+   "agreement": 0.947
   },
   {
    "key": "verification_duty",
@@ -477,14 +587,18 @@
      "en": "Student fully responsible",
      "rank": 3,
      "short": "完全负责",
-     "n": 6,
+     "n": 10,
      "schools": [
       "03-Harvard",
       "04-Yale",
       "13-Johns-Hopkins",
       "23-Georgetown",
       "25-UNC-Chapel-Hill",
-      "26-WashU"
+      "26-WashU",
+      "43-Georgia-Tech",
+      "44-NUS",
+      "46-Oxford",
+      "49-Waseda"
      ]
     },
     {
@@ -493,7 +607,7 @@
      "en": "Verification required",
      "rank": 2,
      "short": "须核实",
-     "n": 8,
+     "n": 17,
      "schools": [
       "05-Cornell",
       "12-Caltech",
@@ -502,7 +616,16 @@
       "22-Michigan",
       "27-UVA",
       "28-USC",
-      "30-NYU"
+      "30-NYU",
+      "33-Williams",
+      "35-Boston-University",
+      "36-Wellesley",
+      "37-Barnard",
+      "41-Vassar",
+      "45-HKU",
+      "50-HKUST",
+      "51-Imperial",
+      "52-Toronto"
      ]
     },
     {
@@ -511,7 +634,7 @@
      "en": "General caution",
      "rank": 1,
      "short": "一般提醒",
-     "n": 9,
+     "n": 11,
      "schools": [
       "02-MIT",
       "06-Penn",
@@ -521,7 +644,9 @@
       "15-Vanderbilt",
       "21-Carnegie-Mellon",
       "24-Emory",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "31-UC-Irvine",
+      "47-Boston-College"
      ]
     },
     {
@@ -530,7 +655,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 7,
+     "n": 14,
      "schools": [
       "01-Stanford",
       "07-Columbia",
@@ -538,16 +663,23 @@
       "11-Princeton",
       "16-UC-Berkeley",
       "18-Rice",
-      "19-Dartmouth"
+      "19-Dartmouth",
+      "32-Swarthmore",
+      "34-Pomona",
+      "38-Washington-Seattle",
+      "39-LSE",
+      "40-Claremont-McKenna",
+      "42-Carleton",
+      "48-Cambridge"
      ]
     }
    ],
-   "covered": 23,
-   "silent": 7,
-   "silence_rate": 0.233,
-   "top_value": "general_caution",
-   "top_n": 9,
-   "agreement": 0.391
+   "covered": 38,
+   "silent": 14,
+   "silence_rate": 0.269,
+   "top_value": "verification_required",
+   "top_n": 17,
+   "agreement": 0.447
   },
   {
    "key": "integrity_framing",
@@ -563,7 +695,7 @@
      "en": "Explicitly plagiarism",
      "rank": 3,
      "short": "等同抄袭",
-     "n": 9,
+     "n": 13,
      "schools": [
       "07-Columbia",
       "09-Northwestern",
@@ -573,7 +705,11 @@
       "18-Rice",
       "24-Emory",
       "28-USC",
-      "30-NYU"
+      "30-NYU",
+      "35-Boston-University",
+      "40-Claremont-McKenna",
+      "44-NUS",
+      "47-Boston-College"
      ]
     },
     {
@@ -582,7 +718,7 @@
      "en": "Academic integrity violation",
      "rank": 2,
      "short": "学术不端",
-     "n": 16,
+     "n": 28,
      "schools": [
       "01-Stanford",
       "02-MIT",
@@ -599,7 +735,19 @@
       "22-Michigan",
       "26-WashU",
       "27-UVA",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "34-Pomona",
+      "37-Barnard",
+      "41-Vassar",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "46-Oxford",
+      "48-Cambridge",
+      "49-Waseda",
+      "51-Imperial",
+      "52-Toronto"
      ]
     },
     {
@@ -608,10 +756,11 @@
      "en": "Unauthorized assistance",
      "rank": 2,
      "short": "未授权协助",
-     "n": 2,
+     "n": 3,
      "schools": [
       "14-Brown",
-      "21-Carnegie-Mellon"
+      "21-Carnegie-Mellon",
+      "38-Washington-Seattle"
      ]
     },
     {
@@ -620,20 +769,25 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 3,
+     "n": 8,
      "schools": [
       "11-Princeton",
       "23-Georgetown",
-      "25-UNC-Chapel-Hill"
+      "25-UNC-Chapel-Hill",
+      "33-Williams",
+      "36-Wellesley",
+      "39-LSE",
+      "45-HKU",
+      "50-HKUST"
      ]
     }
    ],
-   "covered": 27,
-   "silent": 3,
-   "silence_rate": 0.1,
+   "covered": 44,
+   "silent": 8,
+   "silence_rate": 0.154,
    "top_value": "academic_integrity_violation",
-   "top_n": 16,
-   "agreement": 0.593
+   "top_n": 28,
+   "agreement": 0.636
   },
   {
    "key": "detector_stance",
@@ -649,7 +803,7 @@
      "en": "Not sole or primary evidence",
      "rank": 3,
      "short": "不得为主证",
-     "n": 7,
+     "n": 8,
      "schools": [
       "07-Columbia",
       "08-Duke",
@@ -657,7 +811,8 @@
       "16-UC-Berkeley",
       "18-Rice",
       "27-UVA",
-      "28-USC"
+      "28-USC",
+      "44-NUS"
      ]
     },
     {
@@ -666,11 +821,13 @@
      "en": "Reliability questioned",
      "rank": 2,
      "short": "质疑可靠",
-     "n": 3,
+     "n": 5,
      "schools": [
       "21-Carnegie-Mellon",
       "22-Michigan",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "35-Boston-University",
+      "40-Claremont-McKenna"
      ]
     },
     {
@@ -690,7 +847,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 19,
+     "n": 38,
      "schools": [
       "02-MIT",
       "03-Harvard",
@@ -710,16 +867,35 @@
       "24-Emory",
       "25-UNC-Chapel-Hill",
       "26-WashU",
-      "30-NYU"
+      "30-NYU",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "33-Williams",
+      "34-Pomona",
+      "36-Wellesley",
+      "37-Barnard",
+      "38-Washington-Seattle",
+      "39-LSE",
+      "41-Vassar",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "45-HKU",
+      "46-Oxford",
+      "47-Boston-College",
+      "48-Cambridge",
+      "49-Waseda",
+      "50-HKUST",
+      "51-Imperial",
+      "52-Toronto"
      ]
     }
    ],
-   "covered": 11,
-   "silent": 19,
-   "silence_rate": 0.633,
+   "covered": 14,
+   "silent": 38,
+   "silence_rate": 0.731,
    "top_value": "not_sole_or_primary_evidence",
-   "top_n": 7,
-   "agreement": 0.636
+   "top_n": 8,
+   "agreement": 0.571
   },
   {
    "key": "data_privacy",
@@ -747,7 +923,7 @@
      "en": "Restricted data prohibited",
      "rank": 3,
      "short": "禁受限数据",
-     "n": 13,
+     "n": 20,
      "schools": [
       "02-MIT",
       "03-Harvard",
@@ -761,7 +937,14 @@
       "25-UNC-Chapel-Hill",
       "26-WashU",
       "28-USC",
-      "30-NYU"
+      "30-NYU",
+      "35-Boston-University",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "46-Oxford",
+      "47-Boston-College",
+      "50-HKUST",
+      "52-Toronto"
      ]
     },
     {
@@ -770,11 +953,17 @@
      "en": "General caution",
      "rank": 1,
      "short": "一般提醒",
-     "n": 3,
+     "n": 9,
      "schools": [
       "15-Vanderbilt",
       "27-UVA",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "33-Williams",
+      "37-Barnard",
+      "39-LSE",
+      "41-Vassar",
+      "44-NUS",
+      "49-Waseda"
      ]
     },
     {
@@ -783,7 +972,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 12,
+     "n": 21,
      "schools": [
       "01-Stanford",
       "05-Cornell",
@@ -796,16 +985,25 @@
       "19-Dartmouth",
       "20-Notre-Dame",
       "21-Carnegie-Mellon",
-      "22-Michigan"
+      "22-Michigan",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "34-Pomona",
+      "36-Wellesley",
+      "38-Washington-Seattle",
+      "40-Claremont-McKenna",
+      "45-HKU",
+      "48-Cambridge",
+      "51-Imperial"
      ]
     }
    ],
-   "covered": 18,
-   "silent": 12,
-   "silence_rate": 0.4,
+   "covered": 31,
+   "silent": 21,
+   "silence_rate": 0.404,
    "top_value": "restricted_data_prohibited",
-   "top_n": 13,
-   "agreement": 0.722
+   "top_n": 20,
+   "agreement": 0.645
   },
   {
    "key": "ip_copyright",
@@ -821,7 +1019,7 @@
      "en": "Addressed",
      "rank": 2,
      "short": "有规定",
-     "n": 17,
+     "n": 25,
      "schools": [
       "02-MIT",
       "03-Harvard",
@@ -839,7 +1037,15 @@
       "27-UVA",
       "28-USC",
       "29-UC-San-Diego",
-      "30-NYU"
+      "30-NYU",
+      "33-Williams",
+      "37-Barnard",
+      "38-Washington-Seattle",
+      "40-Claremont-McKenna",
+      "42-Carleton",
+      "43-Georgia-Tech",
+      "44-NUS",
+      "47-Boston-College"
      ]
     },
     {
@@ -848,7 +1054,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 13,
+     "n": 27,
      "schools": [
       "01-Stanford",
       "06-Penn",
@@ -862,15 +1068,29 @@
       "19-Dartmouth",
       "21-Carnegie-Mellon",
       "22-Michigan",
-      "25-UNC-Chapel-Hill"
+      "25-UNC-Chapel-Hill",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "34-Pomona",
+      "35-Boston-University",
+      "36-Wellesley",
+      "39-LSE",
+      "41-Vassar",
+      "45-HKU",
+      "46-Oxford",
+      "48-Cambridge",
+      "49-Waseda",
+      "50-HKUST",
+      "51-Imperial",
+      "52-Toronto"
      ]
     }
    ],
-   "covered": 17,
-   "silent": 13,
-   "silence_rate": 0.433,
+   "covered": 25,
+   "silent": 27,
+   "silence_rate": 0.519,
    "top_value": "addressed",
-   "top_n": 17,
+   "top_n": 25,
    "agreement": 1.0
   },
   {
@@ -887,7 +1107,7 @@
      "en": "Institution-provided tool",
      "rank": 2,
      "short": "机构版工具",
-     "n": 7,
+     "n": 19,
      "schools": [
       "02-MIT",
       "03-Harvard",
@@ -895,7 +1115,19 @@
       "27-UVA",
       "28-USC",
       "29-UC-San-Diego",
-      "30-NYU"
+      "30-NYU",
+      "33-Williams",
+      "35-Boston-University",
+      "37-Barnard",
+      "39-LSE",
+      "41-Vassar",
+      "42-Carleton",
+      "44-NUS",
+      "45-HKU",
+      "46-Oxford",
+      "47-Boston-College",
+      "50-HKUST",
+      "51-Imperial"
      ]
     },
     {
@@ -904,12 +1136,13 @@
      "en": "Approved tool list",
      "rank": 2,
      "short": "批准清单",
-     "n": 4,
+     "n": 5,
      "schools": [
       "12-Caltech",
       "13-Johns-Hopkins",
       "17-UCLA",
-      "23-Georgetown"
+      "23-Georgetown",
+      "43-Georgia-Tech"
      ]
     },
     {
@@ -918,7 +1151,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 19,
+     "n": 28,
      "schools": [
       "01-Stanford",
       "04-Yale",
@@ -938,16 +1171,25 @@
       "22-Michigan",
       "24-Emory",
       "25-UNC-Chapel-Hill",
-      "26-WashU"
+      "26-WashU",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "34-Pomona",
+      "36-Wellesley",
+      "38-Washington-Seattle",
+      "40-Claremont-McKenna",
+      "48-Cambridge",
+      "49-Waseda",
+      "52-Toronto"
      ]
     }
    ],
-   "covered": 11,
-   "silent": 19,
-   "silence_rate": 0.633,
+   "covered": 24,
+   "silent": 28,
+   "silence_rate": 0.538,
    "top_value": "institution_provided_tool",
-   "top_n": 7,
-   "agreement": 0.636
+   "top_n": 19,
+   "agreement": 0.792
   },
   {
    "key": "learning_rationale",
@@ -963,7 +1205,7 @@
      "en": "Explicit learning-objective rationale",
      "rank": 3,
      "short": "学习目标",
-     "n": 12,
+     "n": 22,
      "schools": [
       "01-Stanford",
       "02-MIT",
@@ -976,7 +1218,17 @@
       "21-Carnegie-Mellon",
       "23-Georgetown",
       "25-UNC-Chapel-Hill",
-      "29-UC-San-Diego"
+      "29-UC-San-Diego",
+      "31-UC-Irvine",
+      "32-Swarthmore",
+      "37-Barnard",
+      "40-Claremont-McKenna",
+      "42-Carleton",
+      "44-NUS",
+      "46-Oxford",
+      "49-Waseda",
+      "51-Imperial",
+      "52-Toronto"
      ]
     },
     {
@@ -985,7 +1237,7 @@
      "en": "General statement",
      "rank": 1,
      "short": "一般表述",
-     "n": 8,
+     "n": 15,
      "schools": [
       "06-Penn",
       "07-Columbia",
@@ -994,7 +1246,14 @@
       "16-UC-Berkeley",
       "18-Rice",
       "24-Emory",
-      "30-NYU"
+      "30-NYU",
+      "34-Pomona",
+      "35-Boston-University",
+      "38-Washington-Seattle",
+      "39-LSE",
+      "45-HKU",
+      "47-Boston-College",
+      "48-Cambridge"
      ]
     },
     {
@@ -1003,7 +1262,7 @@
      "en": "Not addressed",
      "rank": 0,
      "short": "未提及",
-     "n": 10,
+     "n": 15,
      "schools": [
       "04-Yale",
       "05-Cornell",
@@ -1014,16 +1273,21 @@
       "22-Michigan",
       "26-WashU",
       "27-UVA",
-      "28-USC"
+      "28-USC",
+      "33-Williams",
+      "36-Wellesley",
+      "41-Vassar",
+      "43-Georgia-Tech",
+      "50-HKUST"
      ]
     }
    ],
-   "covered": 20,
-   "silent": 10,
-   "silence_rate": 0.333,
+   "covered": 37,
+   "silent": 15,
+   "silence_rate": 0.288,
    "top_value": "explicit_learning_objective_rationale",
-   "top_n": 12,
-   "agreement": 0.6
+   "top_n": 22,
+   "agreement": 0.595
   }
  ],
  "values": {
@@ -7461,6 +7725,4295 @@
       "was": "Named identifier categories are barred from unlicensed tools on FERPA grounds, but this appears only in the school-specific Steinhardt supplement and is phrased as a warning.",
       "now": "Steinhardt names identifier categories that must not go to unlicensed tools under FERPA; it is school-specific and phrased as a warning.",
       "why": "Note exceeded the 160-character cap (174 chars). Trimmed to 136 while preserving the school-specific scope and the warning modality; value and evidence unchanged."
+     }
+    ]
+   }
+  },
+  {
+   "id": "31-UC-Irvine",
+   "num": 31,
+   "name": "University of California, Irvine",
+   "short": "UC Irvine",
+   "file": "univ/31-UC-Irvine.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "Libraries page is official student-facing guidance on coursework/citation; DTEI page is teaching-facing, reporting an Academic Senate (undergrad) and Graduate Council (grad) syllabus requirement.",
+   "sources": [
+    {
+     "unit": "UCI Libraries",
+     "url": "https://guides.lib.uci.edu/gen-ai/citing"
+    },
+    {
+     "unit": "UCI Division of Teaching Excellence and Innovation",
+     "url": "https://dtei.uci.edu/generative-ai/syllabus/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "instructor_decides_no_default",
+     "zh": "交由教师决定",
+     "en": "Instructor decides, no default",
+     "rank": 1,
+     "short": "教师定",
+     "note": "No campuswide AI policy exists; each course's policy is set at the instructor's discretion.",
+     "evidence": "There is no single campuswide policy governing student use of generative AI.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "AI-use policy content is delegated to instructors; the general academic integrity honest-effort standard still applies as a floor.",
+     "evidence": "the content of each policy is left to the discretion of the instructor",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "recommended",
+     "zh": "建议披露",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议",
+     "note": "Acknowledging AI use is framed as optional good practice, not a mandatory requirement.",
+     "evidence": "it may be a good idea to acknowledge your use as follows",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "MLA guidance, as relayed by the library, advises vetting secondary sources an AI cites; phrased as a suggestion, not a mandate.",
+     "evidence": "Take care to vet the secondary sources it cites",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "UCI's Academic Integrity Policy frames unauthorized AI use as an Academic Integrity Policy Violation, not specifically as plagiarism.",
+     "evidence": "No student shall engage in any activity involving any Academic Integrity Policy Violations.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Whether AI use is limited in a course is explicitly tied to preserving that course's learning outcomes and assessments.",
+     "evidence": "their use may be limited or prohibited to preserve specific learning outcomes or forms of assessment",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "tool_name",
+    "prompts",
+    "extent_of_use",
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "以各门课大纲为起点，设计“请教老师—记录工具/用途—提交自己的推理”流程；不要直接搬用 UCI 的大学纪律条文作为中学处分。"
+   ],
+   "quote": {
+    "text": "If you have any doubts, it is best to ask your instructor, and keep in mind that each course may have different standards of what might be acceptable.",
+    "why": "Sums up UCI's core message: AI rules vary by course, so when unsure, ask the instructor directly."
+   },
+   "covered": 6,
+   "strictness": 10,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "verification_duty",
+      "was": "verification_required",
+      "now": "general_caution",
+      "why": "The only support is MLA guidance relayed by the library as what MLA suggests you should do; a suggestion, not a stated duty."
+     }
+    ]
+   }
+  },
+  {
+   "id": "32-Swarthmore",
+   "num": 32,
+   "name": "Swarthmore College",
+   "short": "Swarthmore",
+   "file": "univ/32-Swarthmore.md",
+   "scope": "unit_or_school",
+   "scope_zh": "院系或项目级",
+   "scope_en": "Unit or school",
+   "scope_note": "Course-specific academic-integrity rule for CS 21 (Fall 2023), authored by Swarthmore CS course staff as this course's own policy.",
+   "sources": [
+    {
+     "unit": "Swarthmore Computer Science course staff",
+     "url": "https://www.cs.swarthmore.edu/courses/CS21/F23/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "treated_as_outside_help",
+     "zh": "等同他人协助",
+     "en": "Treated as outside help",
+     "rank": 3,
+     "short": "等同求助",
+     "note": "Generative AI use is explicitly equated with unauthorized outside collaboration, not just discouraged.",
+     "evidence": "The use of generative AI (e.g., chatGPT or GitHub CoPilot) is also considered to be unauthorized collaboration with an outside source and is a violation of our academic integrity policy.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "AI use is called unauthorized collaboration and a policy violation; breaking these rules also invokes Handbook plagiarism penalties.",
+     "evidence": "is also considered to be unauthorized collaboration with an outside source and is a violation of our academic integrity policy.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "States the policy's ethos: actions that shortcut learning are forbidden, actions that promote learning are encouraged.",
+     "evidence": "The general ethos of this policy is that actions which shortcut the learning process are forbidden while actions which promote learning are encouraged.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [],
+   "tiers": [],
+   "takeaways": [
+    "Ask for assignment-specific AI permission and distinguish brainstorming, drafting, attribution and independent verification.",
+    "Keep course-specific requirements separate from campus-wide academic-integrity standards and separate again from admissions instructions."
+   ],
+   "quote": {
+    "text": "The use of generative AI (e.g., chatGPT or GitHub CoPilot) is also considered to be unauthorized collaboration with an outside source and is a violation of our academic integrity policy.",
+    "why": "Names ChatGPT and Copilot by name and calls using them a violation, not a vague caution."
+   },
+   "covered": 3,
+   "strictness": 8,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "scope",
+      "was": "instructor_facing",
+      "now": "unit_or_school",
+      "why": "A course syllabus binds that course's students; instructor_facing is for guidance addressed to instructors."
+     }
+    ]
+   }
+  },
+  {
+   "id": "33-Williams",
+   "num": 33,
+   "name": "Williams College",
+   "short": "Williams",
+   "file": "univ/33-Williams.md",
+   "scope": "unit_or_school",
+   "scope_zh": "院系或项目级",
+   "scope_en": "Unit or school",
+   "scope_note": "Guidance from Williams College Libraries for students, not a university-wide or instructor-facing policy statement.",
+   "sources": [
+    {
+     "unit": "Williams College Libraries",
+     "url": "https://libguides.williams.edu/c.php?g=1470913&p=11044275"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Students must satisfy both their professor's AI policy and the Honor Code, which remains a floor beneath course-specific rules.",
+     "evidence": "double check your proposed use against your professor's AI policies, the assignment requirements, and the Honor Code",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Offers optional tools for documenting AI interactions; framed as helpful, not a mandatory submission.",
+     "evidence": "Below are some tools for documenting your work with AI.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Frames responsible AI use as including an explicit duty to always verify the tool's output.",
+     "evidence": "taking appropriate measures to protect your privacy and comply with intellectual property laws, and always verifying their output.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "Advises reading a tool's privacy policy and being careful what information you share, without naming specific barred data types.",
+     "evidence": "We encourage you to find and read the privacy policies of any tools you plan to use and to be careful about the information that you share with them.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Tells students not to share others' intellectual property or copyrighted material with AI tools.",
+     "evidence": "Avoid sharing someone else's intellectual property or copyrighted material with these tools.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "Williams Libraries loans Ephbot, a local Raspberry-Pi LLM, as a private, institution-provided AI tool.",
+     "evidence": "Here at Williams, Ephbot, a local LLM running on a Raspberry Pi is available for checkout from the Libraries' Equipment Loan Center.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "prompts",
+    "ai_output"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "Ask for assignment-specific AI permission and distinguish brainstorming, drafting, attribution and independent verification.",
+    "Keep course-specific requirements separate from campus-wide academic-integrity standards and separate again from admissions instructions."
+   ],
+   "quote": {
+    "text": "What may be acceptable use in one class may be in direct violation of another professor's policies.",
+    "why": "Shows AI rules vary by class, so what one professor allows another may treat as a violation."
+   },
+   "covered": 6,
+   "strictness": 10,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "ip_copyright",
+      "was": "addressed",
+      "now": "addressed",
+      "why": "The cited sentence only describes IP questions; the file has a direct instruction on others' material, which is the better evidence."
+     }
+    ]
+   }
+  },
+  {
+   "id": "34-Pomona",
+   "num": 34,
+   "name": "Pomona College",
+   "short": "Pomona",
+   "file": "univ/34-Pomona.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "Academic Honesty policy is college-wide; the CS Department's four-tier AI system is a department-specific pilot starting Fall 2026.",
+   "sources": [
+    {
+     "unit": "Pomona College Student Handbook",
+     "url": "https://studenthandbook.pomona.edu/academicpolicies/academichonesty"
+    },
+    {
+     "unit": "Pomona Computer Science Department",
+     "url": "https://www.pomona.edu/academics/departments/computer-science/courses-requirements/ai-policy-tier-system"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "prohibited_by_default",
+     "zh": "默认禁止",
+     "en": "Prohibited by default",
+     "rank": 3,
+     "short": "默认禁止",
+     "note": "University-wide standard lists unapproved AI use as a violation; CS courses instead get an assigned tier, so blanket silence rarely arises there.",
+     "evidence": "students never intentionally represent the ideas or the language of others as their own, examples include but are not limited to plagiarism, failing to use citations, unapproved use of artificial intelligence",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Instructors/courses operate within the department's four-tier framework; deviating from it is itself a policy violation.",
+     "evidence": "If a student uses AI in a way that does not align with the tier system for a specific course, it is considered a violation of our Departmental",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "explicit_named_scale",
+     "zh": "明确分级框架",
+     "en": "Explicit named scale",
+     "rank": 3,
+     "short": "明确分级",
+     "note": "Four numbered tiers (0-3) run from no AI use to fully open use; each CS course is assigned one tier.",
+     "evidence": "This document outlines the four tiers of allowed use that a course can fall under, from least to most permissive:",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "course_dependent",
+     "zh": "依课程而定",
+     "en": "Course dependent",
+     "rank": 1,
+     "short": "依课程",
+     "note": "Attribution is required only under Tier 2; Tier 3 explicitly waives credit, Tier 0 bars AI, Tier 1 defers to the syllabus.",
+     "evidence": "If generative AI tools play a significant role in the genesis of your work, they should be credited in the same way that you would share authorship with a collaborating lab partner in a publication.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Unapproved AI use is listed among the enumerated Standards for Academic Integrity, alongside but not identical to plagiarism.",
+     "evidence": "students never intentionally represent the ideas or the language of others as their own, examples include but are not limited to plagiarism, failing to use citations, unapproved use of artificial intelligence",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "Tier 1 ties any instructor exceptions to the course's own learning objectives, an explicit learning-based justification.",
+     "evidence": "instructors who primarily want to curb AI use but may make exceptions tailored to their course's learning objectives",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation"
+   ],
+   "tiers": [
+    "Tier 0: Absolutely no usage allowed",
+    "Tier 1: See syllabus for allowed usage",
+    "Tier 2: Use in any way with required attribution",
+    "Tier 3: Completely open use"
+   ],
+   "takeaways": [
+    "Ask for assignment-specific AI permission and distinguish brainstorming, drafting, attribution and independent verification.",
+    "Keep course-specific requirements separate from campus-wide academic-integrity standards and separate again from admissions instructions."
+   ],
+   "quote": {
+    "text": "If generative AI tools play a significant role in the genesis of your work, they should be credited in the same way that you would share authorship with a collaborating lab partner in a publication.",
+    "why": "Makes AI attribution concrete via a vivid, relatable comparison to crediting a lab partner."
+   },
+   "covered": 6,
+   "strictness": 12,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "learning_rationale",
+      "was": "explicit_learning_objective_rationale",
+      "now": "general_statement",
+      "why": "Learning objectives are named only as the basis for tailoring exceptions; the file does not say AI must not bypass the skills being learned."
+     }
+    ]
+   }
+  },
+  {
+   "id": "35-Boston-University",
+   "num": 35,
+   "name": "Boston University",
+   "short": "Boston University",
+   "file": "univ/35-Boston-University.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "S1 is official faculty-facing classroom guidance from AIDA; S2 is official student-facing coursework guidance from BU Libraries.",
+   "sources": [
+    {
+     "unit": "BU AI Development Accelerator",
+     "url": "https://www.bu.edu/aida/guidance/generative-ai-guidelines-for-classroom-use/"
+    },
+    {
+     "unit": "Boston University Libraries",
+     "url": "https://library.bu.edu/gen-ai/coursework"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "instructor_decides_no_default",
+     "zh": "交由教师决定",
+     "en": "Instructor decides, no default",
+     "rank": 1,
+     "short": "教师定",
+     "note": "Faculty set each course policy in the syllabus; students are told to clarify the instructor’s policy first.",
+     "evidence": "Clarify your instructor’s policy before starting your assignment.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Instructors set course-specific acceptable-use rules, but misuse still falls under BU's university-wide academic conduct policy.",
+     "evidence": "Misuse of GenAI can lead to violations of the university’s academic conduct policies.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "informal_categories",
+     "zh": "非正式分类",
+     "en": "Informal categories",
+     "rank": 1,
+     "short": "粗分类",
+     "note": "Distinguishes acceptable from unacceptable uses without a formal numbered or color-coded permission ladder.",
+     "evidence": "Make clear distinctions between acceptable and unacceptable uses.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "Library guidance directs students to cite AI-generated material for transparency, following citation-style and instructor rules.",
+     "evidence": "Cite AI-generated material to ensure transparency.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Library tips suggest including prompts in an appendix or providing an AI-interaction transcript, per instructor requirements.",
+     "evidence": "Providing a transcript of AI interactions",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Students are told they are responsible for verifying the accuracy of AI-generated content they use.",
+     "evidence": "They are responsible for verifying the accuracy of any AI-generated content.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "explicitly_plagiarism",
+     "zh": "明确等同抄袭",
+     "en": "Explicitly plagiarism",
+     "rank": 3,
+     "short": "等同抄袭",
+     "note": "Submitting GenAI output as one's own original work is explicitly framed as potentially constituting plagiarism.",
+     "evidence": "Submitting GenAI-generated work as their own original work may constitute plagiarism.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "reliability_questioned",
+     "zh": "质疑其可靠性",
+     "en": "Reliability questioned",
+     "rank": 2,
+     "short": "质疑可靠",
+     "note": "Faculty guidance warns that GenAI-detection tools are highly fallible (false positives and negatives) and cautions against relying on them.",
+     "evidence": "all detection tools are highly fallible, both with respect to false positives and false negatives",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "TerrierGPT, BU's licensed AI platform, is approved up to confidential data but explicitly not approved for restricted-use data.",
+     "evidence": "Note that it is not approved for use with restricted use data",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "TerrierGPT is BU's own GenAI platform, free to all BU students and faculty, with added data-security protections.",
+     "evidence": "all BU students and faculty have free access",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "AI should assist rather than replace the student’s own work.",
+     "evidence": "Use AI to assist—not replace—your work.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "prompts",
+    "ai_output",
+    "extent_of_use",
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "将课堂 AI 边界写在任务说明，并要求学生在使用前确认、在使用后说明用途；练习对 AI 内容核实，不能把引用视作任何用途的豁免。"
+   ],
+   "quote": {
+    "text": "Use AI to assist—not replace—your work.",
+    "why": "Short, memorable rule capturing the core boundary between help and replacement."
+   },
+   "covered": 11,
+   "strictness": 21,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "default_rule",
+      "was": "instructor_decides_no_default",
+      "now": "instructor_decides_no_default",
+      "why": "The cited sentence warns about unguided use; this one shows the routing to the instructor that the value rests on."
+     },
+     {
+      "field": "learning_rationale",
+      "was": "explicit_learning_objective_rationale",
+      "now": "general_statement",
+      "why": "The cited sentence is about teaching rather than punishing; the file’s learning-related statement is general, not a rationale that AI must not bypass the skill assessed."
+     }
+    ]
+   }
+  },
+  {
+   "id": "36-Wellesley",
+   "num": 36,
+   "name": "Wellesley College",
+   "short": "Wellesley",
+   "file": "univ/36-Wellesley.md",
+   "scope": "unit_or_school",
+   "scope_zh": "院系或项目级",
+   "scope_en": "Unit or school",
+   "scope_note": "Guidance from the Wellesley College Library on how to cite generative AI in academic writing; it is student-facing citation advice, not a university-wide integrity policy.",
+   "sources": [
+    {
+     "unit": "Wellesley College Library Research & Instruction",
+     "url": "https://libguides.wellesley.edu/citation/genai"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_supersedes",
+     "zh": "课程规则优先",
+     "en": "Course rule supersedes",
+     "rank": 2,
+     "short": "课程优先",
+     "note": "The guide defers to each class's or publication's own AI policy rather than asserting one library-wide rule.",
+     "evidence": "Make sure you know and follow the policies for the class or publication you for which you are writing.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "recommended",
+     "zh": "建议披露",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议",
+     "note": "Framed as a recommendation (should cite); the library also tells students to follow their class or publication's specific policy.",
+     "evidence": "Accordingly, you should cite when an AI tool was used to:",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Advises saving the tool, date, prompts and outputs so that AI use can be cited; no retention or submission rule is stated.",
+     "evidence": "Generative AI tools can provide different outputs in response to identical same prompts, so documenting your use of these tools is essential for you to cite them transparently and for later readers to understand your use of the tool.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Warns AI tools can fabricate or hallucinate sources and tells students to verify sources themselves.",
+     "evidence": "Always check a source yourself to make it less likely you end up using false or misleading information.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "tool_name",
+    "prompts",
+    "ai_output",
+    "formal_citation",
+    "extent_of_use"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "Ask for assignment-specific AI permission and distinguish brainstorming, drafting, attribution and independent verification.",
+    "Keep course-specific requirements separate from campus-wide academic-integrity standards and separate again from admissions instructions."
+   ],
+   "quote": {
+    "text": "Always check a source yourself to make it less likely you end up using false or misleading information.",
+    "why": "Warns students in plain language that AI can produce false information, so they must verify sources themselves."
+   },
+   "covered": 4,
+   "strictness": 6,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "process_evidence",
+      "was": "required",
+      "now": "recommended",
+      "why": "The list is what a citation needs, given as library advice; the file does not require students to keep or submit these records."
+     }
+    ]
+   }
+  },
+  {
+   "id": "37-Barnard",
+   "num": 37,
+   "name": "Barnard College",
+   "short": "Barnard",
+   "file": "univ/37-Barnard.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "CEP's student guide covers students/coursework as official student guidance; ATLIS's page covers Barnard community tool use as campus-technology advice.",
+   "sources": [
+    {
+     "unit": "Barnard Center for Engaged Pedagogy",
+     "url": "https://cep.barnard.edu/student-guide-generative-ai"
+    },
+    {
+     "unit": "Barnard ATLIS",
+     "url": "https://atlis.barnard.edu/using-genai-barnard"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "prohibited_by_default",
+     "zh": "默认禁止",
+     "en": "Prohibited by default",
+     "rank": 3,
+     "short": "默认禁止",
+     "note": "Students may use GenAI for academic work only when their instructor allows it.",
+     "evidence": "only using generative AI for academic work when it is allowed by your instructor",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Instructors set their own stance on AI dishonesty, but a baseline norm against unattributed AI use as one's own persists regardless.",
+     "evidence": "Each of your instructors may have their own position on what constitutes academic dishonesty with respect to these tools, but across disciplines, scholars agree that submitting AI-generated content as one’s own—or relying on it without proper attribution—violates principles of academic honesty.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "Submitting AI content as one's own, or without attribution, is treated as a violation of academic honesty.",
+     "evidence": "relying on it without proper attribution—violates principles of academic honesty",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Students must verify AI-generated information against credible sources rather than trust it outright.",
+     "evidence": "Always verify information with credible sources and cultivate the expertise needed to assess AI-generated material critically.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Undisclosed or unattributed AI use is framed as a violation of academic honesty principles.",
+     "evidence": "relying on it without proper attribution—violates principles of academic honesty",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "Advises caution with personal, FERPA-protected and others’ material in prompts; no category is barred outright.",
+     "evidence": "Be mindful about the prompts you are feeding into your bot. AI tools raise issues of privacy and intellectual property",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Flags copyright risk from entering others' copyrighted works or student work into AI tools.",
+     "evidence": "Copyrighted works of others may be a risk, as the law is unsettled and what constitutes fair use is not clear.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "Barnard provides Gemini as a licensed, FERPA-compliant tool via campus gBear credentials.",
+     "evidence": "available for FERPA-compliant use with your Barnard gBear credentials",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Rules are grounded in preserving independent thinking and scholarship rather than outsourcing it to AI.",
+     "evidence": "cannot replace the value of independent thinking or scholarship",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "研究者建议（非校方新增规则）：高中课程逐项明确AI使用范围与披露方式；本人负责思考和核验；谨慎处理隐私及第三方作品。此建议不适用于推定该校本科招生许可。"
+   ],
+   "quote": {
+    "text": "It is important to note that generative AI tools like ChatGPT, Gemini, or Claude cannot replace the value of independent thinking or scholarship.",
+    "why": "Names familiar AI tools and states plainly why the rules exist: AI can't replace real thinking."
+   },
+   "covered": 9,
+   "strictness": 20,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "data_privacy",
+      "was": "restricted_data_prohibited",
+      "now": "general_caution",
+      "why": "The PII/FERPA list is introduced with “We advise caution with the following”, which is a caution, not a prohibition."
+     }
+    ]
+   }
+  },
+  {
+   "id": "38-Washington-Seattle",
+   "num": 38,
+   "name": "University of Washington",
+   "short": "UW Seattle",
+   "file": "univ/38-Washington-Seattle.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "S1 is official university guidance for UW students and instructors; S2 is a public faculty-facing misconduct page describing a restricted toolkit not itself accessed.",
+   "sources": [
+    {
+     "unit": "UW Student Life — Vice President for Student Life",
+     "url": "https://www.washington.edu/studentlife/2023/10/11/ai-tools-and-academic-integrity/"
+    },
+    {
+     "unit": "UW Community Standards & Student Conduct",
+     "url": "https://www.washington.edu/cssc/academic-misconduct/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "prohibited_by_default",
+     "zh": "默认禁止",
+     "en": "Prohibited by default",
+     "rank": 3,
+     "short": "默认禁止",
+     "note": "Unapproved AI/technology use without instructor permission may violate academic standards.",
+     "evidence": "using these technologies without your instructor’s permission may violate academic standards of the University",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "What counts as unauthorized assistance depends on each class or assignment, within a Student Conduct Code that always bars plagiarism.",
+     "evidence": "unauthorized assistance, unauthorized collaboration, and prohibited behavior are based on the expectations set for that assignment or that class. For example, it is never appropriate for students to plagiarize",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "course_dependent",
+     "zh": "依课程而定",
+     "en": "Course dependent",
+     "rank": 1,
+     "short": "依课程",
+     "note": "A faculty tip for final projects asks students to cite sources of help; not a universal AI-disclosure rule.",
+     "evidence": "includes complete citations to all references or sources of help, including other students or work colleagues",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Faculty tip to collect an outline and bibliography before the deadline.",
+     "evidence": "Ask for a tentative bibliography and outline in advance of the deadline.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "unauthorized_assistance",
+     "zh": "未授权协助",
+     "en": "Unauthorized assistance",
+     "rank": 2,
+     "short": "未授权协助",
+     "note": "Unapproved AI/technology use is classified as cheating via the Code's unauthorized-assistance provision.",
+     "evidence": "cheating includes the unauthorized use of assistance, including technology, in completing assignments or exams",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Lists unauthorized recording/distribution of instructor's instructional content as misconduct.",
+     "evidence": "Recording and/or disseminating instructional content without the permission of the instructor",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "Refers to AI’s value for learning without grounding the rules in skills that must not be bypassed.",
+     "evidence": "AI content generators, such as ChatGPT, present opportunities that can contribute to your learning and academic work.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "中学写作任务区分“反馈/审阅”与“代写”，留存早期草稿作为学习过程；课程规定和招生要求分别解读。"
+   ],
+   "quote": {
+    "text": "Under the Student Conduct Code, cheating includes the unauthorized use of assistance, including technology, in completing assignments or exams.",
+    "why": "Makes the stakes concrete: unauthorized AI help counts as cheating, not just a guideline."
+   },
+   "covered": 7,
+   "strictness": 12,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "instructor_override",
+      "was": "course_rule_within_limits",
+      "now": "course_rule_within_limits",
+      "why": "The cited clause is about collaboration; the preceding sentence ties the Code’s unauthorized-assistance rule to each class, which is what the value rests on."
+     },
+     {
+      "field": "process_evidence",
+      "was": "recommended",
+      "now": "recommended",
+      "why": "A signed statement of own work is not process evidence; asking for an outline in advance is."
+     },
+     {
+      "field": "learning_rationale",
+      "was": "explicit_learning_objective_rationale",
+      "now": "general_statement",
+      "why": "The cited clause is an assignment-design tip, not a rationale; the file’s learning references are general."
+     }
+    ]
+   }
+  },
+  {
+   "id": "39-LSE",
+   "num": 39,
+   "name": "London School of Economics and Political Science",
+   "short": "LSE",
+   "file": "univ/39-LSE.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "S1 (Digital Skills Lab) is official student-facing guidance; S2 sets a university-wide assessment framework implemented by each department or course.",
+   "sources": [
+    {
+     "unit": "London School of Economics and Political Science",
+     "url": "https://info.lse.ac.uk/current-students/digital-skills-lab/Gen-AI"
+    },
+    {
+     "unit": "London School of Economics and Political Science",
+     "url": "https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/School-position-on-generative-AI"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "instructor_decides_no_default",
+     "zh": "交由教师决定",
+     "en": "Instructor decides, no default",
+     "rank": 1,
+     "short": "教师定",
+     "note": "No universal default; each department must adopt one of three School-defined positions before term starts.",
+     "evidence": "In advance of the start of the academic year, all academic departments must agree department-wide or course-level positions on the authorised use of generative AI in assessment within one of the following positions:",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Departments/convenors may adjust details (e.g. grammar-checking) but must choose within the School's three defined positions.",
+     "evidence": "Unless your Department or course convenor indicates otherwise, the use of AI tools for grammar and spell-checking is not included in the full prohibition under Position 1",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "explicit_named_scale",
+     "zh": "明确分级框架",
+     "en": "Explicit named scale",
+     "rank": 3,
+     "short": "明确分级",
+     "note": "Three named positions (no, limited, or full authorised use) that departments select for assessment.",
+     "evidence": "Position 1: No authorised use of generative AI in assessment.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "General caution about what to upload to AI tools, likened to caution with any cloud service.",
+     "evidence": "As with all cloud services (including Sharepoint or Google Drive), please be careful with what you upload.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "LSE gives students free enterprise-licensed access to Claude and Copilot.",
+     "evidence": "Claude is an AI assistant from Anthropic, available to you through LSE's Claude for Education partnership.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "States AI can support learning generally, without a stated limit against replacing assessed skills.",
+     "evidence": "AI tools can complement and support your learning, helping you to explore ideas, understand complex material, plan your work, or think through difficult concepts.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [],
+   "tiers": [
+    "Position 1: No authorised use of generative AI in assessment.",
+    "Position 2: Limited authorised use of generative AI in assessment.",
+    "Position 3: Full authorised use of generative AI in assessment."
+   ],
+   "takeaways": [
+    "每项课程、项目或评估先查教师书面规则；文书由申请人真实反思并亲自核对事实。",
+    "明确区分可用于构思或校对、可提交的内容与不可在面试／评估使用的工具；勿将大学在校作业规则照搬入高中或本科申请。"
+   ],
+   "quote": {
+    "text": "Before using AI tools in your academic work, always check your department's guidance.",
+    "why": "Sums up LSE's approach: there's no single AI rule - each department sets its own, so always check."
+   },
+   "covered": 6,
+   "strictness": 10,
+   "audit": {
+    "verdict": "clean",
+    "changes": []
+   }
+  },
+  {
+   "id": "40-Claremont-McKenna",
+   "num": 40,
+   "name": "Claremont McKenna College",
+   "short": "Claremont McKenna",
+   "file": "univ/40-Claremont-McKenna.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "S1 is faculty-facing advice with sample, non-policy syllabus language; S2 is CMC's official academic-integrity guidance for students, faculty, staff.",
+   "sources": [
+    {
+     "unit": "Claremont McKenna College (faculty-facing PDF)",
+     "url": "https://www.cmc.edu/sites/default/files/generative_ai_and_the_classroom.pdf"
+    },
+    {
+     "unit": "Claremont McKenna College, Academic Success",
+     "url": "https://www.cmc.edu/student-life/academic-success/academic-integrity"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "instructor_decides_no_default",
+     "zh": "交由教师决定",
+     "en": "Instructor decides, no default",
+     "rank": 1,
+     "short": "教师定",
+     "note": "The faculty guide leaves the AI rule to each instructor; no college-wide default is stated.",
+     "evidence": "You should consider addressing AI tools in your course policies. When it comes to AI tools, how do you define appropriate use in the context of your course(s)?",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Professors set course rules under CMC’s academic integrity standards.",
+     "evidence": "Not sure what your professor expects of you? Ask! It’s important to know the instructor’s preferred citation style, policies on things like the use of calculators, and what level of collaboration is allowed in that class.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "informal_categories",
+     "zh": "非正式分类",
+     "en": "Informal categories",
+     "rank": 1,
+     "short": "粗分类",
+     "note": "Distinguishes categories of allowed help (e.g. questions vs. outside/AI help needing acknowledgement), not a formal named ladder.",
+     "evidence": "You are allowed to receive only two categories of help while completing an assignment:",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "course_dependent",
+     "zh": "依课程而定",
+     "en": "Course dependent",
+     "rank": 1,
+     "short": "依课程",
+     "note": "Faculty decide and communicate their own disclosure rule; no single CMC-wide AI disclosure standard is set here.",
+     "evidence": "When and how should students disclose their usage of AI tools?",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Faculty are advised, as a strategy, to require students to keep multiple drafts/versions; not a stated university-wide mandate.",
+     "evidence": "Require students to save multiple drafts/versions in google docs or Box",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "explicitly_plagiarism",
+     "zh": "明确等同抄袭",
+     "en": "Explicitly plagiarism",
+     "rank": 3,
+     "short": "等同抄袭",
+     "note": "Stated in sample syllabus language offered to faculty; CMC’s own statement applies its plagiarism rules to internet sources.",
+     "evidence": "Misrepresenting AI-generated content as your own original work constitutes plagiarism.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "reliability_questioned",
+     "zh": "质疑其可靠性",
+     "en": "Reliability questioned",
+     "rank": 2,
+     "short": "质疑可靠",
+     "note": "AI detectors are called unreliable and unable to give definitive proof; no adjudication limit on their use is stated.",
+     "evidence": "AI detectors are unreliable. No AI detector can provide definitive proof.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Using others' photos or videos in academic/personal work likely needs permission, and possibly payment.",
+     "evidence": "If those images and videos were created by anyone other than you, they likely require permission",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Rules rest on the idea that writing and thinking are skills students must develop themselves, not outsource to AI.",
+     "evidence": "Help them understand that learning, thinking, and writing are skills and processes that they must ultimately cultivate and develop on their own, over time.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "tool_name",
+    "extent_of_use",
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "研究者建议（非校方新增规则）：高中课程逐项明确AI使用范围与披露方式；本人负责思考和核验；谨慎处理隐私及第三方作品。此建议不适用于推定该校本科招生许可。"
+   ],
+   "quote": {
+    "text": "However, the content generated by ChatGPT should not replace your own original thoughts and ideas.",
+    "why": "Plain-language reminder that ChatGPT can help, but must not substitute for the student's own thinking."
+   },
+   "covered": 9,
+   "strictness": 16,
+   "audit": {
+    "verdict": "major",
+    "changes": [
+     {
+      "field": "default_rule",
+      "was": "treated_as_outside_help",
+      "now": "instructor_decides_no_default",
+      "why": "The cited sentence is about plagiarism of internet sources, not a default for AI; the file routes the question to each instructor."
+     },
+     {
+      "field": "instructor_override",
+      "was": "course_rule_within_limits",
+      "now": "course_rule_within_limits",
+      "why": "The cited sentence is sample syllabus wording; the student-facing page states the instructor’s role directly."
+     },
+     {
+      "field": "integrity_framing",
+      "was": "explicitly_plagiarism",
+      "now": "explicitly_plagiarism",
+      "why": "Value kept; the note now says the AI-specific sentence comes from sample syllabus language, not a college rule."
+     },
+     {
+      "field": "institutional_tools",
+      "was": "institution_provided_tool",
+      "now": "not_addressed",
+      "why": "Turnitin is a detection service for instructors, not an AI tool supplied for students’ use."
+     },
+     {
+      "field": "disclose",
+      "was": "[\"tool_name\", \"ai_output\", \"original_drafts\", \"extent_of_use\", \"formal_citation\", \"editing_history\"]",
+      "now": "[\"tool_name\", \"extent_of_use\", \"formal_citation\"]",
+      "why": "Saving drafts is a process-evidence tip for faculty, and the file does not name AI output as something to disclose."
+     }
+    ]
+   }
+  },
+  {
+   "id": "41-Vassar",
+   "num": 41,
+   "name": "Vassar College",
+   "short": "Vassar",
+   "file": "univ/41-Vassar.md",
+   "scope": "unit_or_school",
+   "scope_zh": "院系或项目级",
+   "scope_en": "Unit or school",
+   "scope_note": "Official Vassar College Libraries research guide for student research/coursework; not a university-wide policy, since it defers the binding AI rule to each course.",
+   "sources": [
+    {
+     "unit": "Vassar College Libraries",
+     "url": "https://library.vassar.edu/gen-ai"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "instructor_decides_no_default",
+     "zh": "交由教师决定",
+     "en": "Instructor decides, no default",
+     "rank": 1,
+     "short": "教师定",
+     "note": "No institutional default; if a course states no policy, students are directed to ask the professor.",
+     "evidence": "If you have questions about it, or there isn't a policy, talk to your professor",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_supersedes",
+     "zh": "课程规则优先",
+     "en": "Course rule supersedes",
+     "rank": 2,
+     "short": "课程优先",
+     "note": "No institution-wide AI policy; faculty and departments set their own tailored, course-specific rules.",
+     "evidence": "Vassar College does not have an official policy on generative AI but rather empowers Vassar faculty members and departments to make tailored policies about AI for their courses;",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "States an unconditional directive to disclose any generative AI use.",
+     "evidence": "If you use generative AI, make sure to disclose your use of AI.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Explicit imperative duty to verify AI claims against original sources.",
+     "evidence": "Verify claims; whenever possible, go to the source!",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Frames impermissible AI use in a given course as a violation of the Academic Integrity policy.",
+     "evidence": "what's permissible in one class might constitute a violation of the Academic Integrity policy in another class",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "Cautions that AI platforms harvest data/chats and that free accounts may lack privacy protection.",
+     "evidence": "Many AI platforms collect user data and chats to further train their models.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "Gemini is offered through Vassar's campus Google suite as an account-linked, safer option.",
+     "evidence": "As part of our campus Google suite, interactions with Gemini through your Vassar account are not shared outside of the college.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation",
+    "extent_of_use"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "研究者建议（非校方新增规则）：高中课程逐项明确AI使用范围与披露方式；本人负责思考和核验；谨慎处理隐私及第三方作品。此建议不适用于推定该校本科招生许可。"
+   ],
+   "quote": {
+    "text": "Verify claims; whenever possible, go to the source!",
+    "why": "Short, punchy rule: never take an AI's claim on faith, always check the original source."
+   },
+   "covered": 7,
+   "strictness": 13,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "scope",
+      "was": "mixed",
+      "now": "unit_or_school",
+      "why": "The file is a single library guide; mixed is for files that combine a university-wide source with a narrower one."
+     }
+    ]
+   }
+  },
+  {
+   "id": "42-Carleton",
+   "num": 42,
+   "name": "Carleton College",
+   "short": "Carleton",
+   "file": "univ/42-Carleton.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "Combines a university-wide academic-integrity policy governing enrolled students' coursework with a community-facing AI policy overview whose data-security guidance targets employees.",
+   "sources": [
+    {
+     "unit": "Carleton College, AI at Carleton",
+     "url": "https://www.carleton.edu/ai/policies/"
+    },
+    {
+     "unit": "Carleton College Campus Handbook",
+     "url": "https://www.carleton.edu/handbook/academics/policy/329/academic-integrity/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "treated_as_outside_help",
+     "zh": "等同他人协助",
+     "en": "Treated as outside help",
+     "rank": 3,
+     "short": "等同求助",
+     "note": "AI use is grouped with collaboration with other students as an outside resource needing instructor permission.",
+     "evidence": "outside resources (e.g., collaboration with other students in the class, use of generative artificial intelligence or other technological tools, etc.) are permissible on any particular assignment",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Instructors set what's permitted per assignment, but acknowledgement of any permitted use is always required.",
+     "evidence": "What outside resources are permitted may differ across classes or across assignments. What does not differ is the presumption that all permitted collaboration or use of external resources must still be acknowledged.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "States as a firm presumption, not a suggestion, that permitted outside-resource or AI use must be acknowledged.",
+     "evidence": "the presumption that all permitted collaboration or use of external resources must still be acknowledged",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Classified as academic dishonesty under the Academic Integrity policy, adjudicated by the Academic Standing Committee.",
+     "evidence": "an act of academic dishonesty is therefore regarded as conflicting with the work and purpose of the entire College and not merely as a private matter between the student and an instructor",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "High-risk data (e.g. SSN, card numbers) may never be entered into Gemini; low and medium risk data only via Carleton accounts.",
+     "evidence": "Under no circumstances should individuals share high risk data",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Proprietary content is not to be entered into AI tools (stated for employees).",
+     "evidence": "Carleton employees should not enter sensitive data or proprietary content into generative AI tools",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "Google Gemini is Carleton's institutionally licensed AI tool under a data-privacy agreement with Google.",
+     "evidence": "Carleton has an ongoing agreement with Google regarding data privacy, and they recently issued a statement that they will not use information entered into Google Gemini for training their AI model.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Ties AI's role explicitly to whether it helps or hinders students' learning in a course.",
+     "evidence": "how it’s meant to benefit their learning, and how AI tools might assist or hinder that learning",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "研究者建议（非校方新增规则）：高中课程逐项明确AI使用范围与披露方式；本人负责思考和核验；谨慎处理隐私及第三方作品。此建议不适用于推定该校本科招生许可。"
+   ],
+   "quote": {
+    "text": "Ultimately, the responsibility lies with each student to ensure that they identify and complete the core intellectual substance of their work.",
+    "why": "Puts accountability for AI-assisted work squarely on the student, in plain language."
+   },
+   "covered": 8,
+   "strictness": 20,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "data_privacy",
+      "was": "restricted_data_prohibited",
+      "now": "restricted_data_prohibited",
+      "why": "The cited rule is addressed to employees; this one applies to every community member, students included."
+     },
+     {
+      "field": "ip_copyright",
+      "was": "not_addressed",
+      "now": "addressed",
+      "why": "The file does cover proprietary content, a form of intellectual property; marked not_addressed in error."
+     }
+    ]
+   }
+  },
+  {
+   "id": "43-Georgia-Tech",
+   "num": 43,
+   "name": "Georgia Institute of Technology",
+   "short": "Georgia Tech",
+   "file": "univ/43-Georgia-Tech.md",
+   "scope": "university_wide",
+   "scope_zh": "校级通用",
+   "scope_en": "University-wide",
+   "scope_note": "An interim administrative policy from the Provost/Research offices, applying institute-wide to academic and research contexts at Georgia Tech, not to undergraduate admissions.",
+   "sources": [
+    {
+     "unit": "Georgia Tech Policy Library, Office of Provost / Research",
+     "url": "https://policylibrary.gatech.edu/artificial-intelligence-ai-academic-research-contexts"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Units/colleges may add local AI rules but cannot exempt members from Institute-wide provisions.",
+     "evidence": "may adopt additional local requirements for AI use within their unit but they are not permitted to exempt GT community members from Institute AI provisions",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "recommended",
+     "zh": "建议披露",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议",
+     "note": "Students/staff 'should' cite AI-derived quotations, paraphrasing or ideas; not phrased as an absolute mandate.",
+     "evidence": "GT community members should cite any quotations, paraphrasing, or ideas derived from AI tools.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "student_fully_responsible",
+     "zh": "学生对成品完全负责",
+     "en": "Student fully responsible",
+     "rank": 3,
+     "short": "完全负责",
+     "note": "Members are declared responsible for AI-generated content's accuracy, beyond the separate duty to 'verify' beforehand.",
+     "evidence": "GT community members are responsible for the accuracy of any information they use or publish that includes AI-generated material.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Undisclosed AI use may violate the Academic Honor Code or count as scientific/scholarly misconduct.",
+     "evidence": "Academic Honor Code or another’s IP rights, or it may be considered scientific or scholarly misconduct",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "Institute Protected Data or PII that could identify someone may not be entered into an AI tool outside an approved tool's approved scope.",
+     "evidence": "must not submit any data categorized by the Institute as Protected Data or any data including personally identifiable information (PII) that can directly or indirectly identify another individual",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Noncompliance with AI policy risks violating others' IP rights and contractual/regulatory obligations.",
+     "evidence": "Failure to do so could result in violation of contractual obligations, others’ IP rights, and regulatory requirements.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "approved_tool_list",
+     "zh": "批准工具清单",
+     "en": "Approved tool list",
+     "rank": 2,
+     "short": "批准清单",
+     "note": "GT maintains an approval registry (Institutionally Approved / Limited Use AI Tools) rather than one issued tool.",
+     "evidence": "GT community members should use AI tools that are either an (1) Institutionally Approved AI Tool or a (2) Limited Use AI Tool as designated by a Local AI Point of Contact.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "分别写明课堂每项作业的 AI 可用边界和学生产出归属，并落实敏感信息防护；招生辅助用途不能自动迁入课堂许可。"
+   ],
+   "quote": {
+    "text": "GT community members are responsible for the accuracy of any information they use or publish that includes AI-generated material.",
+    "why": "Shows GT holds you fully accountable for AI-assisted work's accuracy, not just for using AI itself."
+   },
+   "covered": 7,
+   "strictness": 15,
+   "audit": {
+    "verdict": "clean",
+    "changes": []
+   }
+  },
+  {
+   "id": "44-NUS",
+   "num": 44,
+   "name": "National University of Singapore",
+   "short": "NUS",
+   "file": "univ/44-NUS.md",
+   "scope": "university_wide",
+   "scope_zh": "校级通用",
+   "scope_en": "University-wide",
+   "scope_note": "University-wide policy for teaching and assessment (S1) plus official student-facing guidance from NUS Libraries (S2); both apply across NUS, not one school.",
+   "sources": [
+    {
+     "unit": "NUS Centre for Teaching, Learning and Technology",
+     "url": "https://ctlt.nus.edu.sg/wp-content/uploads/2026/09/NUS-AI-Teaching-Learning-Policy_15-Sept-2026.pdf"
+    },
+    {
+     "unit": "NUS Libraries / University Policy Workgroup for AI in Teaching and Learning",
+     "url": "https://libguides.nus.edu.sg/new2nus/acadintegrity"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "conditional_use_allowed",
+     "zh": "有条件允许",
+     "en": "Conditional use allowed",
+     "rank": 2,
+     "short": "有条件",
+     "note": "S1: unsupervised assessments default to AI-permitted if disclosed. S2 frames use as conditional on instructor-granted permission first.",
+     "evidence": "the default assumption for any unsupervised (e.g., “take-home”) assessment task is that the use of AI tools is permitted so long as the use is duly acknowledged.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Baseline default (permitted-if-disclosed for unsupervised work) stands unless a course/instructor sets stricter limits or a supervised format.",
+     "evidence": "In general, course instructors may impose varying levels of restriction for the use of AI tools depending on the learning outcomes targeted.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "informal_categories",
+     "zh": "非正式分类",
+     "en": "Informal categories",
+     "rank": 1,
+     "short": "粗分类",
+     "note": "Lists distinct kinds of AI use for discussion of pros/cons, not a formal numbered or color-coded permission ladder.",
+     "evidence": "Typical scenarios include: “Using AI to better understand a reading or concept”, “Using AI to generate different assessment answers”, “Using AI to brainstorm ideas”, “Using AI to improve one’s writing”, “Using AI to generate code”, and so on.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "AI use on unsupervised assessments is permitted only on condition that it is acknowledged.",
+     "evidence": "the default assumption for any unsupervised (e.g., “take-home”) assessment task is that the use of AI tools is permitted so long as the use is duly acknowledged.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Offered as an option ('can') for extensive AI-assisted work, not a blanket requirement.",
+     "evidence": "you can also preserve a full transcript of the relevant interactions with the AI as an appendix for submission with your assignment.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "student_fully_responsible",
+     "zh": "学生对成品完全负责",
+     "en": "Student fully responsible",
+     "rank": 3,
+     "short": "完全负责",
+     "note": "File also separately requires checking AI claims against reliable sources before relying on them.",
+     "evidence": "you, rather than the AI tool, are responsible for the quality and integrity of the work you submit.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "explicitly_plagiarism",
+     "zh": "明确等同抄袭",
+     "en": "Explicitly plagiarism",
+     "rank": 3,
+     "short": "等同抄袭",
+     "note": "Undisclosed AI use presented as one's own work is explicitly named plagiarism, the strongest framing used.",
+     "evidence": "representing an AI’s output as your own work is plagiarism.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_sole_or_primary_evidence",
+     "zh": "不得作为唯一或主要证据",
+     "en": "Not sole or primary evidence",
+     "rank": 3,
+     "short": "不得为主证",
+     "note": "Stated as full inadmissibility, stronger than 'not sole/primary', but that is the closest listed value.",
+     "evidence": "The verdicts of current AI tools purporting to determine whether an analysed input has been generated by AI are not admissible as evidence in a disciplinary process to charge a student with academic dishonesty or as justification to penalize student work.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "Worded as 'should' (recommendation) for instructors handling broadly-defined 'NUS data'; not a student data-entry prohibition.",
+     "evidence": "Instructors should use NUS-approved AI tools (see the list here) whenever NUS data is involved.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "Also notes the legal/IP status of generative AI tools and their outputs is still evolving.",
+     "evidence": "The University takes a strict view of cheating in any form, deceptive fabrication, plagiarism and violation of intellectual property and copyright laws.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "A separate NUS-approved tool list also governs instructors handling NUS data.",
+     "evidence": "NUS provides students with access to an institutionally supported baseline of AI tools for learning, with specialised or advanced tools provided according to curricular need.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Frames restraint on AI use as protecting the student's own skill development, not just compliance.",
+     "evidence": "By jumping straight to using the tools, you may end up missing an opportunity to learn the subject matter in the course of a learning process which requires individual effort in order to succeed.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "tool_name",
+    "prompts",
+    "ai_output",
+    "extent_of_use",
+    "editing_history"
+   ],
+   "tiers": [],
+   "takeaways": [],
+   "quote": {
+    "text": "If you, as a learner, take shortcuts today, you risk becoming first in line to be replaced by bots because you will not have developed any independent skill set!",
+    "why": "Warns that shortcuts now mean being replaced by bots later — a stake teens grasp immediately."
+   },
+   "covered": 12,
+   "strictness": 26,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "disclosure",
+      "was": "required",
+      "now": "required",
+      "why": "Value kept; the cited sentence says “should”, while the policy makes acknowledgement a condition of permitted use, which is what makes it required."
+     }
+    ]
+   }
+  },
+  {
+   "id": "45-HKU",
+   "num": 45,
+   "name": "The University of Hong Kong",
+   "short": "HKU",
+   "file": "univ/45-HKU.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "University-wide GenAI policy announcement and library resource directory, plus TALIC teaching-and-learning principles for faculty that are explicitly not a binding student rule.",
+   "sources": [
+    {
+     "unit": "HKU Lead / HKU communications",
+     "url": "https://lead.hku.hk/en/article/2023/08/hku-introduces-new-policy-to-fully-integrate-genai-in-teaching-and-learning"
+    },
+    {
+     "unit": "HKU Libraries",
+     "url": "https://libguides.lib.hku.hk/AI-literacy"
+    },
+    {
+     "unit": "HKU TALIC AI in Education",
+     "url": "https://aied.talic.hku.hk/teaching-and-learning/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "course_dependent",
+     "zh": "依课程而定",
+     "en": "Course dependent",
+     "rank": 1,
+     "short": "依课程",
+     "note": "Teachers set course-specific expectations for declaring and citing GenAI tools used in coursework.",
+     "evidence": "provide guidance on proper declaration and citation of GenAI tools used in coursework tasks and assignments",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "TALIC (non-binding faculty guidance) instructs users to question and check AI output against other sources.",
+     "evidence": "Users need to ask questions, challenge assumptions, and seek out additional information when using AI.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "HKU provides GenAI tools free to all teachers and students for teaching and learning.",
+     "evidence": "a wide range of GenAI tools such as Microsoft OpenAI and Dall-E will be provided for free to all teachers and students for teaching and learning purposes",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "AI is to enhance learning; no statement that it must not bypass the skills being assessed.",
+     "evidence": "By developing core principles, educators can ensure that AI is used to enhance learning.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "tool_name",
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [],
+   "quote": {
+    "text": "AI should be used to support, not replace, traditional teaching methods.",
+    "why": "Sums up HKU's stance in one line: AI should help, not replace, thinking."
+   },
+   "covered": 4,
+   "strictness": 6,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "default_rule",
+      "was": "instructor_decides_no_default",
+      "now": "not_addressed",
+      "why": "The cited sentence leaves declaration and citation expectations to teachers; the file states no rule for when a course says nothing about using AI."
+     },
+     {
+      "field": "learning_rationale",
+      "was": "explicit_learning_objective_rationale",
+      "now": "general_statement",
+      "why": "The cited clause is an assessment-design suggestion; the file’s learning references are general."
+     }
+    ]
+   }
+  },
+  {
+   "id": "46-Oxford",
+   "num": 46,
+   "name": "University of Oxford",
+   "short": "Oxford",
+   "file": "univ/46-Oxford.md",
+   "scope": "university_wide",
+   "scope_zh": "校级通用",
+   "scope_en": "University-wide",
+   "scope_note": "Official Oxford-wide student guidance from the AI Competency Centre; addressed to students generally, not a specific school, department, or instructor.",
+   "sources": [
+    {
+     "unit": "University of Oxford",
+     "url": "https://oerc.ox.ac.uk/ai-centre/ai-guides/getting-started-with-ai-for-students"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "instructor_decides_no_default",
+     "zh": "交由教师决定",
+     "en": "Instructor decides, no default",
+     "rank": 1,
+     "short": "教师定",
+     "note": "States no institution-wide fallback; when a policy is unclear, students are told to ask their tutor or lecturer.",
+     "evidence": "When in doubt, ask your tutor or lecturer for clarification.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Courses and assessments set their own AI rules within University-wide rules (acknowledgement, summative-assessment policy, approved platforms).",
+     "evidence": "Each course and assessment may have different requirements. Always check the specific guidelines provided by your tutors, supervisors, department or faculty, and in your course handbook.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "informal_categories",
+     "zh": "非正式分类",
+     "en": "Informal categories",
+     "rank": 1,
+     "short": "粗分类",
+     "note": "Names kinds of supportive use (cognition, organisation, skills practice) without a formal permission ladder.",
+     "evidence": "Generative AI can be used in variety of ways to support learning. These include:",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "Acknowledgement of any AI use, including paraphrasing or structural suggestions, is mandatory, per course rules.",
+     "evidence": "Any use of AI must be properly acknowledged according to your course requirements.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Given as a getting-started tip, not a stated mandatory requirement, to log prompts and interactions.",
+     "evidence": "Keep records of prompts and interactions, especially when AI contributes to assessed work.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "student_fully_responsible",
+     "zh": "学生对成品完全负责",
+     "en": "Student fully responsible",
+     "rank": 3,
+     "short": "完全负责",
+     "note": "Students bear full accountability for submitted work, even where AI assistance introduced errors.",
+     "evidence": "You remain fully responsible for any work submitted, including any errors or inaccuracies from AI assistance.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Undisclosed or improper AI use is framed under academic integrity/accountability, not named as plagiarism specifically.",
+     "evidence": "Maintaining academic integrity and personal accountability",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "Personal or confidential research data must not go into AI platforms the University has not approved.",
+     "evidence": "Avoid sharing any personal or confidential research data with non-approved AI platforms",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "ChatGPT Edu is the University's own licensed deployment; SSO-based tools like it are the only ones approved for University data.",
+     "evidence": "The University's version of ChatGPT with data protection.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Frames the central risk as AI use bypassing, rather than augmenting, the student's own learning.",
+     "evidence": "Consider whether using generative AI is causing you to bypass rather than augment your learning",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "prompts",
+    "ai_output"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "每项课程、项目或评估先查教师书面规则；文书由申请人真实反思并亲自核对事实。",
+    "明确区分可用于构思或校对、可提交的内容与不可在面试／评估使用的工具；勿将大学在校作业规则照搬入高中或本科申请。"
+   ],
+   "quote": {
+    "text": "Never present AI-generated text as your own work",
+    "why": "A blunt, memorable rule about academic honesty that high schoolers immediately grasp."
+   },
+   "covered": 10,
+   "strictness": 21,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "instructor_override",
+      "was": "course_rule_supersedes",
+      "now": "course_rule_within_limits",
+      "why": "The file keeps University-wide floors that no course can waive, which is within_limits rather than supersedes."
+     },
+     {
+      "field": "tiered_scale",
+      "was": "informal_categories",
+      "now": "informal_categories",
+      "why": "Value kept; the cited tip is about starting with low-stakes practice, while this sentence introduces the kinds of use the value rests on."
+     }
+    ]
+   }
+  },
+  {
+   "id": "47-Boston-College",
+   "num": 47,
+   "name": "Boston College",
+   "short": "Boston College",
+   "file": "univ/47-Boston-College.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "University-wide AI guidance defers to course-specific instructor authority, alongside a university-level integrity policy scoped to undergraduate conduct.",
+   "sources": [
+    {
+     "unit": "Boston College AI @ BC",
+     "url": "https://www.bc.edu/bc-web/sites/generative-ai/Guidelines.html"
+    },
+    {
+     "unit": "Boston College University Catalog",
+     "url": "https://www.bc.edu/bc-web/academics/sites/university-catalog/policies-procedures/academic-integrity.html"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "prohibited_by_default",
+     "zh": "默认禁止",
+     "en": "Prohibited by default",
+     "rank": 3,
+     "short": "默认禁止",
+     "note": "AI assistance that is not sanctioned or documented is classified as cheating.",
+     "evidence": "work generated through unsanctioned and/or undocumented artificial intelligence (A.I.) assistance.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Instructor permission is required but citation of AI-assisted components remains a separate, mandatory condition.",
+     "evidence": "without both the explicit permission of the instructor and complete attribution and citation of A.I. assisted components.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "Full attribution and citation of AI-assisted portions of work is a mandatory condition, not optional.",
+     "evidence": "complete attribution and citation of A.I. assisted components",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "Warns generally of algorithmic bias and AI's inability to replace human insight, with no stated verification duty.",
+     "evidence": "such as potential biases in algorithms and the inability to replace human insights and connections",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "explicitly_plagiarism",
+     "zh": "明确等同抄袭",
+     "en": "Explicitly plagiarism",
+     "rank": 3,
+     "short": "等同抄袭",
+     "note": "Using AI text generators for central assignment requirements without permission and citation is classified as Plagiarism.",
+     "evidence": "using the assistance of artificial intelligence (A.I.) text generators to perform central requirements of an assignment",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "Named Confidential and Strictly Confidential data categories are barred from online AI tools without University review.",
+     "evidence": "'Strictly Confidential' data, as defined by the Boston College Data Security Policy, should not be used in any online AI tool (even if it has data protection), without University review.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "addressed",
+     "zh": "有明确规定",
+     "en": "Addressed",
+     "rank": 2,
+     "short": "有规定",
+     "note": "States that AI use must not infringe the copyright or IP rights of third parties.",
+     "evidence": "AI use must not violate the copyright and other IP rights of third parties.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "BC supports specific AI tools that carry contractual data protection for institutional data.",
+     "evidence": "BC’s currently supported AI tools (see Resources > AI Tools) offer Data Protection.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "General framing that the educational process depends on presenting one's own ideas, without an AI-specific skills rationale.",
+     "evidence": "the educational process requires that individuals present their own ideas and insights for evaluation, critique, and eventual reformulation",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "extent_of_use",
+    "formal_citation"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "中学作业提前界定核心能力训练不可外包的部分，同时规定教师同意和可核查引用格式；分别告知学生招生材料与课堂任务不能互相授权。"
+   ],
+   "quote": {
+    "text": "This includes using the assistance of artificial intelligence (A.I.) text generators to perform central requirements of an assignment (i.e. reading, synthesizing, interpreting, writing, coding, programming, etc.) without both the explicit permission of the instructor and complete attribution and citation of A.I. assisted components.",
+    "why": "States exactly when AI help becomes plagiarism: doing an assignment’s core work without permission and citation."
+   },
+   "covered": 9,
+   "strictness": 20,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "quote",
+      "was": "{\"text\": \"The resources on this website are designed to support the Boston College community’s safe, responsible, and ethical use of AI, in accordance with University guidelines on AI use.\", \"why\": \"States BC's whole AI approach in one line: safe, responsible, ethical use.\"}",
+      "now": "{\"text\": \"This includes using the assistance of artificial intelligence (A.I.) text generators to perform central requirements of an assignment (i.e. reading, synthesizing, interpreting, writing, coding, programming, etc.) without both the explicit permission of the instructor and complete attribution and citation of A.I. assisted components.\", \"why\": \"States exactly when AI help becomes plagiarism: doing an assignment’s core work without permission and citation.\"}",
+      "why": "The chosen sentence describes the website, not a rule; this one states the college’s AI rule."
+     }
+    ]
+   }
+  },
+  {
+   "id": "48-Cambridge",
+   "num": 48,
+   "name": "University of Cambridge",
+   "short": "Cambridge",
+   "file": "univ/48-Cambridge.md",
+   "scope": "university_wide",
+   "scope_zh": "校级通用",
+   "scope_en": "University-wide",
+   "scope_note": "University-wide guidance from the Education Quality and Policy Office on AI use by students in personal study, research, formative work and summative assessment.",
+   "sources": [
+    {
+     "unit": "University of Cambridge",
+     "url": "https://www.educationalpolicy.admin.cam.ac.uk/plagiarism-and-academic-misconduct/artificial-intelligence-ai"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "conditional_use_allowed",
+     "zh": "有条件允许",
+     "en": "Conditional use allowed",
+     "rank": 2,
+     "short": "有条件",
+     "note": "By default, using unacknowledged AI content as one's own work in summative assessment counts as misconduct, unless the assessment brief states otherwise.",
+     "evidence": "A student using any unacknowledged content generated by artificial intelligence within a summative assessment as though it is their own work constitutes academic misconduct",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_supersedes",
+     "zh": "课程规则优先",
+     "en": "Course rule supersedes",
+     "rank": 2,
+     "short": "课程优先",
+     "note": "The assessment brief may explicitly permit what would otherwise default to misconduct, so the assignment-level rule can override the general position.",
+     "evidence": "unless explicitly stated otherwise in the assessment brief",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "required",
+     "zh": "强制披露",
+     "en": "Required",
+     "rank": 3,
+     "short": "强制",
+     "note": "AI-generated content used in summative assessment must be acknowledged; failing to do so is treated as misconduct.",
+     "evidence": "unacknowledged content generated by artificial intelligence within a summative assessment as though it is their own work constitutes academic misconduct",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Passing off unacknowledged AI content as one's own work is classified as academic misconduct.",
+     "evidence": "as though it is their own work constitutes academic misconduct",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "general_statement",
+     "zh": "一般性表述",
+     "en": "General statement",
+     "rank": 1,
+     "short": "一般表述",
+     "note": "Recommends discussing AI use with a supervisor so students still benefit from the intended educational experience.",
+     "evidence": "benefiting from the educational experience as intended",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "ai_output"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "每项课程、项目或评估先查教师书面规则；文书由申请人真实反思并亲自核对事实。",
+    "明确区分可用于构思或校对、可提交的内容与不可在面试／评估使用的工具；勿将大学在校作业规则照搬入高中或本科申请。"
+   ],
+   "quote": {
+    "text": "A student using any unacknowledged content generated by artificial intelligence within a summative assessment as though it is their own work constitutes academic misconduct, unless explicitly stated otherwise in the assessment brief.",
+    "why": "Plainly states Cambridge's core AI rule and the consequence for students who don't disclose."
+   },
+   "covered": 5,
+   "strictness": 10,
+   "audit": {
+    "verdict": "clean",
+    "changes": []
+   }
+  },
+  {
+   "id": "49-Waseda",
+   "num": 49,
+   "name": "Waseda University",
+   "short": "Waseda",
+   "file": "univ/49-Waseda.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "S1 is university-wide, addressed to students, faculty and staff (institutional statement); S2 is a student-facing interview feature, not a university-wide rule.",
+   "sources": [
+    {
+     "unit": "Waseda University / Senior Executive Vice President (Academic Affairs/Provost)",
+     "url": "https://www.waseda.jp/top/en/news/77786"
+    },
+    {
+     "unit": "Waseda Weekly",
+     "url": "https://www.waseda.jp/inst/weekly/features/specialissue-ai/?lng=en"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "student_fully_responsible",
+     "zh": "学生对成品完全负责",
+     "en": "Student fully responsible",
+     "rank": 3,
+     "short": "完全负责",
+     "note": "Submitted work is judged as it stands, errors from AI included; disciplinary action can follow even without intent.",
+     "evidence": "Third, if you submit the thesis created by the generative AI without carefully examining it, the thesi s will be evaluated as it is, even if there are incompleteness or fatal errors in the content.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Submitting AI-generated work as it is is punished as a fraudulent act similar to cheating.",
+     "evidence": "Of course, if you submit a thesis created by the generative AI as it is, it will be punished as a fraudulent act similar to cheating.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "general_caution",
+     "zh": "一般性提醒",
+     "en": "General caution",
+     "rank": 1,
+     "short": "一般提醒",
+     "note": "Warns that careless use may leak confidential institutional information or personal information via queries.",
+     "evidence": "careless use of generative AI may lead to the leakage of confidential information within the univ ersity or company, and questions that include your name, etc. may lead to the leakage of personal information.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Frames report-writing as the key exercise for developing abilities; using AI to shortcut it forfeits that learning.",
+     "evidence": "Surely you might be able to complete a report quickly with generative AI, but you’re giving up the opportunity to improve your abilities.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [],
+   "tiers": [],
+   "takeaways": [],
+   "quote": {
+    "text": "Surely you might be able to complete a report quickly with generative AI, but you’re giving up the opportunity to improve your abilities.",
+    "why": "Names the trade-off plainly: speed now at the cost of the skill the report is meant to build."
+   },
+   "covered": 4,
+   "strictness": 9,
+   "audit": {
+    "verdict": "major",
+    "changes": [
+     {
+      "field": "default_rule",
+      "was": "instructor_decides_no_default",
+      "now": "not_addressed",
+      "why": "The only support is a professor’s stated personal opinion in an interview feature; the university statement sets no default."
+     },
+     {
+      "field": "tiered_scale",
+      "was": "informal_categories",
+      "now": "not_addressed",
+      "why": "The distinction comes from an interview opinion, not from the university’s statement."
+     },
+     {
+      "field": "verification_duty",
+      "was": "student_fully_responsible",
+      "now": "student_fully_responsible",
+      "why": "Value kept; evidence moved from an interview remark to the university statement."
+     },
+     {
+      "field": "integrity_framing",
+      "was": "explicitly_plagiarism",
+      "now": "academic_integrity_violation",
+      "why": "The statement classes AI submission as fraud similar to cheating; plagiarism is named only among findings in a thesis, not as the classification of AI use."
+     },
+     {
+      "field": "quote",
+      "was": "{\"text\": \"It is important to be aware that you are responsible for what you create\", \"why\": \"Puts responsibility for AI-assisted work squarely on the student, in plain, memorable terms.\"}",
+      "now": "{\"text\": \"Surely you might be able to complete a report quickly with generative AI, but you’re giving up the opportunity to improve your abilities.\", \"why\": \"Names the trade-off plainly: speed now at the cost of the skill the report is meant to build.\"}",
+      "why": "The chosen sentence is from an interview; this one is from the university statement."
+     }
+    ]
+   }
+  },
+  {
+   "id": "50-HKUST",
+   "num": 50,
+   "name": "The Hong Kong University of Science and Technology",
+   "short": "HKUST",
+   "file": "univ/50-HKUST.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "ITSO's guideline applies university-wide to general AI tool use; the Library's AI Literacy guide is an informational resource, not independent policy.",
+   "sources": [
+    {
+     "unit": "HKUST Information Technology Services Office",
+     "url": "https://itso.hkust.edu.hk/services/general-it-services/generative-ai-tools/guidelines"
+    },
+    {
+     "unit": "HKUST Library",
+     "url": "https://libguides.hkust.edu.hk/ai-literacy"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "recommended",
+     "zh": "建议披露",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议",
+     "note": "The institutional guideline asks for acknowledgement “when appropriate”; the library guide words it more firmly but is not policy.",
+     "evidence": "When appropriate, acknowledge or label AI-generated content to maintain transparency and uphold academic integrity.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "ITSO requires always verifying and fact-checking AI outputs; Library guide adds detailed steps for cross-checking citations.",
+     "evidence": "Always verify and fact-check AI-generated outputs carefully, as generative AI may produce inaccurate or fabricated information (\"hallucinations\").",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "ITSO instructs avoiding confidential, sensitive, or personal data and undesensitized confidential documents in AI tools.",
+     "evidence": "Avoid inputting confidential, sensitive, or personal data into generative AI tools.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "ITSO offers HKUST members a set of AI tools via a tools webpage; Library guide names HKUST Open WebUI as HKUST's AI tool.",
+     "evidence": "ITSO helps HKUST members use generative AI by offering a set of tools that they can access.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "ai_output",
+    "extent_of_use"
+   ],
+   "tiers": [],
+   "takeaways": [],
+   "quote": {
+    "text": "If you use ChatGPT or other AI tools in your work, you need to acknowledge it.",
+    "why": "Clear, concrete rule naming ChatGPT directly - the one actionable takeaway for students."
+   },
+   "covered": 4,
+   "strictness": 8,
+   "audit": {
+    "verdict": "major",
+    "changes": [
+     {
+      "field": "default_rule",
+      "was": "conditional_use_allowed",
+      "now": "not_addressed",
+      "why": "The IT guideline covers general tool use by all members and says nothing about coursework or assignments, so it sets no default for them."
+     },
+     {
+      "field": "disclosure",
+      "was": "default_to_disclosing",
+      "now": "recommended",
+      "why": "“When appropriate” is not “when in doubt”; the binding guideline makes acknowledgement conditional, which is a recommendation."
+     },
+     {
+      "field": "learning_rationale",
+      "was": "general_statement",
+      "now": "not_addressed",
+      "why": "The cited sentence states the library guide’s purpose; no rule is justified by appeal to learning."
+     }
+    ]
+   }
+  },
+  {
+   "id": "51-Imperial",
+   "num": 51,
+   "name": "Imperial College London",
+   "short": "Imperial",
+   "file": "univ/51-Imperial.md",
+   "scope": "university_wide",
+   "scope_zh": "校级通用",
+   "scope_en": "University-wide",
+   "scope_note": "Official Imperial-wide student guidance (Library Services; Study Guidance Hub) for all students' academic work, not one department.",
+   "sources": [
+    {
+     "unit": "Imperial College London",
+     "url": "https://www.imperial.ac.uk/admin-services/library/learning-support/generative-ai-guidance/"
+    },
+    {
+     "unit": "Imperial College London",
+     "url": "https://www.imperial.ac.uk/students/academic-support/ai-and-study-guidance-hub/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "prohibited_by_default",
+     "zh": "默认禁止",
+     "en": "Prohibited by default",
+     "rank": 3,
+     "short": "默认禁止",
+     "note": "Unauthorised AI use on assessed work may be treated as an offence unless the student has explicit authorisation.",
+     "evidence": "Unless explicitly authorised, using AI to create assessed work may be treated as an offence such as contract cheating",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_within_limits",
+     "zh": "教师可定但有底线",
+     "en": "Instructor rules within limits",
+     "rank": 2,
+     "short": "有底线",
+     "note": "Course/module requirements can permit or require AI tools but must be told to students; departments vary (S2-760).",
+     "evidence": "Further requirements may be stipulated for a particular piece of assessed work where AI tools are allowed or required. This must be made clear to students when it is set.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "informal_categories",
+     "zh": "非正式分类",
+     "en": "Informal categories",
+     "rank": 1,
+     "short": "粗分类",
+     "note": "Distinguishes assessed work where AI is merely allowed from work where it is required, without a formal named scale.",
+     "evidence": "for a particular piece of assessed work where AI tools are allowed or required",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "recommended",
+     "zh": "建议披露",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议",
+     "note": "Modal is 'should' (a recommendation), not 'must'; exact disclosure content may depend on department/course guidelines.",
+     "evidence": "You should include a statement to acknowledge your use of generative AI tools for all assessed work",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Framed as an additional requirement that may be stipulated per assignment, not a blanket duty for all students.",
+     "evidence": "If relevant, the prompt(s) used to generate a response in the AI system.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Students must fact-check every AI-generated statement to guard against fabricated hallucinations.",
+     "evidence": "Guard against AI “hallucinations” by fact-checking every statement before use.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Unauthorised AI use on assessed work may be treated as an offence such as contract cheating under the academic integrity regulations.",
+     "evidence": "Unless explicitly authorised, using AI to create assessed work may be treated as an offence such as contract cheating under Imperial’s",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "institution_provided_tool",
+     "zh": "提供机构版工具",
+     "en": "Institution-provided tool",
+     "rank": 2,
+     "short": "机构版工具",
+     "note": "dAIsy is Imperial's own AI platform with built-in data protection; a separate ICT page also lists supported tools.",
+     "evidence": "designed to give you safe, easy access to multiple generative AI models (such as GPT, Claude, Deepseek, and others) through a single interface. It's built to support teaching, learning, and research while ensuring data protection and institutional compliance.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Uncritical AI use is said to fail to demonstrate learning, tying voice/disclosure rules to learning objectives.",
+     "evidence": "uncritical AI use often yields generic, superficial text lacking true insight and will not demonstrate learning or substantial communication.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "tool_name",
+    "extent_of_use",
+    "formal_citation",
+    "prompts",
+    "ai_output",
+    "editing_history"
+   ],
+   "tiers": [],
+   "takeaways": [
+    "每项课程、项目或评估先查教师书面规则；文书由申请人真实反思并亲自核对事实。",
+    "明确区分可用于构思或校对、可提交的内容与不可在面试／评估使用的工具；勿将大学在校作业规则照搬入高中或本科申请。"
+   ],
+   "quote": {
+    "text": "Guard against AI “hallucinations” by fact-checking every statement before use.",
+    "why": "Punchy, concrete warning that AI can confidently invent false information - memorable for teens."
+   },
+   "covered": 9,
+   "strictness": 17,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "integrity_framing",
+      "was": "academic_integrity_violation",
+      "now": "academic_integrity_violation",
+      "why": "Value kept; the cited text was only the regulation’s title, while this sentence states the classification."
+     }
+    ]
+   }
+  },
+  {
+   "id": "52-Toronto",
+   "num": 52,
+   "name": "University of Toronto",
+   "short": "Toronto",
+   "file": "univ/52-Toronto.md",
+   "scope": "mixed",
+   "scope_zh": "混合来源",
+   "scope_en": "Mixed",
+   "scope_note": "S1 is UTM-campus student guidance reporting the University-wide stance; S2 is a university-wide index of guideline links, not full policy text.",
+   "sources": [
+    {
+     "unit": "University of Toronto Mississauga Academic Integrity",
+     "url": "https://www.utm.utoronto.ca/academic-integrity/students/generative-ai"
+    },
+    {
+     "unit": "University of Toronto AI portal",
+     "url": "https://ai.utoronto.ca/guidelines/"
+    }
+   ],
+   "cells": [
+    {
+     "dim": "default_rule",
+     "value": "prohibited_by_default",
+     "zh": "默认禁止",
+     "en": "Prohibited by default",
+     "rank": 3,
+     "short": "默认禁止",
+     "note": "Unapproved GenAI use is banned unless the instructor explicitly permits it.",
+     "evidence": "The University of Toronto takes the stance that students are not allowed to use generative AI in a course unless the instructor explicitly permits it.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "instructor_override",
+     "value": "course_rule_supersedes",
+     "zh": "课程规则优先",
+     "en": "Course rule supersedes",
+     "rank": 2,
+     "short": "课程优先",
+     "note": "Instructor permission and guidelines govern once given; policies vary by course and are not assumed uniform.",
+     "evidence": "If an instructor does permit generative AI in their course, it is important to follow all of their guidelines if you decide to use it.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "tiered_scale",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "disclosure",
+     "value": "course_dependent",
+     "zh": "依课程而定",
+     "en": "Course dependent",
+     "rank": 1,
+     "short": "依课程",
+     "note": "When permitted, some courses require citing AI-generated portions; the requirement varies by course.",
+     "evidence": "you may need to cite the portions that were generated by AI",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "process_evidence",
+     "value": "recommended",
+     "zh": "建议留证",
+     "en": "Recommended",
+     "rank": 1,
+     "short": "建议留证",
+     "note": "Some courses that permit AI may ask for prompts and outputs in an appendix.",
+     "evidence": "you may need to include the prompts and outputs that you used in an appendix",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "verification_duty",
+     "value": "verification_required",
+     "zh": "须自行核实",
+     "en": "Verification required",
+     "rank": 2,
+     "short": "须核实",
+     "note": "Students must verify AI-generated content against primary sources rather than trusting it as accurate.",
+     "evidence": "it’s important to verify anything it generates, even if it seems legitimate. Look for primary sources that can support what it is claiming",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "integrity_framing",
+     "value": "academic_integrity_violation",
+     "zh": "学术不端",
+     "en": "Academic integrity violation",
+     "rank": 2,
+     "short": "学术不端",
+     "note": "Unpermitted GenAI use is an academic offence that can trigger an academic misconduct allegation.",
+     "evidence": "Use of generative AI tools when not permitted is considered an academic offence and can result in an allegation of academic misconduct being raised by your instructor.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "detector_stance",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "data_privacy",
+     "value": "restricted_data_prohibited",
+     "zh": "禁止上传受限数据",
+     "en": "Restricted data prohibited",
+     "rank": 3,
+     "short": "禁受限数据",
+     "note": "Bars entering private, confidential, or identifying information into generative AI tools.",
+     "evidence": "Do not input any private, confidential or identifying information into generative AI.",
+     "match": "verbatim",
+     "from_takeaways": false
+    },
+    {
+     "dim": "ip_copyright",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "institutional_tools",
+     "value": "not_addressed",
+     "zh": "未提及",
+     "en": "Not addressed",
+     "rank": 0,
+     "short": "未提及",
+     "note": "",
+     "evidence": "",
+     "match": null,
+     "from_takeaways": false
+    },
+    {
+     "dim": "learning_rationale",
+     "value": "explicit_learning_objective_rationale",
+     "zh": "明确以学习目标为据",
+     "en": "Explicit learning-objective rationale",
+     "rank": 3,
+     "short": "学习目标",
+     "note": "Assessments are designed to build skills; unauthorized AI use can hinder learning and mask true progress.",
+     "evidence": "Instructors design their assessments to help students develop important skills for subsequent courses and for your future career, so unauthorized use of aids like generative AI can hinder your learning.",
+     "match": "verbatim",
+     "from_takeaways": false
+    }
+   ],
+   "disclose": [
+    "formal_citation",
+    "prompts",
+    "ai_output"
+   ],
+   "tiers": [],
+   "takeaways": [],
+   "quote": {
+    "text": "Generative AI should support, but not supplant your learning.",
+    "why": "Short, memorable line that captures the whole policy's philosophy in one clause."
+   },
+   "covered": 8,
+   "strictness": 17,
+   "audit": {
+    "verdict": "minor",
+    "changes": [
+     {
+      "field": "ip_copyright",
+      "was": "addressed",
+      "now": "not_addressed",
+      "why": "The only mention is the title of a linked guide; the file states nothing about copyright or others’ material."
+     },
+     {
+      "field": "process_evidence",
+      "was": "required",
+      "now": "recommended",
+      "why": "“May need to”, depending on the course, is not a general requirement."
      }
     ]
    }

@@ -87,9 +87,23 @@ def wrap_document(page):
     return DOC_HEAD + page
 
 
-def load_data():
-    """(data, dimensions-by-key, count(key, value), disclose(item))"""
+# The student guidelines were written against the first thirty universities,
+# before the College Fair additions (31–52) were coded; their figures stay tied
+# to those thirty until the text itself is revised.
+ORIGINAL = 30
+
+
+def load_data(core=False):
+    """(data, dimensions-by-key, count(key, value), disclose(item))
+
+    core=True restricts everything — schools, distributions, headline counts —
+    to the original thirty, aggregated exactly as build_data.py does."""
     d = json.loads(DATA.read_text(encoding="utf-8"))
+    if core:
+        import build_data
+        d["schools"] = [s for s in d["schools"] if s["num"] <= ORIGINAL]
+        d["dimensions"], counts = build_data.aggregate(d["schools"])
+        d["meta"] = {**d["meta"], **counts}
     dm = {x["key"]: x for x in d["dimensions"]}
 
     def count(key, value):

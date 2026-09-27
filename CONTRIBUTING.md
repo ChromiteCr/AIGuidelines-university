@@ -23,9 +23,8 @@ useful contribution you can make.
 记录），并同步 `admissions/application-index.json` 中该校的 `status` 与 `summary_zh`。旧的
 记录保留为历史，不要覆盖。
 
-**⑤ 补充的 22 所（31–52）校内规范过期或有误** — 改 `expansion/NN-School.md`，并同步
-`expansion/academic-index.json` 中该校的 `status`、`summary_zh` 与引文。这 22 所只收录摘录、
-未按 12 项条款编码；若要把某校纳入编码，需先补齐其政策的相关全文，再按 `univ/` 的流程抽取与审计。
+**⑤ 补充的 22 所（31–52）** — 它们的源文本也在 `univ/`，更正方式同 ①②③。`expansion/` 中的摘录与
+中文分析是研究记录，改动时同步 `expansion/academic-index.json`。
 
 ## 硬性要求 / Non-negotiables
 
@@ -39,7 +38,7 @@ useful contribution you can make.
 ## 提交前跑一遍 / Before you open the PR
 
 ```bash
-python3 tools/build_data.py <raw-extraction.json>   # 校验引文、重算分布
+python3 tools/build_data.py data/extraction.json    # 校验引文、重算分布
 python3 tools/build_atlas.py                        # 重新生成图谱
 python3 tools/build_guidelines.py                   # 学生规范（数字断言校验）
 python3 tools/build_home.py                         # 主页
@@ -52,7 +51,7 @@ python3 tools/check_site.py                         # 全站链接与结构检�
 `build_data.py` 会报告：
 
 ```
-evidence verbatim 234/234   matched-after-normalising 234/234
+evidence verbatim 388/388   matched-after-normalising 388/388
 problems          0
 ```
 

@@ -1,6 +1,6 @@
 # University AI Guidelines — 52-School College Fair Source Set
 
-![version](https://img.shields.io/badge/version-A5a1-blue)
+![version](https://img.shields.io/badge/version-A5b-blue)
 ![last commit](https://img.shields.io/github/last-commit/ChromiteCr/AIGuidelines-university)
 ![commit activity](https://img.shields.io/github/commit-activity/m/ChromiteCr/AIGuidelines-university)
 ![stars](https://img.shields.io/github/stars/ChromiteCr/AIGuidelines-university)
@@ -108,10 +108,10 @@ The original 30-school selection is a curated set of institutions consistently t
 来源性质和适用范围优先于上面的粗分类：官方教学指南不自动等于全校强制政策；系所模板不等于
 所有课程的默认规则。原 30 校正文未在本轮重新调查或改写。
 
-这 22 所只收录原文摘录（每校 1–3 个来源、1–6 条引文），**未按 12 项条款编码**：摘录按来源内容
-选取，摘录未提及的条款无法据以判断，编码会把「未摘录」误记为「未规定」。因此它们有单校页面与
-申请环节资料，在主页索引和图谱表格中与前 30 所合列，但标为「未编码」，不进入一致度统计与规范中的
-任何数字。
+上面的 `expansion/` 文件是本轮的摘录与中文分析（每校 1–3 个来源、1–6 条引文）。为了与前 30 所一样
+按 12 项条款编码，又从这些官方页面的保存副本中逐字选取相关段落，整理为 `univ/31-UC-Irvine.md` …
+`univ/52-Toronto.md`，按原有的抽取与审计规则编码（见下文「政策图谱」）。摘录只选了部分句子，
+直接据以编码会把「未摘录」误记为「未规定」，所以编码依据的是这些整理后的源文本，而不是摘录本身。
 
 ## Cross-school rules worth adapting for high school
 
@@ -164,30 +164,35 @@ The original 30-school selection is a curated set of institutions consistently t
 
 ## Policy Atlas — 政策图谱
 
-A dynamic comparison of all thirty policies across 12 comparable provisions
-(360 cells). 在线版：<https://ai.policy.nestudy.cn/atlas.html>；本地打开 `docs/atlas.html` 即可，无需服务器。
-表格同时列出补充的 22 所（31–52），整行标为「未编码」，排序时列在最后，不参与任何统计。
+A dynamic comparison of all fifty-two policies across 12 comparable provisions
+(624 cells). 在线版：<https://ai.policy.nestudy.cn/atlas.html>；本地打开 `docs/atlas.html` 即可，无需服务器。
 
-**每所学校独立抽取，互不串源。** 30 份文件由 30 个互相隔离的 agent 分别读取，每个只被允许
-读它自己那一份，并被禁止调用任何关于该校的既有知识；随后 30 个对抗性审计 agent 重读同一份
-文件，专门找编造的引文、把「建议」写成「强制」的抬级、以及本该沉默却被填上的格子（本轮共
-修正 68 处）。最后所有引文与其所属文件做精确字符串比对——**234/234 条逐字命中，零串源**。
+**每所学校独立抽取，互不串源。** 01–30 的 30 份文件由 30 个互相隔离的 agent 分别读取，每个只被
+允许读它自己那一份，并被禁止调用任何关于该校的既有知识；随后 30 个对抗性审计 agent 重读同一份
+文件，专门找编造的引文、把「建议」写成「强制」的抬级、以及本该沉默却被填上的格子（修正 68 处）。
+31–52 的 22 所用同一套抽取规则和条款定义：每所由一个隔离的 agent 只读该校官方页面的保存副本，
+逐字选取相关段落并编码，再逐格对照原文审计（22 所中 3 所无需修正，共修正 36 处，多为把「应当」
+编成「必须」、把一般提醒编成明文要求，或引文不是最能支撑取值的那一句）。最后所有引文与其所属
+文件做精确字符串比对——**388/388 条逐字命中，零串源**。
 
 ### Pipeline
 
 ```
 univ/*.md
-   └─ 隔离抽取 + 对抗审计（工作流）
+   └─ 隔离抽取 + 对抗审计                                         →  data/extraction.json
         └─ tools/build_data.py   校验引文 / 归一取值 / 计算分布  →  data/policies.json
-             └─ tools/build_atlas.py   注入数据到模板            →  docs/index.html
+             └─ tools/build_atlas.py   注入数据到模板            →  docs/atlas.html
 ```
 
 图谱不硬编码任何一条规则，全部读 `data/policies.json`；条款口径统一定义在
 `tools/codebook.py` 一处。改源文件、重跑构建，图谱自动更新。
 
 ```bash
-python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.py
+python3 tools/build_data.py data/extraction.json && python3 tools/build_atlas.py
 ```
+
+`data/extraction.json` 是 52 所的抽取与审计记录（每格的取值、引文与说明，以及审计的修正），
+`build_data.py` 从它重建 `data/policies.json`。
 
 `tools/from_journal.py` 可从工作流的 transcript 目录重建抽取结果，用于断点续跑或复核。
 
@@ -203,14 +208,17 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 
 ### 本轮读数
 
-一致度 = 主流口径校数 ÷ 有明文规定的校数。一致度排名只统计至少 15 校有明文规定的条款；「知识产权」只区分有无规定，不参与排名。
+一致度 = 主流口径校数 ÷ 有明文规定的校数。一致度排名只统计过半（至少 26 校）有明文规定的条款；「知识产权」只区分有无规定，不参与排名。
 
-- **一致度最高**：数据与隐私 72%、课程规则优先 70%、学习理由 60%
-- **一致度最低**：核实责任 39%、披露要求 43%、默认规则 45%
-- **未提及最多**：过程留证 20/30、检测器证据 19/30、机构工具 19/30
+- **一致度最高**：课程规则优先 73%、数据与隐私 64%、违规定性 64%
+- **一致度最低**：默认规则 42%、披露要求 44%、核实责任 45%
+- **未提及最多**：检测器证据 38/52、过程留证 33/52、分级许可 32/52
 
-360 格中 234 格有明文规定，126 格未提及。「未提及」仅表示本项目采集的官方来源未就该条款
+624 格中 388 格有明文规定，236 格未提及。「未提及」仅表示本项目采集的官方来源未就该条款
 作出表述，不代表该校没有相关规定。
+
+学生规范写于扩充之前，文中的数字仍以 01–30 的美国 30 所为准（360 格、234 条引文）；构建时这些
+数字按这 30 所单独核对。
 
 ## 许可 / Licensing
 
@@ -254,7 +262,7 @@ python3 tools/build_data.py <raw-extraction.json> && python3 tools/build_atlas.p
 `<blockquote>` 是否仍逐字存在于 `<cite>` 指名的 `univ/` 文件中。对不上就中止构建。
 
 ```
-数字核对   94/94 处断言与 data/policies.json 一致
+数字核对   98/98 处断言与 data/policies.json 一致
 引文核对   9/9 条逐字命中其来源文件
 ```
 
@@ -269,22 +277,17 @@ python3 tools/build_guidelines.py
 
 52 所大学都有自己的地址：`ai.policy.nestudy.cn/<slug>`，例如
 [/MIT](https://ai.policy.nestudy.cn/MIT)、[/Stanford](https://ai.policy.nestudy.cn/Stanford)、
-[/Oxford](https://ai.policy.nestudy.cn/Oxford)。编码比较的 30 所，页面内容：
+[/Oxford](https://ai.policy.nestudy.cn/Oxford)。页面内容：
 
-- **十二项条款**：每项的取值、支撑它的原文那一句、编码说明，以及这一立场在 30 校中的位置
-  （「30 校中 13 所与此相同 · 主流口径……」），并可一键跳到图谱里对照同一格
+- **十二项条款**：每项的取值、支撑它的原文那一句、编码说明，以及这一立场在 52 校中的位置
+  （如 Stanford 的默认规则：「52 校中 7 所与此相同 · 主流口径……」），并可一键跳到图谱里对照同一格
 - **申请环节的 AI 政策**：该校招生办公室就申请人使用 AI 的表述——证据状态、摘要、官方来源与
   逐字英文引文、中文分析（来自 `admissions/`，见下一节）
 - **官方原文全文**：图谱引用过的每一句都在原文中**逐句标出**，句末标签对应条款，点击可跳回；
-  跨段落、带粗体、互相重叠的引文都能正确标注（264 条引文全部定位）。MIT 的研究版本删去了
+  跨段落、带粗体、互相重叠的引文都能正确标注（440 条引文全部定位）。MIT 的研究版本删去了
   未被引用的段落，页面改为显示 `univ/full/` 中的完整采集文本，删去的部分以灰色小字标出
 - 中英双语切换、深浅色、手机适配；打印时自动收成一份单校简报（隐藏原文，页脚印出网址）
 
-补充的 22 所（31–52）没有十二项条款，页面内容是：
-
-- **校内 AI 规范**：证据状态、中文摘要，以及 `expansion/` 中该校的来源信息、逐字英文摘录、中文分析与
-  研究局限；页首注明「未按 12 项条款编码」
-- **申请环节的 AI 政策**：与前 30 所相同
 - 非美国大学在校名旁标出国家或地区（英国、加拿大、新加坡、日本、中国香港）
 
 **网址不区分大小写，常见写法自动跳转。** GitHub Pages 的路径区分大小写，所以站点带一个
@@ -292,8 +295,7 @@ python3 tools/build_guidelines.py
 `/麻省理工`、`/哈佛大学`、`/02`、`/upenn`、`/wustl`、`/oxford`、`/港大`、`/华盛顿大学` 都会跳到规范地址，
 `#锚点` 一并保留；真正不存在的地址会列出全部 52 所。共 384 种写法，构建时检查无冲突、不与现有页面重名。
 会同时指向两所学校的简写（`/boston`、`/washington`、`/香港`）不作跳转，改为列出全部学校。
-主页的学校索引按编号列出全部 52 所：前 30 所附该校在图谱中的一行色带，后 22 所标「未编码」，非美国
-大学另标国家或地区。
+主页的学校索引按编号列出全部 52 所，每所附该校在图谱中的一行色带，非美国大学另标国家或地区。
 
 每校的网址名、英文全名、中文名和别名集中在 [tools/schools.py](tools/schools.py) 一处，
 改名只需改那里再重建。
@@ -372,13 +374,12 @@ AI 专项表述；它不表示该校没有规定，更不表示允许。英国 4
   | `docs/atlas.html` 政策图谱 | `atlas/atlas.template.html` + `data/policies.json` | `tools/build_atlas.py` |
   | `docs/guidelines.html` 学生规范 | `guidelines/guidelines.html` | `tools/build_guidelines.py` |
   | `docs/admissions.html` 申请环节的 AI 政策 | `schools/admissions.template.html` + `admissions/` | `tools/build_admissions.py` |
-  | `docs/<slug>/index.html` 单校页面 ×52 | `schools/school.template.html` + `univ/*.md`（`univ/full/` 如有）或 `expansion/*.md` + `admissions/*.md` + 数据 | `tools/build_schools.py` |
+  | `docs/<slug>/index.html` 单校页面 ×52 | `schools/school.template.html` + `univ/*.md`（`univ/full/` 如有）+ `admissions/*.md` + 数据 | `tools/build_schools.py` |
   | `docs/404.html` 网址路由 | `tools/schools.py` | `tools/build_schools.py` |
   | `docs/versions.html` 版本与进展 | `home/versions.template.html` + 本文件的版本记录表 | `tools/build_versions.py` |
 
   构建脚本共用 `tools/sitelib.py`（文本比对、中文断行处理、断言登记、引文校验、文档外壳）；
-  原文渲染与高亮在 `tools/mdlite.py`，申请环节资料的渲染在 `tools/admissions.py`，补充 22 所的
-  校内规范在 `tools/expansion.py`。
+  原文渲染与高亮在 `tools/mdlite.py`，申请环节资料的渲染在 `tools/admissions.py`。
   `docs/.nojekyll` 让 Pages 跳过 Jekyll。
 - **地址**：<https://ai.policy.nestudy.cn/>（自定义域名，`docs/CNAME` 由 Pages 管理）
   ｜ 备用 <https://chromitecr.github.io/AIGuidelines-university/>
@@ -393,7 +394,7 @@ AI 专项表述；它不表示该校没有规定，更不表示允许。英国 4
 ### 构建、检查、本地预览
 
 ```bash
-python3 tools/build_data.py <raw-extraction.json>   # 仅在重跑抽取后需要
+python3 tools/build_data.py data/extraction.json    # 仅在改动源文件或抽取记录后需要
 python3 tools/build_atlas.py
 python3 tools/build_guidelines.py
 python3 tools/build_home.py
@@ -405,7 +406,7 @@ python3 tools/serve.py                              # 本地预览 http://localh
 ```
 
 `check_site.py` 核对每个页面都有文档外壳、HTML 嵌套正确、所有内部链接和页内锚点都指向
-存在的目标，并确认 52 个单校页面都能从主页和 404 路由到达（当前 58 个页面、2078 条链接、
+存在的目标，并确认 52 个单校页面都能从主页和 404 路由到达（当前 58 个页面、2936 条链接、
 0 问题）。404 路由也认页面名：`/atlas`、`/admissions`、`/guidelines`、`/versions` 会跳到对应页面。
 
 **版本与进展页**（`/versions.html`）由 `tools/build_versions.py` 直接读取下方「版本记录」表生成：按研究
@@ -420,6 +421,7 @@ python3 tools/serve.py                              # 本地预览 http://localh
 
 | 版本 | 日期 | 变更内容 | 类型 |
 |------|------|----------|------|
+| A5b | 2026-09-27 | 补充 22 所的条款编码：从 31–52 官方页面的保存副本中逐字选取相关段落，整理为 `univ/31-…52-*.md`，按原有的抽取规则与 12 项条款逐校编码并逐格审计（修正 36 处）；图谱扩为 52 × 12 = 624 格、388 条引文逐字核验，一致度与未提及统计按 52 所重算；单校页面统一为条款、申请环节与原文三部分；主页、图谱不再区分未编码学校；学生规范的数字仍按原 30 所核对，并在附录注明图谱已扩至 52 所；新增 `data/extraction.json` 保存 52 所的抽取与审计记录；图谱与数据的采集时间改为日期区间 | feat |
 | A5a1 | 2026-09-26 | 改正规范 §6.2 对申请审查的表述：原文称申请人「通常不会获得陈述机会」，与 Common App 的申诉条款不符；改为申请审查由申请平台和招生院校各自规定、不适用 §5 的程序，部分平台设有书面告知和陈述机制（如 Common App 在书面通知后 10 个工作日内接受陈述），但不等于每所大学都提供同样的复核；该期限改由构建与 `admissions/00-Application-Platforms.md` 中的原文核对（规范断言 94 处） | fix |
 | A5 | 2026-09-26 | College Fair 扩充至 52 所：依据 College Fair 的学校名单新增 22 所（含美国文理学院，以及英国、加拿大、新加坡、日本和中国香港的大学），`expansion/` 收入其校内 AI 规范原文摘录与索引，`admissions/` 扩至 52 校并新增 UCAS 共同来源（保留 Brown、Columbia 的补充检索）；22 所各有单校页面（校内规范摘录与申请环节，注明未编码）；主页学校索引与图谱表格 52 所合列，未编码的 22 所不计入统计；申请汇总页改为 52 所并新增 UCAS 一节；站点标题改为「52 所大学 AI 使用政策比较研究」；新增「版本与进展」页面；404 路由扩至 384 种写法；规范 §6.2 的校数改由构建核对 | milestone |
 | A4 | 2026-09-25 | 申请环节资料上线：`admissions/` 收入 30 校与共同来源（Common App、UC 系统）的申请环节 AI 资料；新增汇总页 `admissions.html`（30 校对照表、按证据状态筛选、状态定义、共同来源原文、方法与局限）；单校页面新增「申请环节的 AI 政策」一节与页首标签；补充检索取得 Brown、Columbia 此前无法访问的本科页面并更新证据状态；图谱表格的校名与格子详情直达单校页面；MIT 原文恢复为完整采集文本，未被引用的段落以灰色小字显示；规范 §6 开头限定为原采集的 30 份校内政策，§6.2 链接申请环节页；404 路由支持 `/atlas`、`/admissions`、`/guidelines` | milestone |
@@ -469,8 +471,8 @@ python3 tools/serve.py                              # 本地预览 http://localh
 - `29-UC-San-Diego.md`
 - `30-NYU.md`
 
-以上 30 份在 `univ/`。补充的 22 所：`expansion/31-UC-Irvine.md` … `expansion/52-Toronto.md`；
-52 所的申请环节资料：`admissions/01-Stanford.md` … `admissions/52-Toronto.md`。
+以上 30 份在 `univ/`，补充的 22 所为 `univ/31-UC-Irvine.md` … `univ/52-Toronto.md`（本轮的摘录与分析另见
+`expansion/`）；52 所的申请环节资料：`admissions/01-Stanford.md` … `admissions/52-Toronto.md`。
 
 ## Preservation note
 

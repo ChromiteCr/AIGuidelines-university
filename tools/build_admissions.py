@@ -66,7 +66,7 @@ def main():
     schools = sorted(d["by_id"].items(), key=lambda kv: kv[0])
     # the names the atlas uses, and for the added universities the registry's
     short = {**{s["id"]: s["short"] for s in load_data()[0]["schools"]}, **reg.SHORT}
-    n_coded = load_data()[0]["meta"]["schools"]
+    n_us = load_data(core=True)[0]["meta"]["schools"]     # 01–30, the original U.S. set
     n_uk = sum(1 for sid in d["by_id"] if reg.COUNTRY.get(sid, ("", ""))[1] == "UK")
     counts = {st: sum(1 for _, s in schools if s["status"] == st) for st in adm.STATUS_ORDER}
     present = [st for st in adm.STATUS_ORDER if counts[st]]
@@ -79,7 +79,7 @@ def main():
     add("学校数", len(schools), "<title>申请环节的 AI 政策 · {n} 所大学</title>", "{n} 所大学 · 以本科新生申请为主",
         "{n} universities · first-year undergraduate applicants", "本页汇总 {n} 所大学招生办公室",
         "What the admissions offices of {n} universities", "<h2 lang=\"zh\">{n} 所大学</h2>")
-    add("编码校数", n_coded, "为美国 {n} 所大学", "are the {n} U.S. universities")
+    add("美国原有校数", n_us, "为美国 {n} 所大学", "are the {n} U.S. universities")
     add("UC 校区数", uc, "UC 的 {n} 所校区共用同一系统来源", "不计为 {n} 份独立政策",
         "the {n} UC campuses share one system source", "not counted as {n} independent policies")
     add("英国校数", n_uk, "本项目涉及的 {n} 所英国大学", "including the {n} UK universities covered here")

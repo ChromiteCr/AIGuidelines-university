@@ -1,17 +1,12 @@
 #!/usr/bin/env python3
 """One page per university:  docs/<slug>/index.html  →  ai.policy.nestudy.cn/<slug>
 
-Each page is that university's AI rules on their own. For the thirty coded in
-the atlas: its twelve provisions, each with the sentence it rests on and where
-that position sits among the thirty; what its admissions office says about
-applicants using AI (from admissions/, see tools/admissions.py); and the full
+Each page is that university's AI rules on their own: its twelve provisions as
+coded in the atlas, each with the sentence it rests on and where that position
+sits among all the universities coded; what its admissions office says about
+applicants using AI (from admissions/, see tools/admissions.py); and the
 official text collected for it — with every cited sentence highlighted in place
 and tagged with the provision it supports.
-
-The 22 universities added for the College Fair (expansion/, see
-tools/expansion.py) are not coded. Their pages carry the campus-guidance
-excerpts and the admissions record instead, and say that they are not in the
-atlas.
 
 Where univ/full/<file> exists, the page shows that complete text instead of the
 research copy in univ/, with the parts the research copy leaves out set in small
@@ -40,7 +35,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import admissions as adm  # noqa: E402
-import expansion as exp  # noqa: E402
 import mdlite  # noqa: E402
 import schools as reg  # noqa: E402
 from sitelib import ROOT, load_data, wrap_document  # noqa: E402
@@ -158,6 +152,14 @@ class Balance(html.parser.HTMLParser):
 # ---------------------------------------------------------------------------
 def kv_label(key):
     return bi(E(KV_ZH.get(key, key)), E(key))
+
+
+def country(sid):
+    """A small tag naming the country or region of a university outside the U.S."""
+    if sid not in reg.COUNTRY:
+        return ""
+    cz, ce = reg.COUNTRY[sid]
+    return f'<span class="ctry">{bi(E(cz), E(ce))}</span>'
 
 
 def eyebrow(num, ctx):
@@ -311,7 +313,7 @@ def school_page(s, ctx):
     mast = f'''<header class="mast"><div class="wrap">
   {eyebrow(s["num"], ctx)}
   <h1>{E(s["short"])}</h1>
-  <p class="fullname"><span>{E(en_name)}</span><span class="zh">{E(zh_name)}</span></p>
+  <p class="fullname"><span>{E(en_name)}</span><span class="zh">{E(zh_name)}</span>{country(sid)}</p>
   <div class="chips">
     <span class="chip" title="{E(scope["hint"])}">{bi(f"来源层级 · <b>{E(scope['zh'])}</b>", f"Source level · <b>{E(scope['en'])}</b>")}</span>
     <span class="chip">{bi(f"<b>{covered}</b> / 12 项有明文规定", f"<b>{covered}</b> of 12 provisions addressed")}</span>
@@ -440,10 +442,6 @@ def school_page(s, ctx):
 
 CODED_JUDGMENT = ("对政策的分类与强度分级是本项目的判断，不代表该校立场。",
                   "The classification and strength grading are this project’s judgment, not the university’s position.")
-ADDED_JUDGMENT = ("证据状态与中文分析是本项目的判断，不代表该校立场。",
-                  "The evidence statuses and the Chinese analysis are this project’s judgment, not the university’s position.")
-
-
 def footer(judgment):
     zh, en = judgment
     return f'''<footer><div class="wrap">
@@ -469,56 +467,6 @@ def assemble(sid, ctx, desc, main):
     if bal.errors or bal.stack:
         raise SystemExit(f"{sid}: HTML 嵌套错误 {bal.errors[:3]} 未闭合 {bal.stack[-3:]}")
     return page
-
-
-def added_page(sid, ctx):
-    """A university added for the College Fair: campus excerpts and admissions, no coding."""
-    x, entry = ctx["info"][sid], ctx["exp"]["by_id"][sid]
-    slug, cname = reg.slug(sid), ctx["cname"]
-    _, en_name, zh_name, _ = reg.SCHOOLS[sid]
-    front_html, body_html = exp.render(sid, "../", kv_label)
-    accessed = max(src["accessed_at"] for src in entry["sources"] if src.get("accessed_at"))[:10]
-    sz, se = exp.status_short(entry["status"])
-    full_zh = ctx["exp"]["status_labels"][entry["status"]]
-    full_en = exp.STATUS_TEXT[entry["status"]][2]
-    n_coded = ctx["data"]["meta"]["schools"]
-    n_added = len(ctx["exp"]["by_id"])
-    adm_chip, admissions = admissions_section(sid, ctx)
-    ctry = ""
-    if sid in reg.COUNTRY:
-        cz, ce = reg.COUNTRY[sid]
-        ctry = f'<span class="ctry">{bi(E(cz), E(ce))}</span>'
-
-    mast = f'''<header class="mast"><div class="wrap">
-  {eyebrow(x["num"], ctx)}
-  <h1>{E(x["short"])}</h1>
-  <p class="fullname"><span>{E(en_name)}</span><span class="zh">{E(zh_name)}</span>{ctry}</p>
-  <div class="chips">
-    <a class="chip adm-chip" href="#campus">{bi(f"校内规范 · <b>{E(sz)}</b>", f"Campus guidance · <b>{E(se)}</b>")}</a>
-    <span class="chip">{bi("未按 12 项条款编码", "Not coded against the 12 provisions")}</span>
-    <span class="chip">{bi(f"采集于 <b>{E(accessed)}</b>", f"Accessed <b>{E(accessed)}</b>")}</span>
-    {adm_chip}
-  </div>
-  <p class="print-url">{E(cname or "")}/{slug}</p>
-</div></header>'''
-
-    campus = f'''<section id="campus">
-  <div class="sec-head"><h2>{bi("校内 AI 规范", "Campus AI guidance")}</h2><span class="en2">expansion/{E(sid)}.md</span></div>
-  <p class="sec-sub">{bi(f"该校就课程、作业与学术诚信中使用 AI 发布的官方指导，英文为逐字摘录，中文为整理者的分析。证据状态描述找到的是哪一类来源，不是宽严等级。本校属补充的 {n_added} 所之一：只收录原文摘录，未按 12 项条款编码；政策图谱中列有本校，但标为未编码，不计入图谱与规范的统计。",
-                          f"Official guidance from this university on using AI in courses, coursework and academic integrity: the English is excerpted verbatim, the Chinese is the collector's analysis. The evidence status describes the kind of source found, not how strict it is. This is one of the {n_added} universities added to the original {n_coded}: only excerpts were collected, so it is not coded against the twelve provisions. The atlas lists it as not coded, and it is not counted in the atlas's figures or the guidelines.")}</p>
-  <div class="adm-head">
-    <span class="adm-k">{bi("证据状态", "Evidence status")}</span>
-    <span class="adm-status">{bi(E(full_zh), E(full_en))}</span>
-    <p class="adm-sum">{E(entry["summary_zh"])}</p>
-  </div>
-  <div class="about"><h3>{bi("来源信息", "Source information")}</h3>{front_html}</div>
-  <div class="source adm">{body_html}</div>
-</section>'''
-
-    main = (f'{mast}\n<main class="wrap">\n{campus}\n{admissions}\n'
-            f'{pager(sid, ctx)}\n</main>\n{footer(ADDED_JUDGMENT)}')
-    page = assemble(sid, ctx, f"{en_name}（{zh_name}）AI 使用规定：校内 AI 规范的原文摘录与申请环节的规定。", main)
-    return slug, page
 
 
 # ---------------------------------------------------------------------------
@@ -607,21 +555,12 @@ var PAGES = {"atlas": "atlas.html", "admissions": "admissions.html", "guidelines
 def main():
     d, dm, _, _ = load_data()
     by_id = {s["id"]: s for s in d["schools"]}
-    added = exp.load()
-    # every registered school is either coded (the atlas dataset) or added (expansion/), never both
-    if set(by_id) & set(added["by_id"]):
-        raise SystemExit(f"既在数据集又在 expansion/ 中：{sorted(set(by_id) & set(added['by_id']))}")
-    unknown = (set(by_id) | set(added["by_id"])) ^ set(reg.SCHOOLS)
+    unknown = set(by_id) ^ set(reg.SCHOOLS)
     if unknown:
-        raise SystemExit(f"schools.py 与数据集、expansion/ 的学校不一致：{sorted(unknown)}")
-    if set(reg.SHORT) ^ set(added["by_id"]):
-        raise SystemExit(f"schools.SHORT 与 expansion/ 的学校不一致：{sorted(set(reg.SHORT) ^ set(added['by_id']))}")
+        raise SystemExit(f"schools.py 与数据集的学校不一致：{sorted(unknown)}")
 
     info = {sid: {"id": sid, "num": s["num"], "short": s["short"]} for sid, s in by_id.items()}
-    info.update({sid: {"id": sid, "num": int(sid[:2]), "short": reg.SHORT[sid]} for sid in added["by_id"]})
     order = sorted(info, key=lambda i: info[i]["num"])
-    coded = [i for i in order if i in by_id]
-    extra = [i for i in order if i not in by_id]
 
     cname_file = DOCS / "CNAME"
     ctx = {
@@ -629,7 +568,6 @@ def main():
         "tpl": TPL.read_text(encoding="utf-8"),
         "cname": cname_file.read_text(encoding="utf-8").strip() if cname_file.exists() else "",
         "adm": adm.load(),
-        "exp": added,
     }
     # every admissions file is indexed, and every indexed school has its file
     files = {p.name[:-3] for p in ADMISSIONS.glob("[0-9][0-9]-*.md") if not p.name.startswith("00-")}
@@ -644,12 +582,9 @@ def main():
 
     n_spans = n_marks = n_adm = 0
     for sid in order:
-        if sid in by_id:
-            slug, page, spans, marks = school_page(by_id[sid], ctx)
-            n_spans += spans
-            n_marks += marks
-        else:
-            slug, page = added_page(sid, ctx)
+        slug, page, spans, marks = school_page(by_id[sid], ctx)
+        n_spans += spans
+        n_marks += marks
         n_adm += 'id="admissions"' in page
         out = DOCS / slug / "index.html"
         out.parent.mkdir(exist_ok=True)
@@ -661,7 +596,7 @@ def main():
                  .replace("__SCHOOLS__", json.dumps(listing, ensure_ascii=False))),
         encoding="utf-8")
 
-    print(f"单校页面   {len(order)} 个 → docs/<slug>/index.html（编码 {len(coded)} 所，补充 {len(extra)} 所）")
+    print(f"单校页面   {len(order)} 个 → docs/<slug>/index.html")
     print(f"原文标注   {n_spans} 条引文全部在原文中定位并标出（{n_marks} 个高亮片段）")
     print(f"网址别名   {len(table)} 个写法 → {len(order)} 个页面，无冲突 → docs/404.html")
     print(f"申请环节   {n_adm} 个页面含申请环节一节（admissions/）")

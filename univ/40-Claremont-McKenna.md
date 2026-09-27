@@ -1,0 +1,168 @@
+# Claremont McKenna College: Official AI Use Guidelines — Source Text
+
+- Accessed: 2026-09-26
+- Format note: Relevant passages copied verbatim from saved copies of the official pages below; navigation and unrelated page content removed. Wording is retained; layout may differ from the webpage.
+- Scope note: [Generative AI and the Classroom: Tips and Ideas] Claremont McKenna College (faculty-facing PDF) — scope: faculty/classroom; authority: faculty-teaching-advice / sample-syllabus-not-university-policy. [Promoting Academic Integrity at CMC | Claremont McKenna College] Claremont McKenna College, Academic Success — scope: CMC students/faculty/staff; authority: official-academic-integrity-guidance.
+- Use note: Source material for comparison, not a translation or the school's final high-school policy.
+
+## Generative AI and the Classroom: Tips and Ideas
+
+- Publishing unit: Claremont McKenna College (faculty-facing PDF)
+- Official source: https://www.cmc.edu/sites/default/files/generative_ai_and_the_classroom.pdf
+
+---
+
+### Generative AI and the Classroom: Tips and Ideas As AI tools become more prevalent (and more difficult to avoid), it’s important to learn more about them in relation to your discipline. The links below provide a helpful overview.
+
+Learn more about how students are using AI tools as part of their regular study habits and as part of their research and writing practices. A current student at Columbia has written about this in the Chronicle. Remember that the incoming class of 2027 will have encountered AI tools as part of their high school education.
+
+Talk to your students about the drawbacks and limitations of AI tools. Help them understand that learning, thinking, and writing are skills and processes that they must ultimately cultivate and develop on their own, over time. Make sure they understand the limitations of AI tools in relation to your particular discipline.
+
+### Discuss AI tools with your students and be clear about your rules and expectations You should consider addressing AI tools in your course policies. When it comes to AI tools, how do you define appropriate use in the context of your course(s)? When and how should students disclose their usage of AI tools? A crowd-sourced list of course policies from various institutions is available here. And see the end of the document for links to useful resource pages and samples of syllabus language developed by members of the ASC and the ChatGPT working group.
+
+Consider how you might adjust your assignments, taking AI tools into account:
+
+● Refine your assignments to reduce the likelihood that students will turn to AI tools.
+
+o Think about your goals: what is the best way to achieve them, and how will you assess whether or not students have actually learned things? Test your prompts on ChatGPT, for example, to get a sense of what it can and cannot do, and remember that you can generate different outputs by refining your prompt.
+
+o Be specific and require students to engage closely with course materials and ongoing in- class discussions (AI tools such as ChatGPT won’t have access to the particular ideas raised in your class, for example)
+
+o Require students to incorporate quotations and citations (AI bots have difficulty with both, at least for now…)
+
+o Ask your students to demonstrate their learning in a variety of ways (both in and out of class, written and oral, etc.)
+
+● Think beyond the traditional analytical essay assignment o Oral components (presentations, debates, etc.)
+
+o Multimodal projects o Applied/experiential learning o Written assignments that center on personal/local experience or that incorporate creative modes and elements o Seminar journals/responses – between one class and the next, have students reflect on what came up in class
+
+● Strategize about how your students will be writing and submitting their work o Make use of in-class writing, either by hand or on an institutional device (e.g. with wifi disabled).
+
+### o Require students to save multiple drafts/versions in google docs or Box o Set clear expectations about citation and attribution What to do when you suspect a student used AI tools
+
+● Consider your rules and expectations o What policies with respect to AI tools do you have in place? And how/when have you communicated with your students about using AI tools?
+
+● Consider whether the submitted work actually fulfills the assignment.
+
+o This in itself could be grounds for not accepting it, giving it a low grade, or asking the student to resubmit.
+
+● Identify what, in particular, made you suspect that AI tools might be involved. For example:
+
+o voice, tone, formulaic/repetitive structure o lack of engagement with sources; citations are strange, wrong, or absent o writing goes off topic, does not engage with course materials
+
+● Things to consider about AI detectors:
+
+o AI detectors flag any written text that bears hallmarks of AI (including text generated by software programs such as Microsoft Word, online document creators such as GoogleDocs, and web-based resources such as Grammarly)
+
+o AI detectors are unreliable. No AI detector can provide definitive proof.
+
+o AI detectors are getting easier to evade (for example, a student can quickly paste AI- generated text into a paraphraser such as Quillbot) Research suggests that AI detectors are biased against non-native English speakers.
+
+o CMC maintains an institutional license to Turnitin.com, which now includes AI detection.
+
+Email Ben Royas in IT (Ben.Royas@ClaremontMcKenna.edu) to create your account. You should know that Turnitin recently acknowledged higher false positivity rates in some instances.
+
+o If you plan to use detectors, it’s important to use them in consistent ways. Consider using them on everyone’s writing, or on a random sampling.
+
+o You may also want to consult more than one AI detector for comparison, since they are likely to generate different results. Many AI detectors are free, but if you’d like to purchase a subscription, you may use your IFA.
+
+### Bringing cases to the Academic Standards Committee (ASC)
+
+### Sample Syllabus Language Whether or not you plan to limit the use of AI tools, it’s important to be clear with your students about your expectations. Given that AI technology, usage, and detection are evolving rapidly, we all need to stay flexible: any policy you write may become obsolete or be difficult (if not impossible) to enforce.
+
+CMC’s Statement of Academic Integrity includes the following statement about electronic media use:
+
+All rules and standards of academic integrity apply equally to all electronic media, particularly all intranet and internet activities. This is especially true for any form of plagiarism, ranging from submission of all or part of a paper obtained from an internet source to failure to cite properly an internet source.
+
+Many of the resource links above include suggestions about syllabus language. Below are samples of syllabus language developed by members of the ChatGPT working group and the ASC.
+
+SAMPLE 1 It is appropriate to use A.I. assistance only in those ways that it is appropriate to use human assistance (e.g., it’s ok to ask your friend to proofread your paper, making red-pen notes on your spelling and grammar, which you will then use to improve your paper, but it’s not ok to ask your friend to simply rewrite your paper for you).
+
+SAMPLE 3 I expect all assignment submissions to reflect the result of your independent thinking. To avoid inadvertently appropriating the ideas of others, please do not discuss course assignments with classmates before you submit them. Generally, the assignments in this course are designed in a way that does not require you to consult outside sources (i.e. sources that are not part of your assigned readings).
+
+Nevertheless, if you end up consulting any outside source while completing an assignment, you should always cite those sources to avoid plagiarism.
+
+You are allowed to receive only two categories of help while completing an assignment:
+
+• If you have questions about an assignment or need help completing it, please email me or visit me during office hours.
+
+• If you receive help on your writing from any outside source including friends, tutors, or AI tools, you should acknowledge the nature and extent of the help in a separate note to be submitted along with the assignment If I see evidence of unacknowledged help received from others, misrepresentations about the nature of a submitted work, or unacknowledged use of sources that are not part of the required readings, I will refer the case to the Academic Standards Committee at CMC or the office that handles academic integrity matters at the student's home campus. For more on CMC's policies on academic integrity, see the College's Statement of Academic Integrity. If at any point you have questions about what is allowed or not allowed in this course, please contact me for clarifications.
+
+SAMPLE 4 ChatGPT and similar AI technologies offer exciting possibilities for learning and discovery. They can serve as valuable tools in our academic pursuits, particularly for writing assistance and idea generation.
+
+However, these tools must be used judiciously and ethically. This policy provides specific guidelines for the use of ChatGPT in this course.
+
+Purposeful Usage: ChatGPT may be used as a tool for brainstorming, structuring thoughts, improving language, and enhancing understanding of complex concepts. However, the content generated by ChatGPT should not replace your own original thoughts and ideas. Instead, use it as a catalyst to spur your own creativity and critical thinking.
+
+Attribution: If you incorporate text generated by ChatGPT into your assignments, you must appropriately attribute the source. Just as you would cite a book or website that you paraphrased or quoted, you should acknowledge the contribution of AI tools. Misrepresenting AI-generated content as your own original work constitutes plagiarism.
+
+Citation of AI tools in academic writing is still a developing area, and traditional citation styles like MLA, APA, Chicago/Turabian have not yet established specific guidelines for AI-generated sources. However, based on current standards for citing online sources, we can make an approximation. Here is an example of how to cite an AI language tool, using ChatGPT as an example, in approximation for each style:
+
+• MLA: OpenAI. “Title of Document or Topic of Discussion.” ChatGPT, Day Month Year of Acces.
+
+• APA: OpenAI. (Year). Title of Document or Topic of Discussion. ChatGPT. URL (if applicable).
+
+• Chicago/Turabian: OpenAI. “Title of Document or Topic of Discussion.” ChatGPT. Accessed Month Day, Year.
+
+• Footnote format for Turabian: 1. OpenAI, “Title of Document or Topic of Discussion,” ChatGPT, accessed Month Day, Year.
+
+Proportional Use: While ChatGPT can provide helpful input, your assignments should primarily showcase your own understanding, analysis, and creativity. Accordingly, direct content from AI tools (including ChatGPT) should comprise no more than 10% of your assignment.
+
+Academic Integrity: Using ChatGPT to complete quizzes, exams, or any other assignment intended to test your individual understanding and skills is not permitted and will be considered a breach of academic integrity.
+
+Responsible Use: ChatGPT responsibly and ethically. This includes respecting the guidelines and terms of service provided by OpenAI or any AI service provider, as well as treating the tool as an extension of the classroom learning environment.
+
+Questions and Concerns: If you are uncertain about any aspect of this policy, or if you have questions about whether your intended use of ChatGPT aligns with these guidelines, I encourage you to speak with me before proceeding.
+
+The use of AI tools such as ChatGPT can open up new avenues of exploration and learning. However, it's essential that we do so in a manner that respects the principles of academic integrity and the purpose of our course—to develop and express your own analytical and writing skills. Your understanding and compliance with this policy ensure a fair and productive learning environment for everyone.
+
+## Promoting Academic Integrity at CMC | Claremont McKenna College
+
+- Publishing unit: Claremont McKenna College, Academic Success
+- Official source: https://www.cmc.edu/student-life/academic-success/academic-integrity
+
+---
+
+### Promoting Academic Integrity At CMC
+
+At Claremont McKenna College every individual is expected to maintain high ethical standards in the pursuit of personal and professional goals at the College. As valued members of the scholarly community, students, faculty, and staff support an institutional commitment to honest intellectual inquiry and expect strict adherence to policies that uphold CMC’s academic integrity standards.
+
+### Tips for Students
+
+### Understand what academic dishonesty means.
+
+Familiarize yourself with the
+
+CMC Statement of Academic Integrity
+
+. The
+
+Claremont Colleges Library tutorial on academic integrity is a hands on module that lets you explore academic integrity.
+
+### Know what is expected by your professors.
+
+Not sure what your professor expects of you? Ask! It’s important to know the instructor’s preferred citation style, policies on things like the use of calculators, and what level of collaboration is allowed in that class.
+
+### Use online citation guides.
+
+There are a lot of specifics to remember when citing your work. Take advantage of online resources to make sure you are following the guidelines.
+
+### Beware of using digital media, including photos and videos, in your personal and academic life.
+
+If those images and videos were created by anyone other than you, they likely require permission
+
+, and possibly payment, to use. This
+
+Claremont Colleges Library resource can help.
+
+### Try an academic integrity checklist.
+
+Checklists are a great way to avoid mistakes, including accidental transgressions, because they remind you of steps that should not be neglected.
+
+### Hold each other accountable.
+
+If you have reason to believe that a fellow student has violated CMC’s Policy on Academic Integrity, you are encouraged to speak directly to the faculty member if you are comfortable doing so. Alternatively, you could speak directly to the student or report your suspicion anonymously.
+
+## High-school adaptation takeaways
+
+- 研究者建议（非校方新增规则）：高中课程逐项明确AI使用范围与披露方式；本人负责思考和核验；谨慎处理隐私及第三方作品。此建议不适用于推定该校本科招生许可。

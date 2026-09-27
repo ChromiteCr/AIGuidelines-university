@@ -5,22 +5,22 @@
 AI 指导；它们的申请环节资料在 [admissions/](../admissions/README.md)。采集于 2026 年 9 月 26 日，各来源的
 实际获取时间见文件与索引。
 
-站点上每所学校有独立页面（如 [/Oxford](https://ai.policy.nestudy.cn/Oxford)），并在主页索引和图谱表格中与前
-30 所合列。
+这些文件是本轮的摘录与中文分析。为了按 12 项条款编码，又从同一批官方页面的保存副本中逐字选取相关段落，
+整理为 [univ/31-UC-Irvine.md](../univ/31-UC-Irvine.md) … `univ/52-Toronto.md`；图谱和单校页面（如
+[/Oxford](https://ai.policy.nestudy.cn/Oxford)）使用的是那些源文本，本目录保留为研究记录。
 
 ## 文件
 
 | 文件 | 内容 |
 |------|------|
-| `31-UC-Irvine.md` … `52-Toronto.md` | 每校一份：证据状态、官方来源（发布单位、链接、适用范围、来源性质、采集时间）、逐字英文摘录、中文分析（与原文分开标注）、适用边界与研究局限、面向高中的改编建议（整理者所写，非校规） |
+| `31-UC-Irvine.md` … `52-Toronto.md` | 每校一份：证据状态、官方来源（发布单位、链接、适用范围、来源性质、采集时间）、逐字英文摘录、中文分析（与原文分开标注）、适用边界与研究局限、面向高中的改编建议（整理者所写，非校规；已抄入对应 `univ/` 文件末尾的高中适用要点） |
 | `academic-index.json` | 机器可读索引：每校的证据状态、中文摘要、来源与引文 |
 
-## 为什么没有编码
+## 为什么编码不直接用这些摘录
 
-原有 30 所的 `univ/` 文件是各校政策的相关全文，图谱据此按 12 项条款逐校编码，「未提及」表示所采集的
-文本没有就该条款作出表述。这 22 所只收录**摘录**（每校 1–3 个来源、1–6 条引文），摘录按来源内容
-选取；摘录没有涉及的条款，无法据以判断该校是否有规定。若照样编码，「未摘录」会被记成「未规定」。
-因此这 22 所在图谱表格中整行标为「未编码」，不计入一致度统计，也不进入学生规范中的任何数字。
+图谱的「未提及」表示所采集的文本没有就该条款作出表述。这里的摘录只选了部分句子（每校 1–3 个来源、
+1–6 条引文），摘录没有涉及的条款无法据以判断；直接编码会把「未摘录」记成「未规定」。所以编码依据的
+是 `univ/31-…52-*.md` 中整理出的相关段落全文。
 
 ## 证据状态
 
@@ -52,8 +52,8 @@ AI 指导；它们的申请环节资料在 [admissions/](../admissions/README.md
 
 Campus AI guidance from the 22 universities added to the original 30 from the College Fair's list
 (Nos. 31–52), including U.S. liberal arts colleges and universities in the UK, Canada, Singapore, Japan
-and Hong Kong. Collected 26 September 2026. Only excerpts were collected, so these universities are not
-coded against the atlas's 12 provisions: an excerpt that does not mention a provision says nothing about
-whether the university has a rule on it. The atlas lists them as not coded and leaves them out of every
-figure. English excerpts are verbatim and remain the universities' copyright; the Chinese analysis,
+and Hong Kong, collected 26 September 2026: the collector's excerpts and Chinese analysis. The atlas codes
+these universities from the fuller source texts in `univ/31-…52-*.md`, drawn verbatim from the same
+official pages, because an excerpt that does not mention a provision says nothing about whether the
+university has a rule on it. English excerpts are verbatim and remain the universities' copyright; the Chinese analysis,
 evidence statuses and index are released under CC BY 4.0 (see [NOTICE](../NOTICE)).

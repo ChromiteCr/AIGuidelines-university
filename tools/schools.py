@@ -44,7 +44,7 @@ SCHOOLS = {
     "28-USC":             ("USC",          "University of Southern California",            "南加州大学",             ["南加大", "南加州"]),
     "29-UC-San-Diego":    ("UCSD",         "University of California San Diego",           "加州大学圣地亚哥分校",   ["圣地亚哥"]),
     "30-NYU":             ("NYU",          "New York University",                          "纽约大学",               ["纽大"]),
-    # Added for the College Fair (expansion/): campus guidance excerpts, not coded.
+    # Added from the College Fair list (2026-09-26).
     "31-UC-Irvine":       ("UCI",          "University of California, Irvine",             "加州大学欧文分校",       ["irvine", "欧文", "加州大学欧文"]),
     "32-Swarthmore":      ("Swarthmore",   "Swarthmore College",                           "斯沃斯莫尔学院",         []),
     "33-Williams":        ("Williams",     "Williams College",                             "威廉姆斯学院",           ["威廉斯学院", "威廉斯"]),
@@ -69,8 +69,8 @@ SCHOOLS = {
     "52-Toronto":         ("Toronto",      "University of Toronto",                        "多伦多大学",             ["uoft", "utoronto", "多大"]),
 }
 
-# Display names for the schools outside the atlas dataset; data/policies.json
-# supplies the rest.
+# Display names for the universities added after the first thirty; build_data.py
+# takes the first thirty's from its own table.
 SHORT = {
     "31-UC-Irvine": "UC Irvine", "32-Swarthmore": "Swarthmore", "33-Williams": "Williams",
     "34-Pomona": "Pomona", "35-Boston-University": "Boston University", "36-Wellesley": "Wellesley",
